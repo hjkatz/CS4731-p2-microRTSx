@@ -1,0 +1,270 @@
+\hypertarget{classrts_1_1_game}{
+\section{rts.Game Class Reference}
+\label{classrts_1_1_game}\index{rts::Game@{rts::Game}}
+}
+
+
+Used to set up and run games between agents.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1_game_a8be31ab56d3667a5de133f49d0c00873}{Game} (String xml, String gameXML, int turn\_\-time, int cycles)
+\item 
+\hyperlink{classrts_1_1_game_af219d17cd23b1ab5d518093eb3485b5b}{Game} (\hyperlink{classrts_1_1_game_state}{GameState} state, int start\_\-player, int turn\_\-time, int cycles)
+\item 
+void \hyperlink{classrts_1_1_game_aa8d2808f44534b0824965aad4d45d6b5}{addAgent} (\hyperlink{classai_1_1_a_i}{AI} agent)
+\item 
+\hyperlink{classai_1_1_a_i}{AI} \hyperlink{classrts_1_1_game_a73ddc70ae77467fa3e9a5abf86d692b5}{getAgent} (int i)
+\item 
+void \hyperlink{classrts_1_1_game_a53e09d1e869efe1c3c9faec51ca17607}{resetGame} ()
+\item 
+void \hyperlink{classrts_1_1_game_a787a8c636b903e86ae019db6475c7435}{resetPlayers} ()
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classrts_1_1_game_a2e4d31e7df06309c185d7fd6a613424a}{play} (boolean fog)
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classrts_1_1_game_a74d737f4b4312dc155350f624ee3a5c0}{playVisual} (int frame\_\-height, boolean fog, boolean show\_\-fog, int team)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1_game_state}{GameState} \hyperlink{classrts_1_1_game_a81f22c65414664ca512616faf90ecc3a}{gs}
+\item 
+\hyperlink{classrts_1_1_physical_game_state}{PhysicalGameState} \hyperlink{classrts_1_1_game_ae331647ec1f54d6a50a02565fb3d6c20}{pgs}
+\item 
+int \hyperlink{classrts_1_1_game_a0773e1a993bfe4df7709404cd3de3297}{cycle}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classrts_1_1_game_a6fd172beb62474482c7739783e014614}{FOLLOW\_\-ALL\_\-TEAMS} = -\/1
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1_a_i}{AI} $>$ \hyperlink{classrts_1_1_game_a0e71af16d4c36bddc7b2b3224c9c4bba}{agents}
+\item 
+int \hyperlink{classrts_1_1_game_a2a5214aaead1520fcec785be9eb47e80}{turn\_\-length}
+\item 
+int \hyperlink{classrts_1_1_game_a61c921b1223339a895064a209bf33aa7}{max\_\-game\_\-cycles}
+\item 
+String \hyperlink{classrts_1_1_game_a66bb2bee9166c825a1a9e01446dc8bce}{level\_\-xml}
+\item 
+String \hyperlink{classrts_1_1_game_a3db05d833106694ceb71d5abb8a4a252}{game\_\-xml}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classrts_1_1units_1_1_unit_definition_manager}{UnitDefinitionManager} \hyperlink{classrts_1_1_game_ab0b00f1b077c24f37b2dff624f77d33c}{unit\_\-definitions}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Used to set up and run games between agents. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrts_1_1_game_a8be31ab56d3667a5de133f49d0c00873}{
+\index{rts::Game@{rts::Game}!Game@{Game}}
+\index{Game@{Game}!rts::Game@{rts::Game}}
+\subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}rts.Game.Game (
+\begin{DoxyParamCaption}
+\item[{String}]{xml, }
+\item[{String}]{gameXML, }
+\item[{int}]{turn\_\-time, }
+\item[{int}]{cycles}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_a8be31ab56d3667a5de133f49d0c00873}
+Loads the physical game state from XML 
+\begin{DoxyParams}{Parameters}
+{\em xml} & XML map file \\
+\hline
+{\em gameXML} & game definition XML file \\
+\hline
+{\em turn\_\-time} & turn time limit in milliseconds \\
+\hline
+{\em cycles} & max number of game cycles \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1_game_af219d17cd23b1ab5d518093eb3485b5b}{
+\index{rts::Game@{rts::Game}!Game@{Game}}
+\index{Game@{Game}!rts::Game@{rts::Game}}
+\subsubsection[{Game}]{\setlength{\rightskip}{0pt plus 5cm}rts.Game.Game (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{state, }
+\item[{int}]{start\_\-player, }
+\item[{int}]{turn\_\-time, }
+\item[{int}]{cycles}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_af219d17cd23b1ab5d518093eb3485b5b}
+Clones the game state so you can run simulations 
+\begin{DoxyParams}{Parameters}
+{\em state} & the state you are cloning \\
+\hline
+{\em start\_\-player} & id of the player who should start first \\
+\hline
+{\em turn\_\-time} & milliseconds per turn \\
+\hline
+{\em cycles} & max number of cycles to run \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrts_1_1_game_aa8d2808f44534b0824965aad4d45d6b5}{
+\index{rts::Game@{rts::Game}!addAgent@{addAgent}}
+\index{addAgent@{addAgent}!rts::Game@{rts::Game}}
+\subsubsection[{addAgent}]{\setlength{\rightskip}{0pt plus 5cm}void rts.Game.addAgent (
+\begin{DoxyParamCaption}
+\item[{{\bf AI}}]{agent}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_aa8d2808f44534b0824965aad4d45d6b5}
+Adds an AI to control a player 
+\begin{DoxyParams}{Parameters}
+{\em agent} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1_game_a73ddc70ae77467fa3e9a5abf86d692b5}{
+\index{rts::Game@{rts::Game}!getAgent@{getAgent}}
+\index{getAgent@{getAgent}!rts::Game@{rts::Game}}
+\subsubsection[{getAgent}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AI} rts.Game.getAgent (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_a73ddc70ae77467fa3e9a5abf86d692b5}
+Gets an agent 
+\begin{DoxyParams}{Parameters}
+{\em i} & index of the agent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+null or the agent 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_a2e4d31e7df06309c185d7fd6a613424a}{
+\index{rts::Game@{rts::Game}!play@{play}}
+\index{play@{play}!rts::Game@{rts::Game}}
+\subsubsection[{play}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ rts.Game.play (
+\begin{DoxyParamCaption}
+\item[{boolean}]{fog}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_a2e4d31e7df06309c185d7fd6a613424a}
+Players the game (no visualization) 
+\begin{DoxyParams}{Parameters}
+{\em fog} & whether or not to play the game with fog of war \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the winner(s) (empty on draw) 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_a74d737f4b4312dc155350f624ee3a5c0}{
+\index{rts::Game@{rts::Game}!playVisual@{playVisual}}
+\index{playVisual@{playVisual}!rts::Game@{rts::Game}}
+\subsubsection[{playVisual}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ rts.Game.playVisual (
+\begin{DoxyParamCaption}
+\item[{int}]{frame\_\-height, }
+\item[{boolean}]{fog, }
+\item[{boolean}]{show\_\-fog, }
+\item[{int}]{team}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_a74d737f4b4312dc155350f624ee3a5c0}
+Plays the game, displaying a visualization 
+\begin{DoxyParams}{Parameters}
+{\em frame\_\-height} & \\
+\hline
+{\em fog} & whether or not the play the game with fog of war \\
+\hline
+{\em show\_\-fog} & whether or not to render fog in the visualization \\
+\hline
+{\em team} & the team to follow \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the winners (empty on draw) 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_a53e09d1e869efe1c3c9faec51ca17607}{
+\index{rts::Game@{rts::Game}!resetGame@{resetGame}}
+\index{resetGame@{resetGame}!rts::Game@{rts::Game}}
+\subsubsection[{resetGame}]{\setlength{\rightskip}{0pt plus 5cm}void rts.Game.resetGame (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_a53e09d1e869efe1c3c9faec51ca17607}
+Resets the game (keeping the same players and game) \hypertarget{classrts_1_1_game_a787a8c636b903e86ae019db6475c7435}{
+\index{rts::Game@{rts::Game}!resetPlayers@{resetPlayers}}
+\index{resetPlayers@{resetPlayers}!rts::Game@{rts::Game}}
+\subsubsection[{resetPlayers}]{\setlength{\rightskip}{0pt plus 5cm}void rts.Game.resetPlayers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_a787a8c636b903e86ae019db6475c7435}
+Resets the players 
+
+\subsection{Member Data Documentation}
+\hypertarget{classrts_1_1_game_a0e71af16d4c36bddc7b2b3224c9c4bba}{
+\index{rts::Game@{rts::Game}!agents@{agents}}
+\index{agents@{agents}!rts::Game@{rts::Game}}
+\subsubsection[{agents}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf AI}$>$ {\bf rts.Game.agents}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_a0e71af16d4c36bddc7b2b3224c9c4bba}
+the ai agents playing the game \hypertarget{classrts_1_1_game_a0773e1a993bfe4df7709404cd3de3297}{
+\index{rts::Game@{rts::Game}!cycle@{cycle}}
+\index{cycle@{cycle}!rts::Game@{rts::Game}}
+\subsubsection[{cycle}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.Game.cycle}}}
+\label{classrts_1_1_game_a0773e1a993bfe4df7709404cd3de3297}
+\hypertarget{classrts_1_1_game_a6fd172beb62474482c7739783e014614}{
+\index{rts::Game@{rts::Game}!FOLLOW\_\-ALL\_\-TEAMS@{FOLLOW\_\-ALL\_\-TEAMS}}
+\index{FOLLOW\_\-ALL\_\-TEAMS@{FOLLOW\_\-ALL\_\-TEAMS}!rts::Game@{rts::Game}}
+\subsubsection[{FOLLOW\_\-ALL\_\-TEAMS}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.Game.FOLLOW\_\-ALL\_\-TEAMS} = -\/1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1_game_a6fd172beb62474482c7739783e014614}
+\hypertarget{classrts_1_1_game_a3db05d833106694ceb71d5abb8a4a252}{
+\index{rts::Game@{rts::Game}!game\_\-xml@{game\_\-xml}}
+\index{game\_\-xml@{game\_\-xml}!rts::Game@{rts::Game}}
+\subsubsection[{game\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}String {\bf rts.Game.game\_\-xml}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_a3db05d833106694ceb71d5abb8a4a252}
+\hypertarget{classrts_1_1_game_a81f22c65414664ca512616faf90ecc3a}{
+\index{rts::Game@{rts::Game}!gs@{gs}}
+\index{gs@{gs}!rts::Game@{rts::Game}}
+\subsubsection[{gs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GameState} {\bf rts.Game.gs}}}
+\label{classrts_1_1_game_a81f22c65414664ca512616faf90ecc3a}
+the current game state \hypertarget{classrts_1_1_game_a66bb2bee9166c825a1a9e01446dc8bce}{
+\index{rts::Game@{rts::Game}!level\_\-xml@{level\_\-xml}}
+\index{level\_\-xml@{level\_\-xml}!rts::Game@{rts::Game}}
+\subsubsection[{level\_\-xml}]{\setlength{\rightskip}{0pt plus 5cm}String {\bf rts.Game.level\_\-xml}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_a66bb2bee9166c825a1a9e01446dc8bce}
+\hypertarget{classrts_1_1_game_a61c921b1223339a895064a209bf33aa7}{
+\index{rts::Game@{rts::Game}!max\_\-game\_\-cycles@{max\_\-game\_\-cycles}}
+\index{max\_\-game\_\-cycles@{max\_\-game\_\-cycles}!rts::Game@{rts::Game}}
+\subsubsection[{max\_\-game\_\-cycles}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.Game.max\_\-game\_\-cycles}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_a61c921b1223339a895064a209bf33aa7}
+maximum number of cycles a game should be \hypertarget{classrts_1_1_game_ae331647ec1f54d6a50a02565fb3d6c20}{
+\index{rts::Game@{rts::Game}!pgs@{pgs}}
+\index{pgs@{pgs}!rts::Game@{rts::Game}}
+\subsubsection[{pgs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PhysicalGameState} {\bf rts.Game.pgs}}}
+\label{classrts_1_1_game_ae331647ec1f54d6a50a02565fb3d6c20}
+the current physical game state \hypertarget{classrts_1_1_game_a2a5214aaead1520fcec785be9eb47e80}{
+\index{rts::Game@{rts::Game}!turn\_\-length@{turn\_\-length}}
+\index{turn\_\-length@{turn\_\-length}!rts::Game@{rts::Game}}
+\subsubsection[{turn\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.Game.turn\_\-length}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_a2a5214aaead1520fcec785be9eb47e80}
+how long (msec) a cycle should last \hypertarget{classrts_1_1_game_ab0b00f1b077c24f37b2dff624f77d33c}{
+\index{rts::Game@{rts::Game}!unit\_\-definitions@{unit\_\-definitions}}
+\index{unit\_\-definitions@{unit\_\-definitions}!rts::Game@{rts::Game}}
+\subsubsection[{unit\_\-definitions}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitDefinitionManager} {\bf rts.Game.unit\_\-definitions}\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classrts_1_1_game_ab0b00f1b077c24f37b2dff624f77d33c}
+the unit definitions for each player 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/rts/\hyperlink{_game_8java}{Game.java}\end{DoxyCompactItemize}

@@ -1,0 +1,226 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration}{
+\section{ai.general.GeneralAIExploration Class Reference}
+\label{classai_1_1general_1_1_general_a_i_exploration}\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+}
+
+
+Model of the map that needs to be explored.  
+
+
+Inheritance diagram for ai.general.GeneralAIExploration:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_general_a_i_exploration}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_exploration_a8383f2b32ee20b1ea37f47de717d6d07}{GeneralAIExploration} (int spot)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_exploration_ae10885edd55c17722d32d198e2bcf93f}{order\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a5e6d8e8dffaa861c94f89ae91592f4af}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_exploration_ac0656aff8a8e64071581a69c20231d3b}{action\_\-succeeded} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int type)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_exploration_afda46ba60d3ad8b6c7447c031db284cf}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a988a511aa307a340e4052518190340b8}{update\_\-orders} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a05b90a2f5718f73880624f2013c1bb05}{location}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a8cc7f9509b921afbcf4ede4964476316}{last\_\-seen}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_exploration_abdd49604e2c3c40dc7d8fdc830a608e2}{claimed}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_exploration_ae2aa8a6bcd54043e3b99c0900028ade1}{claim\_\-start}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a8e960c790a7b8d63841a7e2eedea9f85}{effort}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a20679f76ebc301269b9426537cbc4dc7}{MAX\_\-EFFORT} = 50
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Model of the map that needs to be explored. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_a8383f2b32ee20b1ea37f47de717d6d07}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!GeneralAIExploration@{GeneralAIExploration}}
+\index{GeneralAIExploration@{GeneralAIExploration}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{GeneralAIExploration}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAIExploration.GeneralAIExploration (
+\begin{DoxyParamCaption}
+\item[{int}]{spot}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a8383f2b32ee20b1ea37f47de717d6d07}
+Constructs a new object of this 
+\begin{DoxyParams}{Parameters}
+{\em spot} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_ac0656aff8a8e64071581a69c20231d3b}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!action\_\-succeeded@{action\_\-succeeded}}
+\index{action\_\-succeeded@{action\_\-succeeded}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{action\_\-succeeded}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIExploration.action\_\-succeeded (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_ac0656aff8a8e64071581a69c20231d3b}
+Some kind of action succeeded 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+{\em type} & the type of the action \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_a5e6d8e8dffaa861c94f89ae91592f4af}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAIExploration.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a5e6d8e8dffaa861c94f89ae91592f4af}
+Calculates the distance from the unit to this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_ae10885edd55c17722d32d198e2bcf93f}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!order\_\-unit@{order\_\-unit}}
+\index{order\_\-unit@{order\_\-unit}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{order\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIExploration.order\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_ae10885edd55c17722d32d198e2bcf93f}
+Orders a unit to interact with this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_afda46ba60d3ad8b6c7447c031db284cf}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIExploration.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_afda46ba60d3ad8b6c7447c031db284cf}
+This unit has been removed from the object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_a988a511aa307a340e4052518190340b8}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!update\_\-orders@{update\_\-orders}}
+\index{update\_\-orders@{update\_\-orders}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{update\_\-orders}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIExploration.update\_\-orders (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a988a511aa307a340e4052518190340b8}
+Updates the orders of a unit $\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{ai.general.GeneralAIObject}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_ae2aa8a6bcd54043e3b99c0900028ade1}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!claim\_\-start@{claim\_\-start}}
+\index{claim\_\-start@{claim\_\-start}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{claim\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIExploration.claim\_\-start}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_ae2aa8a6bcd54043e3b99c0900028ade1}
+\hypertarget{classai_1_1general_1_1_general_a_i_exploration_abdd49604e2c3c40dc7d8fdc830a608e2}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!claimed@{claimed}}
+\index{claimed@{claimed}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{claimed}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAIExploration.claimed}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_abdd49604e2c3c40dc7d8fdc830a608e2}
+whether or not someone is already exploring here \hypertarget{classai_1_1general_1_1_general_a_i_exploration_a8e960c790a7b8d63841a7e2eedea9f85}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!effort@{effort}}
+\index{effort@{effort}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{effort}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIExploration.effort}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a8e960c790a7b8d63841a7e2eedea9f85}
+effort put into exploration \hypertarget{classai_1_1general_1_1_general_a_i_exploration_a8cc7f9509b921afbcf4ede4964476316}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!last\_\-seen@{last\_\-seen}}
+\index{last\_\-seen@{last\_\-seen}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{last\_\-seen}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIExploration.last\_\-seen}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a8cc7f9509b921afbcf4ede4964476316}
+the turn where we last saw this square \hypertarget{classai_1_1general_1_1_general_a_i_exploration_a05b90a2f5718f73880624f2013c1bb05}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!location@{location}}
+\index{location@{location}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{location}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIExploration.location}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a05b90a2f5718f73880624f2013c1bb05}
+where this explore spot is \hypertarget{classai_1_1general_1_1_general_a_i_exploration_a20679f76ebc301269b9426537cbc4dc7}{
+\index{ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}!MAX\_\-EFFORT@{MAX\_\-EFFORT}}
+\index{MAX\_\-EFFORT@{MAX\_\-EFFORT}!ai::general::GeneralAIExploration@{ai::general::GeneralAIExploration}}
+\subsubsection[{MAX\_\-EFFORT}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIExploration.MAX\_\-EFFORT} = 50\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_exploration_a20679f76ebc301269b9426537cbc4dc7}
+honestly, don't try too hard to explore... 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_exploration_8java}{GeneralAIExploration.java}\end{DoxyCompactItemize}

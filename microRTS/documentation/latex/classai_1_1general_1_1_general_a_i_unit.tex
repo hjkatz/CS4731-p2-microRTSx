@@ -1,0 +1,340 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_unit}{
+\section{ai.general.GeneralAIUnit Class Reference}
+\label{classai_1_1general_1_1_general_a_i_unit}\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+}
+
+
+An \hyperlink{classai_1_1_a_i}{AI} unit used by the \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI}. Allows for more sophisticated behaviors, like order queuing.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_unit_af8edb39c2f69a7bd2bacc80a48c57950}{GeneralAIUnit} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} u, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_unit_a4c6aeada6b83d8e2a725160bcc5ca0d3}{act} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_unit_a147bffe7148c2caa4bd5b1aef846ced7}{equals} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} u)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_unit_a15602445ff473ba52fbca9e19b05909f}{hasPendingActions} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_unit_a3a1d1808e091e1d713752e5046c6abbc}{nextAction} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_unit_a6dfc068bd9f7cffb42fac8be8d570432}{addAction} (\hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} action, \hyperlink{classai_1_1general_1_1_traffic_map}{TrafficMap} traffic\_\-map, int location, int start, int end)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_unit_ad70d53cdb07032c1f5356f0fe034f560}{clearActions} (\hyperlink{classai_1_1general_1_1_traffic_map}{TrafficMap} traffic\_\-map)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_unit_aba187b9ebb1878e80dd69f85b91baa2f}{remove} (\hyperlink{classai_1_1general_1_1_traffic_map}{TrafficMap} traffic\_\-map)
+\item 
+float \hyperlink{classai_1_1general_1_1_general_a_i_unit_ac9325faea5b57306017ed2b09d6c0156}{evaluate} ()
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classai_1_1general_1_1_general_a_i_unit_aec2710c96a6b4347fc4423c43033a8e6}{adjacent\_\-build\_\-locations} (\hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} product, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static float \hyperlink{classai_1_1general_1_1_general_a_i_unit_a96b64cf0fda20179721862a55b87a9fd}{evaluate} (\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} def)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit}{Unit} \hyperlink{classai_1_1general_1_1_general_a_i_unit_aa117dac9c797112c91e035b392fb5dde}{stats}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_unit_a3268e3a735e33cc028a998cea762dd7d}{exists}
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} $>$ \hyperlink{classai_1_1general_1_1_general_a_i_unit_ac94f90e9827f597b1c8bf50b43b5fe7c}{actions}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_unit_acd9867f2587b949768f67f3c38367275}{last\_\-action}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_unit_ae763c73974ba06f4a3578e6dd3b0ff3e}{strategy}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_object}{GeneralAIObject} \hyperlink{classai_1_1general_1_1_general_a_i_unit_a9dce2b60192207869f5ce328141109dd}{object}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_unit_a4dc3dee95c57ff68b980e24ca52bdefa}{remove\_\-object}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_unit_ab7a37df2a99bf4d6c18cbbb1477cf0c8}{resources\_\-held}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_unit_ac9dd9c31d79a3d6bac5d9f7aa3b4a64a}{wanted\_\-strategy}
+\item 
+ArrayList$<$ Long $>$ \hyperlink{classai_1_1general_1_1_general_a_i_unit_a27d57b02a0a0c05eead8d64031551a77}{dont\_\-attack}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_traffic}{Traffic} $>$ \hyperlink{classai_1_1general_1_1_general_a_i_unit_a04949d5f41cc9464ad71d5169fc0c951}{traffic}
+\item 
+\hyperlink{classai_1_1general_1_1_traffic}{Traffic} \hyperlink{classai_1_1general_1_1_general_a_i_unit_ac262c8c9b55bc82b722f58fcc52b087e}{building\_\-traffic}
+\item 
+\hyperlink{classai_1_1general_1_1_traffic}{Traffic} \hyperlink{classai_1_1general_1_1_general_a_i_unit_a2c60d61b836e15fa9c579dc40a69c7fa}{last\_\-traffic}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_unit_a32dd61d889729c4fb9dc639a5be4fd95}{hasActed}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An \hyperlink{classai_1_1_a_i}{AI} unit used by the \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI}. Allows for more sophisticated behaviors, like order queuing. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_af8edb39c2f69a7bd2bacc80a48c57950}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!GeneralAIUnit@{GeneralAIUnit}}
+\index{GeneralAIUnit@{GeneralAIUnit}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{GeneralAIUnit}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAIUnit.GeneralAIUnit (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{u, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_af8edb39c2f69a7bd2bacc80a48c57950}
+Constructs a new unit 
+\begin{DoxyParams}{Parameters}
+{\em u} & the unit \\
+\hline
+{\em ai} & the ai this unit belongs to \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_a4c6aeada6b83d8e2a725160bcc5ca0d3}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!act@{act}}
+\index{act@{act}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{act}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIUnit.act (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_a4c6aeada6b83d8e2a725160bcc5ca0d3}
+The unit should do something 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the general ai that is controlling this unit \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_a6dfc068bd9f7cffb42fac8be8d570432}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!addAction@{addAction}}
+\index{addAction@{addAction}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{addAction}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIUnit.addAction (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitAction}}]{action, }
+\item[{{\bf TrafficMap}}]{traffic\_\-map, }
+\item[{int}]{location, }
+\item[{int}]{start, }
+\item[{int}]{end}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_a6dfc068bd9f7cffb42fac8be8d570432}
+Adds an action to this unit 
+\begin{DoxyParams}{Parameters}
+{\em action} & the action to add \\
+\hline
+{\em traffic\_\-map} & the traffic map this unit is in \\
+\hline
+{\em location} & the traffic location this action corresponds with \\
+\hline
+{\em start} & the traffic start \\
+\hline
+{\em end} & the traffic end \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_aec2710c96a6b4347fc4423c43033a8e6}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!adjacent\_\-build\_\-locations@{adjacent\_\-build\_\-locations}}
+\index{adjacent\_\-build\_\-locations@{adjacent\_\-build\_\-locations}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{adjacent\_\-build\_\-locations}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ ai.general.GeneralAIUnit.adjacent\_\-build\_\-locations (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIProduction}}]{product, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_aec2710c96a6b4347fc4423c43033a8e6}
+Returns a listing of adjacent locations that are valid to build units on 
+\begin{DoxyParams}{Parameters}
+{\em product} & \\
+\hline
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_ad70d53cdb07032c1f5356f0fe034f560}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!clearActions@{clearActions}}
+\index{clearActions@{clearActions}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{clearActions}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIUnit.clearActions (
+\begin{DoxyParamCaption}
+\item[{{\bf TrafficMap}}]{traffic\_\-map}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_ad70d53cdb07032c1f5356f0fe034f560}
+Clears all actions for this unit 
+\begin{DoxyParams}{Parameters}
+{\em traffic\_\-map} & the traffic map \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_a147bffe7148c2caa4bd5b1aef846ced7}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!equals@{equals}}
+\index{equals@{equals}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAIUnit.equals (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{u}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_a147bffe7148c2caa4bd5b1aef846ced7}
+Determines if this \hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} equals a Unit 
+\begin{DoxyParams}{Parameters}
+{\em u} & the unit to compare with \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_a96b64cf0fda20179721862a55b87a9fd}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}static float ai.general.GeneralAIUnit.evaluate (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitDefinition}}]{def}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a96b64cf0fda20179721862a55b87a9fd}
+Evaluates how good (at fighting) a unit is 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_ac9325faea5b57306017ed2b09d6c0156}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}float ai.general.GeneralAIUnit.evaluate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_ac9325faea5b57306017ed2b09d6c0156}
+Evaluates how good this unit is (fighting) \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_a15602445ff473ba52fbca9e19b05909f}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!hasPendingActions@{hasPendingActions}}
+\index{hasPendingActions@{hasPendingActions}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{hasPendingActions}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAIUnit.hasPendingActions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_a15602445ff473ba52fbca9e19b05909f}
+Has pending Actions \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_a3a1d1808e091e1d713752e5046c6abbc}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!nextAction@{nextAction}}
+\index{nextAction@{nextAction}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{nextAction}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIUnit.nextAction (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_a3a1d1808e091e1d713752e5046c6abbc}
+Performs the next action 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the next action was performed, otherwise false (no actions?) 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_aba187b9ebb1878e80dd69f85b91baa2f}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIUnit.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf TrafficMap}}]{traffic\_\-map}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_unit_aba187b9ebb1878e80dd69f85b91baa2f}
+Removes the unit 
+\begin{DoxyParams}{Parameters}
+{\em traffic\_\-map} & the traffic map \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_unit_ac94f90e9827f597b1c8bf50b43b5fe7c}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!actions@{actions}}
+\index{actions@{actions}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{actions}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitAction}$>$ {\bf ai.general.GeneralAIUnit.actions}}}
+\label{classai_1_1general_1_1_general_a_i_unit_ac94f90e9827f597b1c8bf50b43b5fe7c}
+pending actions \hypertarget{classai_1_1general_1_1_general_a_i_unit_ac262c8c9b55bc82b722f58fcc52b087e}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!building\_\-traffic@{building\_\-traffic}}
+\index{building\_\-traffic@{building\_\-traffic}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{building\_\-traffic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Traffic} {\bf ai.general.GeneralAIUnit.building\_\-traffic}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_unit_ac262c8c9b55bc82b722f58fcc52b087e}
+building traffic \hypertarget{classai_1_1general_1_1_general_a_i_unit_a27d57b02a0a0c05eead8d64031551a77}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!dont\_\-attack@{dont\_\-attack}}
+\index{dont\_\-attack@{dont\_\-attack}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{dont\_\-attack}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Long$>$ {\bf ai.general.GeneralAIUnit.dont\_\-attack}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a27d57b02a0a0c05eead8d64031551a77}
+list of enemies that we cannot reach \hypertarget{classai_1_1general_1_1_general_a_i_unit_a3268e3a735e33cc028a998cea762dd7d}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!exists@{exists}}
+\index{exists@{exists}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{exists}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAIUnit.exists}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a3268e3a735e33cc028a998cea762dd7d}
+whether or not this unit exists \hypertarget{classai_1_1general_1_1_general_a_i_unit_a32dd61d889729c4fb9dc639a5be4fd95}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!hasActed@{hasActed}}
+\index{hasActed@{hasActed}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{hasActed}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAIUnit.hasActed}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a32dd61d889729c4fb9dc639a5be4fd95}
+whether or not this unit has executed at least 1 action \hypertarget{classai_1_1general_1_1_general_a_i_unit_acd9867f2587b949768f67f3c38367275}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!last\_\-action@{last\_\-action}}
+\index{last\_\-action@{last\_\-action}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{last\_\-action}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIUnit.last\_\-action}}}
+\label{classai_1_1general_1_1_general_a_i_unit_acd9867f2587b949768f67f3c38367275}
+what the last action was \hypertarget{classai_1_1general_1_1_general_a_i_unit_a2c60d61b836e15fa9c579dc40a69c7fa}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!last\_\-traffic@{last\_\-traffic}}
+\index{last\_\-traffic@{last\_\-traffic}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{last\_\-traffic}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Traffic} {\bf ai.general.GeneralAIUnit.last\_\-traffic}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a2c60d61b836e15fa9c579dc40a69c7fa}
+the last traffic reservation \hypertarget{classai_1_1general_1_1_general_a_i_unit_a9dce2b60192207869f5ce328141109dd}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!object@{object}}
+\index{object@{object}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{object}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GeneralAIObject} {\bf ai.general.GeneralAIUnit.object}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a9dce2b60192207869f5ce328141109dd}
+the object this unit is interacting with \hypertarget{classai_1_1general_1_1_general_a_i_unit_a4dc3dee95c57ff68b980e24ca52bdefa}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!remove\_\-object@{remove\_\-object}}
+\index{remove\_\-object@{remove\_\-object}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{remove\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAIUnit.remove\_\-object}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a4dc3dee95c57ff68b980e24ca52bdefa}
+whether or not this unit should try and remove it's object \hypertarget{classai_1_1general_1_1_general_a_i_unit_ab7a37df2a99bf4d6c18cbbb1477cf0c8}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!resources\_\-held@{resources\_\-held}}
+\index{resources\_\-held@{resources\_\-held}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{resources\_\-held}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIUnit.resources\_\-held}}}
+\label{classai_1_1general_1_1_general_a_i_unit_ab7a37df2a99bf4d6c18cbbb1477cf0c8}
+how many resources this guy previously held \hypertarget{classai_1_1general_1_1_general_a_i_unit_aa117dac9c797112c91e035b392fb5dde}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!stats@{stats}}
+\index{stats@{stats}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Unit} {\bf ai.general.GeneralAIUnit.stats}}}
+\label{classai_1_1general_1_1_general_a_i_unit_aa117dac9c797112c91e035b392fb5dde}
+the unit struct \hypertarget{classai_1_1general_1_1_general_a_i_unit_ae763c73974ba06f4a3578e6dd3b0ff3e}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!strategy@{strategy}}
+\index{strategy@{strategy}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{strategy}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIUnit.strategy}}}
+\label{classai_1_1general_1_1_general_a_i_unit_ae763c73974ba06f4a3578e6dd3b0ff3e}
+the strategy this unit is adhering to \hypertarget{classai_1_1general_1_1_general_a_i_unit_a04949d5f41cc9464ad71d5169fc0c951}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!traffic@{traffic}}
+\index{traffic@{traffic}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{traffic}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Traffic}$>$ {\bf ai.general.GeneralAIUnit.traffic}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_unit_a04949d5f41cc9464ad71d5169fc0c951}
+the traffic for this unit \hypertarget{classai_1_1general_1_1_general_a_i_unit_ac9dd9c31d79a3d6bac5d9f7aa3b4a64a}{
+\index{ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}!wanted\_\-strategy@{wanted\_\-strategy}}
+\index{wanted\_\-strategy@{wanted\_\-strategy}!ai::general::GeneralAIUnit@{ai::general::GeneralAIUnit}}
+\subsubsection[{wanted\_\-strategy}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIUnit.wanted\_\-strategy}}}
+\label{classai_1_1general_1_1_general_a_i_unit_ac9dd9c31d79a3d6bac5d9f7aa3b4a64a}
+the strategy of the manager trying to recruit this unit 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_unit_8java}{GeneralAIUnit.java}\end{DoxyCompactItemize}

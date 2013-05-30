@@ -1,0 +1,194 @@
+\hypertarget{classai_1_1general_1_1_production_manager}{
+\section{ai.general.ProductionManager Class Reference}
+\label{classai_1_1general_1_1_production_manager}\index{ai::general::ProductionManager@{ai::general::ProductionManager}}
+}
+
+
+Manages the various productions that are needed.  
+
+
+Inheritance diagram for ai.general.ProductionManager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_production_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_production_manager_a2293da9562e9345097ab0c951551c761}{ProductionManager} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_production_manager_a076cbb861ae6fd6023049ce2ecee6cda}{manage\_\-units} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_production_manager_a21674afcbd70ba10ee88ed673569945b}{update} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_production_manager_ab74ba1d7d170a5770c573e7d70e69661}{change\_\-build\_\-location} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} $>$ \hyperlink{classai_1_1general_1_1_production_manager_aec5af2aa2d240356ddfa8df81d796693}{units\_\-possible}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} $>$ \hyperlink{classai_1_1general_1_1_production_manager_a7f3ed3222946fb48beb16c28f4526cb5}{buildings\_\-possible}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} $>$ \hyperlink{classai_1_1general_1_1_production_manager_a739ab9ab42cb21183fcbee8fc608a133}{buildings\_\-wanted}
+\item 
+int \hyperlink{classai_1_1general_1_1_production_manager_a01078f7b8aac811ea7813ad1a3bd9e11}{workers\_\-wanted}
+\item 
+int \hyperlink{classai_1_1general_1_1_production_manager_a32f144df17dc697bcb9cfa06832497e8}{workers\_\-queued}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} $>$ \hyperlink{classai_1_1general_1_1_production_manager_a59ddfa5781a8e7198818bf1c3987b9e3}{units\_\-wanted}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1general_1_1_production_manager_ae8cfbb6431211615a22e08f00559ce3a}{BUILD\_\-TURN\_\-WAIT} = 100
+\item 
+static final int \hyperlink{classai_1_1general_1_1_production_manager_a96f76dd3e3ab3baaa69b1470a4807984}{PRIORITY\_\-HIGH} = 0
+\item 
+static final int \hyperlink{classai_1_1general_1_1_production_manager_afe60230ce2b887ac1eb35061f9c0fbaa}{WORKER\_\-PROB} = 1
+\item 
+static final int \hyperlink{classai_1_1general_1_1_production_manager_abab8287080aab2971b459ab329305aa2}{HUNDRED\_\-PERCENT} = 10000
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages the various productions that are needed. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_production_manager_a2293da9562e9345097ab0c951551c761}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!ProductionManager@{ProductionManager}}
+\index{ProductionManager@{ProductionManager}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{ProductionManager}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.ProductionManager.ProductionManager (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_production_manager_a2293da9562e9345097ab0c951551c761}
+Constructs a new production manager 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_production_manager_ab74ba1d7d170a5770c573e7d70e69661}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!change\_\-build\_\-location@{change\_\-build\_\-location}}
+\index{change\_\-build\_\-location@{change\_\-build\_\-location}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{change\_\-build\_\-location}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.ProductionManager.change\_\-build\_\-location (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_production_manager_ab74ba1d7d170a5770c573e7d70e69661}
+Changes the location of what we want to build, if the other player is blocking 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the uni doing the building \\
+\hline
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_production_manager_a076cbb861ae6fd6023049ce2ecee6cda}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!manage\_\-units@{manage\_\-units}}
+\index{manage\_\-units@{manage\_\-units}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{manage\_\-units}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.ProductionManager.manage\_\-units (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_a076cbb861ae6fd6023049ce2ecee6cda}
+Requests units to produce more units 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{ai.general.TaskManager}.
+
+\hypertarget{classai_1_1general_1_1_production_manager_a21674afcbd70ba10ee88ed673569945b}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!update@{update}}
+\index{update@{update}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.ProductionManager.update (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_a21674afcbd70ba10ee88ed673569945b}
+Updates the data on possible productions 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{ai.general.TaskManager}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_production_manager_ae8cfbb6431211615a22e08f00559ce3a}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!BUILD\_\-TURN\_\-WAIT@{BUILD\_\-TURN\_\-WAIT}}
+\index{BUILD\_\-TURN\_\-WAIT@{BUILD\_\-TURN\_\-WAIT}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{BUILD\_\-TURN\_\-WAIT}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.ProductionManager.BUILD\_\-TURN\_\-WAIT} = 100\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_ae8cfbb6431211615a22e08f00559ce3a}
+how many turns to wait before buildings can be made \hypertarget{classai_1_1general_1_1_production_manager_a7f3ed3222946fb48beb16c28f4526cb5}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!buildings\_\-possible@{buildings\_\-possible}}
+\index{buildings\_\-possible@{buildings\_\-possible}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{buildings\_\-possible}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIProduction}$>$ {\bf ai.general.ProductionManager.buildings\_\-possible}}}
+\label{classai_1_1general_1_1_production_manager_a7f3ed3222946fb48beb16c28f4526cb5}
+buildings we could build \hypertarget{classai_1_1general_1_1_production_manager_a739ab9ab42cb21183fcbee8fc608a133}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!buildings\_\-wanted@{buildings\_\-wanted}}
+\index{buildings\_\-wanted@{buildings\_\-wanted}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{buildings\_\-wanted}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIProduction}$>$ {\bf ai.general.ProductionManager.buildings\_\-wanted}}}
+\label{classai_1_1general_1_1_production_manager_a739ab9ab42cb21183fcbee8fc608a133}
+buildings we want to build \hypertarget{classai_1_1general_1_1_production_manager_abab8287080aab2971b459ab329305aa2}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!HUNDRED\_\-PERCENT@{HUNDRED\_\-PERCENT}}
+\index{HUNDRED\_\-PERCENT@{HUNDRED\_\-PERCENT}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{HUNDRED\_\-PERCENT}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.ProductionManager.HUNDRED\_\-PERCENT} = 10000\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_abab8287080aab2971b459ab329305aa2}
+\hypertarget{classai_1_1general_1_1_production_manager_a96f76dd3e3ab3baaa69b1470a4807984}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!PRIORITY\_\-HIGH@{PRIORITY\_\-HIGH}}
+\index{PRIORITY\_\-HIGH@{PRIORITY\_\-HIGH}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{PRIORITY\_\-HIGH}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.ProductionManager.PRIORITY\_\-HIGH} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_a96f76dd3e3ab3baaa69b1470a4807984}
+a quite high priority \hypertarget{classai_1_1general_1_1_production_manager_aec5af2aa2d240356ddfa8df81d796693}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!units\_\-possible@{units\_\-possible}}
+\index{units\_\-possible@{units\_\-possible}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{units\_\-possible}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIProduction}$>$ {\bf ai.general.ProductionManager.units\_\-possible}}}
+\label{classai_1_1general_1_1_production_manager_aec5af2aa2d240356ddfa8df81d796693}
+units we could build \hypertarget{classai_1_1general_1_1_production_manager_a59ddfa5781a8e7198818bf1c3987b9e3}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!units\_\-wanted@{units\_\-wanted}}
+\index{units\_\-wanted@{units\_\-wanted}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{units\_\-wanted}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIProduction}$>$ {\bf ai.general.ProductionManager.units\_\-wanted}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_a59ddfa5781a8e7198818bf1c3987b9e3}
+units we want to build \hypertarget{classai_1_1general_1_1_production_manager_afe60230ce2b887ac1eb35061f9c0fbaa}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!WORKER\_\-PROB@{WORKER\_\-PROB}}
+\index{WORKER\_\-PROB@{WORKER\_\-PROB}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{WORKER\_\-PROB}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.ProductionManager.WORKER\_\-PROB} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_production_manager_afe60230ce2b887ac1eb35061f9c0fbaa}
+out of HUNDRED\_\-PERCENT; sometimes you want to build a worker \hypertarget{classai_1_1general_1_1_production_manager_a32f144df17dc697bcb9cfa06832497e8}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!workers\_\-queued@{workers\_\-queued}}
+\index{workers\_\-queued@{workers\_\-queued}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{workers\_\-queued}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.ProductionManager.workers\_\-queued}}}
+\label{classai_1_1general_1_1_production_manager_a32f144df17dc697bcb9cfa06832497e8}
+how many workers are queued to be built \hypertarget{classai_1_1general_1_1_production_manager_a01078f7b8aac811ea7813ad1a3bd9e11}{
+\index{ai::general::ProductionManager@{ai::general::ProductionManager}!workers\_\-wanted@{workers\_\-wanted}}
+\index{workers\_\-wanted@{workers\_\-wanted}!ai::general::ProductionManager@{ai::general::ProductionManager}}
+\subsubsection[{workers\_\-wanted}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.ProductionManager.workers\_\-wanted}}}
+\label{classai_1_1general_1_1_production_manager_a01078f7b8aac811ea7813ad1a3bd9e11}
+how many workers we want to scout, but not don't exist 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_production_manager_8java}{ProductionManager.java}\end{DoxyCompactItemize}

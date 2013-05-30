@@ -1,0 +1,135 @@
+\hypertarget{classai_1_1general_1_1_traffic_map}{
+\section{ai.general.TrafficMap Class Reference}
+\label{classai_1_1general_1_1_traffic_map}\index{ai::general::TrafficMap@{ai::general::TrafficMap}}
+}
+
+
+\hyperlink{classai_1_1general_1_1_traffic}{Traffic} used by units so that complex routing can be done where they do not collide with each other.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_traffic_map_af3c68c5f92ec3b47dd04d920566d59f7}{TrafficMap} (int size)
+\item 
+void \hyperlink{classai_1_1general_1_1_traffic_map_a2770c017d7385af00720130aedfd8637}{update} (int turn)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_traffic_map_af4e1835407fde3c85731800f8b3d2bb6}{valid} (int location, int start, int end)
+\item 
+void \hyperlink{classai_1_1general_1_1_traffic_map_a94b72014fa333c1f4c0fb9130ecc2602}{reserve} (\hyperlink{classai_1_1general_1_1_traffic}{Traffic} traffic)
+\item 
+void \hyperlink{classai_1_1general_1_1_traffic_map_af703e6c5e5d8726e2b711612dc4ca7b8}{unreserve} (\hyperlink{classai_1_1general_1_1_traffic}{Traffic} traffic)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ PriorityQueue$<$ \hyperlink{classai_1_1general_1_1_traffic}{Traffic} $>$ $>$ \hyperlink{classai_1_1general_1_1_traffic_map_a92a9a57fa9701020b97a0a369df4143f}{map}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{classai_1_1general_1_1_traffic}{Traffic} used by units so that complex routing can be done where they do not collide with each other. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_traffic_map_af3c68c5f92ec3b47dd04d920566d59f7}{
+\index{ai::general::TrafficMap@{ai::general::TrafficMap}!TrafficMap@{TrafficMap}}
+\index{TrafficMap@{TrafficMap}!ai::general::TrafficMap@{ai::general::TrafficMap}}
+\subsubsection[{TrafficMap}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.TrafficMap.TrafficMap (
+\begin{DoxyParamCaption}
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_traffic_map_af3c68c5f92ec3b47dd04d920566d59f7}
+Creates a new traffic map 
+\begin{DoxyParams}{Parameters}
+{\em size} & size of the map \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_traffic_map_a94b72014fa333c1f4c0fb9130ecc2602}{
+\index{ai::general::TrafficMap@{ai::general::TrafficMap}!reserve@{reserve}}
+\index{reserve@{reserve}!ai::general::TrafficMap@{ai::general::TrafficMap}}
+\subsubsection[{reserve}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.TrafficMap.reserve (
+\begin{DoxyParamCaption}
+\item[{{\bf Traffic}}]{traffic}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_traffic_map_a94b72014fa333c1f4c0fb9130ecc2602}
+Reserves the traffic at the specified location 
+\begin{DoxyParams}{Parameters}
+{\em location} & the location to reserve \\
+\hline
+{\em traffic} & the traffic \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_traffic_map_af703e6c5e5d8726e2b711612dc4ca7b8}{
+\index{ai::general::TrafficMap@{ai::general::TrafficMap}!unreserve@{unreserve}}
+\index{unreserve@{unreserve}!ai::general::TrafficMap@{ai::general::TrafficMap}}
+\subsubsection[{unreserve}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.TrafficMap.unreserve (
+\begin{DoxyParamCaption}
+\item[{{\bf Traffic}}]{traffic}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_traffic_map_af703e6c5e5d8726e2b711612dc4ca7b8}
+Unreserves traffic, for whatever reason 
+\begin{DoxyParams}{Parameters}
+{\em traffic} & the traffic to remove \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_traffic_map_a2770c017d7385af00720130aedfd8637}{
+\index{ai::general::TrafficMap@{ai::general::TrafficMap}!update@{update}}
+\index{update@{update}!ai::general::TrafficMap@{ai::general::TrafficMap}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.TrafficMap.update (
+\begin{DoxyParamCaption}
+\item[{int}]{turn}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_traffic_map_a2770c017d7385af00720130aedfd8637}
+Updates the traffic map 
+\begin{DoxyParams}{Parameters}
+{\em turn} & the current turn number \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_traffic_map_af4e1835407fde3c85731800f8b3d2bb6}{
+\index{ai::general::TrafficMap@{ai::general::TrafficMap}!valid@{valid}}
+\index{valid@{valid}!ai::general::TrafficMap@{ai::general::TrafficMap}}
+\subsubsection[{valid}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.TrafficMap.valid (
+\begin{DoxyParamCaption}
+\item[{int}]{location, }
+\item[{int}]{start, }
+\item[{int}]{end}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_traffic_map_af4e1835407fde3c85731800f8b3d2bb6}
+Determines if the traffic can pass through this location at the given time 
+\begin{DoxyParams}{Parameters}
+{\em location} & the location in the map \\
+\hline
+{\em start} & when the traffic will start \\
+\hline
+{\em end} & when the traffic will end \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the traffic is valid, otherwise false 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_traffic_map_a92a9a57fa9701020b97a0a369df4143f}{
+\index{ai::general::TrafficMap@{ai::general::TrafficMap}!map@{map}}
+\index{map@{map}!ai::general::TrafficMap@{ai::general::TrafficMap}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$PriorityQueue$<${\bf Traffic}$>$ $>$ {\bf ai.general.TrafficMap.map}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_traffic_map_a92a9a57fa9701020b97a0a369df4143f}
+the traffic map 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_traffic_map_8java}{TrafficMap.java}\end{DoxyCompactItemize}

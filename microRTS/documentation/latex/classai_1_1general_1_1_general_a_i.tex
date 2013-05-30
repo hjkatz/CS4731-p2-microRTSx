@@ -1,0 +1,435 @@
+\hypertarget{classai_1_1general_1_1_general_a_i}{
+\section{ai.general.GeneralAI Class Reference}
+\label{classai_1_1general_1_1_general_a_i}\index{ai::general::GeneralAI@{ai::general::GeneralAI}}
+}
+
+
+General \hyperlink{classai_1_1_a_i}{AI} built to play any generically defined RTS game.  
+
+
+Inheritance diagram for ai.general.GeneralAI:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_general_a_i}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_a16b2054603400bbf9ab3df3e061b4517}{GeneralAI} ()
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_aa543b1b430756a330ac82a99ce4f694e}{GeneralAI} (int \_\-lesion)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_aa25cd1f2da01ff5b29f0ec7b6fb2a633}{getAction} (\hyperlink{classrts_1_1_game_state}{GameState} gs, int time\_\-limit)
+\item 
+ArrayList$<$ Integer\mbox{[}$\,$\mbox{]}$>$ \hyperlink{classai_1_1general_1_1_general_a_i_ae4ef6b89b2a1195806ff2232f5468bbd}{get\_\-path} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} unit, int start, int \hyperlink{classai_1_1general_1_1_general_a_i_ad2b487046bcf8f6266ea279f180b3e74}{turn\_\-start}, ArrayList$<$ Integer $>$ destinations)
+\item 
+String \hyperlink{classai_1_1general_1_1_general_a_i_a987c855ee333379f1d850582a9848784}{getLabel} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_traffic_map}{TrafficMap} \hyperlink{classai_1_1general_1_1_general_a_i_a8815a09b03f98f9ec68742e32b9c472d}{traffic\_\-map}
+\item 
+\hyperlink{classai_1_1general_1_1_exploration_manager}{ExplorationManager} \hyperlink{classai_1_1general_1_1_general_a_i_acd7fe2fea4dd83aa8d17f6ba6120700a}{exploration\_\-manager}
+\item 
+\hyperlink{classai_1_1general_1_1_production_manager}{ProductionManager} \hyperlink{classai_1_1general_1_1_general_a_i_a36b95e1d1adbc36d26390f8da11bfe35}{production\_\-manager}
+\item 
+\hyperlink{classai_1_1general_1_1_attack_manager}{AttackManager} \hyperlink{classai_1_1general_1_1_general_a_i_a286b49649938c2d88dbe8705dac959ff}{attack\_\-manager}
+\item 
+\hyperlink{classai_1_1general_1_1_farm_manager}{FarmManager} \hyperlink{classai_1_1general_1_1_general_a_i_aac6a7b3f65ae27624edf09c9df39c8f7}{farm\_\-manager}
+\item 
+\hyperlink{classai_1_1general_1_1_town_manager}{TownManager} \hyperlink{classai_1_1general_1_1_general_a_i_a4430f889ec6dc11ca44711daec0d549b}{town\_\-manager}
+\item 
+\hyperlink{classrts_1_1_game_state}{GameState} \hyperlink{classai_1_1general_1_1_general_a_i_a3f311af8e06d47cb8b104d3ff4244484}{state}
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classai_1_1general_1_1_general_a_i_a64d51272ee8ee14e4b190ed943684465}{money}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} $>$ \hyperlink{classai_1_1general_1_1_general_a_i_acc56ad41f2a1b117bd47a0c4e5da7a36}{units}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_a53826321184783f1d220fd72be9a470c}{current\_\-turn}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_a232c46c472f72f48ddc64152b6245ef1}{player\_\-id}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_ac7f5bda27c7c53dfa630ac6322c52e0c}{LESION\_\-NONE} = 0
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a12fc5ff8b96447bb4d44de4a8802085a}{LESION\_\-WORKER\_\-ARMY} = 1
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a4009e30711f6169f339f0693fe048138}{LESION\_\-NO\_\-DEFENSE} = 2
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_aa0592f035da1ad9ffee68fd94305fb09}{LESION\_\-ONLY\_\-RANGE} = 4
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a1814ecad01f9ca35130005a02aa1d9b3}{LESION\_\-NO\_\-RANGE} = 8
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a20fd49041df0748fcc4660d213e7251c}{LESION\_\-ONLY\_\-FLYING} = 16
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a34a792c1a47cc52fd682cfd5ba3e7795}{LESION\_\-NO\_\-FLYING} = 32
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a22cac1ee83cc2c16a8a80c12b1950064}{LESION\_\-CHEAPEST\_\-ARMY} = 64
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a50d1efb04d889965b4d1e295bcaad805}{LESION\_\-EXPENSIVE\_\-ARMY} = 128
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_ae09e26fba23a2726d8dfc4b160b48bfd}{LESION\_\-WEAKEST\_\-ARMY} = 256
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a29d5d7f18fa883d00fada4c526a7b659}{LESION\_\-STRONGEST\_\-ARMY} = 512
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_ad9254d54bbe6ccd739bf82b24fbb4c52}{STRATEGY\_\-NONE} = 0
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_ac8bca2198328c720d0f098f86c7f994c}{STRATEGY\_\-BUILD} = 1
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a76c1b6db73db244f96e52a0ed72bb5c0}{STRATEGY\_\-FARM} = 2
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_ae783c4d7aa11aed961f99e1202e49ca1}{STRATEGY\_\-ATTACK} = 3
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_af442f56d5a030005a92174b3d453c57f}{STRATEGY\_\-EXPLORE} = 4
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_aab919e88ee21463d0a217f8bccd0a175}{STRATEGY\_\-DEFENSE} = 5
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_a84cf0b772ef876f73b5379edc5de4120}{DISTANCE\_\-IGNORE} = -\/1
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_a73638262ddc2005a3de1b75144f07a10}{initialize} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_a5241e3b928249ee4e6572ef47030162e}{update\_\-unit\_\-list} ()
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_a883434d0e331f5355e957c4d113d922d}{can\_\-enter} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} unit, int location, int \hyperlink{classai_1_1general_1_1_general_a_i_ad2b487046bcf8f6266ea279f180b3e74}{turn\_\-start}, int turn\_\-end)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_a6f2c72afacd8a04a66d22e3e38fed441}{h\_\-score} (int start, ArrayList$<$ Integer $>$ goals)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_a66079be9509d195d238e176d121a90b5}{init}
+\item 
+long \hyperlink{classai_1_1general_1_1_general_a_i_ad2b487046bcf8f6266ea279f180b3e74}{turn\_\-start}
+\item 
+long \hyperlink{classai_1_1general_1_1_general_a_i_ad35fba6e172dba62ee6a025f90a6b6a4}{turn\_\-limit}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_a999b2485d3ac59837ac62c40550bfbeb}{last\_\-unit}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+General \hyperlink{classai_1_1_a_i}{AI} built to play any generically defined RTS game. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_a16b2054603400bbf9ab3df3e061b4517}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!GeneralAI@{GeneralAI}}
+\index{GeneralAI@{GeneralAI}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{GeneralAI}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAI.GeneralAI (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_a16b2054603400bbf9ab3df3e061b4517}
+Constructs the ai \hypertarget{classai_1_1general_1_1_general_a_i_aa543b1b430756a330ac82a99ce4f694e}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!GeneralAI@{GeneralAI}}
+\index{GeneralAI@{GeneralAI}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{GeneralAI}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAI.GeneralAI (
+\begin{DoxyParamCaption}
+\item[{int}]{\_\-lesion}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_aa543b1b430756a330ac82a99ce4f694e}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_a883434d0e331f5355e957c4d113d922d}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!can\_\-enter@{can\_\-enter}}
+\index{can\_\-enter@{can\_\-enter}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{can\_\-enter}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAI.can\_\-enter (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{unit, }
+\item[{int}]{location, }
+\item[{int}]{turn\_\-start, }
+\item[{int}]{turn\_\-end}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a883434d0e331f5355e957c4d113d922d}
+Checks whether or not a unit can enter a location 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em location} & the location \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_ae4ef6b89b2a1195806ff2232f5468bbd}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!get\_\-path@{get\_\-path}}
+\index{get\_\-path@{get\_\-path}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{get\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer\mbox{[}$\,$\mbox{]}$>$ ai.general.GeneralAI.get\_\-path (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{unit, }
+\item[{int}]{start, }
+\item[{int}]{turn\_\-start, }
+\item[{ArrayList$<$ Integer $>$}]{destinations}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_ae4ef6b89b2a1195806ff2232f5468bbd}
+Gets the path to a location (reversed) 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+{\em destinations} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_aa25cd1f2da01ff5b29f0ec7b6fb2a633}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!getAction@{getAction}}
+\index{getAction@{getAction}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{getAction}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAI.getAction (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{gs, }
+\item[{int}]{time\_\-limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_aa25cd1f2da01ff5b29f0ec7b6fb2a633}
+Issues actions to units 
+\begin{DoxyParams}{Parameters}
+{\em gs} & the game state \\
+\hline
+{\em time\_\-limit} & how much time is given for this turn (msec) \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1_a_i_ac99863ed57cf48013d00267919044ef2}{ai.AI}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_a987c855ee333379f1d850582a9848784}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{getLabel}]{\setlength{\rightskip}{0pt plus 5cm}String ai.general.GeneralAI.getLabel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_a987c855ee333379f1d850582a9848784}
+Allows the agent to label itself \begin{DoxyReturn}{Returns}
+a label 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classai_1_1_a_i_a88d898fe81c137f04c130acfe9575851}{ai.AI}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_a6f2c72afacd8a04a66d22e3e38fed441}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!h\_\-score@{h\_\-score}}
+\index{h\_\-score@{h\_\-score}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{h\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAI.h\_\-score (
+\begin{DoxyParamCaption}
+\item[{int}]{start, }
+\item[{ArrayList$<$ Integer $>$}]{goals}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a6f2c72afacd8a04a66d22e3e38fed441}
+Calculates the h from start to (a) goal 
+\begin{DoxyParams}{Parameters}
+{\em start} & \\
+\hline
+{\em goals} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_a73638262ddc2005a3de1b75144f07a10}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!initialize@{initialize}}
+\index{initialize@{initialize}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAI.initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a73638262ddc2005a3de1b75144f07a10}
+The real constructor, basically \hypertarget{classai_1_1general_1_1_general_a_i_a5241e3b928249ee4e6572ef47030162e}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!update\_\-unit\_\-list@{update\_\-unit\_\-list}}
+\index{update\_\-unit\_\-list@{update\_\-unit\_\-list}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{update\_\-unit\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAI.update\_\-unit\_\-list (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a5241e3b928249ee4e6572ef47030162e}
+Updates the unit list 
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_a286b49649938c2d88dbe8705dac959ff}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!attack\_\-manager@{attack\_\-manager}}
+\index{attack\_\-manager@{attack\_\-manager}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{attack\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AttackManager} {\bf ai.general.GeneralAI.attack\_\-manager}}}
+\label{classai_1_1general_1_1_general_a_i_a286b49649938c2d88dbe8705dac959ff}
+attack manager \hypertarget{classai_1_1general_1_1_general_a_i_a53826321184783f1d220fd72be9a470c}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!current\_\-turn@{current\_\-turn}}
+\index{current\_\-turn@{current\_\-turn}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{current\_\-turn}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAI.current\_\-turn}}}
+\label{classai_1_1general_1_1_general_a_i_a53826321184783f1d220fd72be9a470c}
+what turn is it \hypertarget{classai_1_1general_1_1_general_a_i_a84cf0b772ef876f73b5379edc5de4120}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!DISTANCE\_\-IGNORE@{DISTANCE\_\-IGNORE}}
+\index{DISTANCE\_\-IGNORE@{DISTANCE\_\-IGNORE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{DISTANCE\_\-IGNORE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.DISTANCE\_\-IGNORE} = -\/1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a84cf0b772ef876f73b5379edc5de4120}
+ignore this distance \hypertarget{classai_1_1general_1_1_general_a_i_acd7fe2fea4dd83aa8d17f6ba6120700a}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!exploration\_\-manager@{exploration\_\-manager}}
+\index{exploration\_\-manager@{exploration\_\-manager}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{exploration\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ExplorationManager} {\bf ai.general.GeneralAI.exploration\_\-manager}}}
+\label{classai_1_1general_1_1_general_a_i_acd7fe2fea4dd83aa8d17f6ba6120700a}
+exploration manager \hypertarget{classai_1_1general_1_1_general_a_i_aac6a7b3f65ae27624edf09c9df39c8f7}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!farm\_\-manager@{farm\_\-manager}}
+\index{farm\_\-manager@{farm\_\-manager}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{farm\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf FarmManager} {\bf ai.general.GeneralAI.farm\_\-manager}}}
+\label{classai_1_1general_1_1_general_a_i_aac6a7b3f65ae27624edf09c9df39c8f7}
+farm manager \hypertarget{classai_1_1general_1_1_general_a_i_a66079be9509d195d238e176d121a90b5}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!init@{init}}
+\index{init@{init}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAI.init}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a66079be9509d195d238e176d121a90b5}
+whether or not we have init \hypertarget{classai_1_1general_1_1_general_a_i_a999b2485d3ac59837ac62c40550bfbeb}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!last\_\-unit@{last\_\-unit}}
+\index{last\_\-unit@{last\_\-unit}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{last\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAI.last\_\-unit}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a999b2485d3ac59837ac62c40550bfbeb}
+the last unit to make a move \hypertarget{classai_1_1general_1_1_general_a_i_a22cac1ee83cc2c16a8a80c12b1950064}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-CHEAPEST\_\-ARMY@{LESION\_\-CHEAPEST\_\-ARMY}}
+\index{LESION\_\-CHEAPEST\_\-ARMY@{LESION\_\-CHEAPEST\_\-ARMY}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-CHEAPEST\_\-ARMY}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-CHEAPEST\_\-ARMY} = 64\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a22cac1ee83cc2c16a8a80c12b1950064}
+\hypertarget{classai_1_1general_1_1_general_a_i_a50d1efb04d889965b4d1e295bcaad805}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-EXPENSIVE\_\-ARMY@{LESION\_\-EXPENSIVE\_\-ARMY}}
+\index{LESION\_\-EXPENSIVE\_\-ARMY@{LESION\_\-EXPENSIVE\_\-ARMY}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-EXPENSIVE\_\-ARMY}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-EXPENSIVE\_\-ARMY} = 128\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a50d1efb04d889965b4d1e295bcaad805}
+\hypertarget{classai_1_1general_1_1_general_a_i_a4009e30711f6169f339f0693fe048138}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-NO\_\-DEFENSE@{LESION\_\-NO\_\-DEFENSE}}
+\index{LESION\_\-NO\_\-DEFENSE@{LESION\_\-NO\_\-DEFENSE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-NO\_\-DEFENSE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-NO\_\-DEFENSE} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a4009e30711f6169f339f0693fe048138}
+\hypertarget{classai_1_1general_1_1_general_a_i_a34a792c1a47cc52fd682cfd5ba3e7795}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-NO\_\-FLYING@{LESION\_\-NO\_\-FLYING}}
+\index{LESION\_\-NO\_\-FLYING@{LESION\_\-NO\_\-FLYING}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-NO\_\-FLYING}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-NO\_\-FLYING} = 32\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a34a792c1a47cc52fd682cfd5ba3e7795}
+\hypertarget{classai_1_1general_1_1_general_a_i_a1814ecad01f9ca35130005a02aa1d9b3}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-NO\_\-RANGE@{LESION\_\-NO\_\-RANGE}}
+\index{LESION\_\-NO\_\-RANGE@{LESION\_\-NO\_\-RANGE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-NO\_\-RANGE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-NO\_\-RANGE} = 8\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a1814ecad01f9ca35130005a02aa1d9b3}
+\hypertarget{classai_1_1general_1_1_general_a_i_ac7f5bda27c7c53dfa630ac6322c52e0c}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-NONE@{LESION\_\-NONE}}
+\index{LESION\_\-NONE@{LESION\_\-NONE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-NONE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-NONE} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ac7f5bda27c7c53dfa630ac6322c52e0c}
+\hypertarget{classai_1_1general_1_1_general_a_i_a20fd49041df0748fcc4660d213e7251c}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-ONLY\_\-FLYING@{LESION\_\-ONLY\_\-FLYING}}
+\index{LESION\_\-ONLY\_\-FLYING@{LESION\_\-ONLY\_\-FLYING}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-ONLY\_\-FLYING}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-ONLY\_\-FLYING} = 16\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a20fd49041df0748fcc4660d213e7251c}
+\hypertarget{classai_1_1general_1_1_general_a_i_aa0592f035da1ad9ffee68fd94305fb09}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-ONLY\_\-RANGE@{LESION\_\-ONLY\_\-RANGE}}
+\index{LESION\_\-ONLY\_\-RANGE@{LESION\_\-ONLY\_\-RANGE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-ONLY\_\-RANGE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-ONLY\_\-RANGE} = 4\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_aa0592f035da1ad9ffee68fd94305fb09}
+\hypertarget{classai_1_1general_1_1_general_a_i_a29d5d7f18fa883d00fada4c526a7b659}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-STRONGEST\_\-ARMY@{LESION\_\-STRONGEST\_\-ARMY}}
+\index{LESION\_\-STRONGEST\_\-ARMY@{LESION\_\-STRONGEST\_\-ARMY}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-STRONGEST\_\-ARMY}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-STRONGEST\_\-ARMY} = 512\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a29d5d7f18fa883d00fada4c526a7b659}
+\hypertarget{classai_1_1general_1_1_general_a_i_ae09e26fba23a2726d8dfc4b160b48bfd}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-WEAKEST\_\-ARMY@{LESION\_\-WEAKEST\_\-ARMY}}
+\index{LESION\_\-WEAKEST\_\-ARMY@{LESION\_\-WEAKEST\_\-ARMY}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-WEAKEST\_\-ARMY}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-WEAKEST\_\-ARMY} = 256\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ae09e26fba23a2726d8dfc4b160b48bfd}
+\hypertarget{classai_1_1general_1_1_general_a_i_a12fc5ff8b96447bb4d44de4a8802085a}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!LESION\_\-WORKER\_\-ARMY@{LESION\_\-WORKER\_\-ARMY}}
+\index{LESION\_\-WORKER\_\-ARMY@{LESION\_\-WORKER\_\-ARMY}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{LESION\_\-WORKER\_\-ARMY}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.LESION\_\-WORKER\_\-ARMY} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a12fc5ff8b96447bb4d44de4a8802085a}
+\hypertarget{classai_1_1general_1_1_general_a_i_a64d51272ee8ee14e4b190ed943684465}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!money@{money}}
+\index{money@{money}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{money}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ {\bf ai.general.GeneralAI.money}}}
+\label{classai_1_1general_1_1_general_a_i_a64d51272ee8ee14e4b190ed943684465}
+money \hypertarget{classai_1_1general_1_1_general_a_i_a232c46c472f72f48ddc64152b6245ef1}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!player\_\-id@{player\_\-id}}
+\index{player\_\-id@{player\_\-id}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{player\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAI.player\_\-id}}}
+\label{classai_1_1general_1_1_general_a_i_a232c46c472f72f48ddc64152b6245ef1}
+the id of the player this ai belongs to \hypertarget{classai_1_1general_1_1_general_a_i_a36b95e1d1adbc36d26390f8da11bfe35}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!production\_\-manager@{production\_\-manager}}
+\index{production\_\-manager@{production\_\-manager}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{production\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ProductionManager} {\bf ai.general.GeneralAI.production\_\-manager}}}
+\label{classai_1_1general_1_1_general_a_i_a36b95e1d1adbc36d26390f8da11bfe35}
+production manager \hypertarget{classai_1_1general_1_1_general_a_i_a3f311af8e06d47cb8b104d3ff4244484}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!state@{state}}
+\index{state@{state}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{state}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GameState} {\bf ai.general.GeneralAI.state}}}
+\label{classai_1_1general_1_1_general_a_i_a3f311af8e06d47cb8b104d3ff4244484}
+the game state \hypertarget{classai_1_1general_1_1_general_a_i_ae783c4d7aa11aed961f99e1202e49ca1}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!STRATEGY\_\-ATTACK@{STRATEGY\_\-ATTACK}}
+\index{STRATEGY\_\-ATTACK@{STRATEGY\_\-ATTACK}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{STRATEGY\_\-ATTACK}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.STRATEGY\_\-ATTACK} = 3\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ae783c4d7aa11aed961f99e1202e49ca1}
+attack enemy \hypertarget{classai_1_1general_1_1_general_a_i_ac8bca2198328c720d0f098f86c7f994c}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!STRATEGY\_\-BUILD@{STRATEGY\_\-BUILD}}
+\index{STRATEGY\_\-BUILD@{STRATEGY\_\-BUILD}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{STRATEGY\_\-BUILD}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.STRATEGY\_\-BUILD} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ac8bca2198328c720d0f098f86c7f994c}
+build \hypertarget{classai_1_1general_1_1_general_a_i_aab919e88ee21463d0a217f8bccd0a175}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!STRATEGY\_\-DEFENSE@{STRATEGY\_\-DEFENSE}}
+\index{STRATEGY\_\-DEFENSE@{STRATEGY\_\-DEFENSE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{STRATEGY\_\-DEFENSE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.STRATEGY\_\-DEFENSE} = 5\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_aab919e88ee21463d0a217f8bccd0a175}
+defend a position \hypertarget{classai_1_1general_1_1_general_a_i_af442f56d5a030005a92174b3d453c57f}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!STRATEGY\_\-EXPLORE@{STRATEGY\_\-EXPLORE}}
+\index{STRATEGY\_\-EXPLORE@{STRATEGY\_\-EXPLORE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{STRATEGY\_\-EXPLORE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.STRATEGY\_\-EXPLORE} = 4\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_af442f56d5a030005a92174b3d453c57f}
+explore the map strat \hypertarget{classai_1_1general_1_1_general_a_i_a76c1b6db73db244f96e52a0ed72bb5c0}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!STRATEGY\_\-FARM@{STRATEGY\_\-FARM}}
+\index{STRATEGY\_\-FARM@{STRATEGY\_\-FARM}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{STRATEGY\_\-FARM}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.STRATEGY\_\-FARM} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_a76c1b6db73db244f96e52a0ed72bb5c0}
+gather resources \hypertarget{classai_1_1general_1_1_general_a_i_ad9254d54bbe6ccd739bf82b24fbb4c52}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!STRATEGY\_\-NONE@{STRATEGY\_\-NONE}}
+\index{STRATEGY\_\-NONE@{STRATEGY\_\-NONE}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{STRATEGY\_\-NONE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAI.STRATEGY\_\-NONE} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ad9254d54bbe6ccd739bf82b24fbb4c52}
+no strategy \hypertarget{classai_1_1general_1_1_general_a_i_a4430f889ec6dc11ca44711daec0d549b}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!town\_\-manager@{town\_\-manager}}
+\index{town\_\-manager@{town\_\-manager}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{town\_\-manager}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TownManager} {\bf ai.general.GeneralAI.town\_\-manager}}}
+\label{classai_1_1general_1_1_general_a_i_a4430f889ec6dc11ca44711daec0d549b}
+town manager \hypertarget{classai_1_1general_1_1_general_a_i_a8815a09b03f98f9ec68742e32b9c472d}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!traffic\_\-map@{traffic\_\-map}}
+\index{traffic\_\-map@{traffic\_\-map}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{traffic\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}{\bf TrafficMap} {\bf ai.general.GeneralAI.traffic\_\-map}}}
+\label{classai_1_1general_1_1_general_a_i_a8815a09b03f98f9ec68742e32b9c472d}
+a map of our unit traffic \hypertarget{classai_1_1general_1_1_general_a_i_ad35fba6e172dba62ee6a025f90a6b6a4}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!turn\_\-limit@{turn\_\-limit}}
+\index{turn\_\-limit@{turn\_\-limit}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{turn\_\-limit}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf ai.general.GeneralAI.turn\_\-limit}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ad35fba6e172dba62ee6a025f90a6b6a4}
+maximum length for turn \hypertarget{classai_1_1general_1_1_general_a_i_ad2b487046bcf8f6266ea279f180b3e74}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!turn\_\-start@{turn\_\-start}}
+\index{turn\_\-start@{turn\_\-start}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{turn\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf ai.general.GeneralAI.turn\_\-start}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_ad2b487046bcf8f6266ea279f180b3e74}
+when the turn started \hypertarget{classai_1_1general_1_1_general_a_i_acc56ad41f2a1b117bd47a0c4e5da7a36}{
+\index{ai::general::GeneralAI@{ai::general::GeneralAI}!units@{units}}
+\index{units@{units}!ai::general::GeneralAI@{ai::general::GeneralAI}}
+\subsubsection[{units}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIUnit}$>$ {\bf ai.general.GeneralAI.units}}}
+\label{classai_1_1general_1_1_general_a_i_acc56ad41f2a1b117bd47a0c4e5da7a36}
+my units 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_8java}{GeneralAI.java}\end{DoxyCompactItemize}

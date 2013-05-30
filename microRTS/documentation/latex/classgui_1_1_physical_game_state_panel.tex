@@ -1,0 +1,163 @@
+\hypertarget{classgui_1_1_physical_game_state_panel}{
+\section{gui.PhysicalGameStatePanel Class Reference}
+\label{classgui_1_1_physical_game_state_panel}\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+}
+
+
+A graphical display of the game.  
+
+
+
+
+Inherits JPanel.
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classgui_1_1_physical_game_state_panel_ab399c586669f78b942828763728a1b40}{PhysicalGameStatePanel} (\hyperlink{classrts_1_1_game}{Game} \_\-game)
+\item 
+void \hyperlink{classgui_1_1_physical_game_state_panel_afb3ad2acc58bbf0f8ffa5a4defe87852}{paint} (Graphics g)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static JFrame \hyperlink{classgui_1_1_physical_game_state_panel_abdbe84a6fd734dd02f1ad9074749df52}{newVisualizer} (\hyperlink{classrts_1_1_game}{Game} \_\-game, int dy, boolean show\_\-fog, int follow\_\-team)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1_game}{Game} \hyperlink{classgui_1_1_physical_game_state_panel_af4eaee7c6480b100814b944ee2d8c6bd}{game} = null
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classgui_1_1_physical_game_state_panel_ae15b48464f8a67554012be6f7a04dfd6}{draw\_\-stats} (Graphics g, int i, int w, int offset)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean \hyperlink{classgui_1_1_physical_game_state_panel_af859a1252f3fe668b30566bb26fff610}{fog}
+\item 
+int \hyperlink{classgui_1_1_physical_game_state_panel_ae0523d28c7f51e80e0ddc29b61928a7d}{team}
+\item 
+int \hyperlink{classgui_1_1_physical_game_state_panel_a51dede67ddcf6823f2a3a29ca5e2fd17}{WIDTH}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classgui_1_1_physical_game_state_panel_ae6f553ee2d542586f1fc14b6c99f457c}{HUD\_\-W} = 150
+\item 
+static final long \hyperlink{classgui_1_1_physical_game_state_panel_a4634af2210f460c1dcb7f16e0b51290f}{serialVersionUID} = 1L
+\item 
+static final Color \hyperlink{classgui_1_1_physical_game_state_panel_a7d68857c003b8564dc76a758ae7ba553}{COLORS} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A graphical display of the game. 
+
+\begin{DoxyAuthor}{Author}
+santi 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classgui_1_1_physical_game_state_panel_ab399c586669f78b942828763728a1b40}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!PhysicalGameStatePanel@{PhysicalGameStatePanel}}
+\index{PhysicalGameStatePanel@{PhysicalGameStatePanel}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{PhysicalGameStatePanel}]{\setlength{\rightskip}{0pt plus 5cm}gui.PhysicalGameStatePanel.PhysicalGameStatePanel (
+\begin{DoxyParamCaption}
+\item[{{\bf Game}}]{\_\-game}
+\end{DoxyParamCaption}
+)}}
+\label{classgui_1_1_physical_game_state_panel_ab399c586669f78b942828763728a1b40}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classgui_1_1_physical_game_state_panel_ae15b48464f8a67554012be6f7a04dfd6}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!draw\_\-stats@{draw\_\-stats}}
+\index{draw\_\-stats@{draw\_\-stats}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{draw\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}int gui.PhysicalGameStatePanel.draw\_\-stats (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g, }
+\item[{int}]{i, }
+\item[{int}]{w, }
+\item[{int}]{offset}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_ae15b48464f8a67554012be6f7a04dfd6}
+\hypertarget{classgui_1_1_physical_game_state_panel_abdbe84a6fd734dd02f1ad9074749df52}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!newVisualizer@{newVisualizer}}
+\index{newVisualizer@{newVisualizer}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{newVisualizer}]{\setlength{\rightskip}{0pt plus 5cm}static JFrame gui.PhysicalGameStatePanel.newVisualizer (
+\begin{DoxyParamCaption}
+\item[{{\bf Game}}]{\_\-game, }
+\item[{int}]{dy, }
+\item[{boolean}]{show\_\-fog, }
+\item[{int}]{follow\_\-team}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_abdbe84a6fd734dd02f1ad9074749df52}
+\hypertarget{classgui_1_1_physical_game_state_panel_afb3ad2acc58bbf0f8ffa5a4defe87852}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!paint@{paint}}
+\index{paint@{paint}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{paint}]{\setlength{\rightskip}{0pt plus 5cm}void gui.PhysicalGameStatePanel.paint (
+\begin{DoxyParamCaption}
+\item[{Graphics}]{g}
+\end{DoxyParamCaption}
+)}}
+\label{classgui_1_1_physical_game_state_panel_afb3ad2acc58bbf0f8ffa5a4defe87852}
+
+
+TODO: set a different color based on some kind of unit attributes?? 
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classgui_1_1_physical_game_state_panel_a7d68857c003b8564dc76a758ae7ba553}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!COLORS@{COLORS}}
+\index{COLORS@{COLORS}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{COLORS}]{\setlength{\rightskip}{0pt plus 5cm}final Color {\bf gui.PhysicalGameStatePanel.COLORS}\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_a7d68857c003b8564dc76a758ae7ba553}
+{\bfseries Initial value:}
+\begin{DoxyCode}
+ {Color.cyan, Color.red, Color.green, Color.yellow, Color.blue,
+                                                                           Color.
+      pink, Color.magenta, Color.orange, Color.darkGray, Color.lightGray
+                                                                          }
+\end{DoxyCode}
+\hypertarget{classgui_1_1_physical_game_state_panel_af859a1252f3fe668b30566bb26fff610}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!fog@{fog}}
+\index{fog@{fog}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{fog}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf gui.PhysicalGameStatePanel.fog}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_af859a1252f3fe668b30566bb26fff610}
+\hypertarget{classgui_1_1_physical_game_state_panel_af4eaee7c6480b100814b944ee2d8c6bd}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!game@{game}}
+\index{game@{game}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{game}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Game} {\bf gui.PhysicalGameStatePanel.game} = null}}
+\label{classgui_1_1_physical_game_state_panel_af4eaee7c6480b100814b944ee2d8c6bd}
+\hypertarget{classgui_1_1_physical_game_state_panel_ae6f553ee2d542586f1fc14b6c99f457c}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!HUD\_\-W@{HUD\_\-W}}
+\index{HUD\_\-W@{HUD\_\-W}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{HUD\_\-W}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf gui.PhysicalGameStatePanel.HUD\_\-W} = 150\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_ae6f553ee2d542586f1fc14b6c99f457c}
+\hypertarget{classgui_1_1_physical_game_state_panel_a4634af2210f460c1dcb7f16e0b51290f}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!serialVersionUID@{serialVersionUID}}
+\index{serialVersionUID@{serialVersionUID}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{serialVersionUID}]{\setlength{\rightskip}{0pt plus 5cm}final long {\bf gui.PhysicalGameStatePanel.serialVersionUID} = 1L\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_a4634af2210f460c1dcb7f16e0b51290f}
+\hypertarget{classgui_1_1_physical_game_state_panel_ae0523d28c7f51e80e0ddc29b61928a7d}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!team@{team}}
+\index{team@{team}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{team}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf gui.PhysicalGameStatePanel.team}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_ae0523d28c7f51e80e0ddc29b61928a7d}
+\hypertarget{classgui_1_1_physical_game_state_panel_a51dede67ddcf6823f2a3a29ca5e2fd17}{
+\index{gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}!WIDTH@{WIDTH}}
+\index{WIDTH@{WIDTH}!gui::PhysicalGameStatePanel@{gui::PhysicalGameStatePanel}}
+\subsubsection[{WIDTH}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf gui.PhysicalGameStatePanel.WIDTH}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classgui_1_1_physical_game_state_panel_a51dede67ddcf6823f2a3a29ca5e2fd17}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/gui/\hyperlink{_physical_game_state_panel_8java}{PhysicalGameStatePanel.java}\end{DoxyCompactItemize}

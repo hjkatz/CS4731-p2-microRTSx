@@ -1,0 +1,220 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy}{
+\section{ai.general.GeneralAIEnemy Class Reference}
+\label{classai_1_1general_1_1_general_a_i_enemy}\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+}
+
+
+Model of enemy units.  
+
+
+Inheritance diagram for ai.general.GeneralAIEnemy:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_general_a_i_enemy}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_enemy_a5779af37ecfc3fc6bb964ceca2399916}{GeneralAIEnemy} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} unit)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_enemy_af06251179b134f771a5b66eda70f8e1c}{order\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_enemy_ac1c3cfb3e42fc68123d3be827013d7f5}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_enemy_ae978f80f0eda19ac4481536719287f8d}{action\_\-succeeded} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int type)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_enemy_afeb5356cd8cf673ec19531a974c70dee}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+float \hyperlink{classai_1_1general_1_1_general_a_i_enemy_acca3e26cc71ed08e439d229ab1e6327f}{evaluate} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_enemy_a4503bbce0cbbed64df4b153773f90dab}{update\_\-orders} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit}{Unit} \hyperlink{classai_1_1general_1_1_general_a_i_enemy_a722f790fd65127c725643ce9752fd8c4}{stats}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_enemy_a00043e01ec4356d4a673ceb7d3ff4990}{dead}
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_enemy_aa778be6f916aabee5103959fdddc3aa9}{seen}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_enemy_abdcc6550ac64a4bd7ffb14d2b3aa9b08}{priority}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Model of enemy units. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_a5779af37ecfc3fc6bb964ceca2399916}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!GeneralAIEnemy@{GeneralAIEnemy}}
+\index{GeneralAIEnemy@{GeneralAIEnemy}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{GeneralAIEnemy}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAIEnemy.GeneralAIEnemy (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{unit}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_enemy_a5779af37ecfc3fc6bb964ceca2399916}
+Constructs a new enemy knowledge thingy 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_ae978f80f0eda19ac4481536719287f8d}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!action\_\-succeeded@{action\_\-succeeded}}
+\index{action\_\-succeeded@{action\_\-succeeded}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{action\_\-succeeded}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIEnemy.action\_\-succeeded (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_ae978f80f0eda19ac4481536719287f8d}
+Some kind of action succeeded 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+{\em type} & the type of the action \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_ac1c3cfb3e42fc68123d3be827013d7f5}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAIEnemy.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_ac1c3cfb3e42fc68123d3be827013d7f5}
+Calculates the distance from the unit to this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_acca3e26cc71ed08e439d229ab1e6327f}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}float ai.general.GeneralAIEnemy.evaluate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_enemy_acca3e26cc71ed08e439d229ab1e6327f}
+Evaluates how good of a unit this is \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_af06251179b134f771a5b66eda70f8e1c}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!order\_\-unit@{order\_\-unit}}
+\index{order\_\-unit@{order\_\-unit}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{order\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIEnemy.order\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_af06251179b134f771a5b66eda70f8e1c}
+Orders a unit to interact with this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_afeb5356cd8cf673ec19531a974c70dee}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIEnemy.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_afeb5356cd8cf673ec19531a974c70dee}
+This unit has been removed from the object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_a4503bbce0cbbed64df4b153773f90dab}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!update\_\-orders@{update\_\-orders}}
+\index{update\_\-orders@{update\_\-orders}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{update\_\-orders}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIEnemy.update\_\-orders (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_a4503bbce0cbbed64df4b153773f90dab}
+Updates the orders of a unit $\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{ai.general.GeneralAIObject}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_enemy_a00043e01ec4356d4a673ceb7d3ff4990}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!dead@{dead}}
+\index{dead@{dead}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{dead}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAIEnemy.dead}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_a00043e01ec4356d4a673ceb7d3ff4990}
+whether or not this guy is dead \hypertarget{classai_1_1general_1_1_general_a_i_enemy_abdcc6550ac64a4bd7ffb14d2b3aa9b08}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!priority@{priority}}
+\index{priority@{priority}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{priority}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIEnemy.priority}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_abdcc6550ac64a4bd7ffb14d2b3aa9b08}
+additionaly priority to kill this unit \hypertarget{classai_1_1general_1_1_general_a_i_enemy_aa778be6f916aabee5103959fdddc3aa9}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!seen@{seen}}
+\index{seen@{seen}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{seen}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.general.GeneralAIEnemy.seen}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_aa778be6f916aabee5103959fdddc3aa9}
+whether or not this guy has been seen before \hypertarget{classai_1_1general_1_1_general_a_i_enemy_a722f790fd65127c725643ce9752fd8c4}{
+\index{ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}!stats@{stats}}
+\index{stats@{stats}!ai::general::GeneralAIEnemy@{ai::general::GeneralAIEnemy}}
+\subsubsection[{stats}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Unit} {\bf ai.general.GeneralAIEnemy.stats}}}
+\label{classai_1_1general_1_1_general_a_i_enemy_a722f790fd65127c725643ce9752fd8c4}
+the last known unit object for this enemy 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_enemy_8java}{GeneralAIEnemy.java}\end{DoxyCompactItemize}

@@ -1,0 +1,101 @@
+\hypertarget{classai_1_1general_1_1_town_manager}{
+\section{ai.general.TownManager Class Reference}
+\label{classai_1_1general_1_1_town_manager}\index{ai::general::TownManager@{ai::general::TownManager}}
+}
+
+
+A defense manager, mostly.  
+
+
+Inheritance diagram for ai.general.TownManager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_town_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_town_manager_acb9c84feba6629bb808841aa0f12874e}{TownManager} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_town_manager_a3817fd7714079f01a3897b6322bc45cf}{update} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_town_manager_ab76719826ebe7db01b4c49abfe819088}{manage\_\-units} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_town}{GeneralAITown} $>$ \hyperlink{classai_1_1general_1_1_town_manager_ae486639caf2ee8d6cff4cf94a7d6d687}{towns}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A defense manager, mostly. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_town_manager_acb9c84feba6629bb808841aa0f12874e}{
+\index{ai::general::TownManager@{ai::general::TownManager}!TownManager@{TownManager}}
+\index{TownManager@{TownManager}!ai::general::TownManager@{ai::general::TownManager}}
+\subsubsection[{TownManager}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.TownManager.TownManager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_town_manager_acb9c84feba6629bb808841aa0f12874e}
+Constructs a new town manager 
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_town_manager_ab76719826ebe7db01b4c49abfe819088}{
+\index{ai::general::TownManager@{ai::general::TownManager}!manage\_\-units@{manage\_\-units}}
+\index{manage\_\-units@{manage\_\-units}!ai::general::TownManager@{ai::general::TownManager}}
+\subsubsection[{manage\_\-units}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.TownManager.manage\_\-units (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_town_manager_ab76719826ebe7db01b4c49abfe819088}
+Requests units to come and protect this town! 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{ai.general.TaskManager}.
+
+\hypertarget{classai_1_1general_1_1_town_manager_a3817fd7714079f01a3897b6322bc45cf}{
+\index{ai::general::TownManager@{ai::general::TownManager}!update@{update}}
+\index{update@{update}!ai::general::TownManager@{ai::general::TownManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.TownManager.update (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_town_manager_a3817fd7714079f01a3897b6322bc45cf}
+Updates the data of the task manager 
+\begin{DoxyParams}{Parameters}
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{ai.general.TaskManager}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_town_manager_ae486639caf2ee8d6cff4cf94a7d6d687}{
+\index{ai::general::TownManager@{ai::general::TownManager}!towns@{towns}}
+\index{towns@{towns}!ai::general::TownManager@{ai::general::TownManager}}
+\subsubsection[{towns}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAITown}$>$ {\bf ai.general.TownManager.towns}}}
+\label{classai_1_1general_1_1_town_manager_ae486639caf2ee8d6cff4cf94a7d6d687}
+all of the towns we've built 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_town_manager_8java}{TownManager.java}\end{DoxyCompactItemize}

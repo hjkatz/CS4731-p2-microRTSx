@@ -1,0 +1,162 @@
+\hypertarget{classai_1_1general_1_1_attack_manager}{
+\section{ai.general.AttackManager Class Reference}
+\label{classai_1_1general_1_1_attack_manager}\index{ai::general::AttackManager@{ai::general::AttackManager}}
+}
+
+
+Manages engaging the enemy.  
+
+
+Inheritance diagram for ai.general.AttackManager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_attack_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_attack_manager_af228fbbf4c0cfbbe61c7862e04497790}{AttackManager} (ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} $>$ \hyperlink{classai_1_1general_1_1_task_manager_af1f1456711a8fae38008a1f257499a40}{units})
+\item 
+void \hyperlink{classai_1_1general_1_1_attack_manager_ac58488b9d0607214f5f7c7750446e107}{manage\_\-units} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_attack_manager_a6776ff3d2b303c7f9301b94afb646b00}{update} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_attack_manager_a42765ba36921d2b25462bb3d1fe9f7bd}{remove\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_enemy}{GeneralAIEnemy} $>$ \hyperlink{classai_1_1general_1_1_attack_manager_a53d8def4a0c0dfc670b1b6b48dc2f672}{enemies}
+\item 
+float \hyperlink{classai_1_1general_1_1_attack_manager_aab9e1ce511b6c0764d792ab3c2103785}{enemy\_\-evaluation}
+\item 
+float \hyperlink{classai_1_1general_1_1_attack_manager_ad41874870bb278b128ce86d454b88335}{army\_\-evaluation}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classai_1_1general_1_1_attack_manager_afdc4a2a128fad3668c8574c08a68a095}{cheapest\_\-unit}
+\item 
+int \hyperlink{classai_1_1general_1_1_attack_manager_abea8941d89fe13d1881fe0678dea992f}{expensive\_\-unit}
+\item 
+int \hyperlink{classai_1_1general_1_1_attack_manager_a912061f6610cd3044c1b4988d82df9f9}{strongest\_\-unit}
+\item 
+int \hyperlink{classai_1_1general_1_1_attack_manager_aa3699a50514e74fe1d952ab992ca3e17}{weakest\_\-unit}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages engaging the enemy. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_attack_manager_af228fbbf4c0cfbbe61c7862e04497790}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!AttackManager@{AttackManager}}
+\index{AttackManager@{AttackManager}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{AttackManager}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.AttackManager.AttackManager (
+\begin{DoxyParamCaption}
+\item[{ArrayList$<$ {\bf GeneralAIProduction} $>$}]{units}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_attack_manager_af228fbbf4c0cfbbe61c7862e04497790}
+Constructs a new attack manager 
+\begin{DoxyParams}{Parameters}
+{\em units} & list of all possible units defintions \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_attack_manager_ac58488b9d0607214f5f7c7750446e107}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!manage\_\-units@{manage\_\-units}}
+\index{manage\_\-units@{manage\_\-units}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{manage\_\-units}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.AttackManager.manage\_\-units (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_attack_manager_ac58488b9d0607214f5f7c7750446e107}
+Requests units to start fighting foes 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{ai.general.TaskManager}.
+
+\hypertarget{classai_1_1general_1_1_attack_manager_a42765ba36921d2b25462bb3d1fe9f7bd}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!remove\_\-unit@{remove\_\-unit}}
+\index{remove\_\-unit@{remove\_\-unit}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{remove\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.AttackManager.remove\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_attack_manager_a42765ba36921d2b25462bb3d1fe9f7bd}
+Removes this unit from the the manager 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit to remove \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_attack_manager_a6776ff3d2b303c7f9301b94afb646b00}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!update@{update}}
+\index{update@{update}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.AttackManager.update (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_attack_manager_a6776ff3d2b303c7f9301b94afb646b00}
+Updates foe knowledge 
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{ai.general.TaskManager}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_attack_manager_ad41874870bb278b128ce86d454b88335}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!army\_\-evaluation@{army\_\-evaluation}}
+\index{army\_\-evaluation@{army\_\-evaluation}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{army\_\-evaluation}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf ai.general.AttackManager.army\_\-evaluation}}}
+\label{classai_1_1general_1_1_attack_manager_ad41874870bb278b128ce86d454b88335}
+evaluation of my (attacking units only) army \hypertarget{classai_1_1general_1_1_attack_manager_afdc4a2a128fad3668c8574c08a68a095}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!cheapest\_\-unit@{cheapest\_\-unit}}
+\index{cheapest\_\-unit@{cheapest\_\-unit}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{cheapest\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.AttackManager.cheapest\_\-unit}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_attack_manager_afdc4a2a128fad3668c8574c08a68a095}
+cheapest unit \hypertarget{classai_1_1general_1_1_attack_manager_a53d8def4a0c0dfc670b1b6b48dc2f672}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!enemies@{enemies}}
+\index{enemies@{enemies}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{enemies}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIEnemy}$>$ {\bf ai.general.AttackManager.enemies}}}
+\label{classai_1_1general_1_1_attack_manager_a53d8def4a0c0dfc670b1b6b48dc2f672}
+enemy units \hypertarget{classai_1_1general_1_1_attack_manager_aab9e1ce511b6c0764d792ab3c2103785}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!enemy\_\-evaluation@{enemy\_\-evaluation}}
+\index{enemy\_\-evaluation@{enemy\_\-evaluation}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{enemy\_\-evaluation}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf ai.general.AttackManager.enemy\_\-evaluation}}}
+\label{classai_1_1general_1_1_attack_manager_aab9e1ce511b6c0764d792ab3c2103785}
+evaluation (or prediction) of the enemy's might \hypertarget{classai_1_1general_1_1_attack_manager_abea8941d89fe13d1881fe0678dea992f}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!expensive\_\-unit@{expensive\_\-unit}}
+\index{expensive\_\-unit@{expensive\_\-unit}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{expensive\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.AttackManager.expensive\_\-unit}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_attack_manager_abea8941d89fe13d1881fe0678dea992f}
+most expensive unit \hypertarget{classai_1_1general_1_1_attack_manager_a912061f6610cd3044c1b4988d82df9f9}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!strongest\_\-unit@{strongest\_\-unit}}
+\index{strongest\_\-unit@{strongest\_\-unit}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{strongest\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.AttackManager.strongest\_\-unit}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_attack_manager_a912061f6610cd3044c1b4988d82df9f9}
+cheapest unit \hypertarget{classai_1_1general_1_1_attack_manager_aa3699a50514e74fe1d952ab992ca3e17}{
+\index{ai::general::AttackManager@{ai::general::AttackManager}!weakest\_\-unit@{weakest\_\-unit}}
+\index{weakest\_\-unit@{weakest\_\-unit}!ai::general::AttackManager@{ai::general::AttackManager}}
+\subsubsection[{weakest\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.AttackManager.weakest\_\-unit}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_attack_manager_aa3699a50514e74fe1d952ab992ca3e17}
+most expensive unit 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_attack_manager_8java}{AttackManager.java}\end{DoxyCompactItemize}

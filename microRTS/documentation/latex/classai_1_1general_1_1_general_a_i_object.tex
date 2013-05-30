@@ -1,0 +1,153 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_object}{
+\section{ai.general.GeneralAIObject Class Reference}
+\label{classai_1_1general_1_1_general_a_i_object}\index{ai::general::GeneralAIObject@{ai::general::GeneralAIObject}}
+}
+
+
+Objects that ai units can interact with.  
+
+
+Inheritance diagram for ai.general.GeneralAIObject:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.114428cm]{classai_1_1general_1_1_general_a_i_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract void \hyperlink{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{update\_\-orders} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+abstract void \hyperlink{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{order\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+abstract int \hyperlink{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+abstract void \hyperlink{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{action\_\-succeeded} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int type)
+\item 
+abstract void \hyperlink{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Objects that ai units can interact with. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{
+\index{ai::general::GeneralAIObject@{ai::general::GeneralAIObject}!action\_\-succeeded@{action\_\-succeeded}}
+\index{action\_\-succeeded@{action\_\-succeeded}!ai::general::GeneralAIObject@{ai::general::GeneralAIObject}}
+\subsubsection[{action\_\-succeeded}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.general.GeneralAIObject.action\_\-succeeded (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}
+Some kind of action succeeded 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+{\em type} & the type of the action \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_general_a_i_enemy_ae978f80f0eda19ac4481536719287f8d}{ai.general.GeneralAIEnemy}, \hyperlink{classai_1_1general_1_1_general_a_i_exploration_ac0656aff8a8e64071581a69c20231d3b}{ai.general.GeneralAIExploration}, \hyperlink{classai_1_1general_1_1_general_a_i_farm_a1278da6c442be04e8a63e2a7f1dd0015}{ai.general.GeneralAIFarm}, \hyperlink{classai_1_1general_1_1_general_a_i_production_ad9da9c04211753d7a7a740a0a2aaa410}{ai.general.GeneralAIProduction}, and \hyperlink{classai_1_1general_1_1_general_a_i_town_a74842a9ebfb725c2a82c3cfa2302165b}{ai.general.GeneralAITown}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{
+\index{ai::general::GeneralAIObject@{ai::general::GeneralAIObject}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAIObject@{ai::general::GeneralAIObject}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}abstract int ai.general.GeneralAIObject.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}
+Calculates the distance from the unit to this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_general_a_i_enemy_ac1c3cfb3e42fc68123d3be827013d7f5}{ai.general.GeneralAIEnemy}, \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a5e6d8e8dffaa861c94f89ae91592f4af}{ai.general.GeneralAIExploration}, \hyperlink{classai_1_1general_1_1_general_a_i_farm_a2d9ab033a4a9ef3eb4429726d7141fd8}{ai.general.GeneralAIFarm}, \hyperlink{classai_1_1general_1_1_general_a_i_production_a1ce12191227110b21e0822e336f2d3da}{ai.general.GeneralAIProduction}, and \hyperlink{classai_1_1general_1_1_general_a_i_town_a08398ead5c3de183c9722463aa13faa3}{ai.general.GeneralAITown}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{
+\index{ai::general::GeneralAIObject@{ai::general::GeneralAIObject}!order\_\-unit@{order\_\-unit}}
+\index{order\_\-unit@{order\_\-unit}!ai::general::GeneralAIObject@{ai::general::GeneralAIObject}}
+\subsubsection[{order\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.general.GeneralAIObject.order\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}
+Orders a unit to interact with this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_general_a_i_enemy_af06251179b134f771a5b66eda70f8e1c}{ai.general.GeneralAIEnemy}, \hyperlink{classai_1_1general_1_1_general_a_i_exploration_ae10885edd55c17722d32d198e2bcf93f}{ai.general.GeneralAIExploration}, \hyperlink{classai_1_1general_1_1_general_a_i_farm_aa6b6f6dceb9c0eb2ba3384b3910aaf6e}{ai.general.GeneralAIFarm}, \hyperlink{classai_1_1general_1_1_general_a_i_production_a7a6cf1e02648e423cfb3860ff4e3ac1c}{ai.general.GeneralAIProduction}, and \hyperlink{classai_1_1general_1_1_general_a_i_town_a73a19cdf93f393fcaf97b1cab016f0d9}{ai.general.GeneralAITown}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{
+\index{ai::general::GeneralAIObject@{ai::general::GeneralAIObject}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAIObject@{ai::general::GeneralAIObject}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.general.GeneralAIObject.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}
+This unit has been removed from the object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_general_a_i_enemy_afeb5356cd8cf673ec19531a974c70dee}{ai.general.GeneralAIEnemy}, \hyperlink{classai_1_1general_1_1_general_a_i_exploration_afda46ba60d3ad8b6c7447c031db284cf}{ai.general.GeneralAIExploration}, \hyperlink{classai_1_1general_1_1_general_a_i_farm_a363263e89c3beeef01624e6e29add8b8}{ai.general.GeneralAIFarm}, \hyperlink{classai_1_1general_1_1_general_a_i_production_a0bbe11733d369676b1ed5ab7308dcdb2}{ai.general.GeneralAIProduction}, and \hyperlink{classai_1_1general_1_1_general_a_i_town_ad886c779c1766b6817067b54232770d6}{ai.general.GeneralAITown}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{
+\index{ai::general::GeneralAIObject@{ai::general::GeneralAIObject}!update\_\-orders@{update\_\-orders}}
+\index{update\_\-orders@{update\_\-orders}!ai::general::GeneralAIObject@{ai::general::GeneralAIObject}}
+\subsubsection[{update\_\-orders}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.general.GeneralAIObject.update\_\-orders (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}
+Updates the orders of a unit $\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_general_a_i_enemy_a4503bbce0cbbed64df4b153773f90dab}{ai.general.GeneralAIEnemy}, \hyperlink{classai_1_1general_1_1_general_a_i_exploration_a988a511aa307a340e4052518190340b8}{ai.general.GeneralAIExploration}, \hyperlink{classai_1_1general_1_1_general_a_i_farm_a469a9e413a64b67c7f33dc042d0fdb98}{ai.general.GeneralAIFarm}, \hyperlink{classai_1_1general_1_1_general_a_i_production_a957e8794fc7e461a4a5ee270f891cc0e}{ai.general.GeneralAIProduction}, and \hyperlink{classai_1_1general_1_1_general_a_i_town_a390550d776f507012f3c4def087daddf}{ai.general.GeneralAITown}.
+
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_object_8java}{GeneralAIObject.java}\end{DoxyCompactItemize}

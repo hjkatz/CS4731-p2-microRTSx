@@ -1,0 +1,408 @@
+\hypertarget{classrts_1_1_game_state}{
+\section{rts.GameState Class Reference}
+\label{classrts_1_1_game_state}\index{rts::GameState@{rts::GameState}}
+}
+
+
+Provides read access to game elements used by AIs.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1_game_state_ab0522c9d44d88d21cf9aeb5357655580}{GameState} (\hyperlink{classrts_1_1_physical_game_state}{PhysicalGameState} a\_\-pgs)
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ \hyperlink{classrts_1_1_game_state_a7c782cec7800b39974e1bb1f1fdc4232}{getMyUnits} ()
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ \hyperlink{classrts_1_1_game_state_a1184758768b215a209c88ce291bfe73d}{getOtherUnits} ()
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ \hyperlink{classrts_1_1_game_state_a915302bd7f6a886c7e4bb6bdce5a2552}{getNeutralUnits} ()
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classrts_1_1_game_state_ab624a7bdb7e1899272f250f70d2069b1}{getMap} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_a03c25b47217dcab0f05579749b246f85}{getResources} (int type)
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classrts_1_1_game_state_a7190a4f5cac02e2a8e8886e8dbdb9c65}{getResources} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_ae1bce4055b4dd7d72086dd088a8fb68b}{getResourceTypes} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_ac1358dbc75a5d67cb514a4780a4f3f5a}{getMapWidth} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_a7ce630ad8baf4951791dbb1fdaeb25e7}{getMapHeight} ()
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_upgrade}{UnitUpgrade} $>$ \hyperlink{classrts_1_1_game_state_a00fda1a4125d809e1133952996dc65cb}{getUnitUpgrades} ()
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_upgrade}{UnitUpgrade} $>$ \hyperlink{classrts_1_1_game_state_a03f3ea2f7b2adb753694640ac39bc137}{getBuildingUpgrades} ()
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ \hyperlink{classrts_1_1_game_state_a747a9b452f6f523b111b5514688371dd}{getUnitList} ()
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ \hyperlink{classrts_1_1_game_state_a399feef9dac8584ae6e7480ecb573fb3}{getBuildingList} ()
+\item 
+boolean \hyperlink{classrts_1_1_game_state_ae7a0a1ef1bf0da51698ae5b9b572c4aa}{isFog} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_afce4924a2e0cfc3dec27d36fe7f7eb57}{getPlayers} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_a7ddc9862d7e3f2e0769f36bca696c094}{getPlayerID} ()
+\item 
+int \hyperlink{classrts_1_1_game_state_a81b78fd1308e71be6ba2c380280f3b69}{numberOfTeams} ()
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classrts_1_1_game_state_a0ffd9ba27b729ac65d48db250b73590d}{getTeam} (int team)
+\item 
+void \hyperlink{classrts_1_1_game_state_a24d74971777021954b07e350e931eb0d}{update} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classrts_1_1_game_state_a530c303576be610b056108a2f8170aab}{MAP\_\-FOG} = 1
+\item 
+static final int \hyperlink{classrts_1_1_game_state_a439d94001bcac138eb445a25b389f3ed}{MAP\_\-WALL} = 2
+\item 
+static final int \hyperlink{classrts_1_1_game_state_a409da5852f5fbcb2bd2bdce1bfed6ecd}{MAP\_\-PLAYER} = 4
+\item 
+static final int \hyperlink{classrts_1_1_game_state_a91ca0cc55905241db9813413990ce41b}{MAP\_\-NEUTRAL} = 8
+\item 
+static final int \hyperlink{classrts_1_1_game_state_ad8c202b6a846602677feafec3a508a37}{MAP\_\-NONPLAYER} = 16
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1_physical_game_state}{PhysicalGameState} \hyperlink{classrts_1_1_game_state_a9e061a6e9a219af587ccbca6147fb60f}{pgs} = null
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ \hyperlink{classrts_1_1_game_state_a37347cda7fc0b8cd1d2c2738b45bb068}{myUnits}
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ \hyperlink{classrts_1_1_game_state_aaf3bea167aabf21bf32fb44f72197bc4}{otherUnits}
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ \hyperlink{classrts_1_1_game_state_a8e16ac422a2682adc45bc06e6e34dd07}{neutralUnits}
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ \hyperlink{classrts_1_1_game_state_a3e9c10b2ea5bd3d4bbc5eb77ec8f6c3f}{unitList}
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ \hyperlink{classrts_1_1_game_state_ab612a7622eee72c8f87534b03b94757f}{buildingList}
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classrts_1_1_game_state_a342fc32df68177900b83b038ff416cb1}{map}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Provides read access to game elements used by AIs. 
+
+\begin{DoxyAuthor}{Author}
+santi 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrts_1_1_game_state_ab0522c9d44d88d21cf9aeb5357655580}{
+\index{rts::GameState@{rts::GameState}!GameState@{GameState}}
+\index{GameState@{GameState}!rts::GameState@{rts::GameState}}
+\subsubsection[{GameState}]{\setlength{\rightskip}{0pt plus 5cm}rts.GameState.GameState (
+\begin{DoxyParamCaption}
+\item[{{\bf PhysicalGameState}}]{a\_\-pgs}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_ab0522c9d44d88d21cf9aeb5357655580}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrts_1_1_game_state_a399feef9dac8584ae6e7480ecb573fb3}{
+\index{rts::GameState@{rts::GameState}!getBuildingList@{getBuildingList}}
+\index{getBuildingList@{getBuildingList}!rts::GameState@{rts::GameState}}
+\subsubsection[{getBuildingList}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitDefinition}$>$ rts.GameState.getBuildingList (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a399feef9dac8584ae6e7480ecb573fb3}
+Retrusn the list of buildings that can be built \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a03f3ea2f7b2adb753694640ac39bc137}{
+\index{rts::GameState@{rts::GameState}!getBuildingUpgrades@{getBuildingUpgrades}}
+\index{getBuildingUpgrades@{getBuildingUpgrades}!rts::GameState@{rts::GameState}}
+\subsubsection[{getBuildingUpgrades}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitUpgrade}$>$ rts.GameState.getBuildingUpgrades (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a03f3ea2f7b2adb753694640ac39bc137}
+Returns the list of building upgrades \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_ab624a7bdb7e1899272f250f70d2069b1}{
+\index{rts::GameState@{rts::GameState}!getMap@{getMap}}
+\index{getMap@{getMap}!rts::GameState@{rts::GameState}}
+\subsubsection[{getMap}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} rts.GameState.getMap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_ab624a7bdb7e1899272f250f70d2069b1}
+Returns the map \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a7ce630ad8baf4951791dbb1fdaeb25e7}{
+\index{rts::GameState@{rts::GameState}!getMapHeight@{getMapHeight}}
+\index{getMapHeight@{getMapHeight}!rts::GameState@{rts::GameState}}
+\subsubsection[{getMapHeight}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.getMapHeight (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a7ce630ad8baf4951791dbb1fdaeb25e7}
+Returns the height of the map \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_ac1358dbc75a5d67cb514a4780a4f3f5a}{
+\index{rts::GameState@{rts::GameState}!getMapWidth@{getMapWidth}}
+\index{getMapWidth@{getMapWidth}!rts::GameState@{rts::GameState}}
+\subsubsection[{getMapWidth}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.getMapWidth (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_ac1358dbc75a5d67cb514a4780a4f3f5a}
+Returns the width of the map \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a7c782cec7800b39974e1bb1f1fdc4232}{
+\index{rts::GameState@{rts::GameState}!getMyUnits@{getMyUnits}}
+\index{getMyUnits@{getMyUnits}!rts::GameState@{rts::GameState}}
+\subsubsection[{getMyUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Unit}$>$ rts.GameState.getMyUnits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a7c782cec7800b39974e1bb1f1fdc4232}
+Returns the current player's units \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a915302bd7f6a886c7e4bb6bdce5a2552}{
+\index{rts::GameState@{rts::GameState}!getNeutralUnits@{getNeutralUnits}}
+\index{getNeutralUnits@{getNeutralUnits}!rts::GameState@{rts::GameState}}
+\subsubsection[{getNeutralUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Unit}$>$ rts.GameState.getNeutralUnits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a915302bd7f6a886c7e4bb6bdce5a2552}
+Neutral units \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a1184758768b215a209c88ce291bfe73d}{
+\index{rts::GameState@{rts::GameState}!getOtherUnits@{getOtherUnits}}
+\index{getOtherUnits@{getOtherUnits}!rts::GameState@{rts::GameState}}
+\subsubsection[{getOtherUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Unit}$>$ rts.GameState.getOtherUnits (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a1184758768b215a209c88ce291bfe73d}
+Non-\/player units \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a7ddc9862d7e3f2e0769f36bca696c094}{
+\index{rts::GameState@{rts::GameState}!getPlayerID@{getPlayerID}}
+\index{getPlayerID@{getPlayerID}!rts::GameState@{rts::GameState}}
+\subsubsection[{getPlayerID}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.getPlayerID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a7ddc9862d7e3f2e0769f36bca696c094}
+Returns the current player's id \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_afce4924a2e0cfc3dec27d36fe7f7eb57}{
+\index{rts::GameState@{rts::GameState}!getPlayers@{getPlayers}}
+\index{getPlayers@{getPlayers}!rts::GameState@{rts::GameState}}
+\subsubsection[{getPlayers}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.getPlayers (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_afce4924a2e0cfc3dec27d36fe7f7eb57}
+Returns how many different players there are \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a03c25b47217dcab0f05579749b246f85}{
+\index{rts::GameState@{rts::GameState}!getResources@{getResources}}
+\index{getResources@{getResources}!rts::GameState@{rts::GameState}}
+\subsubsection[{getResources}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.getResources (
+\begin{DoxyParamCaption}
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a03c25b47217dcab0f05579749b246f85}
+Returns the resources for the current player 
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a7190a4f5cac02e2a8e8886e8dbdb9c65}{
+\index{rts::GameState@{rts::GameState}!getResources@{getResources}}
+\index{getResources@{getResources}!rts::GameState@{rts::GameState}}
+\subsubsection[{getResources}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ rts.GameState.getResources (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a7190a4f5cac02e2a8e8886e8dbdb9c65}
+Returns a copy of the list of resources \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_ae1bce4055b4dd7d72086dd088a8fb68b}{
+\index{rts::GameState@{rts::GameState}!getResourceTypes@{getResourceTypes}}
+\index{getResourceTypes@{getResourceTypes}!rts::GameState@{rts::GameState}}
+\subsubsection[{getResourceTypes}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.getResourceTypes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_ae1bce4055b4dd7d72086dd088a8fb68b}
+Returns how many resource types there are \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a0ffd9ba27b729ac65d48db250b73590d}{
+\index{rts::GameState@{rts::GameState}!getTeam@{getTeam}}
+\index{getTeam@{getTeam}!rts::GameState@{rts::GameState}}
+\subsubsection[{getTeam}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ rts.GameState.getTeam (
+\begin{DoxyParamCaption}
+\item[{int}]{team}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a0ffd9ba27b729ac65d48db250b73590d}
+Returns the specified team 
+\begin{DoxyParams}{Parameters}
+{\em team} & the team \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the team 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a747a9b452f6f523b111b5514688371dd}{
+\index{rts::GameState@{rts::GameState}!getUnitList@{getUnitList}}
+\index{getUnitList@{getUnitList}!rts::GameState@{rts::GameState}}
+\subsubsection[{getUnitList}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitDefinition}$>$ rts.GameState.getUnitList (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a747a9b452f6f523b111b5514688371dd}
+Returns the list of units that can be built \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a00fda1a4125d809e1133952996dc65cb}{
+\index{rts::GameState@{rts::GameState}!getUnitUpgrades@{getUnitUpgrades}}
+\index{getUnitUpgrades@{getUnitUpgrades}!rts::GameState@{rts::GameState}}
+\subsubsection[{getUnitUpgrades}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitUpgrade}$>$ rts.GameState.getUnitUpgrades (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a00fda1a4125d809e1133952996dc65cb}
+Returns the list of upgrades for units \begin{DoxyReturn}{Returns}
+unit upgrades 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_ae7a0a1ef1bf0da51698ae5b9b572c4aa}{
+\index{rts::GameState@{rts::GameState}!isFog@{isFog}}
+\index{isFog@{isFog}!rts::GameState@{rts::GameState}}
+\subsubsection[{isFog}]{\setlength{\rightskip}{0pt plus 5cm}boolean rts.GameState.isFog (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_ae7a0a1ef1bf0da51698ae5b9b572c4aa}
+Whether or not there is fog of war \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a81b78fd1308e71be6ba2c380280f3b69}{
+\index{rts::GameState@{rts::GameState}!numberOfTeams@{numberOfTeams}}
+\index{numberOfTeams@{numberOfTeams}!rts::GameState@{rts::GameState}}
+\subsubsection[{numberOfTeams}]{\setlength{\rightskip}{0pt plus 5cm}int rts.GameState.numberOfTeams (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a81b78fd1308e71be6ba2c380280f3b69}
+Returns the number of teams \begin{DoxyReturn}{Returns}
+the number of teams 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1_game_state_a24d74971777021954b07e350e931eb0d}{
+\index{rts::GameState@{rts::GameState}!update@{update}}
+\index{update@{update}!rts::GameState@{rts::GameState}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void rts.GameState.update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1_game_state_a24d74971777021954b07e350e931eb0d}
+Updates the game state for the current player 
+
+\subsection{Member Data Documentation}
+\hypertarget{classrts_1_1_game_state_ab612a7622eee72c8f87534b03b94757f}{
+\index{rts::GameState@{rts::GameState}!buildingList@{buildingList}}
+\index{buildingList@{buildingList}!rts::GameState@{rts::GameState}}
+\subsubsection[{buildingList}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitDefinition}$>$ {\bf rts.GameState.buildingList}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_ab612a7622eee72c8f87534b03b94757f}
+list of buildings \hypertarget{classrts_1_1_game_state_a342fc32df68177900b83b038ff416cb1}{
+\index{rts::GameState@{rts::GameState}!map@{map}}
+\index{map@{map}!rts::GameState@{rts::GameState}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} {\bf rts.GameState.map}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_a342fc32df68177900b83b038ff416cb1}
+visible map \hypertarget{classrts_1_1_game_state_a530c303576be610b056108a2f8170aab}{
+\index{rts::GameState@{rts::GameState}!MAP\_\-FOG@{MAP\_\-FOG}}
+\index{MAP\_\-FOG@{MAP\_\-FOG}!rts::GameState@{rts::GameState}}
+\subsubsection[{MAP\_\-FOG}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.GameState.MAP\_\-FOG} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1_game_state_a530c303576be610b056108a2f8170aab}
+(bitmask) the tile has fog of war flag \hypertarget{classrts_1_1_game_state_a91ca0cc55905241db9813413990ce41b}{
+\index{rts::GameState@{rts::GameState}!MAP\_\-NEUTRAL@{MAP\_\-NEUTRAL}}
+\index{MAP\_\-NEUTRAL@{MAP\_\-NEUTRAL}!rts::GameState@{rts::GameState}}
+\subsubsection[{MAP\_\-NEUTRAL}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.GameState.MAP\_\-NEUTRAL} = 8\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1_game_state_a91ca0cc55905241db9813413990ce41b}
+(bitmask) the tile has the neutral player's unit \hypertarget{classrts_1_1_game_state_ad8c202b6a846602677feafec3a508a37}{
+\index{rts::GameState@{rts::GameState}!MAP\_\-NONPLAYER@{MAP\_\-NONPLAYER}}
+\index{MAP\_\-NONPLAYER@{MAP\_\-NONPLAYER}!rts::GameState@{rts::GameState}}
+\subsubsection[{MAP\_\-NONPLAYER}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.GameState.MAP\_\-NONPLAYER} = 16\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1_game_state_ad8c202b6a846602677feafec3a508a37}
+(bitmask) the tile has a unit that isn't the current or neutral player's \hypertarget{classrts_1_1_game_state_a409da5852f5fbcb2bd2bdce1bfed6ecd}{
+\index{rts::GameState@{rts::GameState}!MAP\_\-PLAYER@{MAP\_\-PLAYER}}
+\index{MAP\_\-PLAYER@{MAP\_\-PLAYER}!rts::GameState@{rts::GameState}}
+\subsubsection[{MAP\_\-PLAYER}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.GameState.MAP\_\-PLAYER} = 4\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1_game_state_a409da5852f5fbcb2bd2bdce1bfed6ecd}
+(bitmask) the tile has the current player's unit \hypertarget{classrts_1_1_game_state_a439d94001bcac138eb445a25b389f3ed}{
+\index{rts::GameState@{rts::GameState}!MAP\_\-WALL@{MAP\_\-WALL}}
+\index{MAP\_\-WALL@{MAP\_\-WALL}!rts::GameState@{rts::GameState}}
+\subsubsection[{MAP\_\-WALL}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.GameState.MAP\_\-WALL} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1_game_state_a439d94001bcac138eb445a25b389f3ed}
+(bitmask) the tile has the wall flag \hypertarget{classrts_1_1_game_state_a37347cda7fc0b8cd1d2c2738b45bb068}{
+\index{rts::GameState@{rts::GameState}!myUnits@{myUnits}}
+\index{myUnits@{myUnits}!rts::GameState@{rts::GameState}}
+\subsubsection[{myUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Unit}$>$ {\bf rts.GameState.myUnits}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_a37347cda7fc0b8cd1d2c2738b45bb068}
+current player's units \hypertarget{classrts_1_1_game_state_a8e16ac422a2682adc45bc06e6e34dd07}{
+\index{rts::GameState@{rts::GameState}!neutralUnits@{neutralUnits}}
+\index{neutralUnits@{neutralUnits}!rts::GameState@{rts::GameState}}
+\subsubsection[{neutralUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Unit}$>$ {\bf rts.GameState.neutralUnits}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_a8e16ac422a2682adc45bc06e6e34dd07}
+neutral units \hypertarget{classrts_1_1_game_state_aaf3bea167aabf21bf32fb44f72197bc4}{
+\index{rts::GameState@{rts::GameState}!otherUnits@{otherUnits}}
+\index{otherUnits@{otherUnits}!rts::GameState@{rts::GameState}}
+\subsubsection[{otherUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf Unit}$>$ {\bf rts.GameState.otherUnits}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_aaf3bea167aabf21bf32fb44f72197bc4}
+other units that the current player sees \hypertarget{classrts_1_1_game_state_a9e061a6e9a219af587ccbca6147fb60f}{
+\index{rts::GameState@{rts::GameState}!pgs@{pgs}}
+\index{pgs@{pgs}!rts::GameState@{rts::GameState}}
+\subsubsection[{pgs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PhysicalGameState} {\bf rts.GameState.pgs} = null\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_a9e061a6e9a219af587ccbca6147fb60f}
+\hypertarget{classrts_1_1_game_state_a3e9c10b2ea5bd3d4bbc5eb77ec8f6c3f}{
+\index{rts::GameState@{rts::GameState}!unitList@{unitList}}
+\index{unitList@{unitList}!rts::GameState@{rts::GameState}}
+\subsubsection[{unitList}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitDefinition}$>$ {\bf rts.GameState.unitList}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1_game_state_a3e9c10b2ea5bd3d4bbc5eb77ec8f6c3f}
+list of units 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/rts/\hyperlink{_game_state_8java}{GameState.java}\end{DoxyCompactItemize}

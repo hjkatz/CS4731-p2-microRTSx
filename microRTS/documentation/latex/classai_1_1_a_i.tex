@@ -1,0 +1,132 @@
+\hypertarget{classai_1_1_a_i}{
+\section{ai.AI Class Reference}
+\label{classai_1_1_a_i}\index{ai::AI@{ai::AI}}
+}
+
+
+Abstract class which \hyperlink{classai_1_1_a_i}{AI} agents must extend.  
+
+
+Inheritance diagram for ai.AI:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.686747cm]{classai_1_1_a_i}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1_a_i_a4f825aa58ed584eb5714b5010f779d65}{AI} ()
+\item 
+abstract void \hyperlink{classai_1_1_a_i_ac99863ed57cf48013d00267919044ef2}{getAction} (\hyperlink{classrts_1_1_game_state}{GameState} gs, int time\_\-limit)
+\item 
+void \hyperlink{classai_1_1_a_i_aefc10ccb08c3b52c5c47529089dbf613}{setLesion} (int l)
+\item 
+int \hyperlink{classai_1_1_a_i_a993c7f77f0b3f2b2d7ae4f37020033d0}{getLesion} ()
+\item 
+String \hyperlink{classai_1_1_a_i_a88d898fe81c137f04c130acfe9575851}{getLabel} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classai_1_1_a_i_acc53cf59d664bfb248c0ebf1f7eec938}{lesion}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract class which \hyperlink{classai_1_1_a_i}{AI} agents must extend. 
+
+\begin{DoxyAuthor}{Author}
+santi 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1_a_i_a4f825aa58ed584eb5714b5010f779d65}{
+\index{ai::AI@{ai::AI}!AI@{AI}}
+\index{AI@{AI}!ai::AI@{ai::AI}}
+\subsubsection[{AI}]{\setlength{\rightskip}{0pt plus 5cm}ai.AI.AI (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_a_i_a4f825aa58ed584eb5714b5010f779d65}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1_a_i_ac99863ed57cf48013d00267919044ef2}{
+\index{ai::AI@{ai::AI}!getAction@{getAction}}
+\index{getAction@{getAction}!ai::AI@{ai::AI}}
+\subsubsection[{getAction}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.AI.getAction (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{gs, }
+\item[{int}]{time\_\-limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1_a_i_ac99863ed57cf48013d00267919044ef2}
+Requests actions from the \hyperlink{classai_1_1_a_i}{AI} 
+\begin{DoxyParams}{Parameters}
+{\em gs} & the game state \\
+\hline
+{\em time\_\-limit} & how many milliseconds this turn is \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_general_a_i_aa25cd1f2da01ff5b29f0ec7b6fb2a633}{ai.general.GeneralAI}, \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_aec7aa71918a4809e3cdf1ee303a5f030}{ai.montecarlo.MonteCarlo}, \hyperlink{classai_1_1_random_a_i_a2dbf7a0ad2101d1e76a07eb91ac6f354}{ai.RandomAI}, and \hyperlink{classai_1_1_random_biased_a_i_a771d9ce5f142c325fcc7bd5a2e4a3215}{ai.RandomBiasedAI}.
+
+\hypertarget{classai_1_1_a_i_a88d898fe81c137f04c130acfe9575851}{
+\index{ai::AI@{ai::AI}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!ai::AI@{ai::AI}}
+\subsubsection[{getLabel}]{\setlength{\rightskip}{0pt plus 5cm}String ai.AI.getLabel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_a_i_a88d898fe81c137f04c130acfe9575851}
+Allows the agent to label itself \begin{DoxyReturn}{Returns}
+a label 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classai_1_1general_1_1_general_a_i_a987c855ee333379f1d850582a9848784}{ai.general.GeneralAI}, \hyperlink{classai_1_1_random_a_i_ae0a37eac79366a715a7f7eddad03f2be}{ai.RandomAI}, and \hyperlink{classai_1_1_random_biased_a_i_ae155794223a516cfcc47f1933059d4f6}{ai.RandomBiasedAI}.
+
+\hypertarget{classai_1_1_a_i_a993c7f77f0b3f2b2d7ae4f37020033d0}{
+\index{ai::AI@{ai::AI}!getLesion@{getLesion}}
+\index{getLesion@{getLesion}!ai::AI@{ai::AI}}
+\subsubsection[{getLesion}]{\setlength{\rightskip}{0pt plus 5cm}int ai.AI.getLesion (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_a_i_a993c7f77f0b3f2b2d7ae4f37020033d0}
+Returns the lesion \begin{DoxyReturn}{Returns}
+lesion 
+\end{DoxyReturn}
+\hypertarget{classai_1_1_a_i_aefc10ccb08c3b52c5c47529089dbf613}{
+\index{ai::AI@{ai::AI}!setLesion@{setLesion}}
+\index{setLesion@{setLesion}!ai::AI@{ai::AI}}
+\subsubsection[{setLesion}]{\setlength{\rightskip}{0pt plus 5cm}void ai.AI.setLesion (
+\begin{DoxyParamCaption}
+\item[{int}]{l}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_a_i_aefc10ccb08c3b52c5c47529089dbf613}
+Sets the lesion 
+\begin{DoxyParams}{Parameters}
+{\em l} & the new lesion \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1_a_i_acc53cf59d664bfb248c0ebf1f7eec938}{
+\index{ai::AI@{ai::AI}!lesion@{lesion}}
+\index{lesion@{lesion}!ai::AI@{ai::AI}}
+\subsubsection[{lesion}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.AI.lesion}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1_a_i_acc53cf59d664bfb248c0ebf1f7eec938}
+paramaterizable lesion 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/\hyperlink{_a_i_8java}{AI.java}\end{DoxyCompactItemize}

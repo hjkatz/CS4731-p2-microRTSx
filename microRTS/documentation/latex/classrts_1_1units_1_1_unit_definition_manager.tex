@@ -1,0 +1,350 @@
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager}{
+\section{rts.units.UnitDefinitionManager Class Reference}
+\label{classrts_1_1units_1_1_unit_definition_manager}\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+}
+
+
+All of the unit definitions.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_definition_manager_acccdfc7515bee0dd3bac08891e7f2b7f}{UnitDefinitionManager} (Element xmlRoot)
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_definition_manager_acc7891886c0641f9d7db402f86ee1788}{resourceTypes} ()
+\item 
+void \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a8be120f925e9aee14794adf4c2c89ded}{makeResource} (ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ units, ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} $>$ stats, int type, int player, int x, int y, int amount)
+\item 
+void \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a9b06bbb493d10c3a33c4bd7a1e589196}{makeUnit} (ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ units, ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} $>$ stats, int type, int player, int x, int y)
+\item 
+void \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a029128efbe5b9bd4db17947c0d2d4789}{makeBuilding} (ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit} $>$ units, ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} $>$ stats, int type, int player, int x, int y)
+\item 
+void \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a39ee130566fea5f92112c4f85fa17a9b}{setPlayers} (int players)
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a6577a1875fb14f3917553f12664e4334}{getScore} (\hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} unit)
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a4bfde8e84e38f9a093fe27ee1edae0c6}{getCopyOfUnits} (int player)
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a6e64a85b51a75a831c6ca607a76de21d}{getCopyOfBuildings} (int player)
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a260adc8c2bf00acc471f103e888859b6}{upgrade} (int player, int upgrade\_\-id)
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_definition_manager}{UnitDefinitionManager} \hyperlink{classrts_1_1units_1_1_unit_definition_manager_aa2c9de51490fd0675747dbef2e9e092a}{copy} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_ac16af3c3a81068079d8208ad38a537cd}{resource\_\-defs}
+\item 
+ArrayList$<$ ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a408e785a8b3cb7636aa8e6aeb14688af}{unit\_\-defs}
+\item 
+ArrayList$<$ ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} $>$ $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_ab890f3ed15ed6dda066d7d4906e76dff}{building\_\-defs}
+\item 
+ArrayList$<$ ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_upgrade}{UnitUpgrade} $>$ $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a9816c7d252a85c33bcd6a409657aa769}{unit\_\-upgrades}
+\item 
+ArrayList$<$ ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_upgrade}{UnitUpgrade} $>$ $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a77bfeba63104aa1bd861ed8d5831542e}{building\_\-upgrades}
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classrts_1_1units_1_1_unit_definition_manager_ad7ce99e932a21a2cf931496173b9a67e}{resource\_\-scores}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_definition_manager_a27ca6fa520ec8c77a5940819d52ec286}{getInt} (Element e, String attr)
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_definition_manager_a137c9ddff16dcdd8bbadb63a3a8024be}{UnitDefinitionManager} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+All of the unit definitions. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_acccdfc7515bee0dd3bac08891e7f2b7f}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!UnitDefinitionManager@{UnitDefinitionManager}}
+\index{UnitDefinitionManager@{UnitDefinitionManager}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{UnitDefinitionManager}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitDefinitionManager.UnitDefinitionManager (
+\begin{DoxyParamCaption}
+\item[{Element}]{xmlRoot}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_acccdfc7515bee0dd3bac08891e7f2b7f}
+Loads the unit definitions from xml 
+\begin{DoxyParams}{Parameters}
+{\em xmlRoot} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a137c9ddff16dcdd8bbadb63a3a8024be}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!UnitDefinitionManager@{UnitDefinitionManager}}
+\index{UnitDefinitionManager@{UnitDefinitionManager}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{UnitDefinitionManager}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitDefinitionManager.UnitDefinitionManager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a137c9ddff16dcdd8bbadb63a3a8024be}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_aa2c9de51490fd0675747dbef2e9e092a}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!copy@{copy}}
+\index{copy@{copy}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitDefinitionManager} rts.units.UnitDefinitionManager.copy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_aa2c9de51490fd0675747dbef2e9e092a}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a6e64a85b51a75a831c6ca607a76de21d}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!getCopyOfBuildings@{getCopyOfBuildings}}
+\index{getCopyOfBuildings@{getCopyOfBuildings}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{getCopyOfBuildings}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitDefinition}$>$ rts.units.UnitDefinitionManager.getCopyOfBuildings (
+\begin{DoxyParamCaption}
+\item[{int}]{player}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a6e64a85b51a75a831c6ca607a76de21d}
+Gets a copy of the building definitions for the specified player 
+\begin{DoxyParams}{Parameters}
+{\em player} & which player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a4bfde8e84e38f9a093fe27ee1edae0c6}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!getCopyOfUnits@{getCopyOfUnits}}
+\index{getCopyOfUnits@{getCopyOfUnits}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{getCopyOfUnits}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitDefinition}$>$ rts.units.UnitDefinitionManager.getCopyOfUnits (
+\begin{DoxyParamCaption}
+\item[{int}]{player}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a4bfde8e84e38f9a093fe27ee1edae0c6}
+Gets a copy of the unit definitions for the specified player 
+\begin{DoxyParams}{Parameters}
+{\em player} & which player \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a27ca6fa520ec8c77a5940819d52ec286}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!getInt@{getInt}}
+\index{getInt@{getInt}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{getInt}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitDefinitionManager.getInt (
+\begin{DoxyParamCaption}
+\item[{Element}]{e, }
+\item[{String}]{attr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a27ca6fa520ec8c77a5940819d52ec286}
+gets an int from the xml 
+\begin{DoxyParams}{Parameters}
+{\em e} & \\
+\hline
+{\em attr} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a6577a1875fb14f3917553f12664e4334}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!getScore@{getScore}}
+\index{getScore@{getScore}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{getScore}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitDefinitionManager.getScore (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitStats}}]{unit}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a6577a1875fb14f3917553f12664e4334}
+Returns the score for a unit 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a029128efbe5b9bd4db17947c0d2d4789}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!makeBuilding@{makeBuilding}}
+\index{makeBuilding@{makeBuilding}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{makeBuilding}]{\setlength{\rightskip}{0pt plus 5cm}void rts.units.UnitDefinitionManager.makeBuilding (
+\begin{DoxyParamCaption}
+\item[{ArrayList$<$ {\bf Unit} $>$}]{units, }
+\item[{ArrayList$<$ {\bf UnitStats} $>$}]{stats, }
+\item[{int}]{type, }
+\item[{int}]{player, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a029128efbe5b9bd4db17947c0d2d4789}
+Makes a new building 
+\begin{DoxyParams}{Parameters}
+{\em units} & \\
+\hline
+{\em stats} & \\
+\hline
+{\em type} & \\
+\hline
+{\em player} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a8be120f925e9aee14794adf4c2c89ded}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!makeResource@{makeResource}}
+\index{makeResource@{makeResource}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{makeResource}]{\setlength{\rightskip}{0pt plus 5cm}void rts.units.UnitDefinitionManager.makeResource (
+\begin{DoxyParamCaption}
+\item[{ArrayList$<$ {\bf Unit} $>$}]{units, }
+\item[{ArrayList$<$ {\bf UnitStats} $>$}]{stats, }
+\item[{int}]{type, }
+\item[{int}]{player, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{amount}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a8be120f925e9aee14794adf4c2c89ded}
+Makes a new resource field 
+\begin{DoxyParams}{Parameters}
+{\em units} & the unit list to add this to \\
+\hline
+{\em stats} & the stats list to add this to \\
+\hline
+{\em type} & \\
+\hline
+{\em player} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+{\em amount} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a9b06bbb493d10c3a33c4bd7a1e589196}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!makeUnit@{makeUnit}}
+\index{makeUnit@{makeUnit}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{makeUnit}]{\setlength{\rightskip}{0pt plus 5cm}void rts.units.UnitDefinitionManager.makeUnit (
+\begin{DoxyParamCaption}
+\item[{ArrayList$<$ {\bf Unit} $>$}]{units, }
+\item[{ArrayList$<$ {\bf UnitStats} $>$}]{stats, }
+\item[{int}]{type, }
+\item[{int}]{player, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a9b06bbb493d10c3a33c4bd7a1e589196}
+Makes a new unit 
+\begin{DoxyParams}{Parameters}
+{\em units} & \\
+\hline
+{\em stats} & \\
+\hline
+{\em type} & \\
+\hline
+{\em player} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_acc7891886c0641f9d7db402f86ee1788}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!resourceTypes@{resourceTypes}}
+\index{resourceTypes@{resourceTypes}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{resourceTypes}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitDefinitionManager.resourceTypes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_acc7891886c0641f9d7db402f86ee1788}
+Returns how many resource types there are \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a39ee130566fea5f92112c4f85fa17a9b}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!setPlayers@{setPlayers}}
+\index{setPlayers@{setPlayers}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{setPlayers}]{\setlength{\rightskip}{0pt plus 5cm}void rts.units.UnitDefinitionManager.setPlayers (
+\begin{DoxyParamCaption}
+\item[{int}]{players}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a39ee130566fea5f92112c4f85fa17a9b}
+Sets the number of players 
+\begin{DoxyParams}{Parameters}
+{\em players} & how many players there are \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a260adc8c2bf00acc471f103e888859b6}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{upgrade}]{\setlength{\rightskip}{0pt plus 5cm}boolean rts.units.UnitDefinitionManager.upgrade (
+\begin{DoxyParamCaption}
+\item[{int}]{player, }
+\item[{int}]{upgrade\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a260adc8c2bf00acc471f103e888859b6}
+Executes a unit upgrade 
+\begin{DoxyParams}{Parameters}
+{\em player} & \\
+\hline
+{\em upgrade\_\-id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_ab890f3ed15ed6dda066d7d4906e76dff}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!building\_\-defs@{building\_\-defs}}
+\index{building\_\-defs@{building\_\-defs}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{building\_\-defs}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$ArrayList$<${\bf UnitDefinition}$>$ $>$ {\bf rts.units.UnitDefinitionManager.building\_\-defs}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_ab890f3ed15ed6dda066d7d4906e76dff}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a77bfeba63104aa1bd861ed8d5831542e}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!building\_\-upgrades@{building\_\-upgrades}}
+\index{building\_\-upgrades@{building\_\-upgrades}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{building\_\-upgrades}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$ArrayList$<${\bf UnitUpgrade}$>$ $>$ {\bf rts.units.UnitDefinitionManager.building\_\-upgrades}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a77bfeba63104aa1bd861ed8d5831542e}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_ac16af3c3a81068079d8208ad38a537cd}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!resource\_\-defs@{resource\_\-defs}}
+\index{resource\_\-defs@{resource\_\-defs}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{resource\_\-defs}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$ArrayList$<${\bf UnitDefinition}$>$ $>$ {\bf rts.units.UnitDefinitionManager.resource\_\-defs}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_ac16af3c3a81068079d8208ad38a537cd}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_ad7ce99e932a21a2cf931496173b9a67e}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!resource\_\-scores@{resource\_\-scores}}
+\index{resource\_\-scores@{resource\_\-scores}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{resource\_\-scores}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ {\bf rts.units.UnitDefinitionManager.resource\_\-scores}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_ad7ce99e932a21a2cf931496173b9a67e}
+how many points each resource type gets you \hypertarget{classrts_1_1units_1_1_unit_definition_manager_a408e785a8b3cb7636aa8e6aeb14688af}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!unit\_\-defs@{unit\_\-defs}}
+\index{unit\_\-defs@{unit\_\-defs}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{unit\_\-defs}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$ArrayList$<${\bf UnitDefinition}$>$ $>$ {\bf rts.units.UnitDefinitionManager.unit\_\-defs}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a408e785a8b3cb7636aa8e6aeb14688af}
+\hypertarget{classrts_1_1units_1_1_unit_definition_manager_a9816c7d252a85c33bcd6a409657aa769}{
+\index{rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}!unit\_\-upgrades@{unit\_\-upgrades}}
+\index{unit\_\-upgrades@{unit\_\-upgrades}!rts::units::UnitDefinitionManager@{rts::units::UnitDefinitionManager}}
+\subsubsection[{unit\_\-upgrades}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$ArrayList$<${\bf UnitUpgrade}$>$ $>$ {\bf rts.units.UnitDefinitionManager.unit\_\-upgrades}}}
+\label{classrts_1_1units_1_1_unit_definition_manager_a9816c7d252a85c33bcd6a409657aa769}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/rts/units/\hyperlink{_unit_definition_manager_8java}{UnitDefinitionManager.java}\end{DoxyCompactItemize}

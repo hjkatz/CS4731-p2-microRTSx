@@ -1,0 +1,287 @@
+\hypertarget{classrts_1_1units_1_1_unit_upgrade}{
+\section{rts.units.UnitUpgrade Class Reference}
+\label{classrts_1_1units_1_1_unit_upgrade}\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+}
+
+
+The changes that get made to a unit when it upgrades.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_upgrade_a06cde01b0bc0c259b954a908df145287}{UnitUpgrade} (\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} statChanges, ArrayList$<$ Integer $>$ upgradeCost, int time, int unit)
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a384b59060918478b3b98c307e169fb10}{getCost} (int resourceType)
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a32e01f69d967604f3b8f73b7f0172ff4}{getUpgradeTime} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_aa10cd127e38c6f57924110d9d74265d4}{getID} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a656805f67076c047cf694487b4db6632}{getUnit} ()
+\item 
+void \hyperlink{classrts_1_1units_1_1_unit_upgrade_af5a73825c4f76bb185a641d595666520}{upgrade} (\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} definition)
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_ad5a95e7ad7586696fade4ab59062926e}{getVisionChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a6574d5bdbe6fec974f822b844a59c846}{getAttackRangeChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a58160758d0fcf6352d2d5ff81e8fc69e}{getHPChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_ad34a8d398e91b89c01a6c2fea566f679}{getAttackMinChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_ade8da1b7fbd4fd2f7456ed7a566a6aaa}{getAttackMaxChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_afef8b100755cba92cb1fecac39584883}{getProduceSpeedChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a3abc09dd860755ad23cf11822b568b09}{getMoveSpeedChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_af78f5c8e08408c9f800fccf97fb81c3e}{getAttackSpeedChange} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a46e5a0fc389c5adc1b88ab66c570976f}{getCostChange} (int resourceType)
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_upgrade}{UnitUpgrade} \hyperlink{classrts_1_1units_1_1_unit_upgrade_accb7b6f6420e9c66f2c9c92f689e9f28}{clone} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} \hyperlink{classrts_1_1units_1_1_unit_upgrade_a8a1f4874a8d64399d6f0a11bafd6acad}{changes}
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classrts_1_1units_1_1_unit_upgrade_a887393d251efbd6d1708b021ea8ad5d3}{cost}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_ab48ffcbc7f0e7ec226165b4c5da227c8}{id}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_aa7c9ebe81b790184b913f2e56c331698}{upgrade\_\-time}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_upgrade_a77ccd316333875fea8cacc2045ea4224}{unit\_\-id}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static int \hyperlink{classrts_1_1units_1_1_unit_upgrade_aaae17d05b9a3bffc0cc1af2ff238f261}{next\_\-id} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The changes that get made to a unit when it upgrades. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a06cde01b0bc0c259b954a908df145287}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!UnitUpgrade@{UnitUpgrade}}
+\index{UnitUpgrade@{UnitUpgrade}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{UnitUpgrade}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitUpgrade.UnitUpgrade (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitDefinition}}]{statChanges, }
+\item[{ArrayList$<$ Integer $>$}]{upgradeCost, }
+\item[{int}]{time, }
+\item[{int}]{unit}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a06cde01b0bc0c259b954a908df145287}
+Creates a new unit upgrade 
+\begin{DoxyParams}{Parameters}
+{\em statChanges} & the stats that get changed \\
+\hline
+{\em upgradeCost} & the cost of making the upgrade \\
+\hline
+{\em time} & how long the upgrade takes \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_accb7b6f6420e9c66f2c9c92f689e9f28}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!clone@{clone}}
+\index{clone@{clone}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitUpgrade} rts.units.UnitUpgrade.clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_accb7b6f6420e9c66f2c9c92f689e9f28}
+Clones this upgrade \hypertarget{classrts_1_1units_1_1_unit_upgrade_ade8da1b7fbd4fd2f7456ed7a566a6aaa}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getAttackMaxChange@{getAttackMaxChange}}
+\index{getAttackMaxChange@{getAttackMaxChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getAttackMaxChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getAttackMaxChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_ade8da1b7fbd4fd2f7456ed7a566a6aaa}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_ad34a8d398e91b89c01a6c2fea566f679}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getAttackMinChange@{getAttackMinChange}}
+\index{getAttackMinChange@{getAttackMinChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getAttackMinChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getAttackMinChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_ad34a8d398e91b89c01a6c2fea566f679}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a6574d5bdbe6fec974f822b844a59c846}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getAttackRangeChange@{getAttackRangeChange}}
+\index{getAttackRangeChange@{getAttackRangeChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getAttackRangeChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getAttackRangeChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a6574d5bdbe6fec974f822b844a59c846}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_af78f5c8e08408c9f800fccf97fb81c3e}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getAttackSpeedChange@{getAttackSpeedChange}}
+\index{getAttackSpeedChange@{getAttackSpeedChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getAttackSpeedChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getAttackSpeedChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_af78f5c8e08408c9f800fccf97fb81c3e}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a384b59060918478b3b98c307e169fb10}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getCost@{getCost}}
+\index{getCost@{getCost}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getCost}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getCost (
+\begin{DoxyParamCaption}
+\item[{int}]{resourceType}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a384b59060918478b3b98c307e169fb10}
+Gets the cost of the upgrade (in a certain resource type) 
+\begin{DoxyParams}{Parameters}
+{\em resourceType} & the resource type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the cost or 0 if invalid resource type 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a46e5a0fc389c5adc1b88ab66c570976f}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getCostChange@{getCostChange}}
+\index{getCostChange@{getCostChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getCostChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getCostChange (
+\begin{DoxyParamCaption}
+\item[{int}]{resourceType}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a46e5a0fc389c5adc1b88ab66c570976f}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a58160758d0fcf6352d2d5ff81e8fc69e}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getHPChange@{getHPChange}}
+\index{getHPChange@{getHPChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getHPChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getHPChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a58160758d0fcf6352d2d5ff81e8fc69e}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_aa10cd127e38c6f57924110d9d74265d4}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getID@{getID}}
+\index{getID@{getID}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getID}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_aa10cd127e38c6f57924110d9d74265d4}
+Returns the id of this upgrade \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a3abc09dd860755ad23cf11822b568b09}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getMoveSpeedChange@{getMoveSpeedChange}}
+\index{getMoveSpeedChange@{getMoveSpeedChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getMoveSpeedChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getMoveSpeedChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a3abc09dd860755ad23cf11822b568b09}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_afef8b100755cba92cb1fecac39584883}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getProduceSpeedChange@{getProduceSpeedChange}}
+\index{getProduceSpeedChange@{getProduceSpeedChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getProduceSpeedChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getProduceSpeedChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_afef8b100755cba92cb1fecac39584883}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a656805f67076c047cf694487b4db6632}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getUnit@{getUnit}}
+\index{getUnit@{getUnit}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getUnit}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getUnit (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a656805f67076c047cf694487b4db6632}
+returns what unit this upgrade is for \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a32e01f69d967604f3b8f73b7f0172ff4}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getUpgradeTime@{getUpgradeTime}}
+\index{getUpgradeTime@{getUpgradeTime}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getUpgradeTime}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getUpgradeTime (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_a32e01f69d967604f3b8f73b7f0172ff4}
+returns how long this upgrade takes \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_ad5a95e7ad7586696fade4ab59062926e}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!getVisionChange@{getVisionChange}}
+\index{getVisionChange@{getVisionChange}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{getVisionChange}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitUpgrade.getVisionChange (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_ad5a95e7ad7586696fade4ab59062926e}
+Gets the various upgrade differences \hypertarget{classrts_1_1units_1_1_unit_upgrade_af5a73825c4f76bb185a641d595666520}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!upgrade@{upgrade}}
+\index{upgrade@{upgrade}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{upgrade}]{\setlength{\rightskip}{0pt plus 5cm}void rts.units.UnitUpgrade.upgrade (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitDefinition}}]{definition}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_upgrade_af5a73825c4f76bb185a641d595666520}
+Upgrades a unit definition 
+\begin{DoxyParams}{Parameters}
+{\em definition} & the definition to upgrade \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_a8a1f4874a8d64399d6f0a11bafd6acad}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!changes@{changes}}
+\index{changes@{changes}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{changes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitDefinition} {\bf rts.units.UnitUpgrade.changes}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_upgrade_a8a1f4874a8d64399d6f0a11bafd6acad}
+the changes that get made to a unit when it upgrades \hypertarget{classrts_1_1units_1_1_unit_upgrade_a887393d251efbd6d1708b021ea8ad5d3}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!cost@{cost}}
+\index{cost@{cost}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{cost}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ {\bf rts.units.UnitUpgrade.cost}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_upgrade_a887393d251efbd6d1708b021ea8ad5d3}
+the cost of this upgrade \hypertarget{classrts_1_1units_1_1_unit_upgrade_ab48ffcbc7f0e7ec226165b4c5da227c8}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!id@{id}}
+\index{id@{id}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitUpgrade.id}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_upgrade_ab48ffcbc7f0e7ec226165b4c5da227c8}
+\hypertarget{classrts_1_1units_1_1_unit_upgrade_aaae17d05b9a3bffc0cc1af2ff238f261}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!next\_\-id@{next\_\-id}}
+\index{next\_\-id@{next\_\-id}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{next\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitUpgrade.next\_\-id} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_upgrade_aaae17d05b9a3bffc0cc1af2ff238f261}
+next upgrade id \hypertarget{classrts_1_1units_1_1_unit_upgrade_a77ccd316333875fea8cacc2045ea4224}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!unit\_\-id@{unit\_\-id}}
+\index{unit\_\-id@{unit\_\-id}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{unit\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitUpgrade.unit\_\-id}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_upgrade_a77ccd316333875fea8cacc2045ea4224}
+unit id this is for \hypertarget{classrts_1_1units_1_1_unit_upgrade_aa7c9ebe81b790184b913f2e56c331698}{
+\index{rts::units::UnitUpgrade@{rts::units::UnitUpgrade}!upgrade\_\-time@{upgrade\_\-time}}
+\index{upgrade\_\-time@{upgrade\_\-time}!rts::units::UnitUpgrade@{rts::units::UnitUpgrade}}
+\subsubsection[{upgrade\_\-time}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitUpgrade.upgrade\_\-time}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_upgrade_aa7c9ebe81b790184b913f2e56c331698}
+how long to make the upgrade 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/rts/units/\hyperlink{_unit_upgrade_8java}{UnitUpgrade.java}\end{DoxyCompactItemize}

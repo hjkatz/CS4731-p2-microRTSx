@@ -1,0 +1,197 @@
+\hypertarget{classai_1_1util_1_1_player_action_generator}{
+\section{ai.util.PlayerActionGenerator Class Reference}
+\label{classai_1_1util_1_1_player_action_generator}\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+}
+
+
+Generates a list of all possible \hyperlink{classai_1_1util_1_1_player_action}{PlayerAction}.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{classai_1_1util_1_1_player_action_generator_a9b7abb8a7dcc2cdeed0c2c62ecbaa1db}{getGenerated} ()
+\item 
+long \hyperlink{classai_1_1util_1_1_player_action_generator_a33a56cdf1e98464163450ad75bfc80c0}{getSize} ()
+\item 
+\hyperlink{classai_1_1util_1_1_player_action}{PlayerAction} \hyperlink{classai_1_1util_1_1_player_action_generator_afb2324e80bd9f1ebcebd7159edb06ade}{getLastAction} ()
+\item 
+List$<$ Pair$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit}, List$<$ \hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} $>$ $>$ $>$ \hyperlink{classai_1_1util_1_1_player_action_generator_a445532f043a312788592a40c13b95cf8}{getChoices} ()
+\item 
+\hyperlink{classai_1_1util_1_1_player_action_generator_a76a70a3899658386650e77b20929e805}{PlayerActionGenerator} (\hyperlink{classrts_1_1_game_state}{GameState} a\_\-gs)
+\item 
+void \hyperlink{classai_1_1util_1_1_player_action_generator_a25eff501f9c9510c3489e8c44ee4592c}{incrementCurrentChoice} (int startPosition)
+\item 
+\hyperlink{classai_1_1util_1_1_player_action}{PlayerAction} \hyperlink{classai_1_1util_1_1_player_action_generator_a7470abab59f97488252089281b7c88f9}{getNextAction} (long cutOffTime)
+\item 
+\hyperlink{classai_1_1util_1_1_player_action}{PlayerAction} \hyperlink{classai_1_1util_1_1_player_action_generator_a2e1ebc260a531359c360cb8879064745}{getRandom} ()
+\item 
+String \hyperlink{classai_1_1util_1_1_player_action_generator_affcfad40102297a767762b03f5968a9a}{toString} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Pair$<$ \hyperlink{classrts_1_1units_1_1_unit}{Unit}, List$<$ \hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} $>$ $>$ $>$ \hyperlink{classai_1_1util_1_1_player_action_generator_aeea7fa8dec447b99c43c404ae8dbc9c6}{choices}
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1_game_state}{GameState} \hyperlink{classai_1_1util_1_1_player_action_generator_a44fe40be01594178101a1c995be1594f}{gs}
+\item 
+\hyperlink{classai_1_1util_1_1_player_action}{PlayerAction} \hyperlink{classai_1_1util_1_1_player_action_generator_a42eb1a174f5a0348eaf3e7c69a17a32c}{base\_\-ru}
+\item 
+\hyperlink{classai_1_1util_1_1_player_action}{PlayerAction} \hyperlink{classai_1_1util_1_1_player_action_generator_af69ec3d55fc4ae7b8db797eaff970178}{lastAction} = null
+\item 
+long \hyperlink{classai_1_1util_1_1_player_action_generator_a8c779395b3ffdf164c9a85cb1032347a}{size} = 1
+\item 
+long \hyperlink{classai_1_1util_1_1_player_action_generator_a07c34e98f690fd013026f7d4f50de7e9}{generated} = 0
+\item 
+int \hyperlink{classai_1_1util_1_1_player_action_generator_a5bb3a20eebe61f34068dcf7e80ec81cc}{choiceSizes} \mbox{[}$\,$\mbox{]} = null
+\item 
+int \hyperlink{classai_1_1util_1_1_player_action_generator_a6942eafe123c2bea65a5e8e96c7337d5}{currentChoice} \mbox{[}$\,$\mbox{]} = null
+\item 
+boolean \hyperlink{classai_1_1util_1_1_player_action_generator_a8ca52e8a0afa80cd5df24a68fec7e13d}{moreActions} = true
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Generates a list of all possible \hyperlink{classai_1_1util_1_1_player_action}{PlayerAction}. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a76a70a3899658386650e77b20929e805}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!PlayerActionGenerator@{PlayerActionGenerator}}
+\index{PlayerActionGenerator@{PlayerActionGenerator}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{PlayerActionGenerator}]{\setlength{\rightskip}{0pt plus 5cm}ai.util.PlayerActionGenerator.PlayerActionGenerator (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{a\_\-gs}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a76a70a3899658386650e77b20929e805}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a445532f043a312788592a40c13b95cf8}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!getChoices@{getChoices}}
+\index{getChoices@{getChoices}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{getChoices}]{\setlength{\rightskip}{0pt plus 5cm}List$<$Pair$<${\bf Unit},List$<${\bf UnitAction}$>$ $>$ $>$ ai.util.PlayerActionGenerator.getChoices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a445532f043a312788592a40c13b95cf8}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a9b7abb8a7dcc2cdeed0c2c62ecbaa1db}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!getGenerated@{getGenerated}}
+\index{getGenerated@{getGenerated}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{getGenerated}]{\setlength{\rightskip}{0pt plus 5cm}long ai.util.PlayerActionGenerator.getGenerated (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a9b7abb8a7dcc2cdeed0c2c62ecbaa1db}
+\hypertarget{classai_1_1util_1_1_player_action_generator_afb2324e80bd9f1ebcebd7159edb06ade}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!getLastAction@{getLastAction}}
+\index{getLastAction@{getLastAction}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{getLastAction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PlayerAction} ai.util.PlayerActionGenerator.getLastAction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_afb2324e80bd9f1ebcebd7159edb06ade}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a7470abab59f97488252089281b7c88f9}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!getNextAction@{getNextAction}}
+\index{getNextAction@{getNextAction}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{getNextAction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PlayerAction} ai.util.PlayerActionGenerator.getNextAction (
+\begin{DoxyParamCaption}
+\item[{long}]{cutOffTime}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a7470abab59f97488252089281b7c88f9}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a2e1ebc260a531359c360cb8879064745}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!getRandom@{getRandom}}
+\index{getRandom@{getRandom}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{getRandom}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PlayerAction} ai.util.PlayerActionGenerator.getRandom (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a2e1ebc260a531359c360cb8879064745}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a33a56cdf1e98464163450ad75bfc80c0}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!getSize@{getSize}}
+\index{getSize@{getSize}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{getSize}]{\setlength{\rightskip}{0pt plus 5cm}long ai.util.PlayerActionGenerator.getSize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a33a56cdf1e98464163450ad75bfc80c0}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a25eff501f9c9510c3489e8c44ee4592c}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!incrementCurrentChoice@{incrementCurrentChoice}}
+\index{incrementCurrentChoice@{incrementCurrentChoice}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{incrementCurrentChoice}]{\setlength{\rightskip}{0pt plus 5cm}void ai.util.PlayerActionGenerator.incrementCurrentChoice (
+\begin{DoxyParamCaption}
+\item[{int}]{startPosition}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_a25eff501f9c9510c3489e8c44ee4592c}
+\hypertarget{classai_1_1util_1_1_player_action_generator_affcfad40102297a767762b03f5968a9a}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!toString@{toString}}
+\index{toString@{toString}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}String ai.util.PlayerActionGenerator.toString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1util_1_1_player_action_generator_affcfad40102297a767762b03f5968a9a}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a42eb1a174f5a0348eaf3e7c69a17a32c}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!base\_\-ru@{base\_\-ru}}
+\index{base\_\-ru@{base\_\-ru}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{base\_\-ru}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PlayerAction} {\bf ai.util.PlayerActionGenerator.base\_\-ru}\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a42eb1a174f5a0348eaf3e7c69a17a32c}
+\hypertarget{classai_1_1util_1_1_player_action_generator_aeea7fa8dec447b99c43c404ae8dbc9c6}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!choices@{choices}}
+\index{choices@{choices}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{choices}]{\setlength{\rightskip}{0pt plus 5cm}List$<$Pair$<${\bf Unit},List$<${\bf UnitAction}$>$ $>$ $>$ {\bf ai.util.PlayerActionGenerator.choices}}}
+\label{classai_1_1util_1_1_player_action_generator_aeea7fa8dec447b99c43c404ae8dbc9c6}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a5bb3a20eebe61f34068dcf7e80ec81cc}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!choiceSizes@{choiceSizes}}
+\index{choiceSizes@{choiceSizes}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{choiceSizes}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.util.PlayerActionGenerator.choiceSizes}\mbox{[}$\,$\mbox{]} = null\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a5bb3a20eebe61f34068dcf7e80ec81cc}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a6942eafe123c2bea65a5e8e96c7337d5}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!currentChoice@{currentChoice}}
+\index{currentChoice@{currentChoice}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{currentChoice}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.util.PlayerActionGenerator.currentChoice}\mbox{[}$\,$\mbox{]} = null\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a6942eafe123c2bea65a5e8e96c7337d5}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a07c34e98f690fd013026f7d4f50de7e9}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!generated@{generated}}
+\index{generated@{generated}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{generated}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf ai.util.PlayerActionGenerator.generated} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a07c34e98f690fd013026f7d4f50de7e9}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a44fe40be01594178101a1c995be1594f}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!gs@{gs}}
+\index{gs@{gs}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{gs}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GameState} {\bf ai.util.PlayerActionGenerator.gs}\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a44fe40be01594178101a1c995be1594f}
+\hypertarget{classai_1_1util_1_1_player_action_generator_af69ec3d55fc4ae7b8db797eaff970178}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!lastAction@{lastAction}}
+\index{lastAction@{lastAction}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{lastAction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PlayerAction} {\bf ai.util.PlayerActionGenerator.lastAction} = null\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_af69ec3d55fc4ae7b8db797eaff970178}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a8ca52e8a0afa80cd5df24a68fec7e13d}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!moreActions@{moreActions}}
+\index{moreActions@{moreActions}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{moreActions}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf ai.util.PlayerActionGenerator.moreActions} = true\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a8ca52e8a0afa80cd5df24a68fec7e13d}
+\hypertarget{classai_1_1util_1_1_player_action_generator_a8c779395b3ffdf164c9a85cb1032347a}{
+\index{ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}!size@{size}}
+\index{size@{size}!ai::util::PlayerActionGenerator@{ai::util::PlayerActionGenerator}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf ai.util.PlayerActionGenerator.size} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1util_1_1_player_action_generator_a8c779395b3ffdf164c9a85cb1032347a}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/util/\hyperlink{_player_action_generator_8java}{PlayerActionGenerator.java}\end{DoxyCompactItemize}

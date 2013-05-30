@@ -1,0 +1,432 @@
+\hypertarget{classrts_1_1units_1_1_unit_action}{
+\section{rts.units.UnitAction Class Reference}
+\label{classrts_1_1units_1_1_unit_action}\index{rts::units::UnitAction@{rts::units::UnitAction}}
+}
+
+
+This is an action that a unit can take.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_action_ab1386bad876aac3b37ca5def8326cd3b}{UnitAction} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} unit, int action\_\-type, int target\_\-x, int target\_\-y, int production)
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_action_a3831fcadc157346bb2a01c1d15b41311}{UnitAction} (\hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} unit, int action\_\-type, int target\_\-x, int target\_\-y, int production)
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_ac54030412c49e6f9d71612e1f0d4af99}{getType} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a273bdada50fab904ba79be86a66589e6}{getTargetX} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_af48ff572c01bcfc593cd2c53c31e869d}{getTargetY} ()
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a18deceaca1932c46a5a0d35b8ab92c41}{getBuild} ()
+\item 
+long \hyperlink{classrts_1_1units_1_1_unit_action_a848bec2abed44119f4908def80daaddf}{getTimestamp} ()
+\item 
+void \hyperlink{classrts_1_1units_1_1_unit_action_a9d2189d350f9abebf1700e1cf778af3e}{setTimestamp} ()
+\item 
+long \hyperlink{classrts_1_1units_1_1_unit_action_a2767ad6bf0600b9ef4e5dcef1aa7f1e9}{getUnitID} ()
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_a1f2844f926cb36399b67b8e40923cf75}{ready} ()
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_a3a997af6fcddf3a98859f0aa01b4e0b3}{cooldown} ()
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_afe4c06643af81bcfc21829537c504876}{validate} (\hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} unit, \hyperlink{classrts_1_1_physical_game_state}{PhysicalGameState} pgs)
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_a8593750871d8d42e0a87cb32199e3060}{execute} (\hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} unit, \hyperlink{classrts_1_1_physical_game_state}{PhysicalGameState} pgs)
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_a3b604970c51fd54eea009a4d95fd7b5e}{equals} (\hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} other)
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} \hyperlink{classrts_1_1units_1_1_unit_action_a9ea1ecb9c2c781eac3e5a5da27e4f810}{copy} ()
+\item 
+String \hyperlink{classrts_1_1units_1_1_unit_action_a9199e88107bdadb9a554be5fd4b95a5b}{toString} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_a0a91b5db9e5713ae6bc07d32efcae1b1}{NONE} = 0
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_ae0c44a5741be60dc9e2d17bd7cbab0c3}{MOVE} = 1
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_ac7dc8c479850fc28ba6c58d217b82936}{ATTACK} = 2
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_af9e653a5d2fb925d3e15f96849f0586a}{HARVEST} = 3
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_af700ddb351f336079eda218ec47a9e92}{RETURN} = 4
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_a69b96542b4c5f0d3fb7676183d62f0bd}{BUILD} = 5
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_a5e2222e4d632ae47b64a7e7ae2fe82b1}{UPGRADE} = 6
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_ab0b5666fd15fa8981e2abb48b8c277e9}{ATTACK\_\-KILL} = 7
+\item 
+static final int \hyperlink{classrts_1_1units_1_1_unit_action_a0462fdf20229245768be2a8382c58ca7}{DEFAULT\_\-COOLDOWN} = 2
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_action_a2d20f6eeb51fbbb2ad6fd9de0ebc7deb}{UnitAction} (long id, int action\_\-type, int target\_\-x, int target\_\-y, int production)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{classrts_1_1units_1_1_unit_action_ab2f5314049fc69ab11801c3133193246}{timestamp}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a17c35f7f6e20e9ddaf0beef22033ba16}{type}
+\item 
+long \hyperlink{classrts_1_1units_1_1_unit_action_a734ac068782831271b29ec3dc6726ddb}{unitID}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a186f77304bc2af95767e71d46bcc0d37}{targetX}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a2cca81f6237c185071a5e45795da93bd}{targetY}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a9580a2a6c1e668979f0ea0059e55988c}{build}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_action_a87be8a59b99c285c0677e62c89965a9d}{cooldown}
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_a2bbb072721d535c656269075f6ce813d}{is\_\-ready}
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_action_a6a4db4f90844b5fc736c3935bdd266ff}{isValidated}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is an action that a unit can take. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_action_ab1386bad876aac3b37ca5def8326cd3b}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!UnitAction@{UnitAction}}
+\index{UnitAction@{UnitAction}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{UnitAction}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitAction.UnitAction (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{unit, }
+\item[{int}]{action\_\-type, }
+\item[{int}]{target\_\-x, }
+\item[{int}]{target\_\-y, }
+\item[{int}]{production}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_ab1386bad876aac3b37ca5def8326cd3b}
+Constructs a new unit action 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit this action is for \\
+\hline
+{\em action\_\-type} & what type of action this \\
+\hline
+{\em target\_\-x} & x target coordinate \\
+\hline
+{\em target\_\-y} & y target coordinate \\
+\hline
+{\em production} & (only for action\_\-type == BUILD) what to build \\
+\hline
+\end{DoxyParams}
+\hypertarget{classrts_1_1units_1_1_unit_action_a2d20f6eeb51fbbb2ad6fd9de0ebc7deb}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!UnitAction@{UnitAction}}
+\index{UnitAction@{UnitAction}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{UnitAction}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitAction.UnitAction (
+\begin{DoxyParamCaption}
+\item[{long}]{id, }
+\item[{int}]{action\_\-type, }
+\item[{int}]{target\_\-x, }
+\item[{int}]{target\_\-y, }
+\item[{int}]{production}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a2d20f6eeb51fbbb2ad6fd9de0ebc7deb}
+\hypertarget{classrts_1_1units_1_1_unit_action_a3831fcadc157346bb2a01c1d15b41311}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!UnitAction@{UnitAction}}
+\index{UnitAction@{UnitAction}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{UnitAction}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitAction.UnitAction (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitStats}}]{unit, }
+\item[{int}]{action\_\-type, }
+\item[{int}]{target\_\-x, }
+\item[{int}]{target\_\-y, }
+\item[{int}]{production}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a3831fcadc157346bb2a01c1d15b41311}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_action_a3a997af6fcddf3a98859f0aa01b4e0b3}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!cooldown@{cooldown}}
+\index{cooldown@{cooldown}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{cooldown}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf rts.units.UnitAction.cooldown} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a3a997af6fcddf3a98859f0aa01b4e0b3}
+\hypertarget{classrts_1_1units_1_1_unit_action_a9ea1ecb9c2c781eac3e5a5da27e4f810}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!copy@{copy}}
+\index{copy@{copy}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitAction} rts.units.UnitAction.copy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a9ea1ecb9c2c781eac3e5a5da27e4f810}
+\hypertarget{classrts_1_1units_1_1_unit_action_a3b604970c51fd54eea009a4d95fd7b5e}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!equals@{equals}}
+\index{equals@{equals}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}boolean rts.units.UnitAction.equals (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitAction}}]{other}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a3b604970c51fd54eea009a4d95fd7b5e}
+Compares two actions to see if they are equal 
+\begin{DoxyParams}{Parameters}
+{\em other} & the other action to compare with \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a8593750871d8d42e0a87cb32199e3060}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!execute@{execute}}
+\index{execute@{execute}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{execute}]{\setlength{\rightskip}{0pt plus 5cm}boolean rts.units.UnitAction.execute (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitStats}}]{unit, }
+\item[{{\bf PhysicalGameState}}]{pgs}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a8593750871d8d42e0a87cb32199e3060}
+Executes this action 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit this action is for \\
+\hline
+{\em pgs} & the phsyical game state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not this action succeeded 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a18deceaca1932c46a5a0d35b8ab92c41}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!getBuild@{getBuild}}
+\index{getBuild@{getBuild}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{getBuild}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitAction.getBuild (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a18deceaca1932c46a5a0d35b8ab92c41}
+Gets build \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a273bdada50fab904ba79be86a66589e6}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!getTargetX@{getTargetX}}
+\index{getTargetX@{getTargetX}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{getTargetX}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitAction.getTargetX (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a273bdada50fab904ba79be86a66589e6}
+Gets target x \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_af48ff572c01bcfc593cd2c53c31e869d}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!getTargetY@{getTargetY}}
+\index{getTargetY@{getTargetY}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{getTargetY}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitAction.getTargetY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_af48ff572c01bcfc593cd2c53c31e869d}
+Gets target y \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a848bec2abed44119f4908def80daaddf}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!getTimestamp@{getTimestamp}}
+\index{getTimestamp@{getTimestamp}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{getTimestamp}]{\setlength{\rightskip}{0pt plus 5cm}long rts.units.UnitAction.getTimestamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a848bec2abed44119f4908def80daaddf}
+Returns the timestamp for this action \begin{DoxyReturn}{Returns}
+timestamp 
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_ac54030412c49e6f9d71612e1f0d4af99}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!getType@{getType}}
+\index{getType@{getType}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{getType}]{\setlength{\rightskip}{0pt plus 5cm}int rts.units.UnitAction.getType (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_ac54030412c49e6f9d71612e1f0d4af99}
+Gets type \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a2767ad6bf0600b9ef4e5dcef1aa7f1e9}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!getUnitID@{getUnitID}}
+\index{getUnitID@{getUnitID}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{getUnitID}]{\setlength{\rightskip}{0pt plus 5cm}long rts.units.UnitAction.getUnitID (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a2767ad6bf0600b9ef4e5dcef1aa7f1e9}
+Returns the unit ID \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a1f2844f926cb36399b67b8e40923cf75}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!ready@{ready}}
+\index{ready@{ready}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{ready}]{\setlength{\rightskip}{0pt plus 5cm}boolean rts.units.UnitAction.ready (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a1f2844f926cb36399b67b8e40923cf75}
+Returns whether or not this action is ready to execute \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classrts_1_1units_1_1_unit_action_a9d2189d350f9abebf1700e1cf778af3e}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!setTimestamp@{setTimestamp}}
+\index{setTimestamp@{setTimestamp}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{setTimestamp}]{\setlength{\rightskip}{0pt plus 5cm}void rts.units.UnitAction.setTimestamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a9d2189d350f9abebf1700e1cf778af3e}
+Sets the timestamp to now \hypertarget{classrts_1_1units_1_1_unit_action_a9199e88107bdadb9a554be5fd4b95a5b}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!toString@{toString}}
+\index{toString@{toString}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}String rts.units.UnitAction.toString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_a9199e88107bdadb9a554be5fd4b95a5b}
+\hypertarget{classrts_1_1units_1_1_unit_action_afe4c06643af81bcfc21829537c504876}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!validate@{validate}}
+\index{validate@{validate}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{validate}]{\setlength{\rightskip}{0pt plus 5cm}boolean rts.units.UnitAction.validate (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitStats}}]{unit, }
+\item[{{\bf PhysicalGameState}}]{pgs}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_action_afe4c06643af81bcfc21829537c504876}
+Validates this action as legal or not 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit who is doing this action \\
+\hline
+{\em pgs} & the game state \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_action_ac7dc8c479850fc28ba6c58d217b82936}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!ATTACK@{ATTACK}}
+\index{ATTACK@{ATTACK}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{ATTACK}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.ATTACK} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_ac7dc8c479850fc28ba6c58d217b82936}
+action type \hypertarget{classrts_1_1units_1_1_unit_action_ab0b5666fd15fa8981e2abb48b8c277e9}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!ATTACK\_\-KILL@{ATTACK\_\-KILL}}
+\index{ATTACK\_\-KILL@{ATTACK\_\-KILL}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{ATTACK\_\-KILL}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.ATTACK\_\-KILL} = 7\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_ab0b5666fd15fa8981e2abb48b8c277e9}
+\hypertarget{classrts_1_1units_1_1_unit_action_a69b96542b4c5f0d3fb7676183d62f0bd}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!BUILD@{BUILD}}
+\index{BUILD@{BUILD}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{BUILD}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.BUILD} = 5\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a69b96542b4c5f0d3fb7676183d62f0bd}
+action type \hypertarget{classrts_1_1units_1_1_unit_action_a9580a2a6c1e668979f0ea0059e55988c}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!build@{build}}
+\index{build@{build}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{build}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitAction.build}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a9580a2a6c1e668979f0ea0059e55988c}
+what to build \hypertarget{classrts_1_1units_1_1_unit_action_a87be8a59b99c285c0677e62c89965a9d}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!cooldown@{cooldown}}
+\index{cooldown@{cooldown}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{cooldown}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitAction.cooldown}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a87be8a59b99c285c0677e62c89965a9d}
+how long this action has before it goes \hypertarget{classrts_1_1units_1_1_unit_action_a0462fdf20229245768be2a8382c58ca7}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!DEFAULT\_\-COOLDOWN@{DEFAULT\_\-COOLDOWN}}
+\index{DEFAULT\_\-COOLDOWN@{DEFAULT\_\-COOLDOWN}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{DEFAULT\_\-COOLDOWN}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.DEFAULT\_\-COOLDOWN} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a0462fdf20229245768be2a8382c58ca7}
+the default time for an action \hypertarget{classrts_1_1units_1_1_unit_action_af9e653a5d2fb925d3e15f96849f0586a}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!HARVEST@{HARVEST}}
+\index{HARVEST@{HARVEST}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{HARVEST}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.HARVEST} = 3\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_af9e653a5d2fb925d3e15f96849f0586a}
+action type \hypertarget{classrts_1_1units_1_1_unit_action_a2bbb072721d535c656269075f6ce813d}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!is\_\-ready@{is\_\-ready}}
+\index{is\_\-ready@{is\_\-ready}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{is\_\-ready}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf rts.units.UnitAction.is\_\-ready}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a2bbb072721d535c656269075f6ce813d}
+whether or not this action is ready to execute \hypertarget{classrts_1_1units_1_1_unit_action_a6a4db4f90844b5fc736c3935bdd266ff}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!isValidated@{isValidated}}
+\index{isValidated@{isValidated}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{isValidated}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf rts.units.UnitAction.isValidated}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a6a4db4f90844b5fc736c3935bdd266ff}
+whether or not this action has been validated as legal \hypertarget{classrts_1_1units_1_1_unit_action_ae0c44a5741be60dc9e2d17bd7cbab0c3}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!MOVE@{MOVE}}
+\index{MOVE@{MOVE}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{MOVE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.MOVE} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_ae0c44a5741be60dc9e2d17bd7cbab0c3}
+action type \hypertarget{classrts_1_1units_1_1_unit_action_a0a91b5db9e5713ae6bc07d32efcae1b1}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!NONE@{NONE}}
+\index{NONE@{NONE}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{NONE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.NONE} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a0a91b5db9e5713ae6bc07d32efcae1b1}
+\hypertarget{classrts_1_1units_1_1_unit_action_af700ddb351f336079eda218ec47a9e92}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!RETURN@{RETURN}}
+\index{RETURN@{RETURN}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{RETURN}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.RETURN} = 4\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_af700ddb351f336079eda218ec47a9e92}
+action type \hypertarget{classrts_1_1units_1_1_unit_action_a186f77304bc2af95767e71d46bcc0d37}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!targetX@{targetX}}
+\index{targetX@{targetX}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{targetX}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitAction.targetX}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a186f77304bc2af95767e71d46bcc0d37}
+where this action culminates \hypertarget{classrts_1_1units_1_1_unit_action_a2cca81f6237c185071a5e45795da93bd}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!targetY@{targetY}}
+\index{targetY@{targetY}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{targetY}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitAction.targetY}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a2cca81f6237c185071a5e45795da93bd}
+where this action culminates \hypertarget{classrts_1_1units_1_1_unit_action_ab2f5314049fc69ab11801c3133193246}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!timestamp@{timestamp}}
+\index{timestamp@{timestamp}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{timestamp}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf rts.units.UnitAction.timestamp}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_ab2f5314049fc69ab11801c3133193246}
+when this action was issued \hypertarget{classrts_1_1units_1_1_unit_action_a17c35f7f6e20e9ddaf0beef22033ba16}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!type@{type}}
+\index{type@{type}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{type}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitAction.type}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a17c35f7f6e20e9ddaf0beef22033ba16}
+what type of move this is \hypertarget{classrts_1_1units_1_1_unit_action_a734ac068782831271b29ec3dc6726ddb}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!unitID@{unitID}}
+\index{unitID@{unitID}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{unitID}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf rts.units.UnitAction.unitID}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a734ac068782831271b29ec3dc6726ddb}
+the id of the unit this is for \hypertarget{classrts_1_1units_1_1_unit_action_a5e2222e4d632ae47b64a7e7ae2fe82b1}{
+\index{rts::units::UnitAction@{rts::units::UnitAction}!UPGRADE@{UPGRADE}}
+\index{UPGRADE@{UPGRADE}!rts::units::UnitAction@{rts::units::UnitAction}}
+\subsubsection[{UPGRADE}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf rts.units.UnitAction.UPGRADE} = 6\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_action_a5e2222e4d632ae47b64a7e7ae2fe82b1}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/rts/units/\hyperlink{_unit_action_8java}{UnitAction.java}\end{DoxyCompactItemize}

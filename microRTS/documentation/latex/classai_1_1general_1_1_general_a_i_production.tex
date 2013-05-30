@@ -1,0 +1,273 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_production}{
+\section{ai.general.GeneralAIProduction Class Reference}
+\label{classai_1_1general_1_1_general_a_i_production}\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+}
+
+
+A task that needs to be produced.  
+
+
+Inheritance diagram for ai.general.GeneralAIProduction:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_general_a_i_production}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_production_ab1d3fca0db9e7af9a0a9ef09c3bed0a7}{GeneralAIProduction} (\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} definition, int \_\-id)
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_production_a8cf7d1c830fd72f02103ab9a39fdf762}{GeneralAIProduction} (\hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} product, int \_\-x, int \_\-y, int \_\-priority)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_production_a7a6cf1e02648e423cfb3860ff4e3ac1c}{order\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_production_a1ce12191227110b21e0822e336f2d3da}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_production_ad9da9c04211753d7a7a740a0a2aaa410}{action\_\-succeeded} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int type)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_production_a0bbe11733d369676b1ed5ab7308dcdb2}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+float \hyperlink{classai_1_1general_1_1_general_a_i_production_ac5d7ff5b6f7a6374e2efd5e298c33851}{evaluate} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_production_a957e8794fc7e461a4a5ee270f891cc0e}{update\_\-orders} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} \hyperlink{classai_1_1general_1_1_general_a_i_production_a1dba4dcb9529b0ec1fbdd5877fc9e80e}{def}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_production_af587890ea032afe2018b3703eba0d644}{id}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_production_a3c94de84a840dc628a6417ecd25936b2}{x}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_production_ae4762a57aa2905a200ffad36cfbdad4e}{y}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_production_ab2757baddd4d87440339c2df5245bdb9}{priority}
+\item 
+float \hyperlink{classai_1_1general_1_1_general_a_i_production_acfb00da6fdc3b54f03286bb570639457}{cost\_\-ratio}
+\item 
+long \hyperlink{classai_1_1general_1_1_general_a_i_production_ad61bcf26860fa5d16c9bd0d7584d7a76}{builder}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A task that needs to be produced. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_production_ab1d3fca0db9e7af9a0a9ef09c3bed0a7}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!GeneralAIProduction@{GeneralAIProduction}}
+\index{GeneralAIProduction@{GeneralAIProduction}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{GeneralAIProduction}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAIProduction.GeneralAIProduction (
+\begin{DoxyParamCaption}
+\item[{{\bf UnitDefinition}}]{definition, }
+\item[{int}]{\_\-id}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_production_ab1d3fca0db9e7af9a0a9ef09c3bed0a7}
+Makes a new thingy 
+\begin{DoxyParams}{Parameters}
+{\em definition} & \\
+\hline
+{\em \_\-id} & the index in unit/building list \\
+\hline
+{\em \_\-x} & \\
+\hline
+{\em \_\-y} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_production_a8cf7d1c830fd72f02103ab9a39fdf762}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!GeneralAIProduction@{GeneralAIProduction}}
+\index{GeneralAIProduction@{GeneralAIProduction}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{GeneralAIProduction}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAIProduction.GeneralAIProduction (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIProduction}}]{product, }
+\item[{int}]{\_\-x, }
+\item[{int}]{\_\-y, }
+\item[{int}]{\_\-priority}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_production_a8cf7d1c830fd72f02103ab9a39fdf762}
+A production that we want, along with where we want it! 
+\begin{DoxyParams}{Parameters}
+{\em product} & \\
+\hline
+{\em \_\-x} & \\
+\hline
+{\em \_\-y} & \\
+\hline
+{\em \_\-priority} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_production_ad9da9c04211753d7a7a740a0a2aaa410}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!action\_\-succeeded@{action\_\-succeeded}}
+\index{action\_\-succeeded@{action\_\-succeeded}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{action\_\-succeeded}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIProduction.action\_\-succeeded (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_production_ad9da9c04211753d7a7a740a0a2aaa410}
+Some kind of action succeeded 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+{\em type} & the type of the action \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_production_a1ce12191227110b21e0822e336f2d3da}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAIProduction.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_production_a1ce12191227110b21e0822e336f2d3da}
+Calculates the distance from the unit to this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_production_ac5d7ff5b6f7a6374e2efd5e298c33851}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!evaluate@{evaluate}}
+\index{evaluate@{evaluate}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{evaluate}]{\setlength{\rightskip}{0pt plus 5cm}float ai.general.GeneralAIProduction.evaluate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_production_ac5d7ff5b6f7a6374e2efd5e298c33851}
+evaluates this unit \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_production_a7a6cf1e02648e423cfb3860ff4e3ac1c}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!order\_\-unit@{order\_\-unit}}
+\index{order\_\-unit@{order\_\-unit}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{order\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIProduction.order\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_production_a7a6cf1e02648e423cfb3860ff4e3ac1c}
+Orders a unit to interact with this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_production_a0bbe11733d369676b1ed5ab7308dcdb2}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIProduction.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_production_a0bbe11733d369676b1ed5ab7308dcdb2}
+This unit has been removed from the object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_production_a957e8794fc7e461a4a5ee270f891cc0e}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!update\_\-orders@{update\_\-orders}}
+\index{update\_\-orders@{update\_\-orders}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{update\_\-orders}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIProduction.update\_\-orders (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_production_a957e8794fc7e461a4a5ee270f891cc0e}
+Updates the orders of a unit $\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{ai.general.GeneralAIObject}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_production_ad61bcf26860fa5d16c9bd0d7584d7a76}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!builder@{builder}}
+\index{builder@{builder}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{builder}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf ai.general.GeneralAIProduction.builder}}}
+\label{classai_1_1general_1_1_general_a_i_production_ad61bcf26860fa5d16c9bd0d7584d7a76}
+id of the builder \hypertarget{classai_1_1general_1_1_general_a_i_production_acfb00da6fdc3b54f03286bb570639457}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!cost\_\-ratio@{cost\_\-ratio}}
+\index{cost\_\-ratio@{cost\_\-ratio}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{cost\_\-ratio}]{\setlength{\rightskip}{0pt plus 5cm}float {\bf ai.general.GeneralAIProduction.cost\_\-ratio}}}
+\label{classai_1_1general_1_1_general_a_i_production_acfb00da6fdc3b54f03286bb570639457}
+cost of building this unit, with respect to it's fight utility \hypertarget{classai_1_1general_1_1_general_a_i_production_a1dba4dcb9529b0ec1fbdd5877fc9e80e}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!def@{def}}
+\index{def@{def}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{def}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitDefinition} {\bf ai.general.GeneralAIProduction.def}}}
+\label{classai_1_1general_1_1_general_a_i_production_a1dba4dcb9529b0ec1fbdd5877fc9e80e}
+unit definition \hypertarget{classai_1_1general_1_1_general_a_i_production_af587890ea032afe2018b3703eba0d644}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!id@{id}}
+\index{id@{id}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIProduction.id}}}
+\label{classai_1_1general_1_1_general_a_i_production_af587890ea032afe2018b3703eba0d644}
+id in unit/building list \hypertarget{classai_1_1general_1_1_general_a_i_production_ab2757baddd4d87440339c2df5245bdb9}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!priority@{priority}}
+\index{priority@{priority}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{priority}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIProduction.priority}}}
+\label{classai_1_1general_1_1_general_a_i_production_ab2757baddd4d87440339c2df5245bdb9}
+how badly we want this unit. -\/1 is not all, 0 is most of all, $>$ 0 sort of want \hypertarget{classai_1_1general_1_1_general_a_i_production_a3c94de84a840dc628a6417ecd25936b2}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!x@{x}}
+\index{x@{x}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIProduction.x}}}
+\label{classai_1_1general_1_1_general_a_i_production_a3c94de84a840dc628a6417ecd25936b2}
+where to build this \hypertarget{classai_1_1general_1_1_general_a_i_production_ae4762a57aa2905a200ffad36cfbdad4e}{
+\index{ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}!y@{y}}
+\index{y@{y}!ai::general::GeneralAIProduction@{ai::general::GeneralAIProduction}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAIProduction.y}}}
+\label{classai_1_1general_1_1_general_a_i_production_ae4762a57aa2905a200ffad36cfbdad4e}
+where to build this 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_production_8java}{GeneralAIProduction.java}\end{DoxyCompactItemize}

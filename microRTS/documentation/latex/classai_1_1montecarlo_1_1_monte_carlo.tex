@@ -1,0 +1,168 @@
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo}{
+\section{ai.montecarlo.MonteCarlo Class Reference}
+\label{classai_1_1montecarlo_1_1_monte_carlo}\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+}
+
+
+Chooses moves based on a Monte Carlo simulation.  
+
+
+Inheritance diagram for ai.montecarlo.MonteCarlo:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1montecarlo_1_1_monte_carlo}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a46d1baf9d7b1672e21433e074279c81b}{MonteCarlo} ()
+\item 
+\hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a81d20182d11f7000bb8fb0751d06ca36}{MonteCarlo} (int simulations, int lookahead, \hyperlink{classai_1_1_a_i}{AI} policy)
+\item 
+void \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a2b85c686b000c27e810416a7d2bb3ef1}{reset} ()
+\item 
+\hyperlink{classai_1_1_a_i}{AI} \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_ac82cea968ff3c0edb5d390db1619e462}{clone} ()
+\item 
+void \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_aec7aa71918a4809e3cdf1ee303a5f030}{getAction} (\hyperlink{classrts_1_1_game_state}{GameState} gs, int time\_\-limit)
+\item 
+String \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_ac2a0d155e0567d8f5c0e693a6998bede}{toString} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a4acd3e92f77f53a3314fd0df91c0d8d6}{DEBUG} = 1
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Random \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_afe972f6e13fe999090cadd591be22419}{r} = new Random()
+\item 
+\hyperlink{classai_1_1_a_i}{AI} \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a787e4ffe12e97749660eaa73bffcc17b}{randomAI} = new \hyperlink{classai_1_1_random_biased_a_i}{RandomBiasedAI}()
+\item 
+long \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a3f850dcb2986b28372c775f4c4f200a1}{max\_\-actions\_\-so\_\-far} = 0
+\item 
+int \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a43072c462191f467fc3e28034398558e}{NSIMULATIONS} = 100
+\item 
+int \hyperlink{classai_1_1montecarlo_1_1_monte_carlo_a20c7b3de1a2ba1d635f5bf612e55386b}{MAXSIMULATIONTIME} = 100
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chooses moves based on a Monte Carlo simulation. 
+
+\begin{DoxyAuthor}{Author}
+santi 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a46d1baf9d7b1672e21433e074279c81b}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!MonteCarlo@{MonteCarlo}}
+\index{MonteCarlo@{MonteCarlo}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{MonteCarlo}]{\setlength{\rightskip}{0pt plus 5cm}ai.montecarlo.MonteCarlo.MonteCarlo (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a46d1baf9d7b1672e21433e074279c81b}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a81d20182d11f7000bb8fb0751d06ca36}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!MonteCarlo@{MonteCarlo}}
+\index{MonteCarlo@{MonteCarlo}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{MonteCarlo}]{\setlength{\rightskip}{0pt plus 5cm}ai.montecarlo.MonteCarlo.MonteCarlo (
+\begin{DoxyParamCaption}
+\item[{int}]{simulations, }
+\item[{int}]{lookahead, }
+\item[{{\bf AI}}]{policy}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a81d20182d11f7000bb8fb0751d06ca36}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_ac82cea968ff3c0edb5d390db1619e462}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!clone@{clone}}
+\index{clone@{clone}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AI} ai.montecarlo.MonteCarlo.clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_ac82cea968ff3c0edb5d390db1619e462}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_aec7aa71918a4809e3cdf1ee303a5f030}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!getAction@{getAction}}
+\index{getAction@{getAction}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{getAction}]{\setlength{\rightskip}{0pt plus 5cm}void ai.montecarlo.MonteCarlo.getAction (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{gs, }
+\item[{int}]{time\_\-limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_aec7aa71918a4809e3cdf1ee303a5f030}
+Requests actions from the \hyperlink{classai_1_1_a_i}{AI} 
+\begin{DoxyParams}{Parameters}
+{\em gs} & the game state \\
+\hline
+{\em time\_\-limit} & how many milliseconds this turn is \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1_a_i_ac99863ed57cf48013d00267919044ef2}{ai.AI}.
+
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a2b85c686b000c27e810416a7d2bb3ef1}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!reset@{reset}}
+\index{reset@{reset}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void ai.montecarlo.MonteCarlo.reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a2b85c686b000c27e810416a7d2bb3ef1}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_ac2a0d155e0567d8f5c0e693a6998bede}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!toString@{toString}}
+\index{toString@{toString}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{toString}]{\setlength{\rightskip}{0pt plus 5cm}String ai.montecarlo.MonteCarlo.toString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_ac2a0d155e0567d8f5c0e693a6998bede}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a4acd3e92f77f53a3314fd0df91c0d8d6}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!DEBUG@{DEBUG}}
+\index{DEBUG@{DEBUG}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{DEBUG}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.montecarlo.MonteCarlo.DEBUG} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a4acd3e92f77f53a3314fd0df91c0d8d6}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a3f850dcb2986b28372c775f4c4f200a1}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!max\_\-actions\_\-so\_\-far@{max\_\-actions\_\-so\_\-far}}
+\index{max\_\-actions\_\-so\_\-far@{max\_\-actions\_\-so\_\-far}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{max\_\-actions\_\-so\_\-far}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf ai.montecarlo.MonteCarlo.max\_\-actions\_\-so\_\-far} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a3f850dcb2986b28372c775f4c4f200a1}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a20c7b3de1a2ba1d635f5bf612e55386b}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!MAXSIMULATIONTIME@{MAXSIMULATIONTIME}}
+\index{MAXSIMULATIONTIME@{MAXSIMULATIONTIME}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{MAXSIMULATIONTIME}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.montecarlo.MonteCarlo.MAXSIMULATIONTIME} = 100\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a20c7b3de1a2ba1d635f5bf612e55386b}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a43072c462191f467fc3e28034398558e}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!NSIMULATIONS@{NSIMULATIONS}}
+\index{NSIMULATIONS@{NSIMULATIONS}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{NSIMULATIONS}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.montecarlo.MonteCarlo.NSIMULATIONS} = 100\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a43072c462191f467fc3e28034398558e}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_afe972f6e13fe999090cadd591be22419}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!r@{r}}
+\index{r@{r}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}Random {\bf ai.montecarlo.MonteCarlo.r} = new Random()\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_afe972f6e13fe999090cadd591be22419}
+\hypertarget{classai_1_1montecarlo_1_1_monte_carlo_a787e4ffe12e97749660eaa73bffcc17b}{
+\index{ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}!randomAI@{randomAI}}
+\index{randomAI@{randomAI}!ai::montecarlo::MonteCarlo@{ai::montecarlo::MonteCarlo}}
+\subsubsection[{randomAI}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AI} {\bf ai.montecarlo.MonteCarlo.randomAI} = new {\bf RandomBiasedAI}()\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1montecarlo_1_1_monte_carlo_a787e4ffe12e97749660eaa73bffcc17b}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/montecarlo/\hyperlink{_monte_carlo_8java}{MonteCarlo.java}\end{DoxyCompactItemize}

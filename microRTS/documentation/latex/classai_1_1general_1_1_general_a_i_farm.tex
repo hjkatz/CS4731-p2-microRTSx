@@ -1,0 +1,355 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_farm}{
+\section{ai.general.GeneralAIFarm Class Reference}
+\label{classai_1_1general_1_1_general_a_i_farm}\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+}
+
+
+A farm is a place where one can gather resources it should define pathways for farmers to take.  
+
+
+Inheritance diagram for ai.general.GeneralAIFarm:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_general_a_i_farm}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_farm_abb7e9bea4c1cda2335a09690ddc52c9c}{GeneralAIFarm} (\hyperlink{classrts_1_1units_1_1_unit}{Unit} rsrc, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_farm_a3f118cfbaa003304e47697aab4ef752d}{has\_\-opening} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_farm_a71fdd5eb9c3ea81c254e515039e881e7}{has\_\-openings\_\-strict} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_aa6b6f6dceb9c0eb2ba3384b3910aaf6e}{order\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_farm_a2d9ab033a4a9ef3eb4429726d7141fd8}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_a1278da6c442be04e8a63e2a7f1dd0015}{action\_\-succeeded} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int type)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_a363263e89c3beeef01624e6e29add8b8}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_a469a9e413a64b67c7f33dc042d0fdb98}{update\_\-orders} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_a889d061a8e646790ec480312882980f0}{update\_\-openings} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit}{Unit} \hyperlink{classai_1_1general_1_1_general_a_i_farm_a6461ff6cb7c7555aba9d283a957138ce}{resources}
+\item 
+long\mbox{[}$\,$\mbox{]} \hyperlink{classai_1_1general_1_1_general_a_i_farm_ac364667b05485e9002f5d626eea25236}{farmers}
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classai_1_1general_1_1_general_a_i_farm_a4bdcfb5af83a86be179a4c10b9a8a597}{\_\-farmers}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_ae53454364afab495bdbc9870b54b7e4e}{FARM\_\-CLOSED} = -\/1
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_a7b7770da22903858892e7f63d32a6657}{FARM\_\-OPEN} = -\/2
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_a9235a0a0538a426043d785a00a3d4345}{FARM\_\-WALL\_\-OPEN} = -\/3
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_aed2adecb0cce6a9a2fa0806c8fa11af5}{FARM\_\-UNKNOWN} = -\/4
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_a6f7e0293a23d11a27bfc7aad449e1c2f}{FARMER\_\-UP} = 0
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_a8c4ee9d0755408d23fc4a2e3ce9a1dc1}{FARMER\_\-DOWN} = 1
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_af6c22fd003a4d97d93022ab3d1ceb2ea}{FARMER\_\-LEFT} = 2
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_farm_ad3a3956aee09fbbc3f1f471914ce9f9d}{FARMER\_\-RIGHT} = 3
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_aaf0c487e70f240b034b453e6773f7682}{path\_\-to\_\-farm} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_farm_a9186fa74084d5c685757eb5be7cc07cf}{path\_\-to\_\-stockpile} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int now\_\-at, int now\_\-start)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A farm is a place where one can gather resources it should define pathways for farmers to take. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_abb7e9bea4c1cda2335a09690ddc52c9c}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!GeneralAIFarm@{GeneralAIFarm}}
+\index{GeneralAIFarm@{GeneralAIFarm}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{GeneralAIFarm}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAIFarm.GeneralAIFarm (
+\begin{DoxyParamCaption}
+\item[{{\bf Unit}}]{rsrc, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_farm_abb7e9bea4c1cda2335a09690ddc52c9c}
+Constructs a new farm 
+\begin{DoxyParams}{Parameters}
+{\em rsrc} & the resources \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a1278da6c442be04e8a63e2a7f1dd0015}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!action\_\-succeeded@{action\_\-succeeded}}
+\index{action\_\-succeeded@{action\_\-succeeded}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{action\_\-succeeded}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.action\_\-succeeded (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a1278da6c442be04e8a63e2a7f1dd0015}
+Some kind of action succeeded 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+{\em type} & the type of the action \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a2d9ab033a4a9ef3eb4429726d7141fd8}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAIFarm.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a2d9ab033a4a9ef3eb4429726d7141fd8}
+Calculates the distance from the unit to this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a3f118cfbaa003304e47697aab4ef752d}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!has\_\-opening@{has\_\-opening}}
+\index{has\_\-opening@{has\_\-opening}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{has\_\-opening}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAIFarm.has\_\-opening (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_farm_a3f118cfbaa003304e47697aab4ef752d}
+Returns whether or not this farm has an opening 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit to check if the farm has an opening for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether or not this farm has an opening 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a71fdd5eb9c3ea81c254e515039e881e7}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!has\_\-openings\_\-strict@{has\_\-openings\_\-strict}}
+\index{has\_\-openings\_\-strict@{has\_\-openings\_\-strict}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{has\_\-openings\_\-strict}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAIFarm.has\_\-openings\_\-strict (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_farm_a71fdd5eb9c3ea81c254e515039e881e7}
+Returns whether or not there are any openings that don't require flying \begin{DoxyReturn}{Returns}
+whether or not there are any openings that don't require flying 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_aa6b6f6dceb9c0eb2ba3384b3910aaf6e}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!order\_\-unit@{order\_\-unit}}
+\index{order\_\-unit@{order\_\-unit}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{order\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.order\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_aa6b6f6dceb9c0eb2ba3384b3910aaf6e}
+Orders a unit to interact with this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_aaf0c487e70f240b034b453e6773f7682}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!path\_\-to\_\-farm@{path\_\-to\_\-farm}}
+\index{path\_\-to\_\-farm@{path\_\-to\_\-farm}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{path\_\-to\_\-farm}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.path\_\-to\_\-farm (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_aaf0c487e70f240b034b453e6773f7682}
+Plans a path to the farm 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a9186fa74084d5c685757eb5be7cc07cf}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!path\_\-to\_\-stockpile@{path\_\-to\_\-stockpile}}
+\index{path\_\-to\_\-stockpile@{path\_\-to\_\-stockpile}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{path\_\-to\_\-stockpile}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.path\_\-to\_\-stockpile (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{now\_\-at, }
+\item[{int}]{now\_\-start}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a9186fa74084d5c685757eb5be7cc07cf}
+Plans a path to the nearest stockpile 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+{\em ai} & \\
+\hline
+{\em now\_\-at} & \\
+\hline
+{\em now\_\-start} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a363263e89c3beeef01624e6e29add8b8}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a363263e89c3beeef01624e6e29add8b8}
+This unit has been removed from the object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a889d061a8e646790ec480312882980f0}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!update\_\-openings@{update\_\-openings}}
+\index{update\_\-openings@{update\_\-openings}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{update\_\-openings}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.update\_\-openings (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_farm_a889d061a8e646790ec480312882980f0}
+Updates the openings at the farm 
+\begin{DoxyParams}{Parameters}
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a469a9e413a64b67c7f33dc042d0fdb98}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!update\_\-orders@{update\_\-orders}}
+\index{update\_\-orders@{update\_\-orders}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{update\_\-orders}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAIFarm.update\_\-orders (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a469a9e413a64b67c7f33dc042d0fdb98}
+Updates the orders of a unit $\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{ai.general.GeneralAIObject}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_farm_a4bdcfb5af83a86be179a4c10b9a8a597}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!\_\-farmers@{\_\-farmers}}
+\index{\_\-farmers@{\_\-farmers}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{\_\-farmers}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} {\bf ai.general.GeneralAIFarm.\_\-farmers}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a4bdcfb5af83a86be179a4c10b9a8a597}
+the farmers original states \hypertarget{classai_1_1general_1_1_general_a_i_farm_ae53454364afab495bdbc9870b54b7e4e}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARM\_\-CLOSED@{FARM\_\-CLOSED}}
+\index{FARM\_\-CLOSED@{FARM\_\-CLOSED}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARM\_\-CLOSED}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARM\_\-CLOSED} = -\/1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_ae53454364afab495bdbc9870b54b7e4e}
+the farm is closed \hypertarget{classai_1_1general_1_1_general_a_i_farm_a7b7770da22903858892e7f63d32a6657}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARM\_\-OPEN@{FARM\_\-OPEN}}
+\index{FARM\_\-OPEN@{FARM\_\-OPEN}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARM\_\-OPEN}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARM\_\-OPEN} = -\/2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a7b7770da22903858892e7f63d32a6657}
+the farm is open \hypertarget{classai_1_1general_1_1_general_a_i_farm_aed2adecb0cce6a9a2fa0806c8fa11af5}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARM\_\-UNKNOWN@{FARM\_\-UNKNOWN}}
+\index{FARM\_\-UNKNOWN@{FARM\_\-UNKNOWN}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARM\_\-UNKNOWN}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARM\_\-UNKNOWN} = -\/4\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_aed2adecb0cce6a9a2fa0806c8fa11af5}
+nobody knows what's going on at the farm !? \hypertarget{classai_1_1general_1_1_general_a_i_farm_a9235a0a0538a426043d785a00a3d4345}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARM\_\-WALL\_\-OPEN@{FARM\_\-WALL\_\-OPEN}}
+\index{FARM\_\-WALL\_\-OPEN@{FARM\_\-WALL\_\-OPEN}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARM\_\-WALL\_\-OPEN}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARM\_\-WALL\_\-OPEN} = -\/3\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a9235a0a0538a426043d785a00a3d4345}
+the farm is open to fliers \hypertarget{classai_1_1general_1_1_general_a_i_farm_a8c4ee9d0755408d23fc4a2e3ce9a1dc1}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARMER\_\-DOWN@{FARMER\_\-DOWN}}
+\index{FARMER\_\-DOWN@{FARMER\_\-DOWN}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARMER\_\-DOWN}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARMER\_\-DOWN} = 1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a8c4ee9d0755408d23fc4a2e3ce9a1dc1}
+the farmer in the down spot \hypertarget{classai_1_1general_1_1_general_a_i_farm_af6c22fd003a4d97d93022ab3d1ceb2ea}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARMER\_\-LEFT@{FARMER\_\-LEFT}}
+\index{FARMER\_\-LEFT@{FARMER\_\-LEFT}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARMER\_\-LEFT}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARMER\_\-LEFT} = 2\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_af6c22fd003a4d97d93022ab3d1ceb2ea}
+the farmer in the left spot \hypertarget{classai_1_1general_1_1_general_a_i_farm_ad3a3956aee09fbbc3f1f471914ce9f9d}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARMER\_\-RIGHT@{FARMER\_\-RIGHT}}
+\index{FARMER\_\-RIGHT@{FARMER\_\-RIGHT}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARMER\_\-RIGHT}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARMER\_\-RIGHT} = 3\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_ad3a3956aee09fbbc3f1f471914ce9f9d}
+the farmer in the right spot \hypertarget{classai_1_1general_1_1_general_a_i_farm_a6f7e0293a23d11a27bfc7aad449e1c2f}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!FARMER\_\-UP@{FARMER\_\-UP}}
+\index{FARMER\_\-UP@{FARMER\_\-UP}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{FARMER\_\-UP}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAIFarm.FARMER\_\-UP} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a6f7e0293a23d11a27bfc7aad449e1c2f}
+the farmer in the up spot \hypertarget{classai_1_1general_1_1_general_a_i_farm_ac364667b05485e9002f5d626eea25236}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!farmers@{farmers}}
+\index{farmers@{farmers}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{farmers}]{\setlength{\rightskip}{0pt plus 5cm}long \mbox{[}$\,$\mbox{]} {\bf ai.general.GeneralAIFarm.farmers}}}
+\label{classai_1_1general_1_1_general_a_i_farm_ac364667b05485e9002f5d626eea25236}
+the guys farming \hypertarget{classai_1_1general_1_1_general_a_i_farm_a6461ff6cb7c7555aba9d283a957138ce}{
+\index{ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}!resources@{resources}}
+\index{resources@{resources}!ai::general::GeneralAIFarm@{ai::general::GeneralAIFarm}}
+\subsubsection[{resources}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Unit} {\bf ai.general.GeneralAIFarm.resources}}}
+\label{classai_1_1general_1_1_general_a_i_farm_a6461ff6cb7c7555aba9d283a957138ce}
+the resources unit 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_farm_8java}{GeneralAIFarm.java}\end{DoxyCompactItemize}

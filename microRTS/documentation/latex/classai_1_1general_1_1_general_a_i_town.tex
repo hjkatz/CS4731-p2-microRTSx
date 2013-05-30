@@ -1,0 +1,511 @@
+\hypertarget{classai_1_1general_1_1_general_a_i_town}{
+\section{ai.general.GeneralAITown Class Reference}
+\label{classai_1_1general_1_1_general_a_i_town}\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+}
+
+
+A group of buildings that are all together. Generally, towns are a stockpile, resources, and other buildings nearby.  
+
+
+Inheritance diagram for ai.general.GeneralAITown:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_general_a_i_town}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_town_aa9fcb43b63a8aaebbfd5a1796deda688}{GeneralAITown} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} building, int building\_\-count)
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_town_a99a564402ec35f68afaa251e472790ec}{GeneralAITown} (\hyperlink{classai_1_1general_1_1_general_a_i_farm}{GeneralAIFarm} farm, int building\_\-count)
+\item 
+\hyperlink{classai_1_1general_1_1_general_a_i_town_a71bbf617804dcd2a1b51dfa8c4a48e76}{GeneralAITown} (\hyperlink{classai_1_1general_1_1_general_a_i_enemy}{GeneralAIEnemy} enemy, int building\_\-count)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_ad8d983190f387b9058de7eb64354a901}{add} (\hyperlink{classai_1_1general_1_1_general_a_i_farm}{GeneralAIFarm} farm)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_ae44f51c883bcc4263ee49583634f9cea}{add} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} building)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_aa4e1adb754f46beae752a0acd8a8b9d8}{add} (\hyperlink{classai_1_1general_1_1_general_a_i_enemy}{GeneralAIEnemy} enemy)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_af7b49789f6b599a39471989a1e425efd}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_farm}{GeneralAIFarm} farm)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_a2d256254f6a203b08fdb96ad66a2907d}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} building)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_a9b80df5d8a2250e252f415a855890752}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_enemy}{GeneralAIEnemy} enemy)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_a0d09e35b914616e11d99934cb327c2c9}{population} ()
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_a462cce5a13f0e139d8e3f33dad8d38ac}{get\_\-location} (\hyperlink{classai_1_1general_1_1_general_a_i_production}{GeneralAIProduction} product, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_a7e84939ea1dd2924bd4d7d4c72e3f21f}{in\_\-limits} (int location, int map\_\-w)
+\item 
+boolean \hyperlink{classai_1_1general_1_1_general_a_i_town_a8e6decaf61b5456174e6f8caeaa36109}{has\_\-stockpile} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_town_a390550d776f507012f3c4def087daddf}{update\_\-orders} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_town_a73a19cdf93f393fcaf97b1cab016f0d9}{order\_\-unit} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_a248a180a3546e3644fb329ac9ec32855}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int dx, int dy)
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_a08398ead5c3de183c9722463aa13faa3}{distance} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_town_a74842a9ebfb725c2a82c3cfa2302165b}{action\_\-succeeded} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai, int type)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_town_ad886c779c1766b6817067b54232770d6}{remove} (\hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} unit, \hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_general_a_i_town_a35b5ee2f71343d25c4e77bb8e3c46886}{add\_\-defender} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_farm}{GeneralAIFarm} $>$ \hyperlink{classai_1_1general_1_1_general_a_i_town_ac5bd96d862c3a343ac10ec425264bb40}{farms}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} $>$ \hyperlink{classai_1_1general_1_1_general_a_i_town_adc8c7f0186a5d950e42755cef386bdef}{buildings}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_enemy}{GeneralAIEnemy} $>$ \hyperlink{classai_1_1general_1_1_general_a_i_town_a91cd92b61de687c024e0c548de5a0c9c}{enemy\_\-buildings}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_a800050c1a4d3b38e5b278ef5baa022a6}{owner}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_a5a21a3abfa24a898efb8da41576de31e}{defenders}
+\item 
+int \hyperlink{classai_1_1general_1_1_general_a_i_town_ae48c777b4279a86050c7150a035ec2d8}{defenders\_\-wanted}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_town_a79df4db8ca7a4de626f676096863b114}{NO\_\-VACANCY} = -\/1
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+boolean\mbox{[}$\,$\mbox{]} \hyperlink{classai_1_1general_1_1_general_a_i_town_aebbfac1a388c8f60bcbf1877d2e821f9}{building\_\-requested}
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_town_a89768a3f505f2978a615031e26b3a936}{CITY\_\-LIMIT2} = 25
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_town_ac7e181c52b6489a74bb5d2e870629648}{CITY\_\-LIMIT} = 5
+\item 
+static final int \hyperlink{classai_1_1general_1_1_general_a_i_town_a221de0be695fa283fcfb40779e58db7b}{LOCATION\_\-SCOUTING} = 1000
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A group of buildings that are all together. Generally, towns are a stockpile, resources, and other buildings nearby. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_aa9fcb43b63a8aaebbfd5a1796deda688}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!GeneralAITown@{GeneralAITown}}
+\index{GeneralAITown@{GeneralAITown}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{GeneralAITown}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAITown.GeneralAITown (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{building, }
+\item[{int}]{building\_\-count}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_aa9fcb43b63a8aaebbfd5a1796deda688}
+Constructs a new town around a building 
+\begin{DoxyParams}{Parameters}
+{\em building} & \\
+\hline
+{\em building\_\-count} & how many building types there are \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a99a564402ec35f68afaa251e472790ec}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!GeneralAITown@{GeneralAITown}}
+\index{GeneralAITown@{GeneralAITown}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{GeneralAITown}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAITown.GeneralAITown (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIFarm}}]{farm, }
+\item[{int}]{building\_\-count}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a99a564402ec35f68afaa251e472790ec}
+Constructs a new town around a farm 
+\begin{DoxyParams}{Parameters}
+{\em farm} & \\
+\hline
+{\em building\_\-count} & how many building types there are \\
+\hline
+\end{DoxyParams}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a71bbf617804dcd2a1b51dfa8c4a48e76}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!GeneralAITown@{GeneralAITown}}
+\index{GeneralAITown@{GeneralAITown}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{GeneralAITown}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.GeneralAITown.GeneralAITown (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIEnemy}}]{enemy, }
+\item[{int}]{building\_\-count}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a71bbf617804dcd2a1b51dfa8c4a48e76}
+Constructs a new town around an enemy building 
+\begin{DoxyParams}{Parameters}
+{\em enemy} & \\
+\hline
+{\em building\_\-count} & how many building types there are \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a74842a9ebfb725c2a82c3cfa2302165b}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!action\_\-succeeded@{action\_\-succeeded}}
+\index{action\_\-succeeded@{action\_\-succeeded}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{action\_\-succeeded}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAITown.action\_\-succeeded (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a74842a9ebfb725c2a82c3cfa2302165b}
+Some kind of action succeeded 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+{\em type} & the type of the action \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_ad5e0562b19a63a8894a45ef7ad28ba35}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_town_ae44f51c883bcc4263ee49583634f9cea}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!add@{add}}
+\index{add@{add}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.add (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{building}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_ae44f51c883bcc4263ee49583634f9cea}
+Adds an object to this town (maybe) 
+\begin{DoxyParams}{Parameters}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the object was within city limits and added, otherwise false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_ad8d983190f387b9058de7eb64354a901}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!add@{add}}
+\index{add@{add}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.add (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIFarm}}]{farm}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_ad8d983190f387b9058de7eb64354a901}
+Adds an object to this town (maybe) 
+\begin{DoxyParams}{Parameters}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the object was within city limits and added, otherwise false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_aa4e1adb754f46beae752a0acd8a8b9d8}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!add@{add}}
+\index{add@{add}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{add}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.add (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIEnemy}}]{enemy}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_aa4e1adb754f46beae752a0acd8a8b9d8}
+Adds an object to this town (maybe) 
+\begin{DoxyParams}{Parameters}
+{\em obj} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if the object was within city limits and added, otherwise false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a35b5ee2f71343d25c4e77bb8e3c46886}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!add\_\-defender@{add\_\-defender}}
+\index{add\_\-defender@{add\_\-defender}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{add\_\-defender}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAITown.add\_\-defender (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a35b5ee2f71343d25c4e77bb8e3c46886}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a248a180a3546e3644fb329ac9ec32855}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAITown.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai, }
+\item[{int}]{dx, }
+\item[{int}]{dy}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a248a180a3546e3644fb329ac9ec32855}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a08398ead5c3de183c9722463aa13faa3}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!distance@{distance}}
+\index{distance@{distance}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{distance}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAITown.distance (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a08398ead5c3de183c9722463aa13faa3}
+Calculates the distance from the unit to this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the distance 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_af0a1ecd68f29b47e6f2cfe1b97f00db2}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a462cce5a13f0e139d8e3f33dad8d38ac}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!get\_\-location@{get\_\-location}}
+\index{get\_\-location@{get\_\-location}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{get\_\-location}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAITown.get\_\-location (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIProduction}}]{product, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a462cce5a13f0e139d8e3f33dad8d38ac}
+Returns where we want to build a stock pile in this town 
+\begin{DoxyParams}{Parameters}
+{\em product} & \\
+\hline
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/1 if don't want a stockpile here (could be, already returned the wish location) 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a8e6decaf61b5456174e6f8caeaa36109}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!has\_\-stockpile@{has\_\-stockpile}}
+\index{has\_\-stockpile@{has\_\-stockpile}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{has\_\-stockpile}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.has\_\-stockpile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a8e6decaf61b5456174e6f8caeaa36109}
+Checks if there is a stockpile in this town \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a7e84939ea1dd2924bd4d7d4c72e3f21f}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!in\_\-limits@{in\_\-limits}}
+\index{in\_\-limits@{in\_\-limits}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{in\_\-limits}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.in\_\-limits (
+\begin{DoxyParamCaption}
+\item[{int}]{location, }
+\item[{int}]{map\_\-w}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a7e84939ea1dd2924bd4d7d4c72e3f21f}
+Checks if a location is within the city limits 
+\begin{DoxyParams}{Parameters}
+{\em location} & the location to check \\
+\hline
+{\em map\_\-w} & width of the map \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a73a19cdf93f393fcaf97b1cab016f0d9}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!order\_\-unit@{order\_\-unit}}
+\index{order\_\-unit@{order\_\-unit}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{order\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAITown.order\_\-unit (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a73a19cdf93f393fcaf97b1cab016f0d9}
+Orders a unit to interact with this object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_a44472c53ca6f1b73a703de0e82e71701}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a0d09e35b914616e11d99934cb327c2c9}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!population@{population}}
+\index{population@{population}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{population}]{\setlength{\rightskip}{0pt plus 5cm}int ai.general.GeneralAITown.population (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a0d09e35b914616e11d99934cb327c2c9}
+Returns the population of the town \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_ad886c779c1766b6817067b54232770d6}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAITown.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_ad886c779c1766b6817067b54232770d6}
+This unit has been removed from the object 
+\begin{DoxyParams}{Parameters}
+{\em unit} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_abe548d19bcc8b0022632c78bc2efda2f}{ai.general.GeneralAIObject}.
+
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a2d256254f6a203b08fdb96ad66a2907d}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{building}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a2d256254f6a203b08fdb96ad66a2907d}
+Removes a building from this town 
+\begin{DoxyParams}{Parameters}
+{\em building} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this building was in this town, otherwise false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_af7b49789f6b599a39471989a1e425efd}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIFarm}}]{farm}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_af7b49789f6b599a39471989a1e425efd}
+Removes a farm from this town 
+\begin{DoxyParams}{Parameters}
+{\em farm} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this farm was in this town, otherwise false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a9b80df5d8a2250e252f415a855890752}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!remove@{remove}}
+\index{remove@{remove}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{remove}]{\setlength{\rightskip}{0pt plus 5cm}boolean ai.general.GeneralAITown.remove (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIEnemy}}]{enemy}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_general_a_i_town_a9b80df5d8a2250e252f415a855890752}
+Removes a enemy building from this town 
+\begin{DoxyParams}{Parameters}
+{\em building} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if this building was in this town, otherwise false 
+\end{DoxyReturn}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_a390550d776f507012f3c4def087daddf}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!update\_\-orders@{update\_\-orders}}
+\index{update\_\-orders@{update\_\-orders}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{update\_\-orders}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.GeneralAITown.update\_\-orders (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAIUnit}}]{unit, }
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a390550d776f507012f3c4def087daddf}
+Updates the orders of a unit $\ast$ 
+\begin{DoxyParams}{Parameters}
+{\em unit} & the unit \\
+\hline
+{\em ai} & the ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_general_a_i_object_adcb52382eaf3447f61640f6aca6225f6}{ai.general.GeneralAIObject}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_aebbfac1a388c8f60bcbf1877d2e821f9}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!building\_\-requested@{building\_\-requested}}
+\index{building\_\-requested@{building\_\-requested}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{building\_\-requested}]{\setlength{\rightskip}{0pt plus 5cm}boolean \mbox{[}$\,$\mbox{]} {\bf ai.general.GeneralAITown.building\_\-requested}\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_aebbfac1a388c8f60bcbf1877d2e821f9}
+whether or not we've requested a location for each building \hypertarget{classai_1_1general_1_1_general_a_i_town_adc8c7f0186a5d950e42755cef386bdef}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!buildings@{buildings}}
+\index{buildings@{buildings}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{buildings}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIUnit}$>$ {\bf ai.general.GeneralAITown.buildings}}}
+\label{classai_1_1general_1_1_general_a_i_town_adc8c7f0186a5d950e42755cef386bdef}
+the buildings belonging to this town \hypertarget{classai_1_1general_1_1_general_a_i_town_ac7e181c52b6489a74bb5d2e870629648}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!CITY\_\-LIMIT@{CITY\_\-LIMIT}}
+\index{CITY\_\-LIMIT@{CITY\_\-LIMIT}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{CITY\_\-LIMIT}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAITown.CITY\_\-LIMIT} = 5\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_ac7e181c52b6489a74bb5d2e870629648}
+root CITY\_\-LIMIT2 \hypertarget{classai_1_1general_1_1_general_a_i_town_a89768a3f505f2978a615031e26b3a936}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!CITY\_\-LIMIT2@{CITY\_\-LIMIT2}}
+\index{CITY\_\-LIMIT2@{CITY\_\-LIMIT2}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{CITY\_\-LIMIT2}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAITown.CITY\_\-LIMIT2} = 25\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a89768a3f505f2978a615031e26b3a936}
+all structures should be within this many squares (root) of each other \hypertarget{classai_1_1general_1_1_general_a_i_town_a5a21a3abfa24a898efb8da41576de31e}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!defenders@{defenders}}
+\index{defenders@{defenders}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{defenders}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAITown.defenders}}}
+\label{classai_1_1general_1_1_general_a_i_town_a5a21a3abfa24a898efb8da41576de31e}
+\hypertarget{classai_1_1general_1_1_general_a_i_town_ae48c777b4279a86050c7150a035ec2d8}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!defenders\_\-wanted@{defenders\_\-wanted}}
+\index{defenders\_\-wanted@{defenders\_\-wanted}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{defenders\_\-wanted}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAITown.defenders\_\-wanted}}}
+\label{classai_1_1general_1_1_general_a_i_town_ae48c777b4279a86050c7150a035ec2d8}
+how many defenders this town wants \hypertarget{classai_1_1general_1_1_general_a_i_town_a91cd92b61de687c024e0c548de5a0c9c}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!enemy\_\-buildings@{enemy\_\-buildings}}
+\index{enemy\_\-buildings@{enemy\_\-buildings}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{enemy\_\-buildings}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIEnemy}$>$ {\bf ai.general.GeneralAITown.enemy\_\-buildings}}}
+\label{classai_1_1general_1_1_general_a_i_town_a91cd92b61de687c024e0c548de5a0c9c}
+buildings belonging to the enemy \hypertarget{classai_1_1general_1_1_general_a_i_town_ac5bd96d862c3a343ac10ec425264bb40}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!farms@{farms}}
+\index{farms@{farms}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{farms}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIFarm}$>$ {\bf ai.general.GeneralAITown.farms}}}
+\label{classai_1_1general_1_1_general_a_i_town_ac5bd96d862c3a343ac10ec425264bb40}
+the farms belonging to this town \hypertarget{classai_1_1general_1_1_general_a_i_town_a221de0be695fa283fcfb40779e58db7b}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!LOCATION\_\-SCOUTING@{LOCATION\_\-SCOUTING}}
+\index{LOCATION\_\-SCOUTING@{LOCATION\_\-SCOUTING}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{LOCATION\_\-SCOUTING}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAITown.LOCATION\_\-SCOUTING} = 1000\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a221de0be695fa283fcfb40779e58db7b}
+how many times to try and scout a location \hypertarget{classai_1_1general_1_1_general_a_i_town_a79df4db8ca7a4de626f676096863b114}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!NO\_\-VACANCY@{NO\_\-VACANCY}}
+\index{NO\_\-VACANCY@{NO\_\-VACANCY}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{NO\_\-VACANCY}]{\setlength{\rightskip}{0pt plus 5cm}final int {\bf ai.general.GeneralAITown.NO\_\-VACANCY} = -\/1\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{classai_1_1general_1_1_general_a_i_town_a79df4db8ca7a4de626f676096863b114}
+could not find a place in this town to build \hypertarget{classai_1_1general_1_1_general_a_i_town_a800050c1a4d3b38e5b278ef5baa022a6}{
+\index{ai::general::GeneralAITown@{ai::general::GeneralAITown}!owner@{owner}}
+\index{owner@{owner}!ai::general::GeneralAITown@{ai::general::GeneralAITown}}
+\subsubsection[{owner}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.GeneralAITown.owner}}}
+\label{classai_1_1general_1_1_general_a_i_town_a800050c1a4d3b38e5b278ef5baa022a6}
+id of whoever owns this town 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_general_a_i_town_8java}{GeneralAITown.java}\end{DoxyCompactItemize}

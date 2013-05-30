@@ -1,0 +1,198 @@
+\hypertarget{classrts_1_1units_1_1_unit_stats}{
+\section{rts.units.UnitStats Class Reference}
+\label{classrts_1_1units_1_1_unit_stats}\index{rts::units::UnitStats@{rts::units::UnitStats}}
+}
+
+
+The stats that an individual unit has (this is an internal use only class)  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_stats_abb085c05874b1fedf2a1738ffcf3f752}{UnitStats} (int \_\-player, int \_\-x, int \_\-y, \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} \_\-definition)
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_stats}{UnitStats} \hyperlink{classrts_1_1units_1_1_unit_stats_acb97c19e6e09f3827232aef17067d43b}{copy} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+long \hyperlink{classrts_1_1units_1_1_unit_stats_a2a17d4f66adec0d70c02ff56f57dcdc0}{id}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_a9f6197b668783aae1b851f6a5910802f}{player}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_ae6dbed9342232ad0c30a1ee809aee548}{hp}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_ab5601c1762edb9db5d6f4844359ec881}{x}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} \hyperlink{classrts_1_1units_1_1_unit_stats_a72276bc3c68668477d551b03f9237552}{definition}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_a7c136510fe6631fcfd9bd246698328d3}{killed\_\-by}
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_stats_aa40770ab0f85befe15759688bde51263}{seen\_\-dead}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_a0798670a97016a31c749dbb431e0545f}{resources}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_a0c1250ffeeefa0481e39ca5b77c343a1}{resources\_\-type}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} \hyperlink{classrts_1_1units_1_1_unit_stats_a6720d11613b18a874df2c36e689a950d}{action}
+\item 
+boolean \hyperlink{classrts_1_1units_1_1_unit_stats_aab4f4e1828b46c575053ff22372ac6ed}{last\_\-action\_\-success}
+\item 
+ArrayList$<$ \hyperlink{classrts_1_1units_1_1_unit_action}{UnitAction} $>$ \hyperlink{classrts_1_1units_1_1_unit_stats_a5b8dcaea735d6fe1b55120355a679809}{legalActions}
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classrts_1_1units_1_1_unit_stats_a6942c21b6de9bbe54c2fd40d46934ee4}{y}
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classrts_1_1units_1_1_unit_stats_aa1eba689a26fb4740cc7e476c8eccb0e}{UnitStats} (int \_\-player, int \_\-x, int \_\-y, \hyperlink{classrts_1_1units_1_1_unit_definition}{UnitDefinition} \_\-definition, boolean c)
+\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static long \hyperlink{classrts_1_1units_1_1_unit_stats_a80ab0040be7e369e4572ed223942cd57}{next\_\-id} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The stats that an individual unit has (this is an internal use only class) 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_stats_aa1eba689a26fb4740cc7e476c8eccb0e}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!UnitStats@{UnitStats}}
+\index{UnitStats@{UnitStats}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{UnitStats}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitStats.UnitStats (
+\begin{DoxyParamCaption}
+\item[{int}]{\_\-player, }
+\item[{int}]{\_\-x, }
+\item[{int}]{\_\-y, }
+\item[{{\bf UnitDefinition}}]{\_\-definition, }
+\item[{boolean}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_stats_aa1eba689a26fb4740cc7e476c8eccb0e}
+\hypertarget{classrts_1_1units_1_1_unit_stats_abb085c05874b1fedf2a1738ffcf3f752}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!UnitStats@{UnitStats}}
+\index{UnitStats@{UnitStats}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{UnitStats}]{\setlength{\rightskip}{0pt plus 5cm}rts.units.UnitStats.UnitStats (
+\begin{DoxyParamCaption}
+\item[{int}]{\_\-player, }
+\item[{int}]{\_\-x, }
+\item[{int}]{\_\-y, }
+\item[{{\bf UnitDefinition}}]{\_\-definition}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_stats_abb085c05874b1fedf2a1738ffcf3f752}
+Creates a new unit's stats 
+\begin{DoxyParams}{Parameters}
+{\em \_\-player} & \\
+\hline
+{\em \_\-x} & \\
+\hline
+{\em \_\-y} & \\
+\hline
+{\em \_\-definition} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_stats_acb97c19e6e09f3827232aef17067d43b}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!copy@{copy}}
+\index{copy@{copy}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitStats} rts.units.UnitStats.copy (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classrts_1_1units_1_1_unit_stats_acb97c19e6e09f3827232aef17067d43b}
+Makes a copy of the stats \begin{DoxyReturn}{Returns}
+a copy of the stats 
+\end{DoxyReturn}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a6720d11613b18a874df2c36e689a950d}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!action@{action}}
+\index{action@{action}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{action}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitAction} {\bf rts.units.UnitStats.action}}}
+\label{classrts_1_1units_1_1_unit_stats_a6720d11613b18a874df2c36e689a950d}
+the action this unit will take \hypertarget{classrts_1_1units_1_1_unit_stats_a72276bc3c68668477d551b03f9237552}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!definition@{definition}}
+\index{definition@{definition}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{definition}]{\setlength{\rightskip}{0pt plus 5cm}{\bf UnitDefinition} {\bf rts.units.UnitStats.definition}}}
+\label{classrts_1_1units_1_1_unit_stats_a72276bc3c68668477d551b03f9237552}
+\hypertarget{classrts_1_1units_1_1_unit_stats_ae6dbed9342232ad0c30a1ee809aee548}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!hp@{hp}}
+\index{hp@{hp}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{hp}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.hp}}}
+\label{classrts_1_1units_1_1_unit_stats_ae6dbed9342232ad0c30a1ee809aee548}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a2a17d4f66adec0d70c02ff56f57dcdc0}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!id@{id}}
+\index{id@{id}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{id}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf rts.units.UnitStats.id}}}
+\label{classrts_1_1units_1_1_unit_stats_a2a17d4f66adec0d70c02ff56f57dcdc0}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a7c136510fe6631fcfd9bd246698328d3}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!killed\_\-by@{killed\_\-by}}
+\index{killed\_\-by@{killed\_\-by}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{killed\_\-by}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.killed\_\-by}}}
+\label{classrts_1_1units_1_1_unit_stats_a7c136510fe6631fcfd9bd246698328d3}
+which player killed this unit \hypertarget{classrts_1_1units_1_1_unit_stats_aab4f4e1828b46c575053ff22372ac6ed}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!last\_\-action\_\-success@{last\_\-action\_\-success}}
+\index{last\_\-action\_\-success@{last\_\-action\_\-success}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{last\_\-action\_\-success}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf rts.units.UnitStats.last\_\-action\_\-success}}}
+\label{classrts_1_1units_1_1_unit_stats_aab4f4e1828b46c575053ff22372ac6ed}
+whether or not the last action was a success \hypertarget{classrts_1_1units_1_1_unit_stats_a5b8dcaea735d6fe1b55120355a679809}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!legalActions@{legalActions}}
+\index{legalActions@{legalActions}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{legalActions}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf UnitAction}$>$ {\bf rts.units.UnitStats.legalActions}}}
+\label{classrts_1_1units_1_1_unit_stats_a5b8dcaea735d6fe1b55120355a679809}
+a listing of legal actions \hypertarget{classrts_1_1units_1_1_unit_stats_a80ab0040be7e369e4572ed223942cd57}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!next\_\-id@{next\_\-id}}
+\index{next\_\-id@{next\_\-id}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{next\_\-id}]{\setlength{\rightskip}{0pt plus 5cm}long {\bf rts.units.UnitStats.next\_\-id} = 0\hspace{0.3cm}{\ttfamily  \mbox{[}static, private\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_stats_a80ab0040be7e369e4572ed223942cd57}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a9f6197b668783aae1b851f6a5910802f}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!player@{player}}
+\index{player@{player}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{player}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.player}}}
+\label{classrts_1_1units_1_1_unit_stats_a9f6197b668783aae1b851f6a5910802f}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a0798670a97016a31c749dbb431e0545f}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!resources@{resources}}
+\index{resources@{resources}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{resources}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.resources}}}
+\label{classrts_1_1units_1_1_unit_stats_a0798670a97016a31c749dbb431e0545f}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a0c1250ffeeefa0481e39ca5b77c343a1}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!resources\_\-type@{resources\_\-type}}
+\index{resources\_\-type@{resources\_\-type}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{resources\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.resources\_\-type}}}
+\label{classrts_1_1units_1_1_unit_stats_a0c1250ffeeefa0481e39ca5b77c343a1}
+\hypertarget{classrts_1_1units_1_1_unit_stats_aa40770ab0f85befe15759688bde51263}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!seen\_\-dead@{seen\_\-dead}}
+\index{seen\_\-dead@{seen\_\-dead}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{seen\_\-dead}]{\setlength{\rightskip}{0pt plus 5cm}boolean {\bf rts.units.UnitStats.seen\_\-dead}}}
+\label{classrts_1_1units_1_1_unit_stats_aa40770ab0f85befe15759688bde51263}
+whether or not the opponent has seen the dead guy \hypertarget{classrts_1_1units_1_1_unit_stats_ab5601c1762edb9db5d6f4844359ec881}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!x@{x}}
+\index{x@{x}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.x}}}
+\label{classrts_1_1units_1_1_unit_stats_ab5601c1762edb9db5d6f4844359ec881}
+\hypertarget{classrts_1_1units_1_1_unit_stats_a6942c21b6de9bbe54c2fd40d46934ee4}{
+\index{rts::units::UnitStats@{rts::units::UnitStats}!y@{y}}
+\index{y@{y}!rts::units::UnitStats@{rts::units::UnitStats}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf rts.units.UnitStats.y}\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classrts_1_1units_1_1_unit_stats_a6942c21b6de9bbe54c2fd40d46934ee4}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/rts/units/\hyperlink{_unit_stats_8java}{UnitStats.java}\end{DoxyCompactItemize}

@@ -1,0 +1,128 @@
+\hypertarget{classai_1_1general_1_1_task_manager}{
+\section{ai.general.TaskManager Class Reference}
+\label{classai_1_1general_1_1_task_manager}\index{ai::general::TaskManager@{ai::general::TaskManager}}
+}
+
+
+Task managers manage the tasks that units can be assigned to.  
+
+
+Inheritance diagram for ai.general.TaskManager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.148718cm]{classai_1_1general_1_1_task_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_task_manager_a1c9d8d6ee16bceb7620d2eb80d831527}{TaskManager} ()
+\item 
+abstract void \hyperlink{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{update} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+abstract void \hyperlink{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{manage\_\-units} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_task_manager_ae8545f8cf4ca068ce39cfcc3242af5b9}{remove\_\-unit} (long id)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} $>$ \hyperlink{classai_1_1general_1_1_task_manager_af1f1456711a8fae38008a1f257499a40}{units}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_unit}{GeneralAIUnit} $>$ \hyperlink{classai_1_1general_1_1_task_manager_ab60f349ac3875cfa72322c09a318dfd1}{units\_\-scouted}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Task managers manage the tasks that units can be assigned to. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_task_manager_a1c9d8d6ee16bceb7620d2eb80d831527}{
+\index{ai::general::TaskManager@{ai::general::TaskManager}!TaskManager@{TaskManager}}
+\index{TaskManager@{TaskManager}!ai::general::TaskManager@{ai::general::TaskManager}}
+\subsubsection[{TaskManager}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.TaskManager.TaskManager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_task_manager_a1c9d8d6ee16bceb7620d2eb80d831527}
+Constructs a new task manager 
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{
+\index{ai::general::TaskManager@{ai::general::TaskManager}!manage\_\-units@{manage\_\-units}}
+\index{manage\_\-units@{manage\_\-units}!ai::general::TaskManager@{ai::general::TaskManager}}
+\subsubsection[{manage\_\-units}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.general.TaskManager.manage\_\-units (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}
+Requests units to be assigned to this task 
+\begin{DoxyParams}{Parameters}
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_attack_manager_ac58488b9d0607214f5f7c7750446e107}{ai.general.AttackManager}, \hyperlink{classai_1_1general_1_1_exploration_manager_acc70ee6c187e9317fdaa32b808580acc}{ai.general.ExplorationManager}, \hyperlink{classai_1_1general_1_1_farm_manager_aa40f9a63a3c10acf16633407f919ed37}{ai.general.FarmManager}, \hyperlink{classai_1_1general_1_1_production_manager_a076cbb861ae6fd6023049ce2ecee6cda}{ai.general.ProductionManager}, and \hyperlink{classai_1_1general_1_1_town_manager_ab76719826ebe7db01b4c49abfe819088}{ai.general.TownManager}.
+
+\hypertarget{classai_1_1general_1_1_task_manager_ae8545f8cf4ca068ce39cfcc3242af5b9}{
+\index{ai::general::TaskManager@{ai::general::TaskManager}!remove\_\-unit@{remove\_\-unit}}
+\index{remove\_\-unit@{remove\_\-unit}!ai::general::TaskManager@{ai::general::TaskManager}}
+\subsubsection[{remove\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.TaskManager.remove\_\-unit (
+\begin{DoxyParamCaption}
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_task_manager_ae8545f8cf4ca068ce39cfcc3242af5b9}
+Removes a unit because it has been killed 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{classai_1_1general_1_1_farm_manager_af548dce357940ca744e6024275a683d2}{ai.general.FarmManager}.
+
+\hypertarget{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{
+\index{ai::general::TaskManager@{ai::general::TaskManager}!update@{update}}
+\index{update@{update}!ai::general::TaskManager@{ai::general::TaskManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}abstract void ai.general.TaskManager.update (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}pure virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}
+Updates the data of the task manager 
+\begin{DoxyParams}{Parameters}
+{\em ai} & \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \hyperlink{classai_1_1general_1_1_attack_manager_a6776ff3d2b303c7f9301b94afb646b00}{ai.general.AttackManager}, \hyperlink{classai_1_1general_1_1_exploration_manager_ad505dd71852b360dc804dfbf160a0ea3}{ai.general.ExplorationManager}, \hyperlink{classai_1_1general_1_1_farm_manager_a93d1a886ee93738fcb6bea2cc5c230ff}{ai.general.FarmManager}, \hyperlink{classai_1_1general_1_1_production_manager_a21674afcbd70ba10ee88ed673569945b}{ai.general.ProductionManager}, and \hyperlink{classai_1_1general_1_1_town_manager_a3817fd7714079f01a3897b6322bc45cf}{ai.general.TownManager}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_task_manager_af1f1456711a8fae38008a1f257499a40}{
+\index{ai::general::TaskManager@{ai::general::TaskManager}!units@{units}}
+\index{units@{units}!ai::general::TaskManager@{ai::general::TaskManager}}
+\subsubsection[{units}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIUnit}$>$ {\bf ai.general.TaskManager.units}}}
+\label{classai_1_1general_1_1_task_manager_af1f1456711a8fae38008a1f257499a40}
+the units this manager has control over \hypertarget{classai_1_1general_1_1_task_manager_ab60f349ac3875cfa72322c09a318dfd1}{
+\index{ai::general::TaskManager@{ai::general::TaskManager}!units\_\-scouted@{units\_\-scouted}}
+\index{units\_\-scouted@{units\_\-scouted}!ai::general::TaskManager@{ai::general::TaskManager}}
+\subsubsection[{units\_\-scouted}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIUnit}$>$ {\bf ai.general.TaskManager.units\_\-scouted}}}
+\label{classai_1_1general_1_1_task_manager_ab60f349ac3875cfa72322c09a318dfd1}
+the units that want, but currently belong to another manager 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_task_manager_8java}{TaskManager.java}\end{DoxyCompactItemize}

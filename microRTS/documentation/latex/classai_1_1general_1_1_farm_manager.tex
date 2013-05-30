@@ -1,0 +1,137 @@
+\hypertarget{classai_1_1general_1_1_farm_manager}{
+\section{ai.general.FarmManager Class Reference}
+\label{classai_1_1general_1_1_farm_manager}\index{ai::general::FarmManager@{ai::general::FarmManager}}
+}
+
+
+Manages the farming of resources.  
+
+
+Inheritance diagram for ai.general.FarmManager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_farm_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_farm_manager_ae36453adb10b600dd638b7d1730b0763}{FarmManager} ()
+\item 
+void \hyperlink{classai_1_1general_1_1_farm_manager_aa40f9a63a3c10acf16633407f919ed37}{manage\_\-units} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_farm_manager_af548dce357940ca744e6024275a683d2}{remove\_\-unit} (long id)
+\item 
+void \hyperlink{classai_1_1general_1_1_farm_manager_a93d1a886ee93738fcb6bea2cc5c230ff}{update} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_farm}{GeneralAIFarm} $>$ \hyperlink{classai_1_1general_1_1_farm_manager_a9bd738ced9a1940305e484ed9454f1c7}{farms}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_farm}{GeneralAIFarm} $>$ \hyperlink{classai_1_1general_1_1_farm_manager_a4127471edad7fccfb34addaf6041da88}{owned\_\-farms}
+\item 
+int \hyperlink{classai_1_1general_1_1_farm_manager_aaf0202404f88cdfabebee5bc6d07753f}{workers\_\-wanted}
+\item 
+ArrayList$<$ Integer $>$ \hyperlink{classai_1_1general_1_1_farm_manager_a7fbfff2fdadbb3fbdeeeaeb62cd5496c}{neutral\_\-farms}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages the farming of resources. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_farm_manager_ae36453adb10b600dd638b7d1730b0763}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!FarmManager@{FarmManager}}
+\index{FarmManager@{FarmManager}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{FarmManager}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.FarmManager.FarmManager (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_farm_manager_ae36453adb10b600dd638b7d1730b0763}
+Constructs a new farm manager 
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_farm_manager_aa40f9a63a3c10acf16633407f919ed37}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!manage\_\-units@{manage\_\-units}}
+\index{manage\_\-units@{manage\_\-units}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{manage\_\-units}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.FarmManager.manage\_\-units (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_farm_manager_aa40f9a63a3c10acf16633407f919ed37}
+Requests units to start farming 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{ai.general.TaskManager}.
+
+\hypertarget{classai_1_1general_1_1_farm_manager_af548dce357940ca744e6024275a683d2}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!remove\_\-unit@{remove\_\-unit}}
+\index{remove\_\-unit@{remove\_\-unit}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{remove\_\-unit}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.FarmManager.remove\_\-unit (
+\begin{DoxyParamCaption}
+\item[{long}]{id}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_farm_manager_af548dce357940ca744e6024275a683d2}
+Removes a unit from a farm (unit has likely died) 
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classai_1_1general_1_1_task_manager_ae8545f8cf4ca068ce39cfcc3242af5b9}{ai.general.TaskManager}.
+
+\hypertarget{classai_1_1general_1_1_farm_manager_a93d1a886ee93738fcb6bea2cc5c230ff}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!update@{update}}
+\index{update@{update}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.FarmManager.update (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_farm_manager_a93d1a886ee93738fcb6bea2cc5c230ff}
+Updates farm data 
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{ai.general.TaskManager}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_farm_manager_a9bd738ced9a1940305e484ed9454f1c7}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!farms@{farms}}
+\index{farms@{farms}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{farms}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIFarm}$>$ {\bf ai.general.FarmManager.farms}}}
+\label{classai_1_1general_1_1_farm_manager_a9bd738ced9a1940305e484ed9454f1c7}
+resource fields we know about \hypertarget{classai_1_1general_1_1_farm_manager_a7fbfff2fdadbb3fbdeeeaeb62cd5496c}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!neutral\_\-farms@{neutral\_\-farms}}
+\index{neutral\_\-farms@{neutral\_\-farms}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{neutral\_\-farms}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<$Integer$>$ {\bf ai.general.FarmManager.neutral\_\-farms}}}
+\label{classai_1_1general_1_1_farm_manager_a7fbfff2fdadbb3fbdeeeaeb62cd5496c}
+\hypertarget{classai_1_1general_1_1_farm_manager_a4127471edad7fccfb34addaf6041da88}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!owned\_\-farms@{owned\_\-farms}}
+\index{owned\_\-farms@{owned\_\-farms}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{owned\_\-farms}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIFarm}$>$ {\bf ai.general.FarmManager.owned\_\-farms}}}
+\label{classai_1_1general_1_1_farm_manager_a4127471edad7fccfb34addaf6041da88}
+a quick listing of all the farms that we \char`\"{}own\char`\"{} \hypertarget{classai_1_1general_1_1_farm_manager_aaf0202404f88cdfabebee5bc6d07753f}{
+\index{ai::general::FarmManager@{ai::general::FarmManager}!workers\_\-wanted@{workers\_\-wanted}}
+\index{workers\_\-wanted@{workers\_\-wanted}!ai::general::FarmManager@{ai::general::FarmManager}}
+\subsubsection[{workers\_\-wanted}]{\setlength{\rightskip}{0pt plus 5cm}int {\bf ai.general.FarmManager.workers\_\-wanted}}}
+\label{classai_1_1general_1_1_farm_manager_aaf0202404f88cdfabebee5bc6d07753f}
+how many workers we want, but don't exist 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_farm_manager_8java}{FarmManager.java}\end{DoxyCompactItemize}

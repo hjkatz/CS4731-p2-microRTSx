@@ -1,0 +1,121 @@
+\hypertarget{classai_1_1_random_biased_a_i}{
+\section{ai.RandomBiasedAI Class Reference}
+\label{classai_1_1_random_biased_a_i}\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+}
+
+
+Chooses random moves, but without a uniform probability for each move.  
+
+
+Inheritance diagram for ai.RandomBiasedAI:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1_random_biased_a_i}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classai_1_1_random_biased_a_i_a4553531199f936ca415a2c19f801c38c}{reset} ()
+\item 
+\hyperlink{classai_1_1_a_i}{AI} \hyperlink{classai_1_1_random_biased_a_i_a619555758fc224984604151f2e5961f9}{clone} ()
+\item 
+void \hyperlink{classai_1_1_random_biased_a_i_a771d9ce5f142c325fcc7bd5a2e4a3215}{getAction} (\hyperlink{classrts_1_1_game_state}{GameState} gs, int time\_\-limit)
+\item 
+\hyperlink{classai_1_1util_1_1_player_action}{PlayerAction} \hyperlink{classai_1_1_random_biased_a_i_aadf1aee4410f62242f6c0f95dd0f5aa4}{getRandomPlayerAction} (\hyperlink{classrts_1_1_game_state}{GameState} gs)
+\item 
+String \hyperlink{classai_1_1_random_biased_a_i_ae155794223a516cfcc47f1933059d4f6}{getLabel} ()
+\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Random \hyperlink{classai_1_1_random_biased_a_i_ad0b6ab7aa1e7a359f6944ce85478dcc0}{r} = new Random()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chooses random moves, but without a uniform probability for each move. 
+
+\begin{DoxyAuthor}{Author}
+santi 
+\end{DoxyAuthor}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1_random_biased_a_i_a619555758fc224984604151f2e5961f9}{
+\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}!clone@{clone}}
+\index{clone@{clone}!ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf AI} ai.RandomBiasedAI.clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_random_biased_a_i_a619555758fc224984604151f2e5961f9}
+\hypertarget{classai_1_1_random_biased_a_i_a771d9ce5f142c325fcc7bd5a2e4a3215}{
+\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}!getAction@{getAction}}
+\index{getAction@{getAction}!ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+\subsubsection[{getAction}]{\setlength{\rightskip}{0pt plus 5cm}void ai.RandomBiasedAI.getAction (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{gs, }
+\item[{int}]{time\_\-limit}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1_random_biased_a_i_a771d9ce5f142c325fcc7bd5a2e4a3215}
+Requests actions from the \hyperlink{classai_1_1_a_i}{AI} 
+\begin{DoxyParams}{Parameters}
+{\em gs} & the game state \\
+\hline
+{\em time\_\-limit} & how many milliseconds this turn is \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1_a_i_ac99863ed57cf48013d00267919044ef2}{ai.AI}.
+
+\hypertarget{classai_1_1_random_biased_a_i_ae155794223a516cfcc47f1933059d4f6}{
+\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}!getLabel@{getLabel}}
+\index{getLabel@{getLabel}!ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+\subsubsection[{getLabel}]{\setlength{\rightskip}{0pt plus 5cm}String ai.RandomBiasedAI.getLabel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_random_biased_a_i_ae155794223a516cfcc47f1933059d4f6}
+Allows the agent to label itself \begin{DoxyReturn}{Returns}
+a label 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classai_1_1_a_i_a88d898fe81c137f04c130acfe9575851}{ai.AI}.
+
+\hypertarget{classai_1_1_random_biased_a_i_aadf1aee4410f62242f6c0f95dd0f5aa4}{
+\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}!getRandomPlayerAction@{getRandomPlayerAction}}
+\index{getRandomPlayerAction@{getRandomPlayerAction}!ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+\subsubsection[{getRandomPlayerAction}]{\setlength{\rightskip}{0pt plus 5cm}{\bf PlayerAction} ai.RandomBiasedAI.getRandomPlayerAction (
+\begin{DoxyParamCaption}
+\item[{{\bf GameState}}]{gs}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_random_biased_a_i_aadf1aee4410f62242f6c0f95dd0f5aa4}
+\hypertarget{classai_1_1_random_biased_a_i_a4553531199f936ca415a2c19f801c38c}{
+\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}!reset@{reset}}
+\index{reset@{reset}!ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+\subsubsection[{reset}]{\setlength{\rightskip}{0pt plus 5cm}void ai.RandomBiasedAI.reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1_random_biased_a_i_a4553531199f936ca415a2c19f801c38c}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1_random_biased_a_i_ad0b6ab7aa1e7a359f6944ce85478dcc0}{
+\index{ai::RandomBiasedAI@{ai::RandomBiasedAI}!r@{r}}
+\index{r@{r}!ai::RandomBiasedAI@{ai::RandomBiasedAI}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}Random {\bf ai.RandomBiasedAI.r} = new Random()\hspace{0.3cm}{\ttfamily  \mbox{[}package\mbox{]}}}}
+\label{classai_1_1_random_biased_a_i_ad0b6ab7aa1e7a359f6944ce85478dcc0}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/\hyperlink{_random_biased_a_i_8java}{RandomBiasedAI.java}\end{DoxyCompactItemize}

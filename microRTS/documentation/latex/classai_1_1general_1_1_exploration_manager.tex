@@ -1,0 +1,113 @@
+\hypertarget{classai_1_1general_1_1_exploration_manager}{
+\section{ai.general.ExplorationManager Class Reference}
+\label{classai_1_1general_1_1_exploration_manager}\index{ai::general::ExplorationManager@{ai::general::ExplorationManager}}
+}
+
+
+Manages what areas of the map should be explored.  
+
+
+Inheritance diagram for ai.general.ExplorationManager:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classai_1_1general_1_1_exploration_manager}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classai_1_1general_1_1_exploration_manager_af734bff0759137224eb49758eedeef80}{ExplorationManager} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_exploration_manager_acc70ee6c187e9317fdaa32b808580acc}{manage\_\-units} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\item 
+void \hyperlink{classai_1_1general_1_1_exploration_manager_ad505dd71852b360dc804dfbf160a0ea3}{update} (\hyperlink{classai_1_1general_1_1_general_a_i}{GeneralAI} ai)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+ArrayList$<$ \hyperlink{classai_1_1general_1_1_general_a_i_exploration}{GeneralAIExploration} $>$ \hyperlink{classai_1_1general_1_1_exploration_manager_a63a09349d3ddc2e08e0952a47dbdf4fc}{exploration}
+\item 
+int\mbox{[}$\,$\mbox{]} \hyperlink{classai_1_1general_1_1_exploration_manager_a5c5e2db3e60a4b27f7d43df9d2cbaf82}{map}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manages what areas of the map should be explored. 
+
+\begin{DoxyAuthor}{Author}
+Jeff Bernard 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classai_1_1general_1_1_exploration_manager_af734bff0759137224eb49758eedeef80}{
+\index{ai::general::ExplorationManager@{ai::general::ExplorationManager}!ExplorationManager@{ExplorationManager}}
+\index{ExplorationManager@{ExplorationManager}!ai::general::ExplorationManager@{ai::general::ExplorationManager}}
+\subsubsection[{ExplorationManager}]{\setlength{\rightskip}{0pt plus 5cm}ai.general.ExplorationManager.ExplorationManager (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)}}
+\label{classai_1_1general_1_1_exploration_manager_af734bff0759137224eb49758eedeef80}
+Constructs a new exploration manager 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classai_1_1general_1_1_exploration_manager_acc70ee6c187e9317fdaa32b808580acc}{
+\index{ai::general::ExplorationManager@{ai::general::ExplorationManager}!manage\_\-units@{manage\_\-units}}
+\index{manage\_\-units@{manage\_\-units}!ai::general::ExplorationManager@{ai::general::ExplorationManager}}
+\subsubsection[{manage\_\-units}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.ExplorationManager.manage\_\-units (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_exploration_manager_acc70ee6c187e9317fdaa32b808580acc}
+Requests units to go out an explore 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a0dc28110d6f757df002ae58667f41fb7}{ai.general.TaskManager}.
+
+\hypertarget{classai_1_1general_1_1_exploration_manager_ad505dd71852b360dc804dfbf160a0ea3}{
+\index{ai::general::ExplorationManager@{ai::general::ExplorationManager}!update@{update}}
+\index{update@{update}!ai::general::ExplorationManager@{ai::general::ExplorationManager}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void ai.general.ExplorationManager.update (
+\begin{DoxyParamCaption}
+\item[{{\bf GeneralAI}}]{ai}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{classai_1_1general_1_1_exploration_manager_ad505dd71852b360dc804dfbf160a0ea3}
+Updates the data on exploration 
+\begin{DoxyParams}{Parameters}
+{\em ai} & the parent ai \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{classai_1_1general_1_1_task_manager_a4da499b96f85de75adadafdd4a764c68}{ai.general.TaskManager}.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classai_1_1general_1_1_exploration_manager_a63a09349d3ddc2e08e0952a47dbdf4fc}{
+\index{ai::general::ExplorationManager@{ai::general::ExplorationManager}!exploration@{exploration}}
+\index{exploration@{exploration}!ai::general::ExplorationManager@{ai::general::ExplorationManager}}
+\subsubsection[{exploration}]{\setlength{\rightskip}{0pt plus 5cm}ArrayList$<${\bf GeneralAIExploration}$>$ {\bf ai.general.ExplorationManager.exploration}}}
+\label{classai_1_1general_1_1_exploration_manager_a63a09349d3ddc2e08e0952a47dbdf4fc}
+exploration spaces \hypertarget{classai_1_1general_1_1_exploration_manager_a5c5e2db3e60a4b27f7d43df9d2cbaf82}{
+\index{ai::general::ExplorationManager@{ai::general::ExplorationManager}!map@{map}}
+\index{map@{map}!ai::general::ExplorationManager@{ai::general::ExplorationManager}}
+\subsubsection[{map}]{\setlength{\rightskip}{0pt plus 5cm}int \mbox{[}$\,$\mbox{]} {\bf ai.general.ExplorationManager.map}}}
+\label{classai_1_1general_1_1_exploration_manager_a5c5e2db3e60a4b27f7d43df9d2cbaf82}
+the map, as we know it 
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+src/ai/general/\hyperlink{_exploration_manager_8java}{ExplorationManager.java}\end{DoxyCompactItemize}
