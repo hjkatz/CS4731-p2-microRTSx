@@ -99,11 +99,4 @@ public class TownManager extends Manager
         //give it the workers
         //give it any buildings that deal with workers / new buildings / non-military stuff
     }
-    
-    @Override
-    public void requestUnits( AIController ai )
-    {
-        // TODO Auto-generated method stub
-        
-    }
 }
