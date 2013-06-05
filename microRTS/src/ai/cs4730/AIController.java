@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import rts.GameState;
 import rts.units.Unit;
-import rts.units.UnitAction;
 import ai.AI;
 import ai.general.TrafficMap;
 
@@ -18,6 +17,9 @@ public class AIController extends AI
     public GameState          state;
     public TrafficMap         trafficMap;
     public ArrayList<Integer> resources;
+    public int[]              map;
+    public int                WIDTH;
+    public int                HEIGHT;
     
     private TownManager       townManager;
     private ArmyManager       armyManager;
@@ -37,7 +39,11 @@ public class AIController extends AI
     {
         trafficMap = new TrafficMap( state.getMap().length );
         
-        freeUnits.add( state.getMyUnits().get( 0 ) );
+        freeUnits = state.getMyUnits();
+        
+        map = state.getMap();
+        WIDTH = state.getMapWidth();
+        HEIGHT = state.getMapHeight();
         
         init = true;
     }
@@ -50,8 +56,6 @@ public class AIController extends AI
         {
             init();
         }
-        
-        gs.getMyUnits().get( 0 ).setAction( new UnitAction( gs.getMyUnits().get( 0 ), UnitAction.MOVE, gs.getMyUnits().get( 0 ).getX() + 1, gs.getMyUnits().get( 0 ).getY(), -1 ) );
         
         currentTurn++;
         trafficMap.update( currentTurn );
