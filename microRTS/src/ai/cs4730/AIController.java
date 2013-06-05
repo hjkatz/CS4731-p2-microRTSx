@@ -1,35 +1,36 @@
 
 package ai.cs4730;
 
-import ai.AI;
-import ai.general.TrafficMap;
+import java.util.ArrayList;
+
 import rts.GameState;
 import rts.units.Unit;
 import rts.units.UnitAction;
-
-import java.util.ArrayList;
+import ai.AI;
 
 public class AIController extends AI
 {
     
-    private boolean           init = false;
-    private int               currentTurn;
+    private boolean                  init = false;
+    private int                      currentTurn;
     
-    public GameState          gameState;
-    public ArrayList<Integer> resources;
-    public int[]              map;
-    public int                WIDTH;
-    public int                HEIGHT;
+    public GameState                 gameState;
+    public ArrayList<Integer>        resources;
+    public int[]                     map;
+    public int                       WIDTH;
+    public int                       HEIGHT;
     
-    private TownManager       townManager;
-    private ArmyManager       armyManager;
+    private TownManager              townManager;
+    private ArmyManager              armyManager;
     
-    public ArrayList<UnitController>    freeUnits;
+    public ArrayList<UnitController> freeUnits;
     
     private enum STATE
     {
         Open, Midgame, Close
-    };
+    }
+    
+    ;
     
     private STATE state;
     
@@ -47,18 +48,25 @@ public class AIController extends AI
     //things that need to be initialized after the object's init, many rely on state
     public void init()
     {
-        for(Unit u : gameState.getMyUnits())
+        for ( Unit u : gameState.getMyUnits() )
         {
-        	if(u.isWorker()){freeUnits.add(new WorkerUnitController(u));}
-        	else if(u.isBuilding()){freeUnits.add(new BuildingUnitController(u));}
-        	else {freeUnits.add(new ArmyUnitController(u));}
+            if ( u.isWorker() )
+            {
+                freeUnits.add( new WorkerUnitController( u, this ) );
+            }
+            else if ( u.isBuilding() )
+            {
+                freeUnits.add( new BuildingUnitController( u, this ) );
+            }
+            else
+            {
+                freeUnits.add( new ArmyUnitController( u, this ) );
+            }
         }
         
-        freeUnits = state.getMyUnits();
-        
-        map = state.getMap();
-        WIDTH = state.getMapWidth();
-        HEIGHT = state.getMapHeight();
+        map = gameState.getMap();
+        WIDTH = gameState.getMapWidth();
+        HEIGHT = gameState.getMapHeight();
         
         init = true;
     }
@@ -76,11 +84,11 @@ public class AIController extends AI
         
         currentTurn++;
         
-        armyManager.assignUnits(this);
-        townManager.assignUnits(this);
+        armyManager.assignUnits( this );
+        townManager.assignUnits( this );
         
-        armyManager.update(this);
-        townManager.update(this);
+        armyManager.update( this );
+        townManager.update( this );
     }
     
 }
