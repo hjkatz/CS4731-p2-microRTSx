@@ -16,28 +16,31 @@ public class AIController extends AI
     private int               currentTurn;
     
     public GameState          state;
-    public TrafficMap         trafficMap;
     public ArrayList<Integer> resources;
     
     private TownManager       townManager;
     private ArmyManager       armyManager;
     
-    public ArrayList<Unit>    freeUnits;
+    public ArrayList<UnitController>    freeUnits;
     
     public AIController()
     {
         super();
         currentTurn = 0;
-        freeUnits = new ArrayList<Unit>();
+        freeUnits = new ArrayList<UnitController>();
         townManager = new TownManager();
+        armyManager = new ArmyManager();
     }
     
     //things that need to be initialized after the object's init, many rely on state
     public void init()
     {
-        trafficMap = new TrafficMap( state.getMap().length );
-        
-        freeUnits.add( state.getMyUnits().get( 0 ) );
+        for(Unit u : state.getMyUnits())
+        {
+        	if(u.isWorker()){freeUnits.add(new WorkerUnitController(u));}
+        	else if(u.isBuilding()){freeUnits.add(new BuildingUnitController(u));}
+        	else {freeUnits.add(new ArmyUnitController(u));}
+        }
         
         init = true;
     }
@@ -54,11 +57,12 @@ public class AIController extends AI
         gs.getMyUnits().get( 0 ).setAction( new UnitAction( gs.getMyUnits().get( 0 ), UnitAction.MOVE, gs.getMyUnits().get( 0 ).getX() + 1, gs.getMyUnits().get( 0 ).getY(), -1 ) );
         
         currentTurn++;
-        trafficMap.update( currentTurn );
         
-        townManager.assignUnits( this );
+        armyManager.assignUnits(this);
+        townManager.assignUnits(this);
         
-        townManager.update( this );
+        armyManager.update(this);
+        townManager.update(this);
     }
     
 }

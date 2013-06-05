@@ -66,10 +66,4 @@ public class TownManager extends Manager
         //give it the workers
         //give it any buildings that deal with workers / new buildings / non-military stuff
     }
-    
-    @Override
-    public void assignResources( AIController ai )
-    {
-        //give it a certain amount of the resources
-    }
 }

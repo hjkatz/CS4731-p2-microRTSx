@@ -1,11 +1,18 @@
 
 package ai.cs4730;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 public class ArmyManager extends Manager
 {
     
+	ArrayList<UnitController> units = new ArrayList<UnitController>();
+	ArrayList<BuildingUnitController> buildings = new ArrayList<BuildingUnitController>();
+	
+	private int numScouts;
+	private int wantedScouts;
+	
     private enum GOAL
     {
         Explore, Attack, Defend
@@ -18,6 +25,9 @@ public class ArmyManager extends Manager
         goals.put( GOAL.Explore, 0.8f );
         goals.put( GOAL.Attack, 0.0f );
         goals.put( GOAL.Defend, 0.2f );
+        
+        numScouts = 0;
+        wantedScouts = 0;
     }
     
     @Override
@@ -31,12 +41,24 @@ public class ArmyManager extends Manager
     {
         //give it all military units including scouts
         //give it buildings that produce military units
-    }
-    
-    @Override
-    public void assignResources( AIController ai )
-    {
-        //give it a ceratin amount of the resources
+    	
+    	for(UnitController u : ai.freeUnits)
+    	{
+    		if(u.getClass() == ArmyUnitController.class){
+    			units.add(u);
+    		}
+    		else if(u.getClass() == BuildingUnitController.class){
+    			BuildingUnitController bu = (BuildingUnitController) u;
+    			if(!bu.isStockpile){units.add(u);}
+    		}
+    		else if(wantedScouts > numScouts)
+    		{
+    			if(u.getClass() == WorkerUnitController.class)
+    			{
+    				units.add(u);
+    			}
+    		}
+    	}
     }
     
 }
