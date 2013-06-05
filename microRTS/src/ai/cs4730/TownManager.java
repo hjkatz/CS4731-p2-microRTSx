@@ -9,14 +9,14 @@ import rts.units.UnitAction;
 
 public class TownManager extends Manager
 {
-    public HashMap<Integer, Integer>          buildPriority;
-    // Production Id and Priority, Bigger Priority == More likely to build
-    // (Use order of 1 - 100) Every time a unit is made its 
-    // priority will drop by 1
-    public ArrayList<FarmUnitController>      farms;            // resource patches
-                                                                 
+    public HashMap<String, Integer> buildPriority; //Label and Priority, Bigger Priority == More likely to build
+                                                   // (Use order of 1 - 100) Every time a unit is made its 
+                                                   // priority will drop by 1
+    public ArrayList<Integer>       farms;        // int correlating to int[] map location of a resource patch
+                                                   
     private ArrayList<WorkerUnitController>   workers;
     private ArrayList<BuildingUnitController> stockpiles;
+    private ArrayList<BuildingUnitController> buildings;
     
     public static final int                   STOCKPILE     = 0;
     public static final int                   SOLDIEROFFICE = 1;
@@ -27,8 +27,8 @@ public class TownManager extends Manager
         buildPriority = new HashMap<Integer, Integer>();
         
         workers = new ArrayList<WorkerUnitController>();
+        buildings = new ArrayList<BuildingUnitController>();
         stockpiles = new ArrayList<BuildingUnitController>();
-        farms = new ArrayList<FarmUnitController>();
     }
     
     @Override
@@ -76,25 +76,33 @@ public class TownManager extends Manager
     public void assignUnits( AIController ai )
     {
         //Grab my units!!!
-        for ( Unit unit : ai.freeUnits )
+        for ( UnitController unit : ai.freeUnits )
         {
-            if ( unit.isWorker() )
+            if ( unit.getClass() == WorkerUnitController.class )
             {
-                workers.add( new WorkerUnitController( unit, ai ) );
+                workers.add( (WorkerUnitController) unit );
             }
-            else if ( unit.isStockpile() )
+            else if ( unit.getClass() == BuildingUnitController.class )
             {
-                stockpiles.add( new BuildingUnitController( unit, ai ) );
+                BuildingUnitController bu = (BuildingUnitController) unit;
+                if ( bu.isStockpile )
+                {
+                    stockpiles.add( bu );
+                }
+                else
+                {
+                    buildings.add( bu );
+                }
             }
         }
         
         //give it the workers
         //give it any buildings that deal with workers / new buildings / non-military stuff
     }
-    
-    @Override
-    public void assignResources( AIController ai )
-    {
-        //give it a certain amount of the resources
-    }
+
+	@Override
+	public void requestUnits(AIController ai) {
+		// TODO Auto-generated method stub
+		
+	}
 }

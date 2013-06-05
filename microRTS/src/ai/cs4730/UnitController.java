@@ -5,15 +5,19 @@ import java.util.ArrayList;
 
 import rts.units.Unit;
 import rts.units.UnitAction;
-
 /**
- * Represents a genreal unit
+ * Represents a general unit
  * including different unit types and buildings
  */
-public abstract class UnitController
-{
-    
-    public Unit                  unit;
+public abstract class UnitController {
+
+	public Unit unit;
+	
+	public ArrayList<UnitAction> getActions(){return unit.getActions();}
+	public UnitAction getAction(){return unit.getAction();}
+	public int getType(){return unit.getType();}
+	public void setAction(UnitAction act){unit.setAction(act);}
+
     public AIController          ai;
     public ArrayList<UnitAction> actions; // this is a queue
                                           
