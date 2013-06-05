@@ -15,7 +15,7 @@ public class AIController extends AI
     private boolean           init = false;
     private int               currentTurn;
     
-    public GameState          state;
+    public GameState          gameState;
     public ArrayList<Integer> resources;
     public ArrayList[] resourcesPerManager; 
     
@@ -24,6 +24,13 @@ public class AIController extends AI
     
     public ArrayList<UnitController>    freeUnits;
     
+    private enum STATE
+    {
+        Open, Midgame, Close
+    };
+    
+    private STATE state;
+    
     public AIController()
     {
         super();
@@ -31,12 +38,14 @@ public class AIController extends AI
         freeUnits = new ArrayList<UnitController>();
         townManager = new TownManager();
         armyManager = new ArmyManager();
+        
+        state = STATE.Open;
     }
     
     //things that need to be initialized after the object's init, many rely on state
     public void init()
     {
-        for(Unit u : state.getMyUnits())
+        for(Unit u : gameState.getMyUnits())
         {
         	if(u.isWorker()){freeUnits.add(new WorkerUnitController(u));}
         	else if(u.isBuilding()){freeUnits.add(new BuildingUnitController(u));}
@@ -49,13 +58,13 @@ public class AIController extends AI
     @Override
     public void getAction( GameState gs, int time_limit )
     {
-        state = gs;
+        gameState = gs;
         if ( !init )
         {
             init();
         }
         
-        gs.getMyUnits().get( 0 ).setAction( new UnitAction( gs.getMyUnits().get( 0 ), UnitAction.MOVE, gs.getMyUnits().get( 0 ).getX() + 1, gs.getMyUnits().get( 0 ).getY(), -1 ) );
+        gameState.getMyUnits().get( 0 ).setAction( new UnitAction( gs.getMyUnits().get( 0 ), UnitAction.MOVE, gs.getMyUnits().get( 0 ).getX() + 1, gs.getMyUnits().get( 0 ).getY(), -1 ) );
         
         currentTurn++;
         

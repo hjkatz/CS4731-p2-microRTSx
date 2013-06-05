@@ -12,18 +12,16 @@ public class ArmyManager extends Manager
 	
 	private int wantedScouts;
 	
-    private enum GOAL
+    private enum STATE
     {
         Explore, Attack, Defend
     };
     
-    private LinkedHashMap<GOAL, Float> goals;
+    private STATE state;
     
     public ArmyManager()
     {
-        goals.put( GOAL.Explore, 0.8f );
-        goals.put( GOAL.Attack, 0.0f );
-        goals.put( GOAL.Defend, 0.2f );
+        state = STATE.Explore;
         
         wantedScouts = 1;
     }
