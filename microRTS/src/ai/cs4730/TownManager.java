@@ -33,7 +33,7 @@ public class TownManager extends Manager
         
         for ( WorkerUnitController worker : workers )
         {
-            worker.unit.setAction( new UnitAction( worker.unit, UnitAction.MOVE, worker.unit.getX() + 1, worker.unit.getY(), -1 ) );
+            worker.setAction( new UnitAction( worker.unit, UnitAction.MOVE, worker.unit.getX() + 1, worker.unit.getY(), -1 ) );
         }
         
     }

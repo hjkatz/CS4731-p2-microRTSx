@@ -17,6 +17,7 @@ public class AIController extends AI
     
     public GameState          state;
     public ArrayList<Integer> resources;
+    public ArrayList[] resourcesPerManager; 
     
     private TownManager       townManager;
     private ArmyManager       armyManager;
