@@ -8,9 +8,8 @@ public class ArmyManager extends Manager
 {
     
 	ArrayList<UnitController> units = new ArrayList<UnitController>();
-	ArrayList<BuildingUnitController> buildings = new ArrayList<BuildingUnitController>();
+	ArrayList<UnitController> scouts = new ArrayList<UnitController>();
 	
-	private int numScouts;
 	private int wantedScouts;
 	
     private enum GOAL
@@ -26,8 +25,7 @@ public class ArmyManager extends Manager
         goals.put( GOAL.Attack, 0.0f );
         goals.put( GOAL.Defend, 0.2f );
         
-        numScouts = 0;
-        wantedScouts = 0;
+        wantedScouts = 1;
     }
     
     @Override
@@ -47,11 +45,7 @@ public class ArmyManager extends Manager
     		if(u.getClass() == ArmyUnitController.class){
     			units.add(u);
     		}
-    		else if(u.getClass() == BuildingUnitController.class){
-    			BuildingUnitController bu = (BuildingUnitController) u;
-    			if(!bu.isStockpile){units.add(u);}
-    		}
-    		else if(wantedScouts > numScouts)
+    		else if(wantedScouts > scouts.size())
     		{
     			if(u.getClass() == WorkerUnitController.class)
     			{

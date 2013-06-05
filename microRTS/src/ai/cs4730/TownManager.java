@@ -14,8 +14,9 @@ public class TownManager extends Manager
                                                    // priority will drop by 1
     public ArrayList<Integer>       farms;        // int correlating to int[] map location of a resource patch
                                                    
-    private ArrayList<WorkerUnitController>         workers;
+    private ArrayList<WorkerUnitController>   workers;
     private ArrayList<BuildingUnitController> stockpiles;
+    private ArrayList<BuildingUnitController> buildings;
     
     public TownManager()
     {
@@ -23,6 +24,7 @@ public class TownManager extends Manager
         buildPriority.put( "Worker", 50 );
         
         workers = new ArrayList<WorkerUnitController>();
+        buildings = new ArrayList<BuildingUnitController>();
         stockpiles = new ArrayList<BuildingUnitController>();
     }
     
@@ -54,6 +56,10 @@ public class TownManager extends Manager
                 if ( bu.isStockpile )
                 {
                     stockpiles.add( bu );
+                }
+                else
+                {
+                	buildings.add( bu );
                 }
             }
         }
