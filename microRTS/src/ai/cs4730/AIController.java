@@ -15,7 +15,6 @@ public class AIController extends AI
     private int                      currentTurn;
     
     public GameState                 gameState;
-    public ArrayList<Integer>        resources;
     public int[]                     map;
     public int                       WIDTH;
     public int                       HEIGHT;
@@ -28,9 +27,7 @@ public class AIController extends AI
     private enum STATE
     {
         Open, Midgame, Close
-    }
-    
-    ;
+    };
     
     private STATE state;
     
