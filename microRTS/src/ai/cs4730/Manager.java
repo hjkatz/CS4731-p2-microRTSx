@@ -16,4 +16,6 @@ public abstract class Manager
     
     public abstract void assignUnits( AIController ai );
     
+    public abstract void requestUnits(AIController ai);
+    
 }

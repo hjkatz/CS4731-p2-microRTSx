@@ -7,7 +7,7 @@ import rts.units.Unit;
  */
 public abstract class UnitController {
 
-	private Unit unit;
+	public Unit unit;
 	
 	public UnitController(Unit unit) {
 		this.unit = unit;

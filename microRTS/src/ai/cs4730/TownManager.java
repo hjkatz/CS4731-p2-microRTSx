@@ -14,18 +14,16 @@ public class TownManager extends Manager
                                                    // priority will drop by 1
     public ArrayList<Integer>       farms;        // int correlating to int[] map location of a resource patch
                                                    
-    private ArrayList<Unit>         workers;
-    private ArrayList<Unit>         buildings;
-    private ArrayList<Unit>         stockpiles;
+    private ArrayList<WorkerUnitController>         workers;
+    private ArrayList<BuildingUnitController> stockpiles;
     
     public TownManager()
     {
         buildPriority = new HashMap<String, Integer>();
         buildPriority.put( "Worker", 50 );
         
-        workers = new ArrayList<Unit>();
-        buildings = new ArrayList<Unit>();
-        stockpiles = new ArrayList<Unit>();
+        workers = new ArrayList<WorkerUnitController>();
+        stockpiles = new ArrayList<BuildingUnitController>();
     }
     
     @Override
@@ -33,9 +31,9 @@ public class TownManager extends Manager
     {
         //resource gathering and building construction
         
-        for ( Unit worker : workers )
+        for ( WorkerUnitController worker : workers )
         {
-            worker.setAction( new UnitAction( worker, UnitAction.MOVE, worker.getX() + 1, worker.getY(), -1 ) );
+            worker.unit.setAction( new UnitAction( worker.unit, UnitAction.MOVE, worker.unit.getX() + 1, worker.unit.getY(), -1 ) );
         }
         
     }
@@ -44,21 +42,18 @@ public class TownManager extends Manager
     public void assignUnits( AIController ai )
     {
         //Grab my units!!!
-        for ( Unit unit : ai.freeUnits )
+        for ( UnitController unit : ai.freeUnits )
         {
-            if ( unit.isWorker() )
+            if ( unit.getClass() == WorkerUnitController.class )
             {
-                workers.add( unit );
+                workers.add( (WorkerUnitController) unit );
             }
-            else if ( unit.isBuilding() )
+            else if ( unit.getClass() == BuildingUnitController.class )
             {
-                if ( unit.isStockpile() )
+            	BuildingUnitController bu = (BuildingUnitController) unit;
+                if ( bu.isStockpile )
                 {
-                    stockpiles.add( unit );
-                }
-                else
-                {
-                    buildings.add( unit );
+                    stockpiles.add( bu );
                 }
             }
         }
@@ -66,4 +61,10 @@ public class TownManager extends Manager
         //give it the workers
         //give it any buildings that deal with workers / new buildings / non-military stuff
     }
+
+	@Override
+	public void requestUnits(AIController ai) {
+		// TODO Auto-generated method stub
+		
+	}
 }

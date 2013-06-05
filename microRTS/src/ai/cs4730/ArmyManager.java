@@ -60,5 +60,11 @@ public class ArmyManager extends Manager
     		}
     	}
     }
+
+	@Override
+	public void requestUnits(AIController ai) {
+		// TODO Auto-generated method stub
+		
+	}
     
 }
