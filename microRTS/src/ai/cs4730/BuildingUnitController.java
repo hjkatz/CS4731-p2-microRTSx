@@ -18,4 +18,6 @@ public class BuildingUnitController extends UnitController
         produces = unit.getProduce();
     }
     
+    public boolean isStockpile(){return isStockpile;}
+    public ArrayList<Integer> getProduces(){return produces;}
 }
