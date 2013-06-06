@@ -10,6 +10,8 @@ public class FarmUnitController extends UnitController
     public boolean free;
     private int     harvestX = -1;
     private int     harvestY = -1;
+    private int 	x;
+    private int		y;
     
     private int harvestSpeed;
     private int harvestAmount;
@@ -20,8 +22,8 @@ public class FarmUnitController extends UnitController
         
         free = true;
         
-        int y = unit.getY();
-        int x = unit.getX();
+        y = unit.getY();
+        x = unit.getX();
         harvestSpeed = unit.getHarvestSpeed();
         harvestAmount = unit.getHarvestAmount();
         
@@ -49,6 +51,8 @@ public class FarmUnitController extends UnitController
     
     public int getHarvestSpeed() {return harvestSpeed;}
     public int getHarvestAmount() {return harvestAmount;}
-    public int getX() {return harvestX;}
-    public int getY() {return harvestY;}
+    public int getHarvestX() {return harvestX;}
+    public int getHarvestY() {return harvestY;}
+    public int getX() {return x;}
+    public int getY() {return y;}
 }

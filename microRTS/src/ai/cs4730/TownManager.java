@@ -57,8 +57,8 @@ public class TownManager extends Manager
                 {
                     if ( farm.free )
                     {
-                        worker.actions.add( new UnitAction( worker.unit, UnitAction.MOVE, farm.getX(), farm.getY(), -1 ) );
-                        worker.actions.add( new UnitAction( worker.unit, UnitAction.HARVEST, farm.unit.getX(), farm.unit.getY(), -1 ) );
+                        worker.actions.add( new UnitAction( worker.unit, UnitAction.MOVE, farm.getHarvestX(), farm.getHarvestY(), -1 ) );
+                        worker.actions.add( new UnitAction( worker.unit, UnitAction.HARVEST, farm.getX(), farm.getY(), -1 ) );
                         worker.actions.add( new UnitAction( worker.unit, UnitAction.MOVE, stockpiles.get( 0 ).unit.getX(), stockpiles.get( 0 ).unit.getY() - 1, -1 ) );
                         worker.actions.add( new UnitAction( worker.unit, UnitAction.RETURN, stockpiles.get( 0 ).unit.getX(), stockpiles.get( 0 ).unit.getY(), -1 ) );
                     }
