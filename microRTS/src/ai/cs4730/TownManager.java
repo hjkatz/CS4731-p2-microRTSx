@@ -82,11 +82,13 @@ public class TownManager extends Manager
     public void assignUnits( AIController ai )
     {
         //Grab my units!!!
+    	ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
         for ( UnitController unit : ai.freeUnits )
         {
             if ( unit.getClass() == WorkerUnitController.class )
             {
                 workers.add( ( WorkerUnitController ) unit );
+                toRemove.add(unit);
             }
             else if ( unit.getClass() == BuildingUnitController.class )
             {
@@ -99,11 +101,14 @@ public class TownManager extends Manager
                 {
                     buildings.add( bu );
                 }
+                toRemove.add(unit);
             }
         }
         
-        //give it the workers
-        //give it any buildings that deal with workers / new buildings / non-military stuff
+        //remove any units from freeUnits that were assigend
+        for( UnitController unit : toRemove){
+        	ai.freeUnits.remove(unit);
+        }
     }
     
     public int numWorkers(){return workers.size();}

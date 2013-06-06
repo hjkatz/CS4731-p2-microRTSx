@@ -69,18 +69,24 @@ public class ArmyManager extends Manager
     @Override
     public void assignUnits( AIController ai )
     {
-        //give it all military units and worker scouts
-    	
+    	ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
     	for(UnitController u : ai.freeUnits)
     	{
     		if(u.getClass() == ArmyUnitController.class){
     			units.add(u);
+    			toRemove.add(u);
     		}
     		else if(wantedScouts > scouts.size() && u.getClass() == WorkerUnitController.class)
     		{
     			units.add(u);
+    			toRemove.add(u);
     		}
     	}
+    	
+    	//remove any units from freeUnits that were assigend
+        for( UnitController u : toRemove){
+        	ai.freeUnits.remove(u);
+        }
     }
     
 }
