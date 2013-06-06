@@ -11,6 +11,9 @@ public class FarmUnitController extends UnitController
     public int     harvestX = -1;
     public int     harvestY = -1;
     
+    private int harvestSpeed;
+    private int harvestAmount;
+    
     public FarmUnitController( Unit unit, AIController ai )
     {
         super( unit, ai );
@@ -19,6 +22,8 @@ public class FarmUnitController extends UnitController
         
         int y = unit.getY();
         int x = unit.getX();
+        harvestSpeed = unit.getHarvestSpeed();
+        harvestAmount = unit.getHarvestAmount();
         
         if ( y > 0 && ( ai.map[( y - 1 ) * ai.WIDTH + x] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
         {
@@ -41,4 +46,7 @@ public class FarmUnitController extends UnitController
             harvestX = x + 1;
         }
     }
+    
+    public int getHarvestSpeed() {return harvestSpeed;}
+    public int getHarvestAmount() {return harvestAmount;}
 }
