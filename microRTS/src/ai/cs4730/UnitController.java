@@ -11,16 +11,15 @@ import rts.units.UnitAction;
  */
 public abstract class UnitController {
 
-	public Unit unit;
+	public Unit 				 unit;
+	public AIController          ai;
+    public ArrayList<UnitAction> actions; // this is a queue, Harrison -> should this be different from the Unit actions?
 	
-	public int maxHp;
-	public int vision;
-	public int type;
-	public int buildTime;
-	public ArrayList<Integer> cost;
-
-    public AIController          ai;
-    public ArrayList<UnitAction> actions; // this is a queue
+	private int maxHp;
+	private int vision;
+	private int type;
+	private int buildTime;
+	private ArrayList<Integer> cost;
                                           
     public UnitController( Unit unit, AIController ai )
     {
@@ -36,6 +35,7 @@ public abstract class UnitController {
     
     public ArrayList<UnitAction> getActions(){return unit.getActions();}
 	public UnitAction getAction(){return unit.getAction();}
+	public boolean hasAction(){return unit.hasAction();}
 	public int getType(){return type;}
 	public void setAction(UnitAction act){unit.setAction(act);}
 	public boolean lastActionSucceeded(){return unit.lastActionSucceeded();}

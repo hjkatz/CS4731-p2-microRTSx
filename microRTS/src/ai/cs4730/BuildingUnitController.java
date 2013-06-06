@@ -8,8 +8,8 @@ import rts.units.Unit;
 public class BuildingUnitController extends UnitController
 {
     
-    public boolean            isStockpile;
-    public ArrayList<Integer> produces;
+    private boolean            isStockpile;
+    private ArrayList<Integer> produces;
     
     public BuildingUnitController( Unit unit, AIController ai )
     {
@@ -19,5 +19,5 @@ public class BuildingUnitController extends UnitController
     }
     
     public boolean isStockpile(){return isStockpile;}
-    public ArrayList<Integer> getProduces(){return produces;}
+    public ArrayList<Integer> getProduce(){return produces;}
 }

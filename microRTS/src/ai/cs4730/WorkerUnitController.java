@@ -5,12 +5,12 @@ import rts.units.Unit;
 
 public class WorkerUnitController extends UnitController
 {
-	public int buildSpeed;
-	public int attackRange;
-    public int attackMin;
-    public int attackMax;
-    public int moveSpeed;
-    public int attackSpeed;
+	private int buildSpeed;
+	private int attackRange;
+	private int attackMin;
+	private int attackMax;
+	private int moveSpeed;
+    private int attackSpeed;
 	
     public WorkerUnitController( Unit unit, AIController ai )
     {

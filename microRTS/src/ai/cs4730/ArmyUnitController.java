@@ -6,12 +6,12 @@ import rts.units.Unit;
 public class ArmyUnitController extends UnitController
 {
     
-    public boolean isFlying;
-    public int attackRange;
-    public int attackMin;
-    public int attackMax;
-    public int moveSpeed;
-    public int attackSpeed;
+	private boolean isFlying;
+	private int attackRange;
+	private int attackMin;
+	private int attackMax;
+	private int moveSpeed;
+	private int attackSpeed;
     
     public ArmyUnitController( Unit unit, AIController ai )
     {

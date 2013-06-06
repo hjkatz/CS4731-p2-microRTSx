@@ -23,7 +23,7 @@ public class ArmyManager extends Manager
     {
         state = STATE.Explore;
         
-        wantedScouts = 1;
+        wantedScouts = 0;
     }
     
     @Override

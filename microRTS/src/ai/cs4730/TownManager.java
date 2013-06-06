@@ -59,16 +59,16 @@ public class TownManager extends Manager
                 }
             }
             
-            if ( !worker.unit.hasAction() )
+            if ( !worker.hasAction() )
             {
-                worker.unit.setAction( worker.actions.get( 0 ) );
+                worker.setAction( worker.actions.get( 0 ) );
                 worker.actions.remove( 0 );
             }
         }
         
         for ( BuildingUnitController stock : stockpiles )
         {
-            stock.unit.setAction( new UnitAction( stock.unit, UnitAction.BUILD, stock.unit.getX() + 1, stock.unit.getY() + 1, stock.unit.getProduce().get( 0 ) ) );
+            stock.setAction( new UnitAction( stock.unit, UnitAction.BUILD, stock.getX() + 1, stock.getY() + 1, stock.getProduce().get( 0 ) ) );
         }
     }
     
@@ -85,7 +85,7 @@ public class TownManager extends Manager
             else if ( unit.getClass() == BuildingUnitController.class )
             {
                 BuildingUnitController bu = ( BuildingUnitController ) unit;
-                if ( bu.isStockpile )
+                if ( bu.isStockpile() )
                 {
                     stockpiles.add( bu );
                 }
