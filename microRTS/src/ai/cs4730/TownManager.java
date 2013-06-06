@@ -3,19 +3,23 @@ package ai.cs4730;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.PriorityQueue;
 
 import rts.units.Unit;
 import rts.units.UnitAction;
 
 public class TownManager extends Manager
 {
-    public HashMap<Integer, Integer>          buildPriority;    //Label and Priority, Bigger Priority == More likely to build
+    public HashMap<Integer, Integer>        buildPriority;    //Label and Priority, Bigger Priority == More likely to build
+    public HashMap<Integer, Integer>		unitBuildPriority;  
     // (Use order of 1 - 100) Every time a unit is made its
     // priority will drop by 1
     public ArrayList<FarmUnitController>      farms;            // int correlating to int[] map location of a resource patch                                                          
     public ArrayList<WorkerUnitController>   workers;
     public ArrayList<BuildingUnitController> stockpiles;
     public ArrayList<BuildingUnitController> buildings;
+    
+    public ArrayList<Integer> requestedUnits; 
     
     public static final int                   STOCKPILE     = 0;
     public static final int                   SOLDIEROFFICE = 1;
@@ -29,6 +33,8 @@ public class TownManager extends Manager
         workers = new ArrayList<WorkerUnitController>();
         buildings = new ArrayList<BuildingUnitController>();
         stockpiles = new ArrayList<BuildingUnitController>();
+        
+        requestedUnits = new ArrayList<Integer>();
     }
     
     @Override
@@ -99,4 +105,6 @@ public class TownManager extends Manager
         //give it the workers
         //give it any buildings that deal with workers / new buildings / non-military stuff
     }
+    
+    public int numWorkers(){return workers.size();}
 }

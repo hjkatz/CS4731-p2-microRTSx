@@ -10,15 +10,16 @@ import ai.AI;
 
 public class AIController extends AI
 {
-    
+    public final static boolean DEBUG = true;
+	
     private boolean                  init = false;
     private int                      currentTurn;
     
     public GameState                 gameState;
     
     
-    private TownManager              townManager;
-    private ArmyManager              armyManager;
+    public TownManager              townManager;
+    public ArmyManager              armyManager;
     
     public ArrayList<UnitController> freeUnits;
     public MapUtil map;
@@ -73,8 +74,6 @@ public class AIController extends AI
         {
             init();
         }
-        
-        gs.getMyUnits().get( 0 ).setAction( new UnitAction( gs.getMyUnits().get( 0 ), UnitAction.MOVE, gs.getMyUnits().get( 0 ).getX() + 1, gs.getMyUnits().get( 0 ).getY(), -1 ) );
         
         currentTurn++;
         

@@ -13,7 +13,7 @@ public abstract class UnitController {
 
 	public Unit 				 unit;
 	public AIController          ai;
-    public ArrayList<UnitAction> actions; // this is a queue, Harrison -> should this be different from the Unit actions?
+    public ArrayList<UnitAction> actions; // this is a queue
 	
 	private int maxHp;
 	private int vision;
