@@ -8,8 +8,8 @@ import rts.units.Unit;
 public class FarmUnitController extends UnitController
 {
     public boolean free;
-    public int     harvestX = -1;
-    public int     harvestY = -1;
+    private int     harvestX = -1;
+    private int     harvestY = -1;
     
     private int harvestSpeed;
     private int harvestAmount;
@@ -49,4 +49,6 @@ public class FarmUnitController extends UnitController
     
     public int getHarvestSpeed() {return harvestSpeed;}
     public int getHarvestAmount() {return harvestAmount;}
+    public int getX() {return harvestX;}
+    public int getY() {return harvestY;}
 }

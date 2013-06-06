@@ -12,11 +12,10 @@ public class TownManager extends Manager
     public HashMap<Integer, Integer>          buildPriority;    //Label and Priority, Bigger Priority == More likely to build
     // (Use order of 1 - 100) Every time a unit is made its
     // priority will drop by 1
-    public ArrayList<FarmUnitController>      farms;            // int correlating to int[] map location of a resource patch
-                                                                 
-    private ArrayList<WorkerUnitController>   workers;
-    private ArrayList<BuildingUnitController> stockpiles;
-    private ArrayList<BuildingUnitController> buildings;
+    public ArrayList<FarmUnitController>      farms;            // int correlating to int[] map location of a resource patch                                                          
+    public ArrayList<WorkerUnitController>   workers;
+    public ArrayList<BuildingUnitController> stockpiles;
+    public ArrayList<BuildingUnitController> buildings;
     
     public static final int                   STOCKPILE     = 0;
     public static final int                   SOLDIEROFFICE = 1;
@@ -26,6 +25,7 @@ public class TownManager extends Manager
     {
         buildPriority = new HashMap<Integer, Integer>();
         
+        farms = new ArrayList<FarmUnitController>();
         workers = new ArrayList<WorkerUnitController>();
         buildings = new ArrayList<BuildingUnitController>();
         stockpiles = new ArrayList<BuildingUnitController>();
@@ -51,7 +51,7 @@ public class TownManager extends Manager
                 {
                     if ( farm.free )
                     {
-                        worker.actions.add( new UnitAction( worker.unit, UnitAction.MOVE, farm.harvestX, farm.harvestY, -1 ) );
+                        worker.actions.add( new UnitAction( worker.unit, UnitAction.MOVE, farm.getX(), farm.getY(), -1 ) );
                         worker.actions.add( new UnitAction( worker.unit, UnitAction.HARVEST, farm.unit.getX(), farm.unit.getY(), -1 ) );
                         worker.actions.add( new UnitAction( worker.unit, UnitAction.MOVE, stockpiles.get( 0 ).unit.getX(), stockpiles.get( 0 ).unit.getY() - 1, -1 ) );
                         worker.actions.add( new UnitAction( worker.unit, UnitAction.RETURN, stockpiles.get( 0 ).unit.getX(), stockpiles.get( 0 ).unit.getY(), -1 ) );
