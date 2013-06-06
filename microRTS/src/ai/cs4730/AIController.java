@@ -15,14 +15,13 @@ public class AIController extends AI
     private int                      currentTurn;
     
     public GameState                 gameState;
-    public int[]                     map;
-    public int                       WIDTH;
-    public int                       HEIGHT;
+    
     
     private TownManager              townManager;
     private ArmyManager              armyManager;
     
     public ArrayList<UnitController> freeUnits;
+    public MapUtil map;
     
     private enum STATE
     {
@@ -61,9 +60,7 @@ public class AIController extends AI
             }
         }
         
-        map = gameState.getMap();
-        WIDTH = gameState.getMapWidth();
-        HEIGHT = gameState.getMapHeight();
+        map = new MapUtil( this );
         
         init = true;
     }
