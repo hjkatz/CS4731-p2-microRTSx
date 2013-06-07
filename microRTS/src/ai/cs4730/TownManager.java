@@ -63,7 +63,7 @@ public class TownManager extends Manager
                     ArrayList<Integer> openings = new ArrayList<Integer>();
                     openings.add( farm.getHarvestY() * MapUtil.WIDTH + farm.getHarvestX() );
                     
-                    ArrayList<Integer[]> rpath = ai.get_path( worker.unit, worker.getY() * MapUtil.WIDTH + worker.getX(), ai.currentTurn, openings );
+                    ArrayList<Integer[]> rpath = MapUtil.get_path( worker.unit, worker.getY() * MapUtil.WIDTH + worker.getX(), ai.currentTurn, openings );
                     
                     int time = ai.currentTurn;
                     int position = worker.getY() * MapUtil.WIDTH + worker.getX();
@@ -97,7 +97,7 @@ public class TownManager extends Manager
                     destination.add( stockpiles.get( 0 ).getY() * MapUtil.WIDTH + stockpiles.get( 0 ).getY() );
                     
                     //return
-                    rpath = ai.get_path( worker.unit, position, time, destination );
+                    rpath = MapUtil.get_path( worker.unit, position, time, destination );
                     if ( rpath != null )
                     {
                         boolean there = false;
