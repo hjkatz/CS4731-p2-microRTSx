@@ -34,6 +34,7 @@ public class AIController extends AI
     //things that need to be initialized after the object's init, many rely on state
     public void init()
     {
+    	map = new MapUtil( this );
         for ( Unit u : gameState.getMyUnits() )
         {
             if ( u.isWorker() )
@@ -49,8 +50,6 @@ public class AIController extends AI
                 freeUnits.add( new ArmyUnitController( u, this ) );
             }
         }
-        
-        map = new MapUtil( this );
         
         init = true;
     }
@@ -69,8 +68,9 @@ public class AIController extends AI
         townManager.assignUnits( this );
         armyManager.assignUnits( this );
         
-        //        armyManager.update( this );
+        armyManager.update( this );
         townManager.update( this );
+        
     }
     
     
