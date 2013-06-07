@@ -13,7 +13,7 @@ public class AIController extends AI
     public final static boolean      DEBUG = true;
     
     private boolean                  init  = false;
-    private int                      currentTurn;
+    public int                       currentTurn;
     
     public GameState                 gameState;
     
@@ -63,6 +63,7 @@ public class AIController extends AI
         map = new MapUtil( this );
         
         init = true;
+        
     }
     
     @Override
@@ -77,9 +78,10 @@ public class AIController extends AI
         currentTurn++;
         
         townManager.assignUnits( this );
-        //        armyManager.assignUnits( this );
+        armyManager.assignUnits( this );
         
-        //        armyManager.update( this );
+        
+        armyManager.update( this );
         townManager.update( this );
     }
 }

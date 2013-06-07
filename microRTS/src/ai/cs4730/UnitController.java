@@ -36,6 +36,7 @@ public abstract class UnitController
         cost = unit.getCost();
         type = unit.getType();
         buildTime = unit.getBuildSpeed();
+        traffic = new ArrayList<Traffic>();
     }
     
     public ArrayList<UnitAction> getActions()

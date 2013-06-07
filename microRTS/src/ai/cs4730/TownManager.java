@@ -82,21 +82,23 @@ public class TownManager extends Manager
         ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
         for ( UnitController unit : ai.freeUnits )
         {
-            if ( unit.unit.isWorker() )
+            if ( unit.getClass() == WorkerUnitController.class )
             {
-                workers.add( ( WorkerUnitController ) unit );
-                toRemove.add( unit );
+                //workers.add( ( WorkerUnitController ) unit );
+                //toRemove.add( unit );
             }
-            else if ( unit.unit.isBuilding() )
+            else if ( unit.getClass() == BuildingUnitController.class )
             {
                 BuildingUnitController bu = ( BuildingUnitController ) unit;
                 if ( bu.isStockpile() )
                 {
                     stockpiles.add( bu );
+                    if(AIController.DEBUG){System.out.println("acquired stockpile");}
                 }
                 else
                 {
                     buildings.add( bu );
+                    if(AIController.DEBUG){System.out.println("acquired building");}
                 }
                 toRemove.add( unit );
             }

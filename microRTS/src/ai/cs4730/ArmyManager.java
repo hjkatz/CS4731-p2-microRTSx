@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import rts.units.UnitAction;
+import rts.units.UnitStats;
 
 public class ArmyManager extends Manager
 {
@@ -12,14 +13,15 @@ public class ArmyManager extends Manager
 	ArrayList<UnitController> units = new ArrayList<UnitController>();
 	ArrayList<UnitController> scouts = new ArrayList<UnitController>();
 	
-	private int wantedScouts;
+	private int wantedScouts = 1;
 	
 	//game logic variable
 	private boolean foundEnemyBase = false;
+	private ArrayList<int[]> enemyBuildings = new ArrayList<int[]>(); //int arrays of size 3: [0] = x, [1] = y, [2] = type of building
 	
     private enum STATE
     {
-        Explore, Attack, Defend
+        Explore, Attack, Buildup, Cheese
     };
     
     private STATE state;
@@ -27,8 +29,6 @@ public class ArmyManager extends Manager
     public ArmyManager()
     {
         state = STATE.Explore;
-        
-        wantedScouts = 0;
     }
     
     @Override
@@ -37,29 +37,43 @@ public class ArmyManager extends Manager
     	switch(state){
     		case Attack:
     			break;
-    		case Defend:
+    		case Buildup:
+    			break;
+    		case Cheese:
     			break;
     		case Explore:
     			//request a scout after some workers are gathering resources
-    	    	if(ai.townManager.numWorkers() > 4){
-    	    		wantedScouts = 1;
-    	    	}
+    	    	//if(ai.townManager.numWorkers() > 4){
+    	    	//	wantedScouts = 1;
+    	    	//}
     	    	
     	    	for ( UnitController scout : scouts )
     	        {
-    	            if ( scout.actions.size() <= 0 ){
+    	            if ( !scout.hasAction() ){
+    	            	if(AIController.DEBUG){System.out.println("scout needs action");}
     	            	if(!foundEnemyBase){
+    	            		if(AIController.DEBUG){System.out.println("look for enemy base");}
     	            		//find the enemy base first, count on it being in the opposite corner
-    	            		int targetX = MapUtil.WIDTH - ai.townManager.buildings.get(0).getX();
-    	            		int targetY = MapUtil.HEIGHT - ai.townManager.buildings.get(0).getY();
-    	            		scout.actions.add( new UnitAction( scout.unit, UnitAction.MOVE, targetX, targetY, -1 ) );
+    	            		int targetX = MapUtil.WIDTH - ai.townManager.stockpiles.get(0).getX();
+    	            		int targetY = MapUtil.HEIGHT - ai.townManager.stockpiles.get(0).getY();
+    	            		ArrayList<Integer> destination = new ArrayList<Integer>();
+    	            		destination.add(targetX + targetY * MapUtil.WIDTH);
+    	            		//path to estimated location of enemy base
+    	            		ArrayList<Integer[]> path = MapUtil.get_path(scout.unit, scout.getX() + scout.getY() * MapUtil.WIDTH, ai.currentTurn, destination);
+    	            		
+    	            		if (path != null) { // is possible to reach goal
+    	            			// set order queue
+    	            			path.add(new Integer[]{scout.getX() + scout.getY() * MapUtil.WIDTH, ai.currentTurn});
+    	            			for (int i = path.size() - 1; i >= 0; i--) {
+    	            				
+    	            				scout.addAction(new UnitAction(scout.unit.copyStats(), UnitAction.MOVE, path.get(i)[0]% MapUtil.WIDTH, path.get(i)[0]/ MapUtil.WIDTH,-1), MapUtil.trafficMap, path.get(i)[0], path.get(i)[1], path.get(i)[1] + scout.unit.getMoveSpeed());
+    	            				//scout.setAction(new UnitAction(scout.unit.copyStats(), UnitAction.MOVE, path.get(i)[0]% MapUtil.WIDTH, path.get(i)[0]/ MapUtil.WIDTH,-1));
+    	            			}
+    	            		}
     	            	}
     	            }
-    	            
-    	            if ( !scout.hasAction() )
-    	            {
-    	                scout.setAction( scout.actions.get( 0 ) );
-    	                scout.actions.remove( 0 );
+    	            else{
+    	            	//execute actions?
     	            }
     	        }
     			break;
@@ -78,7 +92,8 @@ public class ArmyManager extends Manager
     		}
     		else if(wantedScouts > scouts.size() && u.getClass() == WorkerUnitController.class)
     		{
-    			units.add(u);
+    			scouts.add(u);
+    			if(AIController.DEBUG){System.out.println("acquired scout");}
     			toRemove.add(u);
     		}
     	}
