@@ -1,11 +1,11 @@
 
 package ai.general;
 
-import java.util.ArrayList;
-
 import rts.GameState;
 import rts.units.Unit;
 import rts.units.UnitAction;
+
+import java.util.ArrayList;
 
 /**
  * \brief A farm is a place where one can gather resources it should define
@@ -69,6 +69,266 @@ public class GeneralAIFarm extends GeneralAIObject
     }
     
     /**
+     * Updates the openings at the farm
+     * 
+     * @param ai
+     */
+    public void update_openings( GeneralAI ai )
+    {
+        // check if all spots are valid
+        if ( resources.getY() > 0 )
+        { // up might be open
+            if ( ( ai.exploration_manager.map[( resources.getY() - 1 ) * ai.state.getMapWidth() + resources.getX()] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
+            { // up is a wall
+                if ( farmers[FARMER_UP] < 0 )
+                {
+                    farmers[FARMER_UP] = FARM_CLOSED;
+                }
+                _farmers[FARMER_UP] = FARM_CLOSED;
+            }
+            else
+            {
+                if ( farmers[FARMER_UP] < 0 )
+                {
+                    farmers[FARMER_UP] = FARM_OPEN;
+                }
+                _farmers[FARMER_UP] = FARM_OPEN;
+            }
+        }
+        else
+        { // up is closed
+            if ( farmers[FARMER_UP] < 0 )
+            {
+                farmers[FARMER_UP] = FARM_CLOSED;
+            }
+            _farmers[FARMER_UP] = FARM_CLOSED;
+        }
+        
+        if ( resources.getY() < ai.state.getMapHeight() - 1 )
+        { // down might be open
+            if ( ( ai.exploration_manager.map[( resources.getY() + 1 ) * ai.state.getMapWidth() + resources.getX()] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
+            { // up is a wall
+                if ( farmers[FARMER_DOWN] < 0 )
+                {
+                    farmers[FARMER_DOWN] = FARM_CLOSED;
+                }
+                _farmers[FARMER_DOWN] = FARM_CLOSED;
+            }
+            else
+            {
+                if ( farmers[FARMER_DOWN] < 0 )
+                {
+                    farmers[FARMER_DOWN] = FARM_OPEN;
+                }
+                _farmers[FARMER_DOWN] = FARM_OPEN;
+            }
+        }
+        else
+        { // up is closed
+            if ( farmers[FARMER_DOWN] < 0 )
+            {
+                farmers[FARMER_DOWN] = FARM_CLOSED;
+            }
+            _farmers[FARMER_DOWN] = FARM_CLOSED;
+        }
+        
+        if ( resources.getX() > 0 )
+        { // left might be open
+            if ( ( ai.exploration_manager.map[resources.getY() * ai.state.getMapWidth() + resources.getX() - 1] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
+            { // up is a wall
+                if ( farmers[FARMER_LEFT] < 0 )
+                {
+                    farmers[FARMER_LEFT] = FARM_CLOSED;
+                }
+                _farmers[FARMER_LEFT] = FARM_CLOSED;
+            }
+            else
+            {
+                if ( farmers[FARMER_LEFT] < 0 )
+                {
+                    farmers[FARMER_LEFT] = FARM_OPEN;
+                }
+                _farmers[FARMER_LEFT] = FARM_OPEN;
+            }
+        }
+        else
+        { // up is closed
+            if ( farmers[FARMER_LEFT] < 0 )
+            {
+                farmers[FARMER_LEFT] = FARM_CLOSED;
+            }
+            _farmers[FARMER_LEFT] = FARM_CLOSED;
+        }
+        
+        if ( resources.getX() < ai.state.getMapWidth() - 1 )
+        { // right might be open
+            if ( ( ai.exploration_manager.map[resources.getY() * ai.state.getMapWidth() + resources.getX() + 1] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
+            { // up is a wall
+                if ( farmers[FARMER_RIGHT] < 0 )
+                {
+                    farmers[FARMER_RIGHT] = FARM_CLOSED;
+                }
+                _farmers[FARMER_RIGHT] = FARM_CLOSED;
+            }
+            else
+            {
+                if ( farmers[FARMER_RIGHT] < 0 )
+                {
+                    farmers[FARMER_RIGHT] = FARM_OPEN;
+                }
+                _farmers[FARMER_RIGHT] = FARM_OPEN;
+            }
+        }
+        else
+        { // up is closed
+            if ( farmers[FARMER_RIGHT] < 0 )
+            {
+                farmers[FARMER_RIGHT] = FARM_CLOSED;
+            }
+            _farmers[FARMER_RIGHT] = FARM_CLOSED;
+        }
+    }
+    
+    /**
+     * Returns whether or not there are any openings that don't require flying
+     * 
+     * @return whether or not there are any openings that don't require flying
+     */
+    public boolean has_openings_strict()
+    {
+        if ( farmers[FARMER_UP] == FARM_OPEN || farmers[FARMER_DOWN] == FARM_OPEN || farmers[FARMER_LEFT] == FARM_OPEN || farmers[FARMER_RIGHT] == FARM_OPEN )
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    @Override
+    public void update_orders( GeneralAIUnit unit, GeneralAI ai )
+    {
+        // check if the spot we originally wanted to visit is no longer possible....
+        boolean removed = false;
+        if ( farmers[FARMER_UP] == unit.stats.getID() )
+        {
+            if ( _farmers[FARMER_UP] == FARM_CLOSED )
+            {
+                removed = true;
+            }
+        }
+        else if ( farmers[FARMER_DOWN] == unit.stats.getID() )
+        {
+            if ( _farmers[FARMER_DOWN] == FARM_CLOSED )
+            {
+                removed = true;
+            }
+        }
+        else if ( farmers[FARMER_LEFT] == unit.stats.getID() )
+        {
+            if ( _farmers[FARMER_LEFT] == FARM_CLOSED )
+            {
+                removed = true;
+            }
+        }
+        else if ( farmers[FARMER_RIGHT] == unit.stats.getID() )
+        {
+            if ( _farmers[FARMER_RIGHT] == FARM_CLOSED )
+            {
+                removed = true;
+            }
+        }
+        
+        if ( !removed )
+        {
+            unit.clearActions( ai.traffic_map ); // because we need to issue a new traffic map
+            order_unit( unit, ai );
+        }
+        else
+        {
+            remove( unit, ai );
+        }
+    }
+    
+    @Override
+    /**
+     * Orders a unit to interact with this object
+     * @param unit the unit
+     */
+    public void order_unit( GeneralAIUnit unit, GeneralAI ai )
+    {
+        //System.out.println(unit.stats.getID()+" working at farm #"+resources.getID());
+        if ( unit.stats.getResources() == 0 )
+        {
+            path_to_farm( unit, ai );
+        }
+        else
+        {
+            path_to_stockpile( unit, ai, unit.stats.getX() + unit.stats.getY() * ai.state.getMapWidth(), ai.current_turn );
+        }
+    }
+    
+    @Override
+    /**
+     * Calculates the distance from the unit to this object
+     * @param unit the unit
+     * @param ai the ai
+     * @return the distance
+     */
+    public int distance( GeneralAIUnit unit, GeneralAI ai )
+    {
+        if ( has_opening( unit ) )
+        {
+            return ( ( resources.getX() - unit.stats.getX() ) * ( resources.getX() - unit.stats.getX() ) + ( resources.getY() - unit.stats.getY() ) * ( resources.getY() - unit.stats.getY() ) );
+        }
+        
+        return GeneralAI.DISTANCE_IGNORE;
+    }
+    
+    @Override
+    public void action_succeeded( GeneralAIUnit unit, GeneralAI ai, int type )
+    {
+        if ( type == UnitAction.RETURN )
+        {
+            ai.money.set( resources.getResourcesType(), ai.money.get( resources.getResourcesType() ) + unit.resources_held );
+        }
+    }
+    
+    @Override
+    public void remove( GeneralAIUnit unit, GeneralAI ai )
+    {
+        // only remove this unit if it doesn't already have resources
+        if ( unit.stats.getResources() == 0 )
+        {
+            //System.out.println(unit.stats.getID()+" was removed from farm #"+resources.getID());
+            if ( farmers[FARMER_LEFT] == unit.stats.getID() )
+            {
+                farmers[FARMER_LEFT] = _farmers[FARMER_LEFT];
+            }
+            else if ( farmers[FARMER_RIGHT] == unit.stats.getID() )
+            {
+                farmers[FARMER_RIGHT] = _farmers[FARMER_RIGHT];
+            }
+            else if ( farmers[FARMER_DOWN] == unit.stats.getID() )
+            {
+                farmers[FARMER_DOWN] = _farmers[FARMER_DOWN];
+            }
+            else
+            {
+                farmers[FARMER_UP] = _farmers[FARMER_UP];
+            }
+            
+            //unit.actions.clear();
+            unit.clearActions( ai.traffic_map );
+            unit.object = null;
+            unit.remove_object = false;
+        }
+        else
+        {
+            //System.out.println(unit.stats.getID()+" should be removed from a farm #"+resources.getID());
+            unit.remove_object = true;
+        }
+    }
+    
+    /**
      * Returns whether or not this farm has an opening
      * 
      * @param unit
@@ -94,38 +354,6 @@ public class GeneralAIFarm extends GeneralAIObject
             return true;
         }
         return false;
-    }
-    
-    /**
-     * Returns whether or not there are any openings that don't require flying
-     * 
-     * @return whether or not there are any openings that don't require flying
-     */
-    public boolean has_openings_strict()
-    {
-        if ( farmers[FARMER_UP] == FARM_OPEN || farmers[FARMER_DOWN] == FARM_OPEN || farmers[FARMER_LEFT] == FARM_OPEN || farmers[FARMER_RIGHT] == FARM_OPEN )
-        {
-            return true;
-        }
-        return false;
-    }
-    
-    @Override
-    /**
-     * Orders a unit to interact with this object
-     * @param unit the unit
-     */
-    public void order_unit( GeneralAIUnit unit, GeneralAI ai )
-    {
-        //System.out.println(unit.stats.getID()+" working at farm #"+resources.getID());
-        if ( unit.stats.getResources() == 0 )
-        {
-            path_to_farm( unit, ai );
-        }
-        else
-        {
-            path_to_stockpile( unit, ai, unit.stats.getX() + unit.stats.getY() * ai.state.getMapWidth(), ai.current_turn );
-        }
     }
     
     /**
@@ -299,234 +527,6 @@ public class GeneralAIFarm extends GeneralAIObject
         }
         else
         {
-        }
-    }
-    
-    @Override
-    /**
-     * Calculates the distance from the unit to this object
-     * @param unit the unit
-     * @param ai the ai
-     * @return the distance
-     */
-    public int distance( GeneralAIUnit unit, GeneralAI ai )
-    {
-        if ( has_opening( unit ) )
-        {
-            return ( ( resources.getX() - unit.stats.getX() ) * ( resources.getX() - unit.stats.getX() ) + ( resources.getY() - unit.stats.getY() ) * ( resources.getY() - unit.stats.getY() ) );
-        }
-        
-        return GeneralAI.DISTANCE_IGNORE;
-    }
-    
-    @Override
-    public void action_succeeded( GeneralAIUnit unit, GeneralAI ai, int type )
-    {
-        if ( type == UnitAction.RETURN )
-        {
-            ai.money.set( resources.getResourcesType(), ai.money.get( resources.getResourcesType() ) + unit.resources_held );
-        }
-    }
-    
-    @Override
-    public void remove( GeneralAIUnit unit, GeneralAI ai )
-    {
-        // only remove this unit if it doesn't already have resources
-        if ( unit.stats.getResources() == 0 )
-        {
-            //System.out.println(unit.stats.getID()+" was removed from farm #"+resources.getID());
-            if ( farmers[FARMER_LEFT] == unit.stats.getID() )
-            {
-                farmers[FARMER_LEFT] = _farmers[FARMER_LEFT];
-            }
-            else if ( farmers[FARMER_RIGHT] == unit.stats.getID() )
-            {
-                farmers[FARMER_RIGHT] = _farmers[FARMER_RIGHT];
-            }
-            else if ( farmers[FARMER_DOWN] == unit.stats.getID() )
-            {
-                farmers[FARMER_DOWN] = _farmers[FARMER_DOWN];
-            }
-            else
-            {
-                farmers[FARMER_UP] = _farmers[FARMER_UP];
-            }
-            
-            //unit.actions.clear();
-            unit.clearActions( ai.traffic_map );
-            unit.object = null;
-            unit.remove_object = false;
-        }
-        else
-        {
-            //System.out.println(unit.stats.getID()+" should be removed from a farm #"+resources.getID());
-            unit.remove_object = true;
-        }
-    }
-    
-    @Override
-    public void update_orders( GeneralAIUnit unit, GeneralAI ai )
-    {
-        // check if the spot we originally wanted to visit is no longer possible....
-        boolean removed = false;
-        if ( farmers[FARMER_UP] == unit.stats.getID() )
-        {
-            if ( _farmers[FARMER_UP] == FARM_CLOSED )
-            {
-                removed = true;
-            }
-        }
-        else if ( farmers[FARMER_DOWN] == unit.stats.getID() )
-        {
-            if ( _farmers[FARMER_DOWN] == FARM_CLOSED )
-            {
-                removed = true;
-            }
-        }
-        else if ( farmers[FARMER_LEFT] == unit.stats.getID() )
-        {
-            if ( _farmers[FARMER_LEFT] == FARM_CLOSED )
-            {
-                removed = true;
-            }
-        }
-        else if ( farmers[FARMER_RIGHT] == unit.stats.getID() )
-        {
-            if ( _farmers[FARMER_RIGHT] == FARM_CLOSED )
-            {
-                removed = true;
-            }
-        }
-        
-        if ( !removed )
-        {
-            unit.clearActions( ai.traffic_map ); // because we need to issue a new traffic map
-            order_unit( unit, ai );
-        }
-        else
-        {
-            remove( unit, ai );
-        }
-    }
-    
-    /**
-     * Updates the openings at the farm
-     * 
-     * @param ai
-     */
-    public void update_openings( GeneralAI ai )
-    {
-        // check if all spots are valid
-        if ( resources.getY() > 0 )
-        { // up might be open
-            if ( ( ai.exploration_manager.map[( resources.getY() - 1 ) * ai.state.getMapWidth() + resources.getX()] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
-            { // up is a wall
-                if ( farmers[FARMER_UP] < 0 )
-                {
-                    farmers[FARMER_UP] = FARM_CLOSED;
-                }
-                _farmers[FARMER_UP] = FARM_CLOSED;
-            }
-            else
-            {
-                if ( farmers[FARMER_UP] < 0 )
-                {
-                    farmers[FARMER_UP] = FARM_OPEN;
-                }
-                _farmers[FARMER_UP] = FARM_OPEN;
-            }
-        }
-        else
-        { // up is closed
-            if ( farmers[FARMER_UP] < 0 )
-            {
-                farmers[FARMER_UP] = FARM_CLOSED;
-            }
-            _farmers[FARMER_UP] = FARM_CLOSED;
-        }
-        
-        if ( resources.getY() < ai.state.getMapHeight() - 1 )
-        { // down might be open
-            if ( ( ai.exploration_manager.map[( resources.getY() + 1 ) * ai.state.getMapWidth() + resources.getX()] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
-            { // up is a wall
-                if ( farmers[FARMER_DOWN] < 0 )
-                {
-                    farmers[FARMER_DOWN] = FARM_CLOSED;
-                }
-                _farmers[FARMER_DOWN] = FARM_CLOSED;
-            }
-            else
-            {
-                if ( farmers[FARMER_DOWN] < 0 )
-                {
-                    farmers[FARMER_DOWN] = FARM_OPEN;
-                }
-                _farmers[FARMER_DOWN] = FARM_OPEN;
-            }
-        }
-        else
-        { // up is closed
-            if ( farmers[FARMER_DOWN] < 0 )
-            {
-                farmers[FARMER_DOWN] = FARM_CLOSED;
-            }
-            _farmers[FARMER_DOWN] = FARM_CLOSED;
-        }
-        
-        if ( resources.getX() > 0 )
-        { // left might be open
-            if ( ( ai.exploration_manager.map[resources.getY() * ai.state.getMapWidth() + resources.getX() - 1] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
-            { // up is a wall
-                if ( farmers[FARMER_LEFT] < 0 )
-                {
-                    farmers[FARMER_LEFT] = FARM_CLOSED;
-                }
-                _farmers[FARMER_LEFT] = FARM_CLOSED;
-            }
-            else
-            {
-                if ( farmers[FARMER_LEFT] < 0 )
-                {
-                    farmers[FARMER_LEFT] = FARM_OPEN;
-                }
-                _farmers[FARMER_LEFT] = FARM_OPEN;
-            }
-        }
-        else
-        { // up is closed
-            if ( farmers[FARMER_LEFT] < 0 )
-            {
-                farmers[FARMER_LEFT] = FARM_CLOSED;
-            }
-            _farmers[FARMER_LEFT] = FARM_CLOSED;
-        }
-        
-        if ( resources.getX() < ai.state.getMapWidth() - 1 )
-        { // right might be open
-            if ( ( ai.exploration_manager.map[resources.getY() * ai.state.getMapWidth() + resources.getX() + 1] & ( GameState.MAP_FOG | GameState.MAP_WALL | GameState.MAP_NEUTRAL ) ) != 0 )
-            { // up is a wall
-                if ( farmers[FARMER_RIGHT] < 0 )
-                {
-                    farmers[FARMER_RIGHT] = FARM_CLOSED;
-                }
-                _farmers[FARMER_RIGHT] = FARM_CLOSED;
-            }
-            else
-            {
-                if ( farmers[FARMER_RIGHT] < 0 )
-                {
-                    farmers[FARMER_RIGHT] = FARM_OPEN;
-                }
-                _farmers[FARMER_RIGHT] = FARM_OPEN;
-            }
-        }
-        else
-        { // up is closed
-            if ( farmers[FARMER_RIGHT] < 0 )
-            {
-                farmers[FARMER_RIGHT] = FARM_CLOSED;
-            }
-            _farmers[FARMER_RIGHT] = FARM_CLOSED;
         }
     }
 }

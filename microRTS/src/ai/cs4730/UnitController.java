@@ -1,10 +1,10 @@
 
 package ai.cs4730;
 
-import java.util.ArrayList;
-
 import rts.units.Unit;
 import rts.units.UnitAction;
+
+import java.util.ArrayList;
 
 /**
  * Represents a general unit
@@ -16,7 +16,7 @@ public abstract class UnitController
     public Unit                  unit;
     public AIController          ai;
     public ArrayList<UnitAction> actions;         // this is a queue
-                                                   
+    public int                   lastAction;
     private int                  maxHp;
     private int                  vision;
     private int                  type;
@@ -25,6 +25,7 @@ public abstract class UnitController
     private ArrayList<Traffic>   traffic;
     private Traffic              last_traffic;
     private Traffic              building_traffic;
+    private boolean              hasActed;
     
     public UnitController( Unit unit, AIController ai )
     {
@@ -36,6 +37,19 @@ public abstract class UnitController
         cost = unit.getCost();
         type = unit.getType();
         buildTime = unit.getBuildSpeed();
+        hasActed = false;
+        
+        if ( unit.isBuilding() )
+        {
+            building_traffic = new Traffic( unit.getX() + unit.getY() * MapUtil.WIDTH, ai.currentTurn, -1 );
+            MapUtil.trafficMap.reserve( building_traffic );
+        }
+        else
+        {
+            building_traffic = null;
+        }
+        
+        last_traffic = null;
         traffic = new ArrayList<Traffic>();
     }
     
@@ -49,6 +63,11 @@ public abstract class UnitController
         return unit.getAction();
     }
     
+    public void setAction( UnitAction act )
+    {
+        unit.setAction( act );
+    }
+    
     public boolean hasAction()
     {
         return unit.hasAction();
@@ -57,11 +76,6 @@ public abstract class UnitController
     public int getType()
     {
         return type;
-    }
-    
-    public void setAction( UnitAction act )
-    {
-        unit.setAction( act );
     }
     
     public boolean lastActionSucceeded()
@@ -113,6 +127,90 @@ public abstract class UnitController
         return -1;
     }
     
+    public void act( AIController ai )
+    {
+        if ( !unit.hasAction() )
+        {
+            if ( hasActed && actions.size() != 0 )
+            {
+                if ( unit.lastActionSucceeded() )
+                {
+                    if ( actions.size() != 0 )
+                    {
+                        actions.remove( 0 );
+                    }
+                    if ( traffic.size() != 0 )
+                    {
+                        last_traffic = traffic.get( 0 );
+                        traffic.remove( 0 );
+                    }
+                }
+            }
+            nextAction( ai );
+        }
+    }
+    
+    public void nextAction( AIController ai )
+    {
+        if ( actions.size() != 0 )
+        {
+            hasActed = false;
+            UnitAction action = actions.get( 0 );
+            
+            // ensure that action can be performed
+            for ( int i = 0; i < unit.getActions().size(); i++ )
+            {
+                if ( action.equals( unit.getActions().get( i ) ) )
+                {
+                    hasActed = true;
+                    lastAction = action.getType();
+                    unit.setAction( unit.getActions().get( i ) );
+                    return;
+                }
+            }
+            
+            clearActions( MapUtil.trafficMap );
+            
+            for ( int i = 0; i < unit.getActions().size(); i++ )
+            {
+                if ( unit.getActions().get( i ).getType() == UnitAction.MOVE )
+                {
+                    hasActed = true;
+                    lastAction = UnitAction.MOVE;
+                    unit.setAction( unit.getActions().get( i ) );
+                    return;
+                }
+            }
+            
+            if ( action.getType() == UnitAction.BUILD )
+            {
+                // we need to pick a new spot to build, if the obstruction is caused by a different player
+                TownManager.changeBuildLocation( this, ai );
+            }
+        }
+    }
+    
+    /**
+     * Clears all actions for this unit
+     * 
+     * @param traffic_map
+     *            the traffic map
+     */
+    public void clearActions( TrafficMap traffic_map )
+    {
+        actions.clear();
+        for ( int i = 0; i < traffic.size(); i++ )
+        {
+            traffic_map.unreserve( traffic.get( i ) );
+        }
+        traffic.clear();
+        if ( last_traffic != null )
+        {
+            traffic_map.unreserve( last_traffic );
+            last_traffic = null;
+        }
+    }
+    
     /**
      * Adds an action to this unit
      * 
@@ -135,27 +233,6 @@ public abstract class UnitController
             Traffic t = new Traffic( location, start, end );
             traffic_map.reserve( t );
             traffic.add( t );
-        }
-    }
-    
-    /**
-     * Clears all actions for this unit
-     * 
-     * @param traffic_map
-     *            the traffic map
-     */
-    public void clearActions( TrafficMap traffic_map )
-    {
-        actions.clear();
-        for ( int i = 0; i < traffic.size(); i++ )
-        {
-            traffic_map.unreserve( traffic.get( i ) );
-        }
-        traffic.clear();
-        if ( last_traffic != null )
-        {
-            traffic_map.unreserve( last_traffic );
-            last_traffic = null;
         }
     }
     
