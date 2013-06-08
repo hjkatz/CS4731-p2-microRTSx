@@ -7,14 +7,12 @@ import java.util.ArrayList;
 
 public class ArmyManager extends Manager{
 
-   AIController    ai;
-   private STATE   state;
-   private boolean foundEnemyBase;
+   AIController  ai;
+   private STATE state;
 
    public ArmyManager(AIController ai){
       this.ai = ai;
       state = STATE.Explore;
-      foundEnemyBase = false;
    }
 
    @Override public void update(){
@@ -22,13 +20,9 @@ public class ArmyManager extends Manager{
          if(unit.isBuilding()){
             BuildingUnitController bc = new BuildingUnitController(unit, ai);
             if(!ai.enemyBuildings.contains(bc)){
-               int[] b = new int[3];
-               b[0] = unit.getX();
-               b[1] = unit.getY();
-               b[2] = unit.getType();
                ai.enemyBuildings.add(bc);
                if(AIController.DEBUG){
-                  System.out.println("AM: found enemy building");
+                  System.out.println("AM: found enemy building, owned by player: " + unit.getPlayer());
                }
             }
          }
@@ -47,6 +41,7 @@ public class ArmyManager extends Manager{
                ai.wantedScouts = 1;
             }
 
+            ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
             for(UnitController scout : ai.scouts){
                if(scout.actions.size() <= 0){
                   if(ai.enemyBuildings.size() == 0){
@@ -77,8 +72,20 @@ public class ArmyManager extends Manager{
                         }
                      }
                   }
+                  else{
+                     // turn scout into builder (for cheesing)
+                     ai.wantedScouts = 0;
+                     WorkerUnitController wc = (WorkerUnitController) ai.scouts.get(0);
+                     toRemove.add(ai.scouts.get(0));
+                     ai.builders.add(wc);
+
+                     state = STATE.Cheese;
+                  }
                }
                scout.act(ai);
+            }
+            for(UnitController uc : toRemove){
+               ai.scouts.remove(uc);
             }
             break;
       }
