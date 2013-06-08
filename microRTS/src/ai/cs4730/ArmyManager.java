@@ -11,7 +11,6 @@ public class ArmyManager extends Manager{
 	public ArrayList<UnitController>				airUnits			= new ArrayList<UnitController>();
 	public ArrayList<UnitController>				scouts			= new ArrayList<UnitController>();
 
-	private int											wantedScouts	= 0;
 	// game logic variable
 	private boolean									foundEnemyBase	= false;
 	public ArrayList<BuildingUnitController>	enemyBuildings	= new ArrayList<BuildingUnitController>();
@@ -48,7 +47,7 @@ public class ArmyManager extends Manager{
 			case Explore:
 				// request a scout after some workers are gathering resources
 				if(ai.townManager.numWorkers() > 4){
-					wantedScouts = 1;
+					ai.wantedScouts = 1;
 				}
 
 				for(UnitController scout : scouts){
@@ -100,7 +99,7 @@ public class ArmyManager extends Manager{
 				toRemove.add(u);
 			}
 			else
-				if(wantedScouts > scouts.size() && u.getClass() == WorkerUnitController.class){
+				if(ai.wantedScouts > scouts.size() && u.getClass() == WorkerUnitController.class){
 					scouts.add(u);
 					if(AIController.DEBUG){
 						System.out.println("AM: acquired scout");

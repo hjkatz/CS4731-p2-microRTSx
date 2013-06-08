@@ -7,7 +7,9 @@ import rts.units.Unit;
 import java.util.ArrayList;
 
 public class AIController extends AI{
-	public final static boolean		DEBUG	= true;
+	public final static boolean		DEBUG				= true;
+	private boolean						init				= false;
+
 	public GameState						gameState;
 	public TownManager					townManager;
 	public ArmyManager					armyManager;
@@ -15,7 +17,10 @@ public class AIController extends AI{
 	public MapUtil							map;
 	public int								currentTurn;
 	public STATE							state;
-	private boolean						init	= false;
+
+	public int								wantedWorkers	= 5;
+	public int								wantedScouts	= 0;
+	
 
 	public AIController(){
 		super();

@@ -19,17 +19,15 @@ public class TownManager extends Manager{
 	public static final int							BIRD				= 4;
 	public static final int							SKYARCHER		= 5;
 
-	public HashMap<Integer, Integer>				buildPriority;		// Label and
-																						// Priority,
-	// Bigger Priority == More
-	// likely to build
-	// (Use order of 1 - 100) Every time a unit is made its
-	// priority will drop by 1
+	public HashMap<Integer, Integer>				buildPriority;		// Label and  Priority,
+	// Bigger Priority == More likely to build
+	// (Use order of 1 - 100) Every time a unit is made its priority will drop by 1
 	public ArrayList<FarmUnitController>		farms;
 	public ArrayList<WorkerUnitController>		workers;
 	public ArrayList<BuildingUnitController>	stockpiles;
 	public ArrayList<BuildingUnitController>	buildings;
 	public ArrayList<Integer>						requestedUnits;
+	
 
 	public TownManager(){
 		buildPriority = new HashMap<Integer, Integer>();
@@ -116,10 +114,7 @@ public class TownManager extends Manager{
 						}
 						if(!there){
 							for(int i = rpath.size() - 1; i >= 1; i--){
-								// unit.actions.add(new UnitAction(worker.unit,
-								// UnitAction.MOVE,
-								// rpath.get(i)[0]%MapUtils.WIDTH,
-								// rpath.get(i)[0]/MapUtils.WIDTH,-1));
+								// unit.actions.add(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0]%MapUtils.WIDTH, rpath.get(i)[0]/MapUtils.WIDTH,-1));
 								// System.out.println("adding MOVE");
 								worker.addAction(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0] % MapUtil.WIDTH, rpath.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, rpath.get(i)[0], rpath.get(i)[1], rpath.get(i)[1] + worker.unit.getMoveSpeed());
 							}
@@ -138,17 +133,20 @@ public class TownManager extends Manager{
 			}
 		}
 
-		for(BuildingUnitController stock : stockpiles)// all the bases, tell em
-		// to make workers
-		{
+		for(BuildingUnitController stock : stockpiles){// all the bases, tell em to make workers
 			stock.act(ai);
 
-			if(stock.actions.size() <= 0) // no actions?!?!?
-			{
-				int time = ai.currentTurn;
-				int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
-				stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, WORKER), MapUtil.trafficMap, position, time, time + workers.get(0).getBuildSpeed());
-				//if(AIController.DEBUG){System.out.println("TM: recruiting worker");}
+			if(workers.size() + ai.armyManager.scouts.size() < ai.wantedScouts + ai.wantedWorkers){
+				if(stock.actions.size() <= 0){ // no actions?!?!?
+					int time = ai.currentTurn;
+					int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
+					stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, WORKER), MapUtil.trafficMap, position, time, time + workers.get(0).getBuildSpeed());
+					//add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
+					for(int i = 0; i < workers.get(0).getBuildSpeed() - 1; i++){
+						stock.addAction(new UnitAction(stock.unit, UnitAction.NONE, stock.getX(), stock.getY(), -1), MapUtil.trafficMap, position, time, time + 1);
+					}
+					if(AIController.DEBUG){System.out.println("TM: recruiting worker");}
+				}
 			}
 		}
 
