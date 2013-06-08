@@ -9,9 +9,18 @@ import java.util.HashMap;
 
 public class TownManager extends Manager
 {
+	//building types
     public static final int                  STOCKPILE     = 0;
     public static final int                  SOLDIEROFFICE = 1;
     public static final int                  AIRPORT       = 2;
+    //unit types
+    public static final int LIGHT = 0;
+    public static final int	WORKER = 1;
+    public static final int	HEAVY = 2;
+    public static final int	RANGER = 3;
+    public static final int	BIRD = 4;
+    public static final int	SKYARCHER = 5;
+    
     public HashMap<Integer, Integer>         buildPriority;    //Label and Priority, Bigger Priority == More likely to build
     public HashMap<Integer, Integer>         unitBuildPriority;
     // (Use order of 1 - 100) Every time a unit is made its
@@ -21,14 +30,12 @@ public class TownManager extends Manager
     public ArrayList<BuildingUnitController> stockpiles;
     public ArrayList<BuildingUnitController> buildings;
     public ArrayList<Integer>                requestedUnits;
-    private ArrayList<Unit>                  _farms;           //backing list of farms as units
                                                                 
     public TownManager()
     {
         buildPriority = new HashMap<Integer, Integer>();
         
         farms = new ArrayList<FarmUnitController>();
-        _farms = new ArrayList<Unit>();
         workers = new ArrayList<WorkerUnitController>();
         buildings = new ArrayList<BuildingUnitController>();
         stockpiles = new ArrayList<BuildingUnitController>();
@@ -46,18 +53,18 @@ public class TownManager extends Manager
         // update farms map
         for ( Unit res : ai.gameState.getNeutralUnits() )
         {
-            if ( res.isResources() && !_farms.contains( res ) )
+            if ( res.isResources() && !farms.contains( new FarmUnitController(res, ai) ) )
             {
+            	if(AIController.DEBUG){System.out.println("found a farm at " + res.getX() + ", " + res.getY());}
                 farms.add( new FarmUnitController( res, ai ) );
-                _farms.add( res );
             }
         }
         
         for ( WorkerUnitController worker : workers )
         {
-            worker.act( ai );
+            worker.act( ai );//carry out action, it wont do anything if unit doesnt have one
             
-            if ( worker.actions.size() <= 0 ) //no actions?!?!?
+            if ( worker.actions.size() <= 0 ) //no actions
             {
                 FarmUnitController farm = getClosestFreeFarm( worker );
                 if ( farm != null )
@@ -133,10 +140,17 @@ public class TownManager extends Manager
             }
         }
         
-        //        for ( BuildingUnitController stock : stockpiles )
-        //        {
-        //            stock.setAction( new UnitAction( stock.unit, UnitAction.BUILD, stock.getX() + 1, stock.getY() + 1, stock.getProduce().get( 0 ) ) );
-        //        }
+        for ( BuildingUnitController stock : stockpiles )
+        {
+        	 stock.act( ai );
+             
+             if ( stock.actions.size() <= 0 ) //no actions?!?!?
+             {
+            	 int time = ai.currentTurn;
+                 int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
+            	 stock.addAction( new UnitAction( stock.unit, UnitAction.BUILD, stock.getX() + 1, stock.getY(), WORKER ), MapUtil.trafficMap, position, time, time + workers.get(0).getBuildSpeed() );
+             }
+        }
         
     }
     
@@ -178,7 +192,7 @@ public class TownManager extends Manager
                 workers.add( ( WorkerUnitController ) unit );
                 if ( AIController.DEBUG )
                 {
-                    System.out.println( "acquired worker" );
+                    System.out.println( "TM: acquired worker" );
                 }
                 toRemove.add( unit );
             }
@@ -190,7 +204,7 @@ public class TownManager extends Manager
                     stockpiles.add( bu );
                     if ( AIController.DEBUG )
                     {
-                        System.out.println( "acquired stockpile" );
+                        System.out.println( "TM: acquired stockpile" );
                     }
                 }
                 else
@@ -198,7 +212,7 @@ public class TownManager extends Manager
                     buildings.add( bu );
                     if ( AIController.DEBUG )
                     {
-                        System.out.println( "acquired building" );
+                        System.out.println( "TM: acquired building" );
                     }
                 }
                 toRemove.add( unit );

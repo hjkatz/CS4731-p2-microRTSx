@@ -41,8 +41,8 @@ public class AIController extends AI
         
         currentTurn++;
         
-        townManager.assignUnits( this );
         armyManager.assignUnits( this );
+        townManager.assignUnits( this );
         
         armyManager.update( this );
         townManager.update( this );

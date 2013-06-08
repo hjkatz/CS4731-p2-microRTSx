@@ -12,11 +12,11 @@ public class ArmyManager extends Manager
     ArrayList<UnitController> units           = new ArrayList<UnitController>();
     ArrayList<UnitController> scouts          = new ArrayList<UnitController>();
     private ArrayList<Unit>   _enemyBuildings = new ArrayList<Unit>();
-    private int               wantedScouts    = 1;
+    private int               wantedScouts    = 0;
     //game logic variable
     private boolean           foundEnemyBase  = false;
     private ArrayList<int[]>  enemyBuildings  = new ArrayList<int[]>();         //int arrays of size 3: [0] = x, [1] = y, [2] = type of building
-    private STATE             state;                                             ;
+    private STATE             state;                                             
     
     public ArmyManager()
     {
@@ -53,9 +53,9 @@ public class ArmyManager extends Manager
             break;
             case Explore :
                 //request a scout after some workers are gathering resources
-                //if(ai.townManager.numWorkers() > 4){
-                //	wantedScouts = 1;
-                //}
+                if(ai.townManager.numWorkers() > 4){
+                	wantedScouts = 1;
+                }
                 
                 for ( UnitController scout : scouts )
                 {
