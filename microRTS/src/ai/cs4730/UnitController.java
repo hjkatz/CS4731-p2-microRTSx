@@ -26,7 +26,7 @@ public abstract class UnitController
     private Traffic              building_traffic;
     private boolean              hasActed;
     
-    public UnitController( Unit unit, AIController ai )
+   public UnitController( Unit unit, AIController ai )
     {
         this.unit = unit;
         this.ai = ai;
