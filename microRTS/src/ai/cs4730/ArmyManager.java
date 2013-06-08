@@ -9,7 +9,8 @@ import java.util.ArrayList;
 public class ArmyManager extends Manager
 {
     
-    ArrayList<UnitController> units           = new ArrayList<UnitController>();
+    ArrayList<UnitController> groundUnits           = new ArrayList<UnitController>();
+    ArrayList<UnitController> airUnits           = new ArrayList<UnitController>();
     ArrayList<UnitController> scouts          = new ArrayList<UnitController>();
     private ArrayList<Unit>   _enemyBuildings = new ArrayList<Unit>();
     private int               wantedScouts    = 0;
@@ -110,7 +111,7 @@ public class ArmyManager extends Manager
         {
             if ( u.getClass() == ArmyUnitController.class )
             {
-                units.add( u );
+                groundUnits.add( u );
                 if ( AIController.DEBUG )
                 {
                     System.out.println( "AM: acquired army unit" );

@@ -39,6 +39,28 @@ public class AIController extends AI
             init();
         }
         
+        for ( Unit u : gameState.getMyUnits() )
+        {
+            if ( u.isWorker())
+            {
+            	WorkerUnitController wc = new WorkerUnitController(u, this);
+            	if(!townManager.workers.contains(wc) && !armyManager.scouts.contains(wc)){
+            		freeUnits.add( new WorkerUnitController( u, this ) );
+            	}
+            }
+            else if ( u.isBuilding())
+            {
+            	BuildingUnitController bc = new BuildingUnitController( u, this );
+            	if(!townManager.stockpiles.contains(bc) && !townManager.buildings.contains(bc)){
+                	freeUnits.add( new BuildingUnitController( u, this ) );
+            	}
+            }
+            else if(!u.isWorker() && !armyManager.groundUnits.contains(new ArmyUnitController( u, this )) && !armyManager.groundUnits.contains(new ArmyUnitController( u, this )))
+            {
+                freeUnits.add( new ArmyUnitController( u, this ) );
+            }
+        }
+        
         currentTurn++;
         
         armyManager.assignUnits( this );
@@ -52,22 +74,6 @@ public class AIController extends AI
     public void init()
     {
         map = new MapUtil( this );
-        
-        for ( Unit u : gameState.getMyUnits() )
-        {
-            if ( u.isWorker() )
-            {
-                freeUnits.add( new WorkerUnitController( u, this ) );
-            }
-            else if ( u.isBuilding() )
-            {
-                freeUnits.add( new BuildingUnitController( u, this ) );
-            }
-            else
-            {
-                freeUnits.add( new ArmyUnitController( u, this ) );
-            }
-        }
         
         init = true;
     }
