@@ -12,7 +12,6 @@ public class FarmUnitController extends UnitController
     private int    harvestY = -1;
     private int    x;
     private int    y;
-    
     private int    harvestSpeed;
     private int    harvestAmount;
     
@@ -46,6 +45,10 @@ public class FarmUnitController extends UnitController
         {
             harvestY = y;
             harvestX = x + 1;
+        }
+        else
+        {
+            free = false;
         }
     }
     

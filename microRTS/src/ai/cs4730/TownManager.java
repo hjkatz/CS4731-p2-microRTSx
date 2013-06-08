@@ -1,11 +1,11 @@
 
 package ai.cs4730;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import rts.units.Unit;
 import rts.units.UnitAction;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TownManager extends Manager
 {
@@ -55,6 +55,8 @@ public class TownManager extends Manager
         
         for ( WorkerUnitController worker : workers )
         {
+            worker.act( ai );
+            
             if ( worker.actions.size() <= 0 ) //no actions?!?!?
             {
                 FarmUnitController farm = getClosestFreeFarm( worker );
@@ -129,8 +131,6 @@ public class TownManager extends Manager
                     }
                 }
             }
-            
-            worker.act( ai );
         }
         
         //        for ( BuildingUnitController stock : stockpiles )
@@ -138,6 +138,32 @@ public class TownManager extends Manager
         //            stock.setAction( new UnitAction( stock.unit, UnitAction.BUILD, stock.getX() + 1, stock.getY() + 1, stock.getProduce().get( 0 ) ) );
         //        }
         
+    }
+    
+    private FarmUnitController getClosestFreeFarm( WorkerUnitController worker )
+    {
+        int x = worker.getX();
+        int y = worker.getY();
+        int minDistance = 10000; //large int =P
+        FarmUnitController closest = null;
+        for ( FarmUnitController farm : farms )
+        {
+            if ( farm.free )
+            {
+                int distance = ( int ) ( Math.sqrt( ( ( x - farm.getHarvestX() ) ^ 2 ) + ( ( y - farm.getHarvestY() ) ^ 2 ) ) );
+                if ( distance < minDistance )
+                {
+                    closest = farm;
+                    minDistance = distance;
+                }
+            }
+        }
+        
+        //        if ( closest != null )
+        //        {
+        //            closest.free = false;
+        //        }
+        return closest;
     }
     
     @Override
@@ -184,32 +210,6 @@ public class TownManager extends Manager
         {
             ai.freeUnits.remove( unit );
         }
-    }
-    
-    private FarmUnitController getClosestFreeFarm( WorkerUnitController worker )
-    {
-        int x = worker.getX();
-        int y = worker.getY();
-        int minDistance = 10000; //large int =P
-        FarmUnitController closest = null;
-        for ( FarmUnitController farm : farms )
-        {
-            if ( farm.free )
-            {
-                int distance = ( int ) ( Math.sqrt( ( x + farm.getHarvestX() ) ^ 2 + ( y + farm.getHarvestY() ) ^ 2 ) );
-                if ( distance < minDistance )
-                {
-                    closest = farm;
-                    minDistance = distance;
-                }
-            }
-        }
-        
-        //        if ( closest != null )
-        //        {
-        //            closest.free = false;
-        //        }
-        return closest;
     }
     
     public int numWorkers()

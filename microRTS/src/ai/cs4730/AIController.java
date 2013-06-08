@@ -1,11 +1,11 @@
 
 package ai.cs4730;
 
-import java.util.ArrayList;
-
+import ai.AI;
 import rts.GameState;
 import rts.units.Unit;
-import ai.AI;
+
+import java.util.ArrayList;
 
 public class AIController extends AI
 {
@@ -30,6 +30,24 @@ public class AIController extends AI
         state = STATE.Open;
     }
     
+    @Override
+    public void getAction( GameState gs, int time_limit )
+    {
+        gameState = gs;
+        if ( !init )
+        {
+            init();
+        }
+        
+        currentTurn++;
+        
+        townManager.assignUnits( this );
+        armyManager.assignUnits( this );
+        
+        armyManager.update( this );
+        townManager.update( this );
+    }
+    
     //things that need to be initialized after the object's init, many rely on state
     public void init()
     {
@@ -51,28 +69,7 @@ public class AIController extends AI
             }
         }
         
-        map = new MapUtil( this );
-        
         init = true;
-    }
-    
-    @Override
-    public void getAction( GameState gs, int time_limit )
-    {
-        gameState = gs;
-        if ( !init )
-        {
-            init();
-        }
-        
-        currentTurn++;
-        
-        townManager.assignUnits( this );
-        armyManager.assignUnits( this );
-        
-        armyManager.update( this );
-        townManager.update( this );
-        
     }
     
     private enum STATE

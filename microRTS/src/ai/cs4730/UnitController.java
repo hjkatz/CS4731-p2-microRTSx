@@ -135,6 +135,7 @@ public abstract class UnitController
             {
                 if ( unit.lastActionSucceeded() )
                 {
+                    System.out.println( "TRUE" );
                     if ( actions.size() != 0 )
                     {
                         actions.remove( 0 );
@@ -144,6 +145,10 @@ public abstract class UnitController
                         last_traffic = traffic.get( 0 );
                         traffic.remove( 0 );
                     }
+                }
+                else
+                {
+                    System.out.println( "FALSE" );
                 }
             }
             nextAction( ai );
@@ -234,6 +239,7 @@ public abstract class UnitController
             traffic_map.reserve( t );
             traffic.add( t );
         }
+        System.out.println( action.getType() + " -> ( " + action.getTargetX() + ", " + action.getTargetY() + " )" );
     }
     
     /**
