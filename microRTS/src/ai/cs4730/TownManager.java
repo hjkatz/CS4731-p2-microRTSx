@@ -140,15 +140,16 @@ public class TownManager extends Manager
             }
         }
         
-        for ( BuildingUnitController stock : stockpiles )
+        for ( BuildingUnitController stock : stockpiles )//all the bases, tell em to make workers
         {
         	 stock.act( ai );
              
-             if ( stock.actions.size() <= 0 ) //no actions?!?!?
+             if ( !stock.hasAction() ) //no actions?!?!?
              {
             	 int time = ai.currentTurn;
                  int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
             	 stock.addAction( new UnitAction( stock.unit, UnitAction.BUILD, stock.getX() + 1, stock.getY(), WORKER ), MapUtil.trafficMap, position, time, time + workers.get(0).getBuildSpeed() );
+            	 if(AIController.DEBUG){System.out.println("TM: recruiting worker");}
              }
         }
         

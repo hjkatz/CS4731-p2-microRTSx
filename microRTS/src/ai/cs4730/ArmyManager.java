@@ -9,14 +9,14 @@ import java.util.ArrayList;
 public class ArmyManager extends Manager
 {
     
-    ArrayList<UnitController> groundUnits           = new ArrayList<UnitController>();
-    ArrayList<UnitController> airUnits           = new ArrayList<UnitController>();
-    ArrayList<UnitController> scouts          = new ArrayList<UnitController>();
-    private ArrayList<Unit>   _enemyBuildings = new ArrayList<Unit>();
+    public ArrayList<UnitController> groundUnits     = new ArrayList<UnitController>();
+    public ArrayList<UnitController> airUnits        = new ArrayList<UnitController>();
+    public ArrayList<UnitController> scouts          = new ArrayList<UnitController>();
+    
     private int               wantedScouts    = 0;
     //game logic variable
     private boolean           foundEnemyBase  = false;
-    private ArrayList<int[]>  enemyBuildings  = new ArrayList<int[]>();         //int arrays of size 3: [0] = x, [1] = y, [2] = type of building
+    public ArrayList<BuildingUnitController> enemyBuildings = new ArrayList<BuildingUnitController>();
     private STATE             state;                                             
     
     public ArmyManager()
@@ -29,18 +29,17 @@ public class ArmyManager extends Manager
     {
         for ( Unit unit : ai.gameState.getOtherUnits() )
         {
-            if ( unit.isBuilding() && !_enemyBuildings.contains( unit ) )
+            if ( unit.isBuilding() )
             {
-                int[] b = new int[3];
-                b[0] = unit.getX();
-                b[1] = unit.getY();
-                b[2] = unit.getType();
-                enemyBuildings.add( b );
-                _enemyBuildings.add( unit );
-                if ( AIController.DEBUG )
-                {
-                    System.out.println( "AM: found enemy building" );
-                }
+            	BuildingUnitController bc = new BuildingUnitController(unit, ai);
+            	if(!enemyBuildings.contains(bc)){
+	                int[] b = new int[3];
+	                b[0] = unit.getX();
+	                b[1] = unit.getY();
+	                b[2] = unit.getType();
+	                enemyBuildings.add( bc );
+	                if ( AIController.DEBUG ){System.out.println( "AM: found enemy building" );}
+            	}
             }
         }
         

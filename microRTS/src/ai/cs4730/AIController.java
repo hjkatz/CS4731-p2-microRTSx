@@ -55,9 +55,12 @@ public class AIController extends AI
                 	freeUnits.add( new BuildingUnitController( u, this ) );
             	}
             }
-            else if(!u.isWorker() && !armyManager.groundUnits.contains(new ArmyUnitController( u, this )) && !armyManager.groundUnits.contains(new ArmyUnitController( u, this )))
+            else
             {
-                freeUnits.add( new ArmyUnitController( u, this ) );
+            	ArmyUnitController ac = new ArmyUnitController( u, this );
+            	if(!u.isWorker() && !armyManager.groundUnits.contains(ac) && !armyManager.groundUnits.contains(ac)){
+            		freeUnits.add( new ArmyUnitController( u, this ) );
+            	}
             }
         }
         
