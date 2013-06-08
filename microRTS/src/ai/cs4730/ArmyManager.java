@@ -7,29 +7,26 @@ import java.util.ArrayList;
 
 public class ArmyManager extends Manager{
 
-	public ArrayList<UnitController>				groundUnits		= new ArrayList<UnitController>();
-	public ArrayList<UnitController>				airUnits			= new ArrayList<UnitController>();
-	public ArrayList<UnitController>				scouts			= new ArrayList<UnitController>();
+	AIController		ai;
+	private STATE		state;
+	private boolean	foundEnemyBase;
 
-	// game logic variable
-	private boolean									foundEnemyBase	= false;
-	public ArrayList<BuildingUnitController>	enemyBuildings	= new ArrayList<BuildingUnitController>();
-	private STATE										state;
-
-	public ArmyManager(){
+	public ArmyManager(AIController ai){
+		this.ai = ai;
 		state = STATE.Explore;
+		foundEnemyBase = false;
 	}
 
 	@Override public void update(AIController ai){
 		for(Unit unit : ai.gameState.getOtherUnits()){
 			if(unit.isBuilding()){
 				BuildingUnitController bc = new BuildingUnitController(unit, ai);
-				if(!enemyBuildings.contains(bc)){
+				if(!ai.enemyBuildings.contains(bc)){
 					int[] b = new int[3];
 					b[0] = unit.getX();
 					b[1] = unit.getY();
 					b[2] = unit.getType();
-					enemyBuildings.add(bc);
+					ai.enemyBuildings.add(bc);
 					if(AIController.DEBUG){
 						System.out.println("AM: found enemy building");
 					}
@@ -50,13 +47,13 @@ public class ArmyManager extends Manager{
 					ai.wantedScouts = 1;
 				}
 
-				for(UnitController scout : scouts){
+				for(UnitController scout : ai.scouts){
 					if(scout.actions.size() <= 0){
-						if(enemyBuildings.size() == 0){
+						if(ai.enemyBuildings.size() == 0){
 							// find the enemy base first, count on it being in the
 							// opposite corner
-							int targetX = MapUtil.WIDTH - ai.townManager.stockpiles.get(0).getX();
-							int targetY = MapUtil.HEIGHT - ai.townManager.stockpiles.get(0).getY();
+							int targetX = MapUtil.WIDTH - ai.stockpiles.get(0).getX();
+							int targetY = MapUtil.HEIGHT - ai.stockpiles.get(0).getY();
 							ArrayList<Integer> destination = new ArrayList<Integer>();
 							destination.add(targetX + targetY * MapUtil.WIDTH);
 							// path to estimated location of enemy base
@@ -92,15 +89,15 @@ public class ArmyManager extends Manager{
 		ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
 		for(UnitController u : ai.freeUnits){
 			if(u.getClass() == ArmyUnitController.class){
-				groundUnits.add(u);
+				ai.groundUnits.add(u);
 				if(AIController.DEBUG){
 					System.out.println("AM: acquired army unit");
 				}
 				toRemove.add(u);
 			}
 			else
-				if(ai.wantedScouts > scouts.size() && u.getClass() == WorkerUnitController.class){
-					scouts.add(u);
+				if(ai.wantedScouts > ai.scouts.size() && u.getClass() == WorkerUnitController.class){
+					ai.scouts.add(u);
 					if(AIController.DEBUG){
 						System.out.println("AM: acquired scout");
 					}

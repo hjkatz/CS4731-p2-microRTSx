@@ -7,37 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TownManager extends Manager{
-	// building types
-	public static final int							STOCKPILE		= 0;
-	public static final int							SOLDIEROFFICE	= 1;
-	public static final int							AIRPORT			= 2;
-	// unit types
-	public static final int							LIGHT				= 0;
-	public static final int							WORKER			= 1;
-	public static final int							HEAVY				= 2;
-	public static final int							RANGER			= 3;
-	public static final int							BIRD				= 4;
-	public static final int							SKYARCHER		= 5;
 
-	public HashMap<Integer, Integer>				buildPriority;		// Label and  Priority,
-	// Bigger Priority == More likely to build
-	// (Use order of 1 - 100) Every time a unit is made its priority will drop by 1
-	public ArrayList<FarmUnitController>		farms;
-	public ArrayList<WorkerUnitController>		workers;
-	public ArrayList<BuildingUnitController>	stockpiles;
-	public ArrayList<BuildingUnitController>	buildings;
-	public ArrayList<Integer>						requestedUnits;
-	
+	private AIController	ai;
 
-	public TownManager(){
-		buildPriority = new HashMap<Integer, Integer>();
-
-		farms = new ArrayList<FarmUnitController>();
-		workers = new ArrayList<WorkerUnitController>();
-		buildings = new ArrayList<BuildingUnitController>();
-		stockpiles = new ArrayList<BuildingUnitController>();
-
-		requestedUnits = new ArrayList<Integer>();
+	public TownManager(AIController ai){
+		this.ai = ai;
 	}
 
 	public static void changeBuildLocation(UnitController unitController, AIController ai){}
@@ -45,15 +19,18 @@ public class TownManager extends Manager{
 	@Override public void update(AIController ai){
 		// update farms map
 		for(Unit res : ai.gameState.getNeutralUnits()){
-			if(res.isResources() && !farms.contains(new FarmUnitController(res, ai))){
-				if(AIController.DEBUG){
-					System.out.println("found a farm at " + res.getX() + ", " + res.getY());
+			if(res.isResources()){
+				FarmUnitController fc = new FarmUnitController(res, ai);
+				if(!ai.farms.contains(fc)){
+					if(AIController.DEBUG){
+						System.out.println("found a farm at " + res.getX() + ", " + res.getY());
+					}
+					ai.farms.add(new FarmUnitController(res, ai));
 				}
-				farms.add(new FarmUnitController(res, ai));
 			}
 		}
 
-		for(WorkerUnitController worker : workers){
+		for(WorkerUnitController worker : ai.workers){
 			worker.act(ai);// carry out action, it wont do anything if unit
 			// doesnt have one
 
@@ -99,7 +76,7 @@ public class TownManager extends Manager{
 					time += farm.getHarvestSpeed();
 
 					ArrayList<Integer> destination = new ArrayList<Integer>();
-					destination.add(stockpiles.get(0).getY() * MapUtil.WIDTH + stockpiles.get(0).getX());
+					destination.add(ai.stockpiles.get(0).getY() * MapUtil.WIDTH + ai.stockpiles.get(0).getX());
 
 					// return
 					rpath = MapUtil.get_path(worker.unit, position, time, destination);
@@ -133,19 +110,21 @@ public class TownManager extends Manager{
 			}
 		}
 
-		for(BuildingUnitController stock : stockpiles){// all the bases, tell em to make workers
+		for(BuildingUnitController stock : ai.stockpiles){// all the bases, tell em to make workers
 			stock.act(ai);
 
-			if(workers.size() + ai.armyManager.scouts.size() < ai.wantedScouts + ai.wantedWorkers){
+			if(ai.workers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){
 				if(stock.actions.size() <= 0){ // no actions?!?!?
 					int time = ai.currentTurn;
 					int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
-					stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, WORKER), MapUtil.trafficMap, position, time, time + workers.get(0).getBuildSpeed());
-					//add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
-					for(int i = 0; i < workers.get(0).getBuildSpeed() - 1; i++){
+					stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, ai.WORKER), MapUtil.trafficMap, position, time, time + ai.workers.get(0).getBuildSpeed());
+					// add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
+					for(int i = 0; i < ai.workers.get(0).getBuildSpeed() - 1; i++){
 						stock.addAction(new UnitAction(stock.unit, UnitAction.NONE, stock.getX(), stock.getY(), -1), MapUtil.trafficMap, position, time, time + 1);
 					}
-					if(AIController.DEBUG){System.out.println("TM: recruiting worker");}
+					if(AIController.DEBUG){
+						System.out.println("TM: recruiting worker");
+					}
 				}
 			}
 		}
@@ -157,7 +136,7 @@ public class TownManager extends Manager{
 		int y = worker.getY();
 		int minDistance = 10000; // large int =P
 		FarmUnitController closest = null;
-		for(FarmUnitController farm : farms){
+		for(FarmUnitController farm : ai.farms){
 			if(farm.free){
 				int distance = (int) (Math.sqrt(((x - farm.getHarvestX()) ^ 2) + ((y - farm.getHarvestY()) ^ 2)));
 				if(distance < minDistance){
@@ -179,7 +158,7 @@ public class TownManager extends Manager{
 		ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
 		for(UnitController unit : ai.freeUnits){
 			if(unit.getClass() == WorkerUnitController.class){
-				workers.add((WorkerUnitController) unit);
+				ai.workers.add((WorkerUnitController) unit);
 				if(AIController.DEBUG){
 					System.out.println("TM: acquired worker");
 				}
@@ -189,13 +168,13 @@ public class TownManager extends Manager{
 				if(unit.getClass() == BuildingUnitController.class){
 					BuildingUnitController bu = (BuildingUnitController) unit;
 					if(bu.isStockpile()){
-						stockpiles.add(bu);
+						ai.stockpiles.add(bu);
 						if(AIController.DEBUG){
 							System.out.println("TM: acquired stockpile");
 						}
 					}
 					else{
-						buildings.add(bu);
+						ai.buildings.add(bu);
 						if(AIController.DEBUG){
 							System.out.println("TM: acquired building");
 						}
@@ -211,6 +190,6 @@ public class TownManager extends Manager{
 	}
 
 	public int numWorkers(){
-		return workers.size();
+		return ai.workers.size();
 	}
 }
