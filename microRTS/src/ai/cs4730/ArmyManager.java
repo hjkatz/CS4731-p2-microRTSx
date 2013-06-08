@@ -17,7 +17,7 @@ public class ArmyManager extends Manager{
 		foundEnemyBase = false;
 	}
 
-	@Override public void update(AIController ai){
+	@Override public void update(){
 		for(Unit unit : ai.gameState.getOtherUnits()){
 			if(unit.isBuilding()){
 				BuildingUnitController bc = new BuildingUnitController(unit, ai);
@@ -85,7 +85,7 @@ public class ArmyManager extends Manager{
 		}
 	}
 
-	@Override public void assignUnits(AIController ai){
+	@Override public void assignUnits(){
 		ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
 		for(UnitController u : ai.freeUnits){
 			if(u.getClass() == ArmyUnitController.class){

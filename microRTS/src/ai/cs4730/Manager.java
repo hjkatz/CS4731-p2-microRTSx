@@ -12,8 +12,8 @@ public abstract class Manager
     {
     }
     
-    public abstract void update( AIController ai );
+    public abstract void update();
     
-    public abstract void assignUnits( AIController ai );
+    public abstract void assignUnits();
     
 }

@@ -111,11 +111,11 @@ public class AIController extends AI
         
         MapUtil.update( gs.getMap() );
         
-        armyManager.assignUnits( this );
-        townManager.assignUnits( this );
+        armyManager.assignUnits();
+        townManager.assignUnits();
         
-        armyManager.update( this );
-        townManager.update( this );
+        armyManager.update();
+        townManager.update();
     }
     
     // things that need to be initialized after the object's init, many rely on
