@@ -1,12 +1,11 @@
 
 package ai.cs4730;
 
-import ai.AI;
+import java.util.ArrayList;
+
 import rts.GameState;
 import rts.units.Unit;
-
-import java.util.ArrayList;
-import java.util.HashMap;
+import ai.AI;
 
 public class AIController extends AI
 {
@@ -34,7 +33,8 @@ public class AIController extends AI
     //things that need to be initialized after the object's init, many rely on state
     public void init()
     {
-    	map = new MapUtil( this );
+        map = new MapUtil( this );
+        
         for ( Unit u : gameState.getMyUnits() )
         {
             if ( u.isWorker() )
@@ -50,6 +50,8 @@ public class AIController extends AI
                 freeUnits.add( new ArmyUnitController( u, this ) );
             }
         }
+        
+        map = new MapUtil( this );
         
         init = true;
     }
@@ -72,7 +74,6 @@ public class AIController extends AI
         townManager.update( this );
         
     }
-    
     
     private enum STATE
     {

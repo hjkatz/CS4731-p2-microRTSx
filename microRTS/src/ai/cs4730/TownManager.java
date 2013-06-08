@@ -1,11 +1,11 @@
 
 package ai.cs4730;
 
-import rts.units.Unit;
-import rts.units.UnitAction;
-
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import rts.units.Unit;
+import rts.units.UnitAction;
 
 public class TownManager extends Manager
 {
@@ -71,6 +71,7 @@ public class TownManager extends Manager
                     if ( rpath != null )
                     { // is possible to reach goal
                         boolean there = false;
+                        position = rpath.get( 0 )[0];
                         if ( rpath.size() == 0 )
                         {
                             rpath.add( new Integer[]{ worker.unit.getX() + worker.unit.getY() * MapUtil.WIDTH, ai.currentTurn } );
@@ -84,17 +85,18 @@ public class TownManager extends Manager
                             {
                                 worker.addAction( new UnitAction( worker.unit, UnitAction.MOVE, rpath.get( i )[0] % MapUtil.WIDTH, rpath.get( i )[0] / MapUtil.WIDTH, -1 ), MapUtil.trafficMap,
                                         rpath.get( i )[0], rpath.get( i )[1], rpath.get( i )[1] + worker.unit.getMoveSpeed() );
-                                time = rpath.get( i )[1];
-                                position = rpath.get( i )[1];
                             }
                         }
+                        position = rpath.get( 0 )[0];
+                        time = rpath.get( 0 )[1];
                     }
                     
                     //harvest
                     worker.addAction( new UnitAction( worker.unit, UnitAction.HARVEST, farm.getX(), farm.getY(), -1 ), MapUtil.trafficMap, position, time, time + farm.getHarvestSpeed() );
+                    time += farm.getHarvestSpeed();
                     
                     ArrayList<Integer> destination = new ArrayList<Integer>();
-                    destination.add( stockpiles.get( 0 ).getY() * MapUtil.WIDTH + stockpiles.get( 0 ).getY() );
+                    destination.add( stockpiles.get( 0 ).getY() * MapUtil.WIDTH + stockpiles.get( 0 ).getX() );
                     
                     //return
                     rpath = MapUtil.get_path( worker.unit, position, time, destination );
@@ -119,8 +121,8 @@ public class TownManager extends Manager
                                 worker.addAction( new UnitAction( worker.unit, UnitAction.MOVE, rpath.get( i )[0] % MapUtil.WIDTH, rpath.get( i )[0] / MapUtil.WIDTH, -1 ), MapUtil.trafficMap,
                                         rpath.get( i )[0], rpath.get( i )[1], rpath.get( i )[1] + worker.unit.getMoveSpeed() );
                             }
-                            time = rpath.get( 1 )[1];
-                            position = rpath.get( 1 )[0];
+                            position = rpath.get( 0 )[0];
+                            time = rpath.get( 0 )[1];
                         }
                         worker.addAction( new UnitAction( worker.unit, UnitAction.RETURN, rpath.get( 0 )[0] % MapUtil.WIDTH, rpath.get( 0 )[0] / MapUtil.WIDTH, -1 ), MapUtil.trafficMap, position,
                                 time, time + UnitAction.DEFAULT_COOLDOWN );
@@ -147,8 +149,12 @@ public class TownManager extends Manager
         {
             if ( unit.getClass() == WorkerUnitController.class )
             {
-                //workers.add( ( WorkerUnitController ) unit );
-                //toRemove.add( unit );
+                workers.add( ( WorkerUnitController ) unit );
+                if ( AIController.DEBUG )
+                {
+                    System.out.println( "acquired worker" );
+                }
+                toRemove.add( unit );
             }
             else if ( unit.getClass() == BuildingUnitController.class )
             {
