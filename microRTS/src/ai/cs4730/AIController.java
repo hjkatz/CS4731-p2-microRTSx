@@ -63,6 +63,7 @@ public class AIController extends AI{
       farms = new ArrayList<FarmUnitController>();
       farmOpenings = new HashMap<Integer, Boolean>();
       workers = new ArrayList<WorkerUnitController>();
+      builders = new ArrayList<WorkerUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
       stockpiles = new ArrayList<BuildingUnitController>();
       groundUnits = new ArrayList<UnitController>();
