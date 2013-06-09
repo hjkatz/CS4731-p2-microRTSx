@@ -19,25 +19,28 @@ public class BuildingManager extends Manager{
          stock.act(ai);
 
          if(ai.workers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){// do we want scouts?
-            // check if we have the cash
-            boolean enoughMoney = canAffordUnit(AIController.WORKER);
-            if(enoughMoney){
+            if(canAffordUnit(AIController.WORKER)){ // check if we have the cash
                if(stock.actions.size() <= 0){ // no actions?!?!?
-                  int time = ai.currentTurn;
-                  int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
-                  stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, AIController.WORKER), MapUtil.trafficMap, position, time, time + ai.unitTypes.get(AIController.WORKER).produce_speed);
-                  // add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
-                  for(int i = 0; i < ai.unitTypes.get(AIController.WORKER).produce_speed - 1; i++){
-                     stock.addAction(new UnitAction(stock.unit, UnitAction.NONE, stock.getX(), stock.getY(), -1), MapUtil.trafficMap, position, time, time + 1);
-                  }
-                  makePurchase(ai.unitTypes.get(AIController.WORKER).cost);
-                  if(AIController.DEBUG){
-                     System.out.println("TM: recruiting worker");
-                  }
+                  buildUnit(stock, AIController.WORKER);
                }
             }
          }
       }
+   }
+   
+   public void buildUnit(BuildingUnitController building, int unitType){
+      int time = ai.currentTurn;
+      int position = MapUtil.position(building) + 1;
+      building.addAction(new UnitAction(building.unit, UnitAction.BUILD, building.getX(), building.getY() + 1, unitType), MapUtil.trafficMap, position, time, time + ai.unitTypes.get(unitType).produce_speed);
+      // add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
+      for(int i = 0; i < ai.unitTypes.get(unitType).produce_speed - 1; i++){
+         building.addAction(new UnitAction(building.unit, UnitAction.NONE, building.getX(), building.getY(), -1), MapUtil.trafficMap, position, time, time + 1);
+      }
+      makePurchase(ai.unitTypes.get(AIController.WORKER).cost);
+   }
+   
+   public void buildBuilding(WorkerUnitController bc, int buildingType){
+      
    }
 
    public boolean canAffordUnit(int type){

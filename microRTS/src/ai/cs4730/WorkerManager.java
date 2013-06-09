@@ -77,27 +77,27 @@ public class WorkerManager extends Manager{
       ArrayList<Integer> openings = new ArrayList<Integer>();
       openings.add(farm);
 
-      ArrayList<Integer[]> rpath = MapUtil.get_path(worker.unit, MapUtil.position(worker), ai.currentTurn, openings);
+      ArrayList<Integer[]> path = MapUtil.get_path(worker.unit, MapUtil.position(worker), ai.currentTurn, openings);
 
       int time = ai.currentTurn;
       int position = MapUtil.position(worker);
 
-      if(rpath != null){ // is possible to reach goal
+      if(path != null){ // is possible to reach goal
          boolean there = false;
-         position = rpath.get(0)[0];
-         if(rpath.size() == 0){
-            rpath.add(new Integer[]{MapUtil.position(worker), ai.currentTurn});
+         position = path.get(0)[0];
+         if(path.size() == 0){
+            path.add(new Integer[]{MapUtil.position(worker), ai.currentTurn});
             there = true;
          }
 
          // set order queue
          if(!there){
-            for(int i = rpath.size() - 1; i >= 0; i--){
-               worker.addAction(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0] % MapUtil.WIDTH, rpath.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, rpath.get(i)[0], rpath.get(i)[1], rpath.get(i)[1] + worker.unit.getMoveSpeed());
+            for(int i = path.size() - 1; i >= 0; i--){
+               worker.addAction(new UnitAction(worker.unit, UnitAction.MOVE, path.get(i)[0] % MapUtil.WIDTH, path.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, path.get(i)[0], path.get(i)[1], path.get(i)[1] + worker.unit.getMoveSpeed());
             }
          }
-         position = rpath.get(0)[0];
-         time = rpath.get(0)[1];
+         position = path.get(0)[0];
+         time = path.get(0)[1];
 
          for(FarmUnitController res : ai.farms){
             if(res.hasThisOpening(farm)){
@@ -107,18 +107,11 @@ public class WorkerManager extends Manager{
                time += res.getHarvestSpeed();
 
                // close that opening, happens in getClosestFreeFarm()
-
                pathToStockpile(worker, position, time, farm);
 
                break;
             }
          }
-      }
-      else{
-         // worker.clearActions(MapUtil.trafficMap);
-         // if(AIController.DEBUG){
-         // System.out.println("TM: invalid path");
-         // }
       }
    }
 
@@ -129,37 +122,28 @@ public class WorkerManager extends Manager{
       }
 
       ArrayList<Integer> destination = new ArrayList<Integer>();
-      destination.add(ai.stockpiles.get(0).getY() * MapUtil.WIDTH + ai.stockpiles.get(0).getX());
+      destination.add(MapUtil.position(ai.stockpiles.get(0)));
 
       // return
-      ArrayList<Integer[]> rpath = MapUtil.get_path(worker.unit, position, time, destination);
-      if(rpath != null){
+      ArrayList<Integer[]> path = MapUtil.get_path(worker.unit, position, time, destination);
+      if(path != null){
          boolean there = false;
-         if(rpath.size() <= 1){
+         if(path.size() <= 1){
             there = true;
-            rpath.add(new Integer[]{position, time});
-            if(rpath.size() == 1){
-               rpath.add(new Integer[]{position, time});
+            path.add(new Integer[]{position, time});
+            if(path.size() == 1){
+               path.add(new Integer[]{position, time});
             }
          }
          if(!there){
-            for(int i = rpath.size() - 1; i >= 1; i--){
-               // unit.actions.add(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0]%MapUtils.WIDTH,
-               // rpath.get(i)[0]/MapUtils.WIDTH,-1));
-               // System.out.println("adding MOVE");
-               worker.addAction(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0] % MapUtil.WIDTH, rpath.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, rpath.get(i)[0], rpath.get(i)[1], rpath.get(i)[1] + worker.unit.getMoveSpeed());
+            for(int i = path.size() - 1; i >= 1; i--){
+               worker.addAction(new UnitAction(worker.unit, UnitAction.MOVE, path.get(i)[0] % MapUtil.WIDTH, path.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, path.get(i)[0], path.get(i)[1], path.get(i)[1] + worker.unit.getMoveSpeed());
             }
-            position = rpath.get(0)[0];
-            time = rpath.get(0)[1];
+            position = path.get(0)[0];
+            time = path.get(0)[1];
          }
          // return
          worker.addAction(new UnitAction(worker.unit, UnitAction.RETURN, position % MapUtil.WIDTH, position / MapUtil.WIDTH, -1), MapUtil.trafficMap, position, time, time + UnitAction.DEFAULT_COOLDOWN);
-      }
-      else{
-         // worker.clearActions(MapUtil.trafficMap);
-         // if(AIController.DEBUG){
-         // System.out.println("TM: invalid path");
-         // }
       }
    }
 }

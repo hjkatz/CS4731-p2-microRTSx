@@ -38,7 +38,7 @@ public class AIController extends AI{
    public ArrayList<BuildingUnitController>      buildings;
    public ArrayList<BuildingUnitController>      enemyBuildings;
    // experts
-   public WorkerManager                            workerManager;
+   public WorkerManager                          workerManager;
    public ArmyManager                            armyManager;
    public BuildingManager                        buildingManager;
    public UnitAssigner                           unitAssigner;
