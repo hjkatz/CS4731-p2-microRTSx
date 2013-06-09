@@ -22,17 +22,80 @@ public class MapUtil{
       trafficMap = new TrafficMap(map.length);
    }
 
-   public static void update(int[] curr){
-      for(int i = 0; i < map.length; i++){
-         // if I have vision, update my map!
-         if((curr[i] ^ GameState.MAP_FOG) != 0){
-            map[i] = curr[i];
-         }
-      }
+   //public static void update(int[] curr){
+   //   for(int i = 0; i < map.length; i++){
+   //      // if I have vision, update my map!
+   //      if((curr[i] ^ GameState.MAP_FOG) != 0){
+   //         map[i] = curr[i];
+   //      }
+   //   }
+   //}
+
+   public static int position(int x, int y){
+      return x + y * WIDTH;
    }
 
    public static int position(UnitController uc){
       return uc.getX() + uc.getY() * WIDTH;
+   }
+
+   public static ArrayList<Integer> getSurroundingPositions(int pos){
+      ArrayList<Integer> positions = new ArrayList<Integer>();
+
+      int left = pos - 1;
+      int right = pos + 1;
+      int up = pos - WIDTH;
+      int down = pos + WIDTH;
+
+      if(left >= 0){
+         positions.add(left);
+      }
+      if(right < WIDTH){
+         positions.add(right);
+      }
+      if(up >= 0){
+         positions.add(up);
+      }
+      if(down < HEIGHT){
+         positions.add(down);
+      }
+
+      return positions;
+   }
+
+   public static ArrayList<Integer> getSurroundingFarmPositions(AIController ai){
+      ArrayList<Integer> positions = new ArrayList<Integer>();
+      for(FarmUnitController u : ai.farms){
+         if(u.isFree()){
+            int pos = position(u);
+            int left = pos - 1;
+            int right = pos + 1;
+            int up = pos - WIDTH;
+            int down = pos + WIDTH;
+
+            if(left >= 0){
+               if((map[left] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[left] & GameState.MAP_WALL) == 0)){
+                  positions.add(left);
+               }
+            }
+            if(right < WIDTH){
+               if((map[right] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[right] & GameState.MAP_WALL) == 0)){
+                  positions.add(right);
+               }
+            }
+            if(up >= 0){
+               if((map[up] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[up] & GameState.MAP_WALL) == 0)){
+                  positions.add(up);
+               }
+            }
+            if(down < HEIGHT){
+               if((map[down] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[down] & GameState.MAP_WALL) == 0)){
+                  positions.add(down);
+               }
+            }
+         }
+      }
+      return positions;
    }
 
    /**

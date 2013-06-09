@@ -117,7 +117,7 @@ public class AIController extends AI{
 
       currentTurn++;
 
-      MapUtil.update(gs.getMap());
+      MapUtil.map = gameState.getMap();
       MapUtil.trafficMap.update(currentTurn);
 
       unitAssigner.update();

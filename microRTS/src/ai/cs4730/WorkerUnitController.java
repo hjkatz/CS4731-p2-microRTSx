@@ -3,12 +3,14 @@ package ai.cs4730;
 import rts.units.Unit;
 
 public class WorkerUnitController extends UnitController{
-   private int buildSpeed;
-   private int attackRange;
-   private int attackMin;
-   private int attackMax;
-   private int moveSpeed;
-   private int attackSpeed;
+   private int                buildSpeed;
+   private int                attackRange;
+   private int                attackMin;
+   private int                attackMax;
+   private int                moveSpeed;
+   private int                attackSpeed;
+   private boolean            hasFarm;
+   private FarmUnitController farm;
 
    public WorkerUnitController(Unit unit, AIController ai){
       super(unit, ai);
@@ -18,6 +20,26 @@ public class WorkerUnitController extends UnitController{
       attackMax = unit.getAttackMax();
       attackSpeed = unit.getAttackSpeed();
       moveSpeed = unit.getMoveSpeed();
+      hasFarm = false;
+      farm = null;
+   }
+
+   public void setFarm(FarmUnitController f){
+      farm = f;
+      hasFarm = true;
+   }
+
+   public void unsetFarm(){
+      farm = null;
+      hasFarm = false;
+   }
+
+   public boolean hasFarm(){
+      return hasFarm;
+   }
+   
+   public FarmUnitController getFarm(){
+      return farm;
    }
 
    public int getBuildSpeed(){
