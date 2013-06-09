@@ -82,6 +82,7 @@ public class AIController extends AI{
 
    @Override public void getAction(GameState gs, int time_limit){
       gameState = gs;
+      resources = gameState.getResources();
       if(!init){
          init();
       }
@@ -123,7 +124,6 @@ public class AIController extends AI{
    // things that need to be initialized after the object's init, many rely on state
    public void init(){
       map = new MapUtil(this);
-      resources = gameState.getResources();
       for(UnitDefinition def : gameState.getUnitList()){
          unitTypes.put(def.type, def);
       }

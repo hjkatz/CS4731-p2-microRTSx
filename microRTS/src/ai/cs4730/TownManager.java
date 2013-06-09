@@ -61,6 +61,7 @@ public class TownManager extends Manager{
                int cost = ai.unitTypes.get(AIController.WORKER).cost.get(i);
                if(cost > ai.resources.get(i)){
                   enoughMoney = false;
+                  break;
                }
             }
             if(enoughMoney){
@@ -193,7 +194,7 @@ public class TownManager extends Manager{
    }
 
    private void pathToStockpile(WorkerUnitController worker, int position, int time, int farm){
-      // if we're just at a farm, free it!
+      // if we were just at a farm, free it!
       if(farm != -1){
          ai.farmOpenings.put(farm, true);
       }
@@ -231,9 +232,5 @@ public class TownManager extends Manager{
          // System.out.println("TM: invalid path");
          // }
       }
-   }
-
-   public int numWorkers(){
-      return ai.workers.size();
    }
 }
