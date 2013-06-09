@@ -165,16 +165,16 @@ public class TownManager extends Manager{
       ArrayList<Integer> openings = new ArrayList<Integer>();
       openings.add(farm);
 
-      ArrayList<Integer[]> rpath = MapUtil.get_path(worker.unit, worker.getY() * MapUtil.WIDTH + worker.getX(), ai.currentTurn, openings);
+      ArrayList<Integer[]> rpath = MapUtil.get_path(worker.unit, MapUtil.position(worker), ai.currentTurn, openings);
 
       int time = ai.currentTurn;
-      int position = worker.getY() * MapUtil.WIDTH + worker.getX();
+      int position = MapUtil.position(worker);
 
       if(rpath != null){ // is possible to reach goal
          boolean there = false;
          position = rpath.get(0)[0];
          if(rpath.size() == 0){
-            rpath.add(new Integer[]{worker.unit.getX() + worker.unit.getY() * MapUtil.WIDTH, ai.currentTurn});
+            rpath.add(new Integer[]{MapUtil.position(worker), ai.currentTurn});
             there = true;
          }
 

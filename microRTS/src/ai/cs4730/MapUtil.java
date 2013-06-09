@@ -30,6 +30,10 @@ public class MapUtil{
          }
       }
    }
+   
+   public static int position(UnitController uc){
+      return uc.getX() + uc.getY() * WIDTH;
+   }
 
    /**
     * Gets the path to a location (reversed)

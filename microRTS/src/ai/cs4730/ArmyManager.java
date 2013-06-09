@@ -51,12 +51,12 @@ public class ArmyManager extends Manager{
                      ArrayList<Integer> destination = new ArrayList<Integer>();
                      destination.add(targetX + targetY * MapUtil.WIDTH);
                      // path to estimated location of enemy base
-                     ArrayList<Integer[]> path = MapUtil.get_path(scout.unit, scout.getX() + scout.getY() * MapUtil.WIDTH, ai.currentTurn, destination);
+                     ArrayList<Integer[]> path = MapUtil.get_path(scout.unit, MapUtil.position(scout), ai.currentTurn, destination);
 
                      if(path != null){ // is possible to reach goal
                         boolean there = false;
                         if(path.size() == 0){
-                           path.add(new Integer[]{scout.unit.getX() + scout.unit.getY() * MapUtil.WIDTH, ai.currentTurn});
+                           path.add(new Integer[]{MapUtil.position(scout), ai.currentTurn});
                            there = true;
                         }
 
