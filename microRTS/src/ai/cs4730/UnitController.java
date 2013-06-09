@@ -18,7 +18,6 @@ public abstract class UnitController{
    private int                  vision;
    private int                  type;
    private int                  buildTime;
-   private float                id;
    private ArrayList<Integer>   cost;
    private ArrayList<Traffic>   traffic;
    private Traffic              last_traffic;
@@ -35,7 +34,6 @@ public abstract class UnitController{
       type = unit.getType();
       buildTime = unit.getBuildSpeed();
       hasActed = false;
-      id = unit.getID();
 
       if(unit.isBuilding()){
          building_traffic = new Traffic(unit.getX() + unit.getY() * MapUtil.WIDTH, ai.currentTurn, -1);
@@ -104,10 +102,6 @@ public abstract class UnitController{
    public int getCost(int resourceType){
       if(resourceType >= 0 && resourceType < cost.size()){ return cost.get(resourceType); }
       return -1;
-   }
-
-   public float getID(){
-      return id;
    }
 
    public void act(AIController ai){
@@ -222,7 +216,7 @@ public abstract class UnitController{
 
    @Override public boolean equals(Object other){
       UnitController uc = (UnitController) other;
-      if(uc.getID() == id){ return true; }
+      if(uc.unit.equals(unit)){ return true; }
       return false;
    }
 }

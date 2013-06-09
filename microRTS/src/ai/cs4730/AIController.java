@@ -2,54 +2,49 @@ package ai.cs4730;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.Map;
 
 import rts.GameState;
 import rts.units.Unit;
-import rts.units.UnitDefinition;
 import ai.AI;
 
 public class AIController extends AI{
-   public final static boolean                   DEBUG         = true;
-   private boolean                               init          = false;
+   public final static boolean              DEBUG         = true;
    // building types
-   public static final int                       STOCKPILE     = 0;
-   public static final int                       SOLDIEROFFICE = 1;
-   public static final int                       AIRPORT       = 2;
+   public static final int                  STOCKPILE     = 0;
+   public static final int                  SOLDIEROFFICE = 1;
+   public static final int                  AIRPORT       = 2;
    // unit types
-   public static final int                       LIGHT         = 0;
-   public static final int                       WORKER        = 1;
-   public static final int                       HEAVY         = 2;
-   public static final int                       RANGER        = 3;
-   public static final int                       BIRD          = 4;
-   public static final int                       SKYARCHER     = 5;
+   public static final int                  LIGHT         = 0;
+   public static final int                  WORKER        = 1;
+   public static final int                  HEAVY         = 2;
+   public static final int                  RANGER        = 3;
+   public static final int                  BIRD          = 4;
+   public static final int                  SKYARCHER     = 5;
+   public HashMap<Integer, Integer>         buildPriority;
    // Label and Priority, Bigger Priority == More likely to build
    // (Use order of 1 - 100) Every time a unit is made its priority will drop by 1
-   public HashMap<Integer, Integer>              buildPriority;
-   public ArrayList<FarmUnitController>          farms;
-   public ArrayList<WorkerUnitController>        workers;
-   public ArrayList<WorkerUnitController>        builders;
-   public ArrayList<BuildingUnitController>      stockpiles;
-   public ArrayList<BuildingUnitController>      buildings;
-   public ArrayList<Integer>                     requestedUnits;
-   public ArrayList<UnitController>              groundUnits;
-   public ArrayList<UnitController>              airUnits;
-   public ArrayList<UnitController>              scouts;
-   public ArrayList<Integer>                     resources;
-   // possible units and buildings
-   public LinkedHashMap<Integer, UnitDefinition> unitTypes;
-   public LinkedHashMap<Integer, UnitDefinition> buildingTypes;
+   public ArrayList<FarmUnitController>     farms;
+   public Map<Integer, Boolean>             farmOpenings;
+   public ArrayList<WorkerUnitController>   workers;
+   public ArrayList<BuildingUnitController> stockpiles;
+   public ArrayList<BuildingUnitController> buildings;
+   public ArrayList<Integer>                requestedUnits;
+   public ArrayList<UnitController>         groundUnits;
+   public ArrayList<UnitController>         airUnits;
+   public ArrayList<UnitController>         scouts;
    // game logic variable
-   public ArrayList<BuildingUnitController>      enemyBuildings;
-   public GameState                              gameState;
-   public TownManager                            townManager;
-   public ArmyManager                            armyManager;
-   public ArrayList<UnitController>              freeUnits;
-   public MapUtil                                map;
-   public int                                    currentTurn;
-   public STATE                                  state;
-   public int                                    wantedWorkers = 5;
-   public int                                    wantedScouts  = 1;
+   public ArrayList<BuildingUnitController> enemyBuildings;
+   public GameState                         gameState;
+   public TownManager                       townManager;
+   public ArmyManager                       armyManager;
+   public ArrayList<UnitController>         freeUnits;
+   public MapUtil                           map;
+   public int                               currentTurn;
+   public STATE                             state;
+   public int                               wantedWorkers = 2;
+   public int                               wantedScouts  = 0;
+   private boolean                          init          = false;
 
    public AIController(){
       super();
@@ -59,16 +54,14 @@ public class AIController extends AI{
       buildPriority = new HashMap<Integer, Integer>();
 
       farms = new ArrayList<FarmUnitController>();
+      farmOpenings = new HashMap<Integer, Boolean>();
       workers = new ArrayList<WorkerUnitController>();
-      builders = new ArrayList<WorkerUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
       stockpiles = new ArrayList<BuildingUnitController>();
       groundUnits = new ArrayList<UnitController>();
       airUnits = new ArrayList<UnitController>();
       scouts = new ArrayList<UnitController>();
       enemyBuildings = new ArrayList<BuildingUnitController>();
-      unitTypes = new LinkedHashMap<Integer, UnitDefinition>();
-      buildingTypes = new LinkedHashMap<Integer, UnitDefinition>();
 
       requestedUnits = new ArrayList<Integer>();
 
@@ -79,7 +72,6 @@ public class AIController extends AI{
 
    @Override public void getAction(GameState gs, int time_limit){
       gameState = gs;
-      resources = gameState.getResources();
       if(!init){
          init();
       }
@@ -108,8 +100,8 @@ public class AIController extends AI{
 
       currentTurn++;
 
-      MapUtil.trafficMap.update(currentTurn);
       MapUtil.update(gs.getMap());
+      MapUtil.trafficMap.update(currentTurn);
 
       armyManager.assignUnits();
       townManager.assignUnits();
@@ -121,13 +113,7 @@ public class AIController extends AI{
    // things that need to be initialized after the object's init, many rely on state
    public void init(){
       map = new MapUtil(this);
-      resources = gameState.getResources();
-      for(UnitDefinition def : gameState.getUnitList()){
-         unitTypes.put(def.type, def);
-      }
-      for(UnitDefinition def : gameState.getBuildingList()){
-         buildingTypes.put(def.type, def);
-      }
+
       init = true;
    }
 

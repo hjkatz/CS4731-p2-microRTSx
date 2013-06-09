@@ -16,6 +16,10 @@ public class TownManager extends Manager{
    public static void changeBuildLocation(UnitController unitController, AIController ai){}
 
    @Override public void update(){
+      for(FarmUnitController farm : ai.farms){
+         farm.updateOpenings();
+      }
+
       // update farms map
       for(Unit res : ai.gameState.getNeutralUnits()){
          if(res.isResources()){
@@ -24,7 +28,7 @@ public class TownManager extends Manager{
                if(AIController.DEBUG){
                   System.out.println("found a farm at " + res.getX() + ", " + res.getY());
                }
-               ai.farms.add(fc);
+               ai.farms.add(new FarmUnitController(res, ai));
             }
          }
       }
@@ -36,13 +40,13 @@ public class TownManager extends Manager{
          if(worker.actions.size() <= 0) // no actions
          {
             if(worker.unit.getHarvestAmount() <= 0){
-               FarmUnitController farm = getClosestFreeFarm(worker);
-               if(farm != null){
+               int farm = getClosestFreeFarm(worker);
+               if(farm != -1){
                   pathToFarm(worker, farm);
                }
             }
             else{
-               pathToStockpile(worker, worker.getY() * MapUtil.WIDTH + worker.getX(), ai.currentTurn);
+               pathToStockpile(worker, worker.getY() * MapUtil.WIDTH + worker.getX(), ai.currentTurn, -1);
             }
          }
       }
@@ -50,45 +54,31 @@ public class TownManager extends Manager{
       for(BuildingUnitController stock : ai.stockpiles){// all the bases, tell em to make workers
          stock.act(ai);
 
-         if(ai.workers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){// do we want scouts?
-            // check if we have the cash
-            boolean enoughMoney = true;
-            for(int i = 0; i < ai.resources.size(); i++){
-               int cost = ai.unitTypes.get(ai.WORKER).cost.get(i);
-               if(cost > ai.resources.get(i)){
-                  enoughMoney = false;
+         if(ai.workers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){
+            if(stock.actions.size() <= 0){ // no actions?!?!?
+               int time = ai.currentTurn;
+               int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
+               stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, AIController.WORKER), MapUtil.trafficMap, position, time, time + ai.workers.get(0).getBuildSpeed());
+               // add no actions for the rest of the build time so it doesn't keep giving it build orders each turn
+               for(int i = 0; i < ai.workers.get(0).getBuildSpeed() - 1; i++){
+                  stock.addAction(new UnitAction(stock.unit, UnitAction.NONE, stock.getX(), stock.getY(), -1), MapUtil.trafficMap, position, time, time + 1);
                }
-            }
-            if(enoughMoney){
-               if(stock.actions.size() <= 0){ // no actions?!?!?
-                  int time = ai.currentTurn;
-                  int position = stock.getY() * MapUtil.WIDTH + stock.getX() + 1;
-                  stock.addAction(new UnitAction(stock.unit, UnitAction.BUILD, stock.getX(), stock.getY() + 1, ai.WORKER), MapUtil.trafficMap, position, time, time + ai.unitTypes.get(ai.WORKER).produce_speed);
-                  // add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
-                  for(int i = 0; i < ai.unitTypes.get(ai.WORKER).produce_speed - 1; i++){
-                     stock.addAction(new UnitAction(stock.unit, UnitAction.NONE, stock.getX(), stock.getY(), -1), MapUtil.trafficMap, position, time, time + 1);
-                  }
-                  for(int i = 0; i < ai.unitTypes.get(ai.WORKER).cost.size(); i++){
-                     int newAmount = ai.resources.get(i) - ai.unitTypes.get(ai.WORKER).cost.get(i);
-                     ai.resources.set(i, newAmount);
-                  }
-                  if(AIController.DEBUG){
-                     System.out.println("TM: recruiting worker");
-                  }
+               if(AIController.DEBUG){
+                  System.out.println("TM: recruiting worker");
                }
             }
          }
       }
    }
 
-   private FarmUnitController getClosestFreeFarm(WorkerUnitController worker){
+   private int getClosestFreeFarm(WorkerUnitController worker){
       int x = worker.getX();
       int y = worker.getY();
       int minDistance = 10000; // large int =P
-      FarmUnitController closest = null;
-      for(FarmUnitController farm : ai.farms){
-         if(farm.free){
-            int distance = (int) (Math.sqrt(((x - farm.getHarvestX()) ^ 2) + ((y - farm.getHarvestY()) ^ 2)));
+      int closest = -1;
+      for(Integer farm : ai.farmOpenings.keySet()){
+         if(ai.farmOpenings.get(farm)){
+            int distance = (int) (Math.sqrt(((x - farm % MapUtil.WIDTH)) ^ 2) + ((y - farm / MapUtil.WIDTH) ^ 2));
             if(distance < minDistance){
                closest = farm;
                minDistance = distance;
@@ -96,10 +86,10 @@ public class TownManager extends Manager{
          }
       }
 
-      // if ( closest != null )
-      // {
-      // closest.free = false;
-      // }
+      if(closest != -1){
+         ai.farmOpenings.put(closest, false);
+      }
+
       return closest;
    }
 
@@ -139,9 +129,9 @@ public class TownManager extends Manager{
       }
    }
 
-   private void pathToFarm(WorkerUnitController worker, FarmUnitController farm){
+   private void pathToFarm(WorkerUnitController worker, int farm){
       ArrayList<Integer> openings = new ArrayList<Integer>();
-      openings.add(farm.getHarvestY() * MapUtil.WIDTH + farm.getHarvestX());
+      openings.add(farm);
 
       ArrayList<Integer[]> rpath = MapUtil.get_path(worker.unit, worker.getY() * MapUtil.WIDTH + worker.getX(), ai.currentTurn, openings);
 
@@ -164,22 +154,36 @@ public class TownManager extends Manager{
          }
          position = rpath.get(0)[0];
          time = rpath.get(0)[1];
-      }
-      else{
-         worker.clearActions(MapUtil.trafficMap);
-         if(AIController.DEBUG){
-            System.out.println("TM: invalid path");
+
+         for(FarmUnitController res : ai.farms){
+            if(res.hasThisOpening(farm)){
+
+               // harvest
+               worker.addAction(new UnitAction(worker.unit, UnitAction.HARVEST, res.getX(), res.getY(), -1), MapUtil.trafficMap, position, time, time + res.getHarvestSpeed());
+               time += res.getHarvestSpeed();
+
+               // close that opening, happens in getClosestFreeFarm()
+
+               pathToStockpile(worker, position, time, farm);
+
+               break;
+            }
          }
       }
-
-      // harvest
-      worker.addAction(new UnitAction(worker.unit, UnitAction.HARVEST, farm.getX(), farm.getY(), -1), MapUtil.trafficMap, position, time, time + farm.getHarvestSpeed());
-      time += farm.getHarvestSpeed();
-
-      pathToStockpile(worker, position, time);
+      else{
+         // worker.clearActions(MapUtil.trafficMap);
+         // if(AIController.DEBUG){
+         // System.out.println("TM: invalid path");
+         // }
+      }
    }
 
-   private void pathToStockpile(WorkerUnitController worker, int position, int time){
+   private void pathToStockpile(WorkerUnitController worker, int position, int time, int farm){
+      // if we're just at a farm, free it!
+      if(farm != -1){
+         ai.farmOpenings.put(farm, true);
+      }
+
       ArrayList<Integer> destination = new ArrayList<Integer>();
       destination.add(ai.stockpiles.get(0).getY() * MapUtil.WIDTH + ai.stockpiles.get(0).getX());
 
@@ -196,20 +200,22 @@ public class TownManager extends Manager{
          }
          if(!there){
             for(int i = rpath.size() - 1; i >= 1; i--){
-               // unit.actions.add(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0]%MapUtils.WIDTH, rpath.get(i)[0]/MapUtils.WIDTH,-1));
+               // unit.actions.add(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0]%MapUtils.WIDTH,
+               // rpath.get(i)[0]/MapUtils.WIDTH,-1));
                // System.out.println("adding MOVE");
                worker.addAction(new UnitAction(worker.unit, UnitAction.MOVE, rpath.get(i)[0] % MapUtil.WIDTH, rpath.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, rpath.get(i)[0], rpath.get(i)[1], rpath.get(i)[1] + worker.unit.getMoveSpeed());
             }
             position = rpath.get(0)[0];
             time = rpath.get(0)[1];
          }
+         // return
          worker.addAction(new UnitAction(worker.unit, UnitAction.RETURN, position % MapUtil.WIDTH, position / MapUtil.WIDTH, -1), MapUtil.trafficMap, position, time, time + UnitAction.DEFAULT_COOLDOWN);
       }
       else{
-         worker.clearActions(MapUtil.trafficMap);
-         if(AIController.DEBUG){
-            System.out.println("TM: invalid path");
-         }
+         // worker.clearActions(MapUtil.trafficMap);
+         // if(AIController.DEBUG){
+         // System.out.println("TM: invalid path");
+         // }
       }
    }
 
