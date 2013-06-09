@@ -2,6 +2,8 @@ package ai.cs4730;
 
 import java.util.ArrayList;
 
+import rts.units.Unit;
+
 public class UnitAssigner extends Manager{
 
    AIController ai;
@@ -11,46 +13,40 @@ public class UnitAssigner extends Manager{
    }
 
    public void update(){
-      ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
-      for(UnitController u : ai.freeUnits){
-         if(u.getClass() == WorkerUnitController.class){
-            if(ai.workers.size() < ai.wantedWorkers){
-               ai.workers.add((WorkerUnitController) u);
-               toRemove.add(u);
-            }
-            else
-               if(ai.scouts.size() < ai.wantedScouts){
-                  ai.scouts.add(u);
-                  toRemove.add(u);
-               }
-         }
-         else
-            if(u.getClass() == BuildingUnitController.class){
-               BuildingUnitController bu = (BuildingUnitController) u;
-               if(bu.isStockpile()){
-                  ai.stockpiles.add(bu);
+      //grab any new units produced and add them to freeUnits
+      for(Unit u : ai.gameState.getMyUnits()){
+         UnitController uc = new UnitController(u, ai);
+         if(!ai.notFreeUnits.contains(uc)){
+            if(u.isBuilding()){
+               BuildingUnitController bc = new BuildingUnitController(u, ai);
+               if(bc.isStockpile()){
+                  ai.stockpiles.add(bc);
+                  ai.notFreeUnits.add(bc);
                }
                else{
-                  ai.buildings.add(bu);
+                  ai.buildings.add(bc);
+                  ai.notFreeUnits.add(bc);
                }
-               toRemove.add(u);
             }
             else
-               if(u.getClass() == ArmyUnitController.class){
-                  ai.groundUnits.add((ArmyUnitController) u);
-                  toRemove.add(u);
+               if(u.isWorker()){
+                  WorkerUnitController wc = new WorkerUnitController(u, ai);
+                  if(ai.workers.size() < ai.wantedWorkers){
+                     ai.workers.add(wc);
+                     ai.notFreeUnits.add(wc);
+                  }
+                  else
+                     if(ai.scouts.size() < ai.wantedScouts){
+                        ai.scouts.add((UnitController) wc);
+                        ai.notFreeUnits.add(wc);
+                     }
                }
-
-         if(ai.wantedScouts > ai.scouts.size() && u.getClass() == WorkerUnitController.class){
-            ai.scouts.add(u);
-            toRemove.add(u);
+               else{
+                  ArmyUnitController ac = new ArmyUnitController(u, ai);
+                  ai.groundUnits.add(ac);
+                  ai.notFreeUnits.add(ac);
+               }
          }
-      }
-
-      // remove any units from freeUnits that were assigend
-      for(UnitController u : toRemove){
-         ai.freeUnits.remove(u);
-         ai.notFreeUnits.add(u);
       }
    }
 

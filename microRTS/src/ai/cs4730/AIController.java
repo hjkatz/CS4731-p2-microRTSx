@@ -25,7 +25,6 @@ public class AIController extends AI{
    public static final int                       SKYARCHER     = 5;
    // units and resources controlled or remembered
    public ArrayList<Integer>                     resources;
-   public ArrayList<UnitController>              freeUnits;
    public ArrayList<UnitController>              notFreeUnits;
    public ArrayList<FarmUnitController>          farms;
    public Map<Integer, Boolean>                  farmOpenings;
@@ -62,7 +61,6 @@ public class AIController extends AI{
    public AIController(){
       super();
       currentTurn = 0;
-      freeUnits = new ArrayList<UnitController>();
       notFreeUnits = new ArrayList<UnitController>();
 
       resources = new ArrayList<Integer>();
@@ -94,25 +92,6 @@ public class AIController extends AI{
       resources = gameState.getResources();
       if(!init){
          init();
-      }
-
-      for(Unit u : gameState.getMyUnits()){
-         UnitController uc = new UnitController(u, this);
-         if(!notFreeUnits.contains(uc)){
-            if(u.isBuilding()){
-               BuildingUnitController bc = new BuildingUnitController(u, this);
-               freeUnits.add(bc);
-            }
-            else
-               if(u.isWorker()){
-                  WorkerUnitController wc = new WorkerUnitController(u, this);
-                  freeUnits.add(wc);
-               }
-               else{
-                  ArmyUnitController ac = new ArmyUnitController(u, this);
-                  freeUnits.add(ac);
-               }
-         }
       }
 
       currentTurn++;
