@@ -108,10 +108,6 @@ public class UnitController{
       return -1;
    }
 
-   public long getID(){
-      return id;
-   }
-
    public void act(AIController ai){
       if(!unit.hasAction()){
          if(hasActed && actions.size() != 0){
@@ -166,7 +162,7 @@ public class UnitController{
       }
       traffic.clear();
       if(last_traffic != null){
-         traffic_map.unreserve(last_traffic);
+         traffic_map.unreserve( last_traffic );
          last_traffic = null;
       }
    }
@@ -181,10 +177,10 @@ public class UnitController{
     * @param end the traffic end
     */
    public void addAction(UnitAction action, TrafficMap traffic_map, int location, int start, int end){
-      actions.add(action);
+      actions.add( action );
       if(traffic_map != null){
          Traffic t = new Traffic(location, start, end);
-         traffic_map.reserve(t);
+         traffic_map.reserve( t );
          traffic.add(t);
       }
    }
@@ -217,5 +213,9 @@ public class UnitController{
       UnitController uc = (UnitController) other;
       if(uc.getID() == id){ return true; }
       return false;
+   }
+
+   public long getID(){
+      return id;
    }
 }

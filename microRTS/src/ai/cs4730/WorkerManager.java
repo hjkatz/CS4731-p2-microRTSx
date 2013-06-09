@@ -38,8 +38,8 @@ public class WorkerManager extends Manager{
 
       ai.wantedWorkers = ai.farms.size() - 2;
 
-      // give workers orders
-      for(WorkerUnitController worker : ai.workers){
+      // give farmers orders
+      for(WorkerUnitController worker : ai.farmers){
          worker.act(ai);// carry out action, it wont do anything if unit doesn't have one
 
          if(worker.actions.size() <= 0) // no actions
@@ -57,7 +57,9 @@ public class WorkerManager extends Manager{
                else{
                   // has no resources and not yet assigned a farm
                   FarmUnitController farm = worker.getFarm();
-                  // TODO: check if farm is too far away, if so, build a new base nearby, also need to check if bases and ones being built are already nearby
+                  if(needNewStockpile(farm)){
+                     int planLocation = -1;
+                  }
                   harvestFarm(worker, MapUtil.position(farm));
                }
             }
@@ -68,6 +70,36 @@ public class WorkerManager extends Manager{
             }
          }
       }
+   }
+
+   public boolean needNewStockpile(UnitController uc){
+      int distance = 10000;
+
+      for(BuildingUnitController stock : ai.stockpiles){
+         if(MapUtil.distance(stock, uc) < distance){
+            distance = MapUtil.distance(stock, uc);
+         }
+      }
+
+      for(BuildingUnitController b : ai.buildingsInconstruction){
+         if(MapUtil.distance(b, uc) < distance){
+            distance = MapUtil.distance(b, uc);
+         }
+      }
+
+      for(WantedUnit wanted : UnitQueue.wantedBuildingUnits){
+         if(wanted.unitType == AIController.STOCKPILE){
+            int x = wanted.location % MapUtil.WIDTH;
+            int y = wanted.location / MapUtil.WIDTH;
+            int a = uc.getX();
+            int b = uc.getY();
+            if(((int) Math.sqrt(((x) - (a)) ^ 2 + ((y)) - (b)) ^ 2) < distance){
+               distance = ((int) Math.sqrt(((x) - (a)) ^ 2 + ((y)) - (b)) ^ 2);
+            }
+         }
+      }
+
+      return distance >= 6;
    }
 
    public FarmUnitController nextFreeFarm(){

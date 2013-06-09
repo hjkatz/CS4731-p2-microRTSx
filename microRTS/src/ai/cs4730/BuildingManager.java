@@ -15,10 +15,10 @@ public class BuildingManager extends Manager{
    public static void changeBuildLocation(UnitController unitController){}
 
    @Override public void update(){
-      for(BuildingUnitController stock : ai.stockpiles){// all the bases, tell em to make workers
+      for(BuildingUnitController stock : ai.stockpiles){// all the bases, tell em to make farmers
          stock.act(ai);
 
-         if(ai.workers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){// do we want scouts?
+         if(ai.farmers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){// do we want scouts?
             if(canAffordUnit(AIController.WORKER)){ // check if we have the cash
                if(ai.workerManager.nextFreeFarm() != null){
                   if(stock.actions.size() <= 0){ // no actions?!?!?

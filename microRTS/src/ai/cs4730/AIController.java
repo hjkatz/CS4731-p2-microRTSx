@@ -24,19 +24,21 @@ public class AIController extends AI{
    public ArrayList<Integer>                     resources;
    public ArrayList<UnitController>              notFreeUnits;
    public ArrayList<FarmUnitController>          farms;
-   public ArrayList<WorkerUnitController>        workers;
+   public ArrayList<WorkerUnitController>        farmers;
    public ArrayList<WorkerUnitController>        builders;
    public ArrayList<ArmyUnitController>          groundUnits;
    public ArrayList<ArmyUnitController>          airUnits;
    public ArrayList<UnitController>              scouts;
    public ArrayList<BuildingUnitController>      stockpiles;
    public ArrayList<BuildingUnitController>      buildings;
+   public ArrayList<BuildingUnitController>      buildingsInconstruction;
    public ArrayList<BuildingUnitController>      enemyBuildings;
    // experts
    public WorkerManager                          workerManager;
    public ArmyManager                            armyManager;
    public BuildingManager                        buildingManager;
    public UnitAssigner                           unitAssigner;
+   public UnitQueue                              unitQueue;
    // game logic variable
    public GameState                              gameState;
    public MapUtil                                map;
@@ -62,9 +64,10 @@ public class AIController extends AI{
       resources = new ArrayList<Integer>();
 
       farms = new ArrayList<FarmUnitController>();
-      workers = new ArrayList<WorkerUnitController>();
+      farmers = new ArrayList<WorkerUnitController>();
       builders = new ArrayList<WorkerUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
+      buildingsInconstruction = new ArrayList<BuildingUnitController>();
       stockpiles = new ArrayList<BuildingUnitController>();
       groundUnits = new ArrayList<ArmyUnitController>();
       airUnits = new ArrayList<ArmyUnitController>();
@@ -79,6 +82,7 @@ public class AIController extends AI{
       armyManager = new ArmyManager(this);
       buildingManager = new BuildingManager(this);
       unitAssigner = new UnitAssigner(this);
+      unitQueue = new UnitQueue();
       state = STATE.Open;
    }
 

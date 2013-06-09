@@ -39,6 +39,18 @@ public class MapUtil{
       return uc.getX() + uc.getY() * WIDTH;
    }
 
+   public static int distance(UnitController a, UnitController b){
+      return (int) Math.sqrt(((a.getX()) - (b.getX())) ^ 2 + ((a.getY()) - (b.getY())) ^ 2);
+   }
+
+   public static int distance(int l1, int l2){
+      int x = l1 % MapUtil.WIDTH;
+      int y = l1 / MapUtil.WIDTH;
+      int a = l2 % MapUtil.WIDTH;
+      int b = l2 / MapUtil.WIDTH;
+      return((int) Math.sqrt(((x) - (a)) ^ 2 + ((y)) - (b)) ^ 2);
+   }
+
    public static ArrayList<Integer> getSurroundingPositions(int pos){
       ArrayList<Integer> positions = new ArrayList<Integer>();
 
@@ -170,6 +182,18 @@ public class MapUtil{
    }
 
    /**
+    * Checks whether or not a unit can enter a location
+    * 
+    * @param unit the unit
+    * @param location the location
+    * @return whether or not
+    */
+   private static boolean can_enter(Unit unit, int location, int turn_start, int turn_end){
+      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
+      return false;
+   }
+
+   /**
     * Calculates the h from start to (a) goal
     * 
     * @param start
@@ -187,18 +211,6 @@ public class MapUtil{
          }
       }
       return h;
-   }
-
-   /**
-    * Checks whether or not a unit can enter a location
-    * 
-    * @param unit the unit
-    * @param location the location
-    * @return whether or not
-    */
-   private static boolean can_enter(Unit unit, int location, int turn_start, int turn_end){
-      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
-      return false;
    }
 
 }

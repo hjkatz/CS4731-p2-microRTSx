@@ -1,7 +1,5 @@
 package ai.cs4730;
 
-import java.util.ArrayList;
-
 import rts.units.Unit;
 
 public class UnitAssigner extends Manager{
@@ -36,8 +34,12 @@ public class UnitAssigner extends Manager{
                      ai.notFreeUnits.add(wc);
                   }
                   else
-                     if(ai.workers.size() < ai.wantedWorkers){
-                        ai.workers.add(wc);
+                     if(ai.farmers.size() < ai.wantedWorkers){
+                        ai.farmers.add(wc);
+                        ai.notFreeUnits.add(wc);
+                     }
+                     else{
+                        ai.builders.add(wc);
                         ai.notFreeUnits.add(wc);
                      }
                }
