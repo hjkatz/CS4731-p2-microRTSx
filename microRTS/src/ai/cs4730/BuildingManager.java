@@ -20,12 +20,22 @@ public class BuildingManager extends Manager{
 
          if(ai.workers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){// do we want scouts?
             if(canAffordUnit(AIController.WORKER)){ // check if we have the cash
-               if(stock.actions.size() <= 0){ // no actions?!?!?
-                  buildUnit(stock, AIController.WORKER);
+               if(ai.workerManager.nextFreeFarm() != null){
+                  if(stock.actions.size() <= 0){ // no actions?!?!?
+                     buildUnit(stock, AIController.WORKER);
+                  }
                }
             }
          }
       }
+   }
+
+   public boolean canAffordUnit(int type){
+      for(int i = 0; i < ai.resources.size(); i++){
+         int cost = ai.unitTypes.get(type).cost.get(i);
+         if(cost > ai.resources.get(i)){ return false; }
+      }
+      return true;
    }
 
    public void buildUnit(BuildingUnitController building, int unitType){
@@ -39,16 +49,15 @@ public class BuildingManager extends Manager{
       makePurchase(ai.unitTypes.get(AIController.WORKER).cost);
    }
 
-   public void buildBuilding(WorkerUnitController bc, int buildingType){
-
+   public void makePurchase(ArrayList<Integer> cost){
+      for(int i = 0; i < cost.size(); i++){
+         int newAmount = ai.resources.get(i) - cost.get(i);
+         ai.resources.set(i, newAmount);
+      }
    }
 
-   public boolean canAffordUnit(int type){
-      for(int i = 0; i < ai.resources.size(); i++){
-         int cost = ai.unitTypes.get(type).cost.get(i);
-         if(cost > ai.resources.get(i)){ return false; }
-      }
-      return true;
+   public void buildBuilding(WorkerUnitController bc, int buildingType){
+
    }
 
    public boolean canAffordBuilding(int type){
@@ -57,13 +66,6 @@ public class BuildingManager extends Manager{
          if(cost > ai.resources.get(i)){ return false; }
       }
       return true;
-   }
-
-   public void makePurchase(ArrayList<Integer> cost){
-      for(int i = 0; i < cost.size(); i++){
-         int newAmount = ai.resources.get(i) - cost.get(i);
-         ai.resources.set(i, newAmount);
-      }
    }
 
 }

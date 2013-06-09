@@ -22,14 +22,14 @@ public class MapUtil{
       trafficMap = new TrafficMap(map.length);
    }
 
-   //public static void update(int[] curr){
-   //   for(int i = 0; i < map.length; i++){
-   //      // if I have vision, update my map!
-   //      if((curr[i] ^ GameState.MAP_FOG) != 0){
-   //         map[i] = curr[i];
-   //      }
-   //   }
-   //}
+   public static void update(int[] curr){
+      for(int i = 0; i < map.length; i++){
+         // if I have vision, update my map!
+         if((curr[i] ^ GameState.MAP_FOG) != 0){
+            map[i] = curr[i];
+         }
+      }
+   }
 
    public static int position(int x, int y){
       return x + y * WIDTH;
@@ -170,18 +170,6 @@ public class MapUtil{
    }
 
    /**
-    * Checks whether or not a unit can enter a location
-    * 
-    * @param unit the unit
-    * @param location the location
-    * @return whether or not
-    */
-   private static boolean can_enter(Unit unit, int location, int turn_start, int turn_end){
-      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
-      return false;
-   }
-
-   /**
     * Calculates the h from start to (a) goal
     * 
     * @param start
@@ -199,6 +187,18 @@ public class MapUtil{
          }
       }
       return h;
+   }
+
+   /**
+    * Checks whether or not a unit can enter a location
+    * 
+    * @param unit the unit
+    * @param location the location
+    * @return whether or not
+    */
+   private static boolean can_enter(Unit unit, int location, int turn_start, int turn_end){
+      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
+      return false;
    }
 
 }

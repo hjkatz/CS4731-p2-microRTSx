@@ -1,12 +1,9 @@
 package ai.cs4730;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 import rts.GameState;
-import rts.units.Unit;
 import rts.units.UnitDefinition;
 import ai.AI;
 
@@ -27,7 +24,6 @@ public class AIController extends AI{
    public ArrayList<Integer>                     resources;
    public ArrayList<UnitController>              notFreeUnits;
    public ArrayList<FarmUnitController>          farms;
-   public Map<Integer, Boolean>                  farmOpenings;
    public ArrayList<WorkerUnitController>        workers;
    public ArrayList<WorkerUnitController>        builders;
    public ArrayList<ArmyUnitController>          groundUnits;
@@ -45,7 +41,6 @@ public class AIController extends AI{
    public GameState                              gameState;
    public MapUtil                                map;
    public int                                    currentTurn;
-   private boolean                               init          = false;
    // expert's logic variables
    public STATE                                  state;
    public int                                    wantedWorkers = 2;
@@ -57,6 +52,7 @@ public class AIController extends AI{
    // the key is the unit type, the outer array is the other unit types
    // inner arrays are the statistics, size 2 [kills vs, deaths vs]
    public LinkedHashMap<Integer, int[][]>        statistics;
+   private boolean                               init          = false;
 
    public AIController(){
       super();
@@ -66,7 +62,6 @@ public class AIController extends AI{
       resources = new ArrayList<Integer>();
 
       farms = new ArrayList<FarmUnitController>();
-      farmOpenings = new HashMap<Integer, Boolean>();
       workers = new ArrayList<WorkerUnitController>();
       builders = new ArrayList<WorkerUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
@@ -96,7 +91,7 @@ public class AIController extends AI{
 
       currentTurn++;
 
-      MapUtil.map = gameState.getMap();
+      MapUtil.update(gameState.getMap());
       MapUtil.trafficMap.update(currentTurn);
 
       unitAssigner.update();

@@ -146,15 +146,6 @@ public class UnitController{
 
          clearActions(MapUtil.trafficMap);
 
-         // for(int i = 0; i < unit.getActions().size(); i++){
-         // if(unit.getActions().get(i).getType() == UnitAction.MOVE){
-         // hasActed = true;
-         // lastAction = UnitAction.MOVE;
-         // unit.setAction(unit.getActions().get(i));
-         // return;
-         // }
-         // }
-
          if(action.getType() == UnitAction.BUILD){
             // we need to pick a new spot to build, if the obstruction is caused
             // by a different player
