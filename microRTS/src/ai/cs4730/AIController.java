@@ -38,14 +38,16 @@ public class AIController extends AI{
    public ArrayList<BuildingUnitController>      buildings;
    public ArrayList<BuildingUnitController>      enemyBuildings;
    // experts
-   public TownManager                            townManager;
+   public WorkerManager                            workerManager;
    public ArmyManager                            armyManager;
+   public BuildingManager                        buildingManager;
+   public UnitAssigner                           unitAssigner;
    // game logic variable
    public GameState                              gameState;
    public MapUtil                                map;
    public int                                    currentTurn;
    private boolean                               init          = false;
-   //expert's logic variables
+   // expert's logic variables
    public STATE                                  state;
    public int                                    wantedWorkers = 2;
    public int                                    wantedScouts  = 0;
@@ -80,8 +82,10 @@ public class AIController extends AI{
       buildingTypes = new LinkedHashMap<Integer, UnitDefinition>();
       statistics = new LinkedHashMap<Integer, int[][]>();
 
-      townManager = new TownManager(this);
+      workerManager = new WorkerManager(this);
       armyManager = new ArmyManager(this);
+      buildingManager = new BuildingManager(this);
+      unitAssigner = new UnitAssigner(this);
       state = STATE.Open;
    }
 
@@ -116,11 +120,10 @@ public class AIController extends AI{
       MapUtil.update(gs.getMap());
       MapUtil.trafficMap.update(currentTurn);
 
-      armyManager.assignUnits();
-      townManager.assignUnits();
-
+      unitAssigner.update();
       armyManager.update();
-      townManager.update();
+      workerManager.update();
+      buildingManager.update();
    }
 
    // things that need to be initialized after the object's init, many rely on state

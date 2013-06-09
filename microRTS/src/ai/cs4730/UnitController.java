@@ -107,7 +107,7 @@ public class UnitController{
       if(resourceType >= 0 && resourceType < cost.size()){ return cost.get(resourceType); }
       return -1;
    }
-   
+
    public long getID(){
       return id;
    }
@@ -158,7 +158,7 @@ public class UnitController{
          if(action.getType() == UnitAction.BUILD){
             // we need to pick a new spot to build, if the obstruction is caused
             // by a different player
-            TownManager.changeBuildLocation(this);
+            BuildingManager.changeBuildLocation(this);
          }
       }
    }

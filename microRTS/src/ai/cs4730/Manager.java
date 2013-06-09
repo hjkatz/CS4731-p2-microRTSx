@@ -9,6 +9,4 @@ public abstract class Manager{
 
    public abstract void update();
 
-   public abstract void assignUnits();
-
 }

@@ -7,8 +7,8 @@ import rts.units.UnitAction;
 
 public class ArmyManager extends Manager{
 
-   AIController    ai;
-   private STATE   state;
+   AIController  ai;
+   private STATE state;
 
    public ArmyManager(AIController ai){
       this.ai = ai;
@@ -31,26 +31,26 @@ public class ArmyManager extends Manager{
       switch (state){
          case Attack:
             for(ArmyUnitController uc : ai.groundUnits){
-               
+
             }
             for(ArmyUnitController uc : ai.airUnits){
-               
+
             }
             break;
          case Buildup:
             for(ArmyUnitController uc : ai.groundUnits){
-               
+
             }
             for(ArmyUnitController uc : ai.airUnits){
-               
+
             }
             break;
          case Cheese:
             for(ArmyUnitController uc : ai.groundUnits){
-               
+
             }
             for(ArmyUnitController uc : ai.airUnits){
-               
+
             }
             break;
          case Explore:
@@ -102,33 +102,6 @@ public class ArmyManager extends Manager{
                ai.scouts.remove(uc);
             }
             break;
-      }
-   }
-
-   @Override public void assignUnits(){
-      ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
-      for(UnitController u : ai.freeUnits){
-         if(u.getClass() == ArmyUnitController.class){
-            ai.groundUnits.add((ArmyUnitController) u);
-            if(AIController.DEBUG){
-               System.out.println("AM: acquired army unit");
-            }
-            toRemove.add(u);
-         }
-         else
-            if(ai.wantedScouts > ai.scouts.size() && u.getClass() == WorkerUnitController.class){
-               ai.scouts.add(u);
-               if(AIController.DEBUG){
-                  System.out.println("AM: acquired scout");
-               }
-               toRemove.add(u);
-            }
-      }
-
-      // remove any units from freeUnits that were assigend
-      for(UnitController u : toRemove){
-         ai.freeUnits.remove(u);
-         ai.notFreeUnits.add(u);
       }
    }
 
