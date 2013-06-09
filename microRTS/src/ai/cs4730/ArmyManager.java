@@ -80,6 +80,9 @@ public class ArmyManager extends Manager{
                }
                scout.act(ai);
             }
+            for(UnitController uc : toRemove){
+               ai.scouts.remove(uc);
+            }
             break;
       }
    }
