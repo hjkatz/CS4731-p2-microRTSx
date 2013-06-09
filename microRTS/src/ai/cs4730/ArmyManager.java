@@ -55,7 +55,7 @@ public class ArmyManager extends Manager{
             break;
          case Explore:
             // request a scout after some workers are gathering resources
-            if(ai.workers.size() >= ai.wantedWorkers){
+            if(ai.workers.size() >= ai.wantedWorkers / 2){
                ai.wantedScouts = 1;
             }
 

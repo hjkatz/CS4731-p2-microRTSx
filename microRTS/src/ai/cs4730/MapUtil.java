@@ -48,53 +48,26 @@ public class MapUtil{
       int down = pos + WIDTH;
 
       if(left >= 0){
-         positions.add(left);
-      }
-      if(right < WIDTH){
-         positions.add(right);
-      }
-      if(up >= 0){
-         positions.add(up);
-      }
-      if(down < HEIGHT){
-         positions.add(down);
-      }
-
-      return positions;
-   }
-
-   public static ArrayList<Integer> getSurroundingFarmPositions(AIController ai){
-      ArrayList<Integer> positions = new ArrayList<Integer>();
-      for(FarmUnitController u : ai.farms){
-         if(u.isFree()){
-            int pos = position(u);
-            int left = pos - 1;
-            int right = pos + 1;
-            int up = pos - WIDTH;
-            int down = pos + WIDTH;
-
-            if(left >= 0){
-               if((map[left] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[left] & GameState.MAP_WALL) == 0)){
-                  positions.add(left);
-               }
-            }
-            if(right < WIDTH){
-               if((map[right] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[right] & GameState.MAP_WALL) == 0)){
-                  positions.add(right);
-               }
-            }
-            if(up >= 0){
-               if((map[up] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[up] & GameState.MAP_WALL) == 0)){
-                  positions.add(up);
-               }
-            }
-            if(down < HEIGHT){
-               if((map[down] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[down] & GameState.MAP_WALL) == 0)){
-                  positions.add(down);
-               }
-            }
+         if((map[left] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[left] & GameState.MAP_WALL) == 0)){
+            positions.add(left);
          }
       }
+      if(right < WIDTH){
+         if((map[right] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[right] & GameState.MAP_WALL) == 0)){
+            positions.add(right);
+         }
+      }
+      if(up >= 0){
+         if((map[up] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[up] & GameState.MAP_WALL) == 0)){
+            positions.add(up);
+         }
+      }
+      if(down < HEIGHT){
+         if((map[down] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[down] & GameState.MAP_WALL) == 0)){
+            positions.add(down);
+         }
+      }
+
       return positions;
    }
 

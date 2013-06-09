@@ -27,7 +27,7 @@ public class BuildingManager extends Manager{
          }
       }
    }
-   
+
    public void buildUnit(BuildingUnitController building, int unitType){
       int time = ai.currentTurn;
       int position = MapUtil.position(building) + 1;
@@ -38,9 +38,9 @@ public class BuildingManager extends Manager{
       }
       makePurchase(ai.unitTypes.get(AIController.WORKER).cost);
    }
-   
+
    public void buildBuilding(WorkerUnitController bc, int buildingType){
-      
+
    }
 
    public boolean canAffordUnit(int type){

@@ -13,7 +13,7 @@ public class UnitAssigner extends Manager{
    }
 
    public void update(){
-      //grab any new units produced and add them to notFreeUnits as well as their respective list
+      // grab any new units produced and add them to notFreeUnits as well as their respective list
       for(Unit u : ai.gameState.getMyUnits()){
          UnitController uc = new UnitController(u, ai);
          if(!ai.notFreeUnits.contains(uc)){
@@ -31,13 +31,13 @@ public class UnitAssigner extends Manager{
             else
                if(u.isWorker()){
                   WorkerUnitController wc = new WorkerUnitController(u, ai);
-                  if(ai.workers.size() < ai.wantedWorkers){
-                     ai.workers.add(wc);
+                  if(ai.scouts.size() < ai.wantedScouts){
+                     ai.scouts.add((UnitController) wc);
                      ai.notFreeUnits.add(wc);
                   }
                   else
-                     if(ai.scouts.size() < ai.wantedScouts){
-                        ai.scouts.add((UnitController) wc);
+                     if(ai.workers.size() < ai.wantedWorkers){
+                        ai.workers.add(wc);
                         ai.notFreeUnits.add(wc);
                      }
                }

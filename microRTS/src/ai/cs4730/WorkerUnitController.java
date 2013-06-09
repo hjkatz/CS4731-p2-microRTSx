@@ -34,10 +34,16 @@ public class WorkerUnitController extends UnitController{
       hasFarm = false;
    }
 
+   public void freeFarm(){
+      if(farm != null){
+         farm.freeUp();
+      }
+   }
+
    public boolean hasFarm(){
       return hasFarm;
    }
-   
+
    public FarmUnitController getFarm(){
       return farm;
    }
