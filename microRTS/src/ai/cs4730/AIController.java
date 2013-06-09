@@ -34,8 +34,8 @@ public class AIController extends AI{
    public ArrayList<BuildingUnitController> stockpiles;
    public ArrayList<BuildingUnitController> buildings;
    public ArrayList<Integer>                requestedUnits;
-   public ArrayList<UnitController>         groundUnits;
-   public ArrayList<UnitController>         airUnits;
+   public ArrayList<ArmyUnitController>     groundUnits;
+   public ArrayList<ArmyUnitController>     airUnits;
    public ArrayList<UnitController>         scouts;
    // game logic variable
    public ArrayList<BuildingUnitController> enemyBuildings;
@@ -66,8 +66,8 @@ public class AIController extends AI{
       builders = new ArrayList<WorkerUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
       stockpiles = new ArrayList<BuildingUnitController>();
-      groundUnits = new ArrayList<UnitController>();
-      airUnits = new ArrayList<UnitController>();
+      groundUnits = new ArrayList<ArmyUnitController>();
+      airUnits = new ArrayList<ArmyUnitController>();
       scouts = new ArrayList<UnitController>();
       enemyBuildings = new ArrayList<BuildingUnitController>();
       

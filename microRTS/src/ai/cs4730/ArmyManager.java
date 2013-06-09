@@ -30,6 +30,9 @@ public class ArmyManager extends Manager{
 
       switch (state){
          case Attack:
+            for(ArmyUnitController uc : ai.groundUnits){
+               
+            }
             break;
          case Buildup:
             break;
@@ -91,7 +94,7 @@ public class ArmyManager extends Manager{
       ArrayList<UnitController> toRemove = new ArrayList<UnitController>();
       for(UnitController u : ai.freeUnits){
          if(u.getClass() == ArmyUnitController.class){
-            ai.groundUnits.add(u);
+            ai.groundUnits.add((ArmyUnitController) u);
             if(AIController.DEBUG){
                System.out.println("AM: acquired army unit");
             }
