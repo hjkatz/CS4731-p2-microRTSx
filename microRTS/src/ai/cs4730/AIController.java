@@ -11,46 +11,51 @@ import rts.units.UnitDefinition;
 import ai.AI;
 
 public class AIController extends AI{
-   public final static boolean              DEBUG         = true;
+   public final static boolean                   DEBUG         = true;
    // building types
-   public static final int                  STOCKPILE     = 0;
-   public static final int                  SOLDIEROFFICE = 1;
-   public static final int                  AIRPORT       = 2;
+   public static final int                       STOCKPILE     = 0;
+   public static final int                       SOLDIEROFFICE = 1;
+   public static final int                       AIRPORT       = 2;
    // unit types
-   public static final int                  LIGHT         = 0;
-   public static final int                  WORKER        = 1;
-   public static final int                  HEAVY         = 2;
-   public static final int                  RANGER        = 3;
-   public static final int                  BIRD          = 4;
-   public static final int                  SKYARCHER     = 5;
-   
-   public ArrayList<Integer>                resources;
-   public ArrayList<FarmUnitController>     farms;
-   public Map<Integer, Boolean>             farmOpenings;
-   public ArrayList<WorkerUnitController>   workers;
-   public ArrayList<WorkerUnitController>   builders;
-   public ArrayList<BuildingUnitController> stockpiles;
-   public ArrayList<BuildingUnitController> buildings;
-   public ArrayList<Integer>                requestedUnits;
-   public ArrayList<ArmyUnitController>     groundUnits;
-   public ArrayList<ArmyUnitController>     airUnits;
-   public ArrayList<UnitController>         scouts;
+   public static final int                       LIGHT         = 0;
+   public static final int                       WORKER        = 1;
+   public static final int                       HEAVY         = 2;
+   public static final int                       RANGER        = 3;
+   public static final int                       BIRD          = 4;
+   public static final int                       SKYARCHER     = 5;
+   // units and resources controlled or remembered
+   public ArrayList<Integer>                     resources;
+   public ArrayList<UnitController>              freeUnits;
+   public ArrayList<UnitController>              notFreeUnits;
+   public ArrayList<FarmUnitController>          farms;
+   public Map<Integer, Boolean>                  farmOpenings;
+   public ArrayList<WorkerUnitController>        workers;
+   public ArrayList<WorkerUnitController>        builders;
+   public ArrayList<ArmyUnitController>          groundUnits;
+   public ArrayList<ArmyUnitController>          airUnits;
+   public ArrayList<UnitController>              scouts;
+   public ArrayList<BuildingUnitController>      stockpiles;
+   public ArrayList<BuildingUnitController>      buildings;
+   public ArrayList<BuildingUnitController>      enemyBuildings;
+   // experts
+   public TownManager                            townManager;
+   public ArmyManager                            armyManager;
    // game logic variable
-   public ArrayList<BuildingUnitController> enemyBuildings;
-   public GameState                         gameState;
-   public TownManager                       townManager;
-   public ArmyManager                       armyManager;
-   public ArrayList<UnitController>         freeUnits;
-   public ArrayList<UnitController>         notFreeUnits;
-   public MapUtil                           map;
-   public int                               currentTurn;
-   public STATE                             state;
-   public int                               wantedWorkers = 2;
-   public int                               wantedScouts  = 0;
-   private boolean                          init          = false;
-   //unit definitions
+   public GameState                              gameState;
+   public MapUtil                                map;
+   public int                                    currentTurn;
+   private boolean                               init          = false;
+   //expert's logic variables
+   public STATE                                  state;
+   public int                                    wantedWorkers = 2;
+   public int                                    wantedScouts  = 0;
+   // unit definitions
    public LinkedHashMap<Integer, UnitDefinition> unitTypes;
    public LinkedHashMap<Integer, UnitDefinition> buildingTypes;
+   // keep track of how well units are doing versus other units
+   // the key is the unit type, the outer array is the other unit types
+   // inner arrays are the statistics, size 2 [kills vs, deaths vs]
+   public LinkedHashMap<Integer, int[][]>        statistics;
 
    public AIController(){
       super();
@@ -70,11 +75,10 @@ public class AIController extends AI{
       airUnits = new ArrayList<ArmyUnitController>();
       scouts = new ArrayList<UnitController>();
       enemyBuildings = new ArrayList<BuildingUnitController>();
-      
+
       unitTypes = new LinkedHashMap<Integer, UnitDefinition>();
       buildingTypes = new LinkedHashMap<Integer, UnitDefinition>();
-
-      requestedUnits = new ArrayList<Integer>();
+      statistics = new LinkedHashMap<Integer, int[][]>();
 
       townManager = new TownManager(this);
       armyManager = new ArmyManager(this);
@@ -95,7 +99,7 @@ public class AIController extends AI{
                BuildingUnitController bc = new BuildingUnitController(u, this);
                freeUnits.add(bc);
             }
-            else 
+            else
                if(u.isWorker()){
                   WorkerUnitController wc = new WorkerUnitController(u, this);
                   freeUnits.add(wc);
@@ -122,8 +126,11 @@ public class AIController extends AI{
    // things that need to be initialized after the object's init, many rely on state
    public void init(){
       map = new MapUtil(this);
-      for(UnitDefinition def : gameState.getUnitList()){
+      ArrayList<UnitDefinition> unitList = gameState.getUnitList();
+      for(UnitDefinition def : unitList){
          unitTypes.put(def.type, def);
+         int[][] stats = new int[unitList.size()][2];
+         statistics.put(def.type, stats);
       }
       for(UnitDefinition def : gameState.getBuildingList()){
          buildingTypes.put(def.type, def);
