@@ -13,7 +13,7 @@ public class UnitAssigner extends Manager{
    }
 
    public void update(){
-      //grab any new units produced and add them to freeUnits
+      //grab any new units produced and add them to notFreeUnits as well as their respective list
       for(Unit u : ai.gameState.getMyUnits()){
          UnitController uc = new UnitController(u, ai);
          if(!ai.notFreeUnits.contains(uc)){
@@ -43,7 +43,12 @@ public class UnitAssigner extends Manager{
                }
                else{
                   ArmyUnitController ac = new ArmyUnitController(u, ai);
-                  ai.groundUnits.add(ac);
+                  if(ac.isFlying()){
+                     ai.airUnits.add(ac);
+                  }
+                  else{
+                     ai.groundUnits.add(ac);
+                  }
                   ai.notFreeUnits.add(ac);
                }
          }
