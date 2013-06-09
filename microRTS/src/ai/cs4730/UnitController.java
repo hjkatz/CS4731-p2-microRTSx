@@ -18,6 +18,7 @@ public abstract class UnitController{
    private int                  vision;
    private int                  type;
    private int                  buildTime;
+   private long                 id;
    private ArrayList<Integer>   cost;
    private ArrayList<Traffic>   traffic;
    private Traffic              last_traffic;
@@ -33,7 +34,10 @@ public abstract class UnitController{
       cost = unit.getCost();
       type = unit.getType();
       buildTime = unit.getBuildSpeed();
+      vision = unit.getVision();
       hasActed = false;
+      id = unit.getID();
+      cost = unit.getCost();
 
       if(unit.isBuilding()){
          building_traffic = new Traffic(unit.getX() + unit.getY() * MapUtil.WIDTH, ai.currentTurn, -1);
@@ -88,7 +92,7 @@ public abstract class UnitController{
    }
 
    public int getVision(){
-      return unit.getVision();
+      return vision;
    }
 
    public ArrayList<Integer> getCost(){
@@ -102,6 +106,10 @@ public abstract class UnitController{
    public int getCost(int resourceType){
       if(resourceType >= 0 && resourceType < cost.size()){ return cost.get(resourceType); }
       return -1;
+   }
+   
+   public long getID(){
+      return id;
    }
 
    public void act(AIController ai){
@@ -150,7 +158,7 @@ public abstract class UnitController{
          if(action.getType() == UnitAction.BUILD){
             // we need to pick a new spot to build, if the obstruction is caused
             // by a different player
-            TownManager.changeBuildLocation(this, ai);
+            TownManager.changeBuildLocation(this);
          }
       }
    }
@@ -216,7 +224,7 @@ public abstract class UnitController{
 
    @Override public boolean equals(Object other){
       UnitController uc = (UnitController) other;
-      if(uc.unit.equals(unit)){ return true; }
+      if(uc.getID() == id){ return true; }
       return false;
    }
 }

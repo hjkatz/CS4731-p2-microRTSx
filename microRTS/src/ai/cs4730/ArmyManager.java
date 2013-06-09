@@ -1,14 +1,14 @@
 package ai.cs4730;
 
+import java.util.ArrayList;
+
 import rts.units.Unit;
 import rts.units.UnitAction;
 
-import java.util.ArrayList;
-
 public class ArmyManager extends Manager{
 
-   AIController  ai;
-   private STATE state;
+   AIController    ai;
+   private STATE   state;
 
    public ArmyManager(AIController ai){
       this.ai = ai;
@@ -22,7 +22,7 @@ public class ArmyManager extends Manager{
             if(!ai.enemyBuildings.contains(bc)){
                ai.enemyBuildings.add(bc);
                if(AIController.DEBUG){
-                  System.out.println("AM: found enemy building, owned by player: " + unit.getPlayer());
+                  System.out.println("AM: found enemy building");
                }
             }
          }
@@ -37,7 +37,7 @@ public class ArmyManager extends Manager{
             break;
          case Explore:
             // request a scout after some workers are gathering resources
-            if(ai.townManager.numWorkers() > 4){
+            if(ai.workers.size() >= ai.wantedWorkers){
                ai.wantedScouts = 1;
             }
 
@@ -52,8 +52,6 @@ public class ArmyManager extends Manager{
                      destination.add(targetX + targetY * MapUtil.WIDTH);
                      // path to estimated location of enemy base
                      ArrayList<Integer[]> path = MapUtil.get_path(scout.unit, scout.getX() + scout.getY() * MapUtil.WIDTH, ai.currentTurn, destination);
-                     int time = ai.currentTurn;
-                     int position = scout.getY() * MapUtil.WIDTH + scout.getX();
 
                      if(path != null){ // is possible to reach goal
                         boolean there = false;
@@ -66,8 +64,6 @@ public class ArmyManager extends Manager{
                         if(!there){
                            for(int i = path.size() - 1; i >= 0; i--){
                               scout.addAction(new UnitAction(scout.unit, UnitAction.MOVE, path.get(i)[0] % MapUtil.WIDTH, path.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, path.get(i)[0], path.get(i)[1], path.get(i)[1] + scout.unit.getMoveSpeed());
-                              time = path.get(i)[1];
-                              position = path.get(i)[1];
                            }
                         }
                      }
@@ -83,9 +79,6 @@ public class ArmyManager extends Manager{
                   }
                }
                scout.act(ai);
-            }
-            for(UnitController uc : toRemove){
-               ai.scouts.remove(uc);
             }
             break;
       }

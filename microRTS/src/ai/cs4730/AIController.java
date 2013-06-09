@@ -2,10 +2,12 @@ package ai.cs4730;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import rts.GameState;
 import rts.units.Unit;
+import rts.units.UnitDefinition;
 import ai.AI;
 
 public class AIController extends AI{
@@ -21,12 +23,14 @@ public class AIController extends AI{
    public static final int                  RANGER        = 3;
    public static final int                  BIRD          = 4;
    public static final int                  SKYARCHER     = 5;
-   public HashMap<Integer, Integer>         buildPriority;
+   
    // Label and Priority, Bigger Priority == More likely to build
    // (Use order of 1 - 100) Every time a unit is made its priority will drop by 1
+   public ArrayList<Integer>                resources;
    public ArrayList<FarmUnitController>     farms;
    public Map<Integer, Boolean>             farmOpenings;
    public ArrayList<WorkerUnitController>   workers;
+   public ArrayList<WorkerUnitController>   builders;
    public ArrayList<BuildingUnitController> stockpiles;
    public ArrayList<BuildingUnitController> buildings;
    public ArrayList<Integer>                requestedUnits;
@@ -45,13 +49,16 @@ public class AIController extends AI{
    public int                               wantedWorkers = 2;
    public int                               wantedScouts  = 0;
    private boolean                          init          = false;
+   //unit definitions
+   public LinkedHashMap<Integer, UnitDefinition> unitTypes;
+   public LinkedHashMap<Integer, UnitDefinition> buildingTypes;
 
    public AIController(){
       super();
       currentTurn = 0;
       freeUnits = new ArrayList<UnitController>();
 
-      buildPriority = new HashMap<Integer, Integer>();
+      resources = new ArrayList<Integer>();
 
       farms = new ArrayList<FarmUnitController>();
       farmOpenings = new HashMap<Integer, Boolean>();
@@ -62,6 +69,9 @@ public class AIController extends AI{
       airUnits = new ArrayList<UnitController>();
       scouts = new ArrayList<UnitController>();
       enemyBuildings = new ArrayList<BuildingUnitController>();
+      
+      unitTypes = new LinkedHashMap<Integer, UnitDefinition>();
+      buildingTypes = new LinkedHashMap<Integer, UnitDefinition>();
 
       requestedUnits = new ArrayList<Integer>();
 
@@ -113,7 +123,13 @@ public class AIController extends AI{
    // things that need to be initialized after the object's init, many rely on state
    public void init(){
       map = new MapUtil(this);
-
+      resources = gameState.getResources();
+      for(UnitDefinition def : gameState.getUnitList()){
+         unitTypes.put(def.type, def);
+      }
+      for(UnitDefinition def : gameState.getBuildingList()){
+         buildingTypes.put(def.type, def);
+      }
       init = true;
    }
 
