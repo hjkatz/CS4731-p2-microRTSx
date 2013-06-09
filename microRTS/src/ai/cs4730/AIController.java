@@ -24,8 +24,6 @@ public class AIController extends AI{
    public static final int                  BIRD          = 4;
    public static final int                  SKYARCHER     = 5;
    
-   // Label and Priority, Bigger Priority == More likely to build
-   // (Use order of 1 - 100) Every time a unit is made its priority will drop by 1
    public ArrayList<Integer>                resources;
    public ArrayList<FarmUnitController>     farms;
    public Map<Integer, Boolean>             farmOpenings;
@@ -43,6 +41,7 @@ public class AIController extends AI{
    public TownManager                       townManager;
    public ArmyManager                       armyManager;
    public ArrayList<UnitController>         freeUnits;
+   public ArrayList<UnitController>         notFreeUnits;
    public MapUtil                           map;
    public int                               currentTurn;
    public STATE                             state;
@@ -57,6 +56,7 @@ public class AIController extends AI{
       super();
       currentTurn = 0;
       freeUnits = new ArrayList<UnitController>();
+      notFreeUnits = new ArrayList<UnitController>();
 
       resources = new ArrayList<Integer>();
 
@@ -89,25 +89,22 @@ public class AIController extends AI{
       }
 
       for(Unit u : gameState.getMyUnits()){
-         if(u.isWorker()){
-            WorkerUnitController wc = new WorkerUnitController(u, this);
-            if(!workers.contains(wc) && !scouts.contains(wc)){
-               freeUnits.add(wc);
-            }
-         }
-         else
+         UnitController uc = new UnitController(u, this);
+         if(!notFreeUnits.contains(uc)){
             if(u.isBuilding()){
                BuildingUnitController bc = new BuildingUnitController(u, this);
-               if(!stockpiles.contains(bc) && !buildings.contains(bc)){
-                  freeUnits.add(bc);
-               }
+               freeUnits.add(bc);
             }
-            else{
-               ArmyUnitController ac = new ArmyUnitController(u, this);
-               if(!u.isWorker() && !groundUnits.contains(ac) && !groundUnits.contains(ac)){
+            else 
+               if(u.isWorker()){
+                  WorkerUnitController wc = new WorkerUnitController(u, this);
+                  freeUnits.add(wc);
+               }
+               else{
+                  ArmyUnitController ac = new ArmyUnitController(u, this);
                   freeUnits.add(ac);
                }
-            }
+         }
       }
 
       currentTurn++;

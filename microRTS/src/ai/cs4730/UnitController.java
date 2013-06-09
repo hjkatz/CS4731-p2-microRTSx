@@ -8,7 +8,7 @@ import rts.units.UnitAction;
 /**
  * Represents a general unit including different unit types and buildings
  */
-public abstract class UnitController{
+public class UnitController{
 
    public Unit                  unit;
    public AIController          ai;

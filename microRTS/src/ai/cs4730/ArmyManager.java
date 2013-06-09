@@ -33,10 +33,25 @@ public class ArmyManager extends Manager{
             for(ArmyUnitController uc : ai.groundUnits){
                
             }
+            for(ArmyUnitController uc : ai.airUnits){
+               
+            }
             break;
          case Buildup:
+            for(ArmyUnitController uc : ai.groundUnits){
+               
+            }
+            for(ArmyUnitController uc : ai.airUnits){
+               
+            }
             break;
          case Cheese:
+            for(ArmyUnitController uc : ai.groundUnits){
+               
+            }
+            for(ArmyUnitController uc : ai.airUnits){
+               
+            }
             break;
          case Explore:
             // request a scout after some workers are gathering resources
@@ -113,6 +128,7 @@ public class ArmyManager extends Manager{
       // remove any units from freeUnits that were assigend
       for(UnitController u : toRemove){
          ai.freeUnits.remove(u);
+         ai.notFreeUnits.add(u);
       }
    }
 

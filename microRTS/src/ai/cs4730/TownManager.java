@@ -158,6 +158,7 @@ public class TownManager extends Manager{
       // remove any units from freeUnits that were assigned
       for(UnitController unit : toRemove){
          ai.freeUnits.remove(unit);
+         ai.notFreeUnits.add(unit);
       }
    }
 
