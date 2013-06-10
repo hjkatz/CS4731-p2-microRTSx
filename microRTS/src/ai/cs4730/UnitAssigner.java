@@ -39,7 +39,7 @@ public class UnitAssigner extends Manager{
                         ai.notFreeUnits.add(wc);
                      }
                      else{
-                        ai.builders.add((BuilderUnitController) wc);
+                        ai.builders.add(new BuilderUnitController(wc.unit, ai));
                         ai.notFreeUnits.add(wc);
                      }
                }

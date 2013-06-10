@@ -144,8 +144,14 @@ public class WorkerManager extends Manager{
             int y = wanted.location / MapUtil.WIDTH;
             int a = uc.getX();
             int b = uc.getY();
-            if(((int) Math.sqrt(((x) - (a)) ^ 2 + ((y)) - (b)) ^ 2) < distance){
-               distance = ((int) Math.sqrt(((x) - (a)) ^ 2 + ((y)) - (b)) ^ 2);
+
+            int first = x - a;
+            int second = y - b;
+            int third = (int) Math.pow(first, 2);
+            int fourth = (int) Math.pow(second, 2);
+            int ans = (int) Math.sqrt(third + fourth);
+            if(ans < distance){
+               distance = ans;
             }
          }
       }
