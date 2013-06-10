@@ -15,27 +15,19 @@ public class BuildingManager extends Manager{
    public static void changeBuildLocation(UnitController unitController){}
 
    @Override public void update(){
-      for(BuildingUnitController stock : ai.stockpiles){// all the bases, tell em to make farmers
+      for(BuildingUnitController stock : ai.stockpiles){// all the bases, tell em to make workers
          stock.act(ai);
 
-         if(ai.farmers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers){// do we want scouts?
-            if(canAffordUnit(AIController.WORKER)){ // check if we have the cash
-               if(ai.workerManager.nextFreeFarm() != null){
-                  if(stock.actions.size() <= 0){ // no actions?!?!?
+         if(stock.actions.size() <= 0){ // no actions?!?!?
+            if(ai.farmers.size() + ai.scouts.size() < ai.wantedScouts + ai.wantedWorkers + ai.wantedBuilders){// do we want scouts?
+               if(canAffordUnit(AIController.WORKER)){ // check if we have the cash
+                  if(ai.workerManager.nextFreeFarm() != null){
                      buildUnit(stock, AIController.WORKER);
                   }
                }
             }
          }
       }
-   }
-
-   public boolean canAffordUnit(int type){
-      for(int i = 0; i < ai.resources.size(); i++){
-         int cost = ai.unitTypes.get(type).cost.get(i);
-         if(cost > ai.resources.get(i)){ return false; }
-      }
-      return true;
    }
 
    public void buildUnit(BuildingUnitController building, int unitType){
@@ -54,6 +46,14 @@ public class BuildingManager extends Manager{
          int newAmount = ai.resources.get(i) - cost.get(i);
          ai.resources.set(i, newAmount);
       }
+   }
+
+   public boolean canAffordUnit(int type){
+      for(int i = 0; i < ai.resources.size(); i++){
+         int cost = ai.unitTypes.get(type).cost.get(i);
+         if(cost > ai.resources.get(i)){ return false; }
+      }
+      return true;
    }
 
    public void buildBuilding(WorkerUnitController bc, int buildingType){

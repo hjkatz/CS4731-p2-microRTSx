@@ -37,6 +37,7 @@ public class WorkerManager extends Manager{
       }
 
       ai.wantedWorkers = ai.farms.size() - 2;
+      ai.wantedBuilders = UnitQueue.wantedBuildingUnits.size();
 
       // give farmers orders
       for(WorkerUnitController worker : ai.farmers){
@@ -58,7 +59,27 @@ public class WorkerManager extends Manager{
                   // has no resources and not yet assigned a farm
                   FarmUnitController farm = worker.getFarm();
                   if(needNewStockpile(farm)){
-                     int planLocation = -1;
+                     int x = -1;
+                     int y = -1;
+                     if(ai.stockpiles.get(0).getX() < MapUtil.WIDTH / 2){
+                        x = farm.getX() - 2;
+                     }
+                     else{
+                        x = farm.getX() + 2;
+                     }
+                     if(ai.stockpiles.get(0).getY() < MapUtil.HEIGHT / 2){
+                        y = farm.getY() - 2;
+                     }
+                     else{
+                        y = farm.getY() + 2;
+                     }
+                     ArrayList<Integer> positions = MapUtil.getSurroundingPositions(MapUtil.position(x, y));
+                     if(positions.size() > 0){
+                        UnitQueue.requestBuilding(AIController.STOCKPILE, 1000, positions.get(0));
+                     }
+                     else{
+                        // TODO something?
+                     }
                   }
                   harvestFarm(worker, MapUtil.position(farm));
                }
@@ -70,20 +91,50 @@ public class WorkerManager extends Manager{
             }
          }
       }
+
+      for(BuilderUnitController builder : ai.builders){
+         if(builder.actions.size() <= 0) // no actions?!
+         {
+            if(builder.getBuilding() != null){
+               UnitQueue.wantedBuildingUnits.remove(builder.getBuilding());
+               builder.setFree(true);
+            }
+            WantedUnit wanted = nextBuildingToBeBuilt();
+            if(wanted != null){
+               ArrayList<Integer> pos = new ArrayList<Integer>();
+               pos.add(wanted.location);
+               ArrayList<Integer[]> path = MapUtil.get_path(builder.unit, MapUtil.position(builder), ai.currentTurn, pos);
+
+               if(path != null){ // is possible to reach goal
+                  for(int i = path.size() - 1; i >= 1; i--){
+                     builder.addAction(new UnitAction(builder.unit, UnitAction.MOVE, path.get(i)[0] % MapUtil.WIDTH, path.get(i)[0] / MapUtil.WIDTH, -1), MapUtil.trafficMap, path.get(i)[0], path.get(i)[1], path.get(i)[1] + builder.unit.getMoveSpeed());
+                  }
+                  // first item in path is the planned location
+                  int position = path.get(0)[0];
+                  int time = path.get(0)[1];
+
+                  builder.addAction(new UnitAction(builder.unit, UnitAction.BUILD, position % MapUtil.WIDTH, position / MapUtil.WIDTH, wanted.unitType), MapUtil.trafficMap, position, time, time + builder.getBuildSpeed());
+                  wanted.beingBuilt = true;
+               }
+            }
+         }
+      }
    }
 
-   public boolean needNewStockpile(UnitController uc){
+   public WantedUnit nextBuildingToBeBuilt(){
+      for(WantedUnit unit : UnitQueue.wantedBuildingUnits){
+         if(!unit.beingBuilt){ return unit; }
+      }
+
+      return null;
+   }
+
+   public boolean needNewStockpile(FarmUnitController uc){
       int distance = 10000;
 
       for(BuildingUnitController stock : ai.stockpiles){
          if(MapUtil.distance(stock, uc) < distance){
             distance = MapUtil.distance(stock, uc);
-         }
-      }
-
-      for(BuildingUnitController b : ai.buildingsInconstruction){
-         if(MapUtil.distance(b, uc) < distance){
-            distance = MapUtil.distance(b, uc);
          }
       }
 

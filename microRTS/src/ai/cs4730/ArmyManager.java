@@ -89,7 +89,7 @@ public class ArmyManager extends Manager{
                   else{
                      // turn scout into builder (for cheesing)
                      ai.wantedScouts = 0;
-                     WorkerUnitController wc = (WorkerUnitController) ai.scouts.get(0);
+                     BuilderUnitController wc = new BuilderUnitController(ai.scouts.get(0).unit, ai);
                      toRemove.add(ai.scouts.get(0));
                      ai.builders.add(wc);
 

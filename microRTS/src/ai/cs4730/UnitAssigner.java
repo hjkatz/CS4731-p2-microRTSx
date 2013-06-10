@@ -28,18 +28,18 @@ public class UnitAssigner extends Manager{
             }
             else
                if(u.isWorker()){
-                  WorkerUnitController wc = new WorkerUnitController(u, ai);
+                  UnitController wc = new WorkerUnitController(u, ai);
                   if(ai.scouts.size() < ai.wantedScouts){
-                     ai.scouts.add((UnitController) wc);
+                     ai.scouts.add(wc);
                      ai.notFreeUnits.add(wc);
                   }
                   else
                      if(ai.farmers.size() < ai.wantedWorkers){
-                        ai.farmers.add(wc);
+                        ai.farmers.add((WorkerUnitController) wc);
                         ai.notFreeUnits.add(wc);
                      }
                      else{
-                        ai.builders.add(wc);
+                        ai.builders.add((BuilderUnitController) wc);
                         ai.notFreeUnits.add(wc);
                      }
                }

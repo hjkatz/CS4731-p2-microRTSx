@@ -8,30 +8,29 @@ import rts.units.UnitDefinition;
 import ai.AI;
 
 public class AIController extends AI{
-   public final static boolean                   DEBUG         = true;
+   public final static boolean                   DEBUG          = true;
    // building types
-   public static final int                       STOCKPILE     = 0;
-   public static final int                       SOLDIEROFFICE = 1;
-   public static final int                       AIRPORT       = 2;
+   public static final int                       STOCKPILE      = 0;
+   public static final int                       SOLDIEROFFICE  = 1;
+   public static final int                       AIRPORT        = 2;
    // unit types
-   public static final int                       LIGHT         = 0;
-   public static final int                       WORKER        = 1;
-   public static final int                       HEAVY         = 2;
-   public static final int                       RANGER        = 3;
-   public static final int                       BIRD          = 4;
-   public static final int                       SKYARCHER     = 5;
+   public static final int                       LIGHT          = 0;
+   public static final int                       WORKER         = 1;
+   public static final int                       HEAVY          = 2;
+   public static final int                       RANGER         = 3;
+   public static final int                       BIRD           = 4;
+   public static final int                       SKYARCHER      = 5;
    // units and resources controlled or remembered
    public ArrayList<Integer>                     resources;
    public ArrayList<UnitController>              notFreeUnits;
    public ArrayList<FarmUnitController>          farms;
    public ArrayList<WorkerUnitController>        farmers;
-   public ArrayList<WorkerUnitController>        builders;
+   public ArrayList<BuilderUnitController>       builders;
    public ArrayList<ArmyUnitController>          groundUnits;
    public ArrayList<ArmyUnitController>          airUnits;
    public ArrayList<UnitController>              scouts;
    public ArrayList<BuildingUnitController>      stockpiles;
    public ArrayList<BuildingUnitController>      buildings;
-   public ArrayList<BuildingUnitController>      buildingsInconstruction;
    public ArrayList<BuildingUnitController>      enemyBuildings;
    // experts
    public WorkerManager                          workerManager;
@@ -45,8 +44,9 @@ public class AIController extends AI{
    public int                                    currentTurn;
    // expert's logic variables
    public STATE                                  state;
-   public int                                    wantedWorkers = 2;
-   public int                                    wantedScouts  = 0;
+   public int                                    wantedWorkers  = 2;
+   public int                                    wantedScouts   = 0;
+   public int                                    wantedBuilders = 0;
    // unit definitions
    public LinkedHashMap<Integer, UnitDefinition> unitTypes;
    public LinkedHashMap<Integer, UnitDefinition> buildingTypes;
@@ -54,7 +54,7 @@ public class AIController extends AI{
    // the key is the unit type, the outer array is the other unit types
    // inner arrays are the statistics, size 2 [kills vs, deaths vs]
    public LinkedHashMap<Integer, int[][]>        statistics;
-   private boolean                               init          = false;
+   private boolean                               init           = false;
 
    public AIController(){
       super();
@@ -65,9 +65,8 @@ public class AIController extends AI{
 
       farms = new ArrayList<FarmUnitController>();
       farmers = new ArrayList<WorkerUnitController>();
-      builders = new ArrayList<WorkerUnitController>();
+      builders = new ArrayList<BuilderUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
-      buildingsInconstruction = new ArrayList<BuildingUnitController>();
       stockpiles = new ArrayList<BuildingUnitController>();
       groundUnits = new ArrayList<ArmyUnitController>();
       airUnits = new ArrayList<ArmyUnitController>();
