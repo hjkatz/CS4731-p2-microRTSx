@@ -6,7 +6,7 @@ Team Name: Team Harrison
 #####################
 1. How to Run Our Agent
 2. Agent Design
-   A. BlackBoard Head -- AIController
+   A. BlackBoard Arbiter -- AIController
    B. Util
       1. MapUtil
       2. UnitQueue
@@ -47,7 +47,7 @@ Our agent design uses a naive Finite State Machine (FSM), a simple Rule Based Sy
 
 At the top of our agent design is the AI where most of the variables are stored. Experts are below this and manage some private trivial variables as well. Below the experts are the wrapper classes which simple wrap units and provide some helper methods for acting and actions and pathing. Aside from these classes are the Util Classes which provide help for mapping and building queues.
 
-AI:         AIController
+AI / Arbiter:  AIController
                 |-----------------------------
                 |-----------+                +
 Util:           |--MapUtil  +--UnitQueue     +--TrafficMap
@@ -70,7 +70,7 @@ Wrappers:       |-UnitController
                         |----ArmyUnitController
                         |-----BuilderUnitController
 
-A. BlackBoard Head -- AIController: This class is what extends AI and the "getAction()" method. This is where all lists and other non-trivial variables are stored and this is where our experts are called upon and our util is utilized.
+A. BlackBoard Arbiter -- AIController: This class is what extends AI and the "getAction()" method. This is where all lists and other non-trivial variables are stored and this is where our experts are called upon and our util is utilized.
 
 B. Util: These classes are utility classes that provide functionality such as mapping and path planning.
     
