@@ -33,6 +33,10 @@ public class HarrisonArmyManager extends HarrisonManager{
    // TODO: allow it to have multiple ppl targeting it, but each army unit can target only one
    // TODO: then they home in on their targets and kill!
    // TODO: enemy wrapper must be able to contain buildings and units
+   
+   // TODO: pick a single position and move all units towards it for exploring
+   // TODO: if any unit arrives at the spot pick a new one
+   // TODO: if eneemies are ever encountered, switch to attack modes
 
    public HarrisonArmyManager(HarrisonAIController ai){
       this.ai = ai;
