@@ -1,19 +1,18 @@
-package ai.cs4730;
+package ai.teamharrison;
 
-import rts.GameState;
 import rts.units.Unit;
 
 /** Created By: harrison on Date: 6/5/13 */
-public class FarmUnitController extends UnitController{
-   private int                  x;
-   private int                  y;
-   private int                  harvestSpeed;
-   private int                  harvestAmount;
-   private int                  resourceType;
-   private boolean              free;
-   private WorkerUnitController worker;
+public class HarrisonFarmUnitController extends HarrisonUnitController{
+   private int                          x;
+   private int                          y;
+   private int                          harvestSpeed;
+   private int                          harvestAmount;
+   private int                          resourceType;
+   private boolean                      free;
+   private HarrisonWorkerUnitController worker;
 
-   public FarmUnitController(Unit unit, AIController ai){
+   public HarrisonFarmUnitController(Unit unit, HarrisonAIController ai){
       super(unit, ai);
 
       y = unit.getY();
@@ -33,16 +32,16 @@ public class FarmUnitController extends UnitController{
       free = true;
    }
 
-   public void setWorker(WorkerUnitController w){
+   public void setWorker(HarrisonWorkerUnitController w){
       worker = w;
       free = false;
    }
 
-   public WorkerUnitController getWorker(){
+   public HarrisonWorkerUnitController getWorker(){
       return worker;
    }
 
-   public boolean isFree(WorkerUnitController w){
+   public boolean isFree(HarrisonWorkerUnitController w){
       if(worker != null){
          if(w.equals(worker)){ return true; }
       }
@@ -76,7 +75,7 @@ public class FarmUnitController extends UnitController{
    public int getY(){
       return y;
    }
-   
+
    @Override public void death(){
       super.death();
       freeUp();

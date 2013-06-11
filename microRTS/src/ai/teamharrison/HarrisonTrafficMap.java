@@ -1,17 +1,17 @@
-package ai.cs4730;
+package ai.teamharrison;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
- * \brief Traffic used by units so that complex routing can be done where they do not collide with each other
+ * \brief HarrisonTraffic used by units so that complex routing can be done where they do not collide with each other
  * 
  * @author Jeff Bernard
  * 
  */
-public class TrafficMap{
-   private ArrayList<PriorityQueue<Traffic>> map;
+public class HarrisonTrafficMap{
+   private ArrayList<PriorityQueue<HarrisonTraffic>> map;
 
    /** < the traffic map */
 
@@ -20,10 +20,10 @@ public class TrafficMap{
     * 
     * @param size size of the map
     */
-   public TrafficMap(int size){
-      map = new ArrayList<PriorityQueue<Traffic>>();
+   public HarrisonTrafficMap(int size){
+      map = new ArrayList<PriorityQueue<HarrisonTraffic>>();
       for(int i = 0; i < size; i++){
-         map.add(new PriorityQueue<Traffic>());
+         map.add(new PriorityQueue<HarrisonTraffic>());
       }
    }
 
@@ -49,8 +49,8 @@ public class TrafficMap{
     * @return true if the traffic is valid, otherwise false
     */
    public boolean valid(int location, int start, int end){
-      for(Iterator<Traffic> it = map.get(location).iterator(); it.hasNext();){
-         Traffic i = it.next();
+      for(Iterator<HarrisonTraffic> it = map.get(location).iterator(); it.hasNext();){
+         HarrisonTraffic i = it.next();
          if(end == -1 || i.end == -1 || (i.start <= end && i.end >= start) || i.start == end || i.end == start){ return false; }
       }
       return true;
@@ -62,7 +62,7 @@ public class TrafficMap{
     * @param location the location to reserve
     * @param traffic the traffic
     */
-   public void reserve(Traffic traffic){
+   public void reserve(HarrisonTraffic traffic){
       map.get(traffic.location).add(traffic);
    }
 
@@ -71,7 +71,7 @@ public class TrafficMap{
     * 
     * @param traffic the traffic to remove
     */
-   public void unreserve(Traffic traffic){
+   public void unreserve(HarrisonTraffic traffic){
       map.get(traffic.location).remove(traffic);
    }
 }

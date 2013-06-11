@@ -1,18 +1,18 @@
-package ai.cs4730;
+package ai.teamharrison;
 
 import rts.units.Unit;
 
-public class BuilderUnitController extends UnitController{
-   private int        buildSpeed;
-   private int        attackRange;
-   private int        attackMin;
-   private int        attackMax;
-   private int        moveSpeed;
-   private int        attackSpeed;
-   private boolean    free;
-   private WantedUnit building;
+public class HarrisonBuilderUnitController extends HarrisonUnitController{
+   private int                buildSpeed;
+   private int                attackRange;
+   private int                attackMin;
+   private int                attackMax;
+   private int                moveSpeed;
+   private int                attackSpeed;
+   private boolean            free;
+   private HarrisonWantedUnit building;
 
-   public BuilderUnitController(Unit unit, AIController ai){
+   public HarrisonBuilderUnitController(Unit unit, HarrisonAIController ai){
       super(unit, ai);
       buildSpeed = unit.getBuildSpeed();
       attackRange = unit.getAttackRange();
@@ -48,11 +48,11 @@ public class BuilderUnitController extends UnitController{
       return attackSpeed;
    }
 
-   public WantedUnit getBuilding(){
+   public HarrisonWantedUnit getBuilding(){
       return building;
    }
 
-   public void setBuilding(WantedUnit building){
+   public void setBuilding(HarrisonWantedUnit building){
       this.building = building;
    }
 
@@ -62,9 +62,11 @@ public class BuilderUnitController extends UnitController{
 
    public void setFree(boolean free){
       this.free = free;
-      if(building != null){building = null;}
+      if(building != null){
+         building = null;
+      }
    }
-   
+
    @Override public void death(){
       super.death();
       if(building != null){

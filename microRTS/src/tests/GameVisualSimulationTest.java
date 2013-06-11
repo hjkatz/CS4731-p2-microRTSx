@@ -3,8 +3,8 @@
 package tests;
 
 import rts.Game;
-import ai.cs4730.AIController;
 import ai.general.GeneralAI;
+import ai.teamharrison.HarrisonAIController;
 
 /**
  * \package tests \brief Provides methods for testing AIs against each other
@@ -22,8 +22,8 @@ public class GameVisualSimulationTest{
 
       Game game = new Game("microRTS/maps/32x32-resources.xml", "microRTS/game/gamedef.xml", PERIOD, MAXCYCLES);
 
-      game.addAgent(new AIController());
-      // game.addAgent( new AIController() );
+      game.addAgent(new HarrisonAIController());
+      // game.addAgent( new HarrisonAIController() );
       // game.addAgent(new GeneralAI(GeneralAI.LESION_ONLY_RANGE|GeneralAI.LESION_NO_DEFENSE));
       // game.addAgent(new GeneralAI(GeneralAI.LESION_NO_DEFENSE|GeneralAI.LESION_NO_FLYING));
       game.addAgent(new GeneralAI(GeneralAI.LESION_NONE));
