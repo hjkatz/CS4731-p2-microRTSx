@@ -1,0 +1,140 @@
+Team Members: TJ Harrison, Harrison Katz
+Team Name: Team Harrison
+
+#####################
+# Table of Contents #
+#####################
+1. How to Run Our Agent
+2. Agent Design
+   A. BlackBoard Head -- AIController
+   B. Util
+      1. MapUtil
+      2. UnitQueue
+         a. WantedUnit
+      3. TrafficMap
+         b. Traffic
+   C. Experts
+      1. WorkerManager
+      2. ArmyManager
+      3. BuildingManager
+      4. UnitAssigner
+   D. Wrappers -- UnitControllers
+      1. WorkerUnitController
+      2. FarmUnitController
+      3. BuildingUnitController
+      4. ArmyUnitController
+      5. BuilderUnitController
+3. Assumptions
+4. Implementation
+5. Challenges and How We Overcame Them
+6. Final Thoughts / What Lies Ahead
+
+###########################
+# 1. How to Run Our Agent #
+###########################
+
+Our agent is a simple drag an drop. All you have to do is add the "TeamHarrison" folder to the MicroRTSx project directory. Then add our agent into the simulation by adding the following line:
+
+    game.addAgent( new HarrisonAIController() );
+
+Then run the agent and you'll know it worked if you see in the Visuakiser (sic) one of the players named "Harrison".
+
+###################
+# 2. Agent Design #
+###################
+
+Our agent design uses a naive Finite State Machine (FSM), a simple Rule Based System (RBS), and the BlackBoard Architecture. Our system is designed as such: (Everything is prefixed by "Harrison" for grouping and grading help)
+
+At the top of our agent design is the AI where most of the variables are stored. Experts are below this and manage some private trivial variables as well. Below the experts are the wrapper classes which simple wrap units and provide some helper methods for acting and actions and pathing. Aside from these classes are the Util Classes which provide help for mapping and building queues.
+
+AI:         AIController
+                |-----------------------------
+                |-----------+                +
+Util:           |--MapUtil  +--UnitQueue     +--TrafficMap
+                |                  |                |
+                |              WantedUnit        Traffic
+                |                  
+Experts:        |----Manager
+                |      |--WorkerManager
+                |      |---ArmyManager
+                |      |----BuildingManager
+                |      |-----UnitAssigner
+                |
+                |
+                |
+Wrappers:       |-UnitController
+                        |
+                        |-WorkerUnitController
+                        |--FarmUnitController
+                        |---BuildingUnitController
+                        |----ArmyUnitController
+                        |-----BuilderUnitController
+
+A. BlackBoard Head -- AIController: This class is what extends AI and the "getAction()" method. This is where all lists and other non-trivial variables are stored and this is where our experts are called upon and our util is utilized.
+
+B. Util: These classes are utility classes that provide functionality such as mapping and path planning.
+    
+    1. MapUtil: Fairly straight forward that this class handles helper functions and updating our map of the world. Also includes pathing (written by Jeff)
+
+    2. UnitQueue: This class is the backbone of our building system, it manages priority queues of what units and buildings we wish to purchase.
+        
+        a. WantedUnit: This is a wrapper class for what type of unit we want to make.
+
+    3. TrafficMap (written by Jeff): This class as we understand keeps track of positions deemed "reserved" for path planning purposes.
+
+        a. Traffic (written by Jeff): This wrapper class is simple a tool for TrafficMap to use.
+
+C. Experts -- Managers: These classes are our expert classes for the blackboard. They call their update functions which determine how to use units. This is the heart of the AI and Decision making process.
+
+    1. WorkerManager: This class is our simple RBS. It's rule set is small (for now, see 6. What Lies Ahead), but it is effective. We need as many Farmers as Farms, and Builders as needed Buildings. We make pathing choices based on position and distance.
+
+    2. ArmyManager: This class is our naive FSM. It currently has 5 states (Establish, Cheese, Attack, Buildup, Raid) the ones currently in use are Establish and Cheese as that pertains directly to our strategy. The others will be generically filled in and written for the next assignment with more iterations.
+
+    3. BuildingManager: This class is also a simple RBS as it uses basic decisions such as "do I have enough money" and "can I build this unit" to determine what to build when.
+
+    4. UnitAssigner: This class is exactly what it sounds like. It assigns units into the lists that they need to be placed into.
+
+D. Wrappers -- UnitControllers: These classes are wrapper with simple functions such as act and death. They keep track of trivial variables such as whether a builder has a farm or not.
+
+    1. WorkerUnitController: This class wraps farming units and handles things such as if they have a farm or not.
+
+    2. FarmUnitController: This class wraps farms and handles things such as if they are free or not.
+
+    3. BuildingunitController: This class wraps buildings and helps determine build location and status of units being built.
+
+    4. ArmyUnitController: This class wraps all army units (anything not worker or building or farm or enemy).
+
+    5. BuilderUnitcontroller: This class wraps builders and helps determine if they have a job.
+
+##################
+# 3. Assumptions #
+##################
+
+Assumptions we made in the implementation of our design are scattered about in the code. They are usually associated with a comment. Some basic ones are that we assume we're in a square map. We assume the enemy starting location is generally in the opposite corner as ours. Another big assumption we used was for our strategy, that is cheesing. If our cheese fails we're basically toast as our army flails about on the offensive (for now, see 6. What Lies Ahead). A huge assumption is for all of Jeff Bernard's work. He wrote the general AI and all the traffic and path planning stuff we use. We assumed it would work. It didn't.
+
+#####################
+# 4. Implementation #
+#####################
+
+Why did we use what we did?
+
+BlackBoard Architecture: We used BlackBoard because it's nice and easy. We originally had a very object oriented system with our managers trying to jump through hoops to look into others' information to make decisions. We finally moved everything into a central location (the head). This allowed for a concise location to get information from and made for an easy design.
+
+Finite State Machine: How we see it, an army is either defending, attacking, exploring, or etc... but not ever more than one at a time. This lead to an easy decision to use a FSM for the Army. When we start off we are exploring a bit and setting up for our cheese. Then when we're cheesing we're on the full offensive. Later we might fall back into defend, or build up more, or raid, etc... (see 6. What Lies Ahead)
+
+Rule Based System: Workers are special. They don't fight, they don't go out exploring (usually) they do one of two things, harvest or build. This lends them to a RBS which allows for us as designers to set bounds for when they should build, farm, etc... We chose to use a RBS mainly because they are self sufficient and isolated from the rest of the game. 
+
+#################
+# 5. Challenges #
+#################
+
+We had some pretty major challenges along the way, some of which we overcame other we just had to work with. Some minor challenges we had were:
+1. Source Control: While not directly related to the project, setting up the code and git to work and play nice with both our set ups (laptops and desktops) was a fun adventure! We also overcame formatting and compromised on a style we could both learn to look at.
+2. Code Sprawl: In the beginning when we first started, we had code going left and right from out main starting point of the AIController. Before we had concrete ideas of what goes where and who does what we had major code sprawl issue. This first lead us to use BlackBoard because of the nature of our hideous code to begin with, but it also lead us to create Utility classes so that the code could become manageable and coherent with where things were written.
+Finally the biggest challenge we sorta overcame was the use of Jeff's code. Jeff is a great guy, he wrote some pretty cool AI. His code is confusing. Honestly we shouldn't have used his code at all, not even looked at it, not even wanted to know it existed. Unfortunately we did, and then we got stuck with his pathing. His pathing works great for him! But not for us. Our units clump, and sometimes get stuck, and we are unsure of how to fix the problem since it's a bug in Jeff's get_path or TrafficMap implementation. Jeff's code is also fragile, so changing even the most trivial of things can break our Agent completely. We generally conform to what his pathing needs and help out a bit with our decisions of where to plan our plans to (easing congestions), but all in all next time we will use our own implementation.
+
+#####################
+# 6. Final Thoughts #
+#####################
+
+This was a great project and we both agree this gave us a lot of insight into how AI in games works and is designed. It's not a clean and cut as anybody would like it to be, but this is a good thing as it prepares us for what we want to do. We know our code and agent has some minor glitches and unforeseen "features", but we also know that we're going to continue to work with MicroRTSx in our future projects. We know the environment better and we want to keep iterating and making improvements for the next project. We'll definitely go back and use our own pathing and traffic mapping and everything else generic we borrowed from Jeff (all labeled in the code). And for what lies ahead, hopefully another chance to kick our classmates' agents up and down the MicroRTSx map. 
