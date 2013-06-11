@@ -11,6 +11,30 @@ public class UnitAssigner extends Manager{
    }
 
    public void update(){
+      for(UnitController uc : ai.deadUnits){
+         if(ai.farmers.contains(uc)){
+            ai.farmers.remove(uc);
+         }
+         if(ai.builders.contains(uc)){
+            ai.builders.remove(uc);
+         }
+         if(ai.buildings.contains(uc)){
+            ai.buildings.remove(uc);
+         }
+         if(ai.armyUnits.contains(uc)){
+            ai.armyUnits.remove(uc);
+         }
+         if(ai.scouts.contains(uc)){
+            ai.scouts.remove(uc);
+         }
+         if(ai.stockpiles.contains(uc)){
+            ai.stockpiles.remove(uc);
+         }
+         if(ai.notFreeUnits.contains(uc)){
+            ai.notFreeUnits.remove(uc);
+         }
+      }
+
       // grab any new units produced and add them to notFreeUnits as well as their respective list
       for(Unit u : ai.gameState.getMyUnits()){
          UnitController uc = new UnitController(u, ai);
@@ -45,16 +69,10 @@ public class UnitAssigner extends Manager{
                }
                else{
                   ArmyUnitController ac = new ArmyUnitController(u, ai);
-                  if(ac.isFlying()){
-                     ai.airUnits.add(ac);
-                  }
-                  else{
-                     ai.groundUnits.add(ac);
-                  }
+                  ai.armyUnits.add(ac);
                   ai.notFreeUnits.add(ac);
                }
          }
       }
    }
-
 }

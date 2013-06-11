@@ -71,5 +71,10 @@ public class WorkerUnitController extends UnitController{
    public int getAttackSpeed(){
       return attackSpeed;
    }
+   
+   @Override public void death(){
+      super.death();
+      freeFarm();
+   }
 
 }

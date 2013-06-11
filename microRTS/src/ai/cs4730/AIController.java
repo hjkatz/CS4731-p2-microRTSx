@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import rts.GameState;
+import rts.units.UnitAction;
 import rts.units.UnitDefinition;
 import ai.AI;
 
@@ -26,12 +27,13 @@ public class AIController extends AI{
    public ArrayList<FarmUnitController>          farms;
    public ArrayList<WorkerUnitController>        farmers;
    public ArrayList<BuilderUnitController>       builders;
-   public ArrayList<ArmyUnitController>          groundUnits;
-   public ArrayList<ArmyUnitController>          airUnits;
+   public ArrayList<ArmyUnitController>          armyUnits;
    public ArrayList<UnitController>              scouts;
    public ArrayList<BuildingUnitController>      stockpiles;
    public ArrayList<BuildingUnitController>      buildings;
    public ArrayList<BuildingUnitController>      enemyBuildings;
+   public ArrayList<UnitController>              enemyUnits;
+   public ArrayList<UnitController>              deadUnits;
    // experts
    public WorkerManager                          workerManager;
    public ArmyManager                            armyManager;
@@ -42,8 +44,8 @@ public class AIController extends AI{
    public GameState                              gameState;
    public MapUtil                                map;
    public int                                    currentTurn;
+   private int                                   lastUnit;
    // expert's logic variables
-   public STATE                                  state;
    public int                                    wantedWorkers  = 2;
    public int                                    wantedScouts   = 0;
    public int                                    wantedBuilders = 0;
@@ -59,6 +61,7 @@ public class AIController extends AI{
    public AIController(){
       super();
       currentTurn = 0;
+      lastUnit = 0;
       notFreeUnits = new ArrayList<UnitController>();
 
       resources = new ArrayList<Integer>();
@@ -68,10 +71,11 @@ public class AIController extends AI{
       builders = new ArrayList<BuilderUnitController>();
       buildings = new ArrayList<BuildingUnitController>();
       stockpiles = new ArrayList<BuildingUnitController>();
-      groundUnits = new ArrayList<ArmyUnitController>();
-      airUnits = new ArrayList<ArmyUnitController>();
+      armyUnits = new ArrayList<ArmyUnitController>();
       scouts = new ArrayList<UnitController>();
       enemyBuildings = new ArrayList<BuildingUnitController>();
+      enemyUnits = new ArrayList<UnitController>();
+      deadUnits = new ArrayList<UnitController>();
 
       unitTypes = new LinkedHashMap<Integer, UnitDefinition>();
       buildingTypes = new LinkedHashMap<Integer, UnitDefinition>();
@@ -82,11 +86,12 @@ public class AIController extends AI{
       buildingManager = new BuildingManager(this);
       unitAssigner = new UnitAssigner(this);
       unitQueue = new UnitQueue();
-      state = STATE.Open;
    }
 
    @Override public void getAction(GameState gs, int time_limit){
       gameState = gs;
+      long turn_start = System.currentTimeMillis();
+      long turn_limit = time_limit;
       resources = gameState.getResources();
       if(!init){
          init();
@@ -115,10 +120,12 @@ public class AIController extends AI{
       for(UnitDefinition def : gameState.getBuildingList()){
          buildingTypes.put(def.type, def);
       }
+      unitAssigner.update();
+      armyManager.init();
       init = true;
    }
 
-   private enum STATE{
-      Open, Midgame, Close
+   @Override public String getLabel(){
+      return "Harrison";
    }
 }

@@ -15,6 +15,6 @@ public class WantedUnit implements Comparable<WantedUnit>{
    }
 
    @Override public int compareTo(WantedUnit o){
-      return this.priority - o.priority;
+      return o.priority - this.priority;
    }
 }

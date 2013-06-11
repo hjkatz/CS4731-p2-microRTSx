@@ -20,7 +20,7 @@ public class BuilderUnitController extends UnitController{
       attackMax = unit.getAttackMax();
       attackSpeed = unit.getAttackSpeed();
       moveSpeed = unit.getMoveSpeed();
-      free = false;
+      free = true;
       building = null;
    }
 
@@ -62,5 +62,13 @@ public class BuilderUnitController extends UnitController{
 
    public void setFree(boolean free){
       this.free = free;
+      if(building != null){building = null;}
+   }
+   
+   @Override public void death(){
+      super.death();
+      if(building != null){
+         building.beingBuilt = false;
+      }
    }
 }

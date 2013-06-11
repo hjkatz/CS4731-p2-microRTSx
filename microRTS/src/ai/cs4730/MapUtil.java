@@ -217,7 +217,7 @@ public class MapUtil{
     * @return whether or not
     */
    private static boolean can_enter(Unit unit, int location, int turn_start, int turn_end){
-      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
+      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER | GameState.MAP_PLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
       return false;
    }
 

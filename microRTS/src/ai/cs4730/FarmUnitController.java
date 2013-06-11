@@ -26,7 +26,9 @@ public class FarmUnitController extends UnitController{
    }
 
    public void freeUp(){
-      worker.unsetFarm();
+      if(worker != null){
+         worker.unsetFarm();
+      }
       worker = null;
       free = true;
    }
@@ -46,7 +48,7 @@ public class FarmUnitController extends UnitController{
       }
       return free;
    }
-   
+
    public boolean isFree(){
       return free;
    }
@@ -73,5 +75,10 @@ public class FarmUnitController extends UnitController{
 
    public int getY(){
       return y;
+   }
+   
+   @Override public void death(){
+      super.death();
+      freeUp();
    }
 }
