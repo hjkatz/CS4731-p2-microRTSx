@@ -10,22 +10,29 @@ import rts.units.UnitDefinition;
 
 public class HarrisonArmyManager extends HarrisonManager{
 
-   HarrisonAIController ai;
-   private STATE        state;
+   HarrisonAIController    ai;
+   private STATE   state;
 
    // different unit types
-   private int          bestAttacker      = 0;
-   private int          bestDefender      = 0;
-   private int          fastestGround     = 0;
-   private int          fastestAir        = 0;
-   private int          bestAirAttacker   = 0;
-   private int          bestAirDefender   = 0;
-   private int          farthestRange     = 0;
-   private int          farthestAirRange  = 0;
-   private int          quickestToProduce = 0;    // and not worker
+   private int     bestAttacker      = 0;
+   private int     bestDefender      = 0;
+   private int     fastestGround     = 0;
+   private int     fastestAir        = 0;
+   private int     bestAirAttacker   = 0;
+   private int     bestAirDefender   = 0;
+   private int     farthestRange     = 0;
+   private int     farthestAirRange  = 0;
+   private int     quickestToProduce = 0;    // and not worker
 
-   private boolean      foundEnemyBase    = false;
-   private int          enemyBaseGuess;
+   private boolean foundEnemyBase    = false;
+   private int     enemyBaseGuess;
+   private int     exploringPosition;
+   private Random  random;
+
+   // TODO: create enemy wrapper class and add a 'target' reference to it in ArmyUnitController
+   // TODO: allow it to have multiple ppl targeting it, but each army unit can target only one
+   // TODO: then they home in on their targets and kill!
+   // TODO: enemy wrapper must be able to contain buildings and units
 
    public HarrisonArmyManager(HarrisonAIController ai){
       this.ai = ai;
@@ -75,9 +82,16 @@ public class HarrisonArmyManager extends HarrisonManager{
 
       // guess a good location for the enemy base, opposite corner
       enemyBaseGuess = HarrisonMapUtil.position(HarrisonMapUtil.WIDTH - ai.stockpiles.get(0).getX(), HarrisonMapUtil.HEIGHT - ai.stockpiles.get(0).getY());
+      random = new Random();
+      exploringPosition = randomPosition();
+   }
+
+   private int randomPosition(){
+      return HarrisonMapUtil.position(random.nextInt(HarrisonMapUtil.WIDTH), random.nextInt(HarrisonMapUtil.HEIGHT));
    }
 
    @Override public void update(){
+      requestUnits();
       for(Unit unit : ai.gameState.getOtherUnits()){
          if(unit.isBuilding()){
             HarrisonBuildingUnitController bc = new HarrisonBuildingUnitController(unit, ai);
@@ -96,11 +110,10 @@ public class HarrisonArmyManager extends HarrisonManager{
 
       int enemyBasePos, enemyUnitPos;
       switch (state){
-         case Attack:
-            // find largest concentration of enemy buildings
-            // keep requesting strongest attacker and fastest unit
-            HarrisonUnitQueue.requestUnit(bestAttacker, 50);
-            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
+         case MoveTowardsBuilding:
+            // TODO: move attack towards enemy building
+            // TODO: if none left look for units
+            // TODO: if no enemy units, explore
             enemyBasePos = findRandomEnemyBuilding();
             if(enemyBasePos != -1){
                for(HarrisonArmyUnitController uc : ai.armyUnits){
@@ -114,8 +127,7 @@ public class HarrisonArmyManager extends HarrisonManager{
                            uc.addAction(action, HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(uc), ai.currentTurn, ai.currentTurn + uc.getAttackSpeed());
                            int time = ai.currentTurn;
                            for(int i = 0; i < uc.getAttackSpeed() - 1; i++){
-                              uc.addAction(new UnitAction(uc.unit, UnitAction.NONE, uc.getX(), uc.getY(), -1), HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(
-                                      uc ), time, time + 1);
+                              uc.addAction(new UnitAction(uc.unit, UnitAction.NONE, uc.getX(), uc.getY(), -1), HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(uc), time, time + 1);
                               time++;
                            }
                            canAttack = true;
@@ -130,20 +142,16 @@ public class HarrisonArmyManager extends HarrisonManager{
             }
             else{
                if(findRandomEnemyUnit() != -1){
-                  state = STATE.Raid;
+                  state = STATE.MoveTowardsUnit;
                }
                else{
                   state = STATE.Buildup;
                }
             }
             break;
-         case Raid:
-            // find largest concentration of enemy units
-            // send 50% of units to attack their units
-            // requesting strongest attacker and defenders
-            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
-            HarrisonUnitQueue.requestUnit(bestAttacker, 40);
-            HarrisonUnitQueue.requestUnit(farthestRange, 40);
+         case MoveTowardsUnit:
+            // TODO: move towards known enemy unit
+            // TODO: if discover enemy building, change to target it
             enemyUnitPos = findRandomEnemyUnit();
             if(enemyUnitPos != -1){
                for(HarrisonArmyUnitController uc : ai.armyUnits){
@@ -157,8 +165,7 @@ public class HarrisonArmyManager extends HarrisonManager{
                            uc.addAction(action, HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(uc), ai.currentTurn, ai.currentTurn + uc.getAttackSpeed());
                            int time = ai.currentTurn;
                            for(int i = 0; i < uc.getAttackSpeed() - 1; i++){
-                              uc.addAction(new UnitAction(uc.unit, UnitAction.NONE, uc.getX(), uc.getY(), -1), HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(
-                                      uc ), time, time + 1);
+                              uc.addAction(new UnitAction(uc.unit, UnitAction.NONE, uc.getX(), uc.getY(), -1), HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(uc), time, time + 1);
                               time++;
                            }
                            canAttack = true;
@@ -173,7 +180,7 @@ public class HarrisonArmyManager extends HarrisonManager{
             }
             else{
                if(findRandomEnemyBuilding() != -1){
-                  state = STATE.Attack;
+                  state = STATE.MoveTowardsBuilding;
                }
                else{
                   state = STATE.Buildup;
@@ -181,13 +188,9 @@ public class HarrisonArmyManager extends HarrisonManager{
             }
             break;
          case Buildup:
-            // request attack and defense units
-            // patrol around home base
-            // look for more resources and enemy positions
-            HarrisonUnitQueue.requestUnit(bestAttacker, 50);
-            HarrisonUnitQueue.requestUnit(bestDefender, 50);
-            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
-
+            // TODO: patrol around home base
+            // TODO: look for more resources and enemy positions
+            // TODO: possibly combine this and explore
             for(HarrisonArmyUnitController uc : ai.armyUnits){
                if(uc.actions.size() <= 0){ // no actions?!?!?
                   moveTowards(uc, HarrisonMapUtil.WIDTH / 2, HarrisonMapUtil.HEIGHT / 2);
@@ -195,21 +198,17 @@ public class HarrisonArmyManager extends HarrisonManager{
             }
 
             if(findRandomEnemyBuilding() != -1){
-               state = STATE.Attack;
+               state = STATE.MoveTowardsBuilding;
             }
 
             if(findRandomEnemyUnit() != -1){
-               state = STATE.Raid;
+               state = STATE.MoveTowardsUnit;
             }
             break;
          case Cheese:
             // only active at beginning, if worker finds enemy base
             // should have soldier office near enemy base, have it produce quickest not worker
             // and keep them attacking
-
-            HarrisonUnitQueue.requestUnit(bestAttacker, 50);
-            HarrisonUnitQueue.requestUnit(farthestRange, 50);
-            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
             for(HarrisonArmyUnitController uc : ai.armyUnits){
                uc.act();
                if(uc.actions.size() <= 0){
@@ -220,8 +219,7 @@ public class HarrisonArmyManager extends HarrisonManager{
                         uc.addAction(action, HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(uc), ai.currentTurn, ai.currentTurn + uc.getAttackSpeed());
                         int time = ai.currentTurn;
                         for(int i = 0; i < uc.getAttackSpeed() - 1; i++){
-                           uc.addAction(new UnitAction(uc.unit, UnitAction.NONE, uc.getX(), uc.getY(), -1), HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(
-                                   uc ), time, time + 1);
+                           uc.addAction(new UnitAction(uc.unit, UnitAction.NONE, uc.getX(), uc.getY(), -1), HarrisonMapUtil.trafficMap, HarrisonMapUtil.position(uc), time, time + 1);
                            time++;
                         }
                         canAttack = true;
@@ -277,6 +275,7 @@ public class HarrisonArmyManager extends HarrisonManager{
             }
             break;
          case Establish:
+            // TODO: move this state into cheese and get rid of this state
             // request a scout after some farmers are gathering resources
             if(ai.farmers.size() > ai.wantedWorkers / 2){
                ai.wantedScouts = 1;
@@ -320,7 +319,41 @@ public class HarrisonArmyManager extends HarrisonManager{
                ai.scouts.remove(uc);
             }
             break;
+         case Explore:
+            break;
       }
+   }
+
+   private void requestUnits(){
+      if(ai.buildings.size() == 0){ return; }
+      // TODO: add check based on units in the queue vs buildings vs buildings making units
+      switch (state){
+         case Buildup:
+            HarrisonUnitQueue.requestUnit(bestAttacker, 50);
+            HarrisonUnitQueue.requestUnit(bestDefender, 50);
+            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
+            break;
+         case Cheese:
+            HarrisonUnitQueue.requestUnit(bestAttacker, 50);
+            HarrisonUnitQueue.requestUnit(farthestRange, 50);
+            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
+            break;
+         case Establish:
+            break;
+         case Explore:
+            break;
+         case MoveTowardsBuilding:
+            HarrisonUnitQueue.requestUnit(bestAttacker, 50);
+            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
+            break;
+         case MoveTowardsUnit:
+            HarrisonUnitQueue.requestUnit(bestAirAttacker, 40);
+            HarrisonUnitQueue.requestUnit(bestAttacker, 40);
+            HarrisonUnitQueue.requestUnit(farthestRange, 40);
+            break;
+
+      }
+
    }
 
    private int findRandomEnemyBuilding(){
@@ -379,7 +412,7 @@ public class HarrisonArmyManager extends HarrisonManager{
    }
 
    private enum STATE{
-      Establish, Attack, Buildup, Cheese, Raid
+      Establish, MoveTowardsBuilding, Buildup, Cheese, MoveTowardsUnit, Explore
    }
 
 }
