@@ -294,7 +294,7 @@ public class HarrisonArmyManager extends HarrisonManager
             case Cheese :
                 // only active at beginning, until we find enemy base, this is the opening strategy
                 // keep them attacking
-                if ( ai.enemyBuildings.size() > 0 || ai.enemyUnits.size() > 0 )
+                if ( ai.enemyBuildings.size() > 0 && ai.enemyUnits.size() > 0 )
                 {
                     state = STATE.MoveTowardsBuilding;
                     targetingPosition = findRandomEnemyBuilding();
