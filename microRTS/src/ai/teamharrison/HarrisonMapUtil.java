@@ -8,27 +8,28 @@ import rts.units.Unit;
 
 public class HarrisonMapUtil{
 
-   public static int[]              map;
-   public static int                WIDTH;
-   public static int                HEIGHT;
-   public static HarrisonTrafficMap trafficMap;
-   public HarrisonAIController      ai;
+   public static int[]        map;
+   public static int          WIDTH;
+   public static int          HEIGHT;
+   public static HarrisonTrafficMap   harrisonTrafficMap;
+   public static HarrisonAIController ai;
 
    public HarrisonMapUtil(HarrisonAIController ai){
-      this.ai = ai;
+      HarrisonMapUtil.ai = ai;
       map = ai.gameState.getMap();
       WIDTH = ai.gameState.getMapWidth();
       HEIGHT = ai.gameState.getMapHeight();
-      trafficMap = new HarrisonTrafficMap(map.length);
+      harrisonTrafficMap = new HarrisonTrafficMap(map.length);
    }
 
-   public static void update(int[] curr){
-      for(int i = 0; i < map.length; i++){
-         // if I have vision, update my map!
-         if((curr[i] ^ GameState.MAP_FOG) != 0){
-            map[i] = curr[i];
+   public static void update(){
+      for(int i = 0; i < ai.gameState.getMap().length; i++){
+         if((ai.gameState.getMap()[i] & GameState.MAP_FOG) == 0){
+            map[i] = ai.gameState.getMap()[i];
          }
       }
+
+      harrisonTrafficMap.update(ai.currentTurn);
    }
 
    public static int position(int x, int y){
@@ -42,20 +43,16 @@ public class HarrisonMapUtil{
    public static int distance(HarrisonUnitController a, HarrisonUnitController b){
       int first = a.getX() - b.getX();
       int second = a.getY() - b.getY();
-      int third = (int) Math.pow(first, 2);
-      int fourth = (int) Math.pow(second, 2);
+      double third = Math.pow(first, 2);
+      double fourth = Math.pow(second, 2);
       return (int) Math.sqrt(third + fourth);
    }
 
    public static int distance(int l1, int l2){
-      int x = l1 % HarrisonMapUtil.WIDTH;
-      int y = l1 / HarrisonMapUtil.WIDTH;
-      int a = l2 % HarrisonMapUtil.WIDTH;
-      int b = l2 / HarrisonMapUtil.WIDTH;
-      int first = x - a;
-      int second = y - b;
-      int third = (int) Math.pow(first, 2);
-      int fourth = (int) Math.pow(second, 2);
+      int first = (l1 % HarrisonMapUtil.WIDTH) - (l2 % HarrisonMapUtil.WIDTH);
+      int second = (l1 / HarrisonMapUtil.WIDTH) - (l2 / HarrisonMapUtil.WIDTH);
+      double third = Math.pow(first, 2);
+      double fourth = Math.pow(second, 2);
       return (int) Math.sqrt(third + fourth);
    }
 
@@ -67,23 +64,25 @@ public class HarrisonMapUtil{
       int up = pos - WIDTH;
       int down = pos + WIDTH;
 
+      int bitmask = GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER | GameState.MAP_PLAYER | GameState.MAP_WALL;
+
       if(left >= 0){
-         if((map[left] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[left] & GameState.MAP_WALL) == 0)){
+         if((map[left] & bitmask) == 0){
             positions.add(left);
          }
       }
       if(right < WIDTH){
-         if((map[right] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[right] & GameState.MAP_WALL) == 0)){
+         if((map[right] & bitmask) == 0){
             positions.add(right);
          }
       }
       if(up >= 0){
-         if((map[up] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[up] & GameState.MAP_WALL) == 0)){
+         if((map[up] & bitmask) == 0){
             positions.add(up);
          }
       }
       if(down < HEIGHT){
-         if((map[down] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER)) == 0 && ((map[down] & GameState.MAP_WALL) == 0)){
+         if((map[down] & bitmask) == 0){
             positions.add(down);
          }
       }
@@ -217,8 +216,7 @@ public class HarrisonMapUtil{
     * @return whether or not
     */
    private static boolean can_enter(Unit unit, int location, int turn_start, int turn_end){
-      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER | GameState.MAP_PLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && trafficMap.valid(location, turn_start, turn_end)){ return true; }
+      if((map[location] & (GameState.MAP_NEUTRAL | GameState.MAP_NONPLAYER | GameState.MAP_PLAYER)) == 0 && ((map[location] & GameState.MAP_WALL) == 0 || unit.isFlying()) && harrisonTrafficMap.valid(location, turn_start, turn_end)){ return true; }
       return false;
    }
-
 }

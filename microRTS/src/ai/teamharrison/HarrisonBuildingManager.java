@@ -19,9 +19,7 @@ public class HarrisonBuildingManager extends HarrisonManager{
          if(stock.actions.size() <= 0){ // no actions?!?!?
             if(ai.farmers.size() + ai.scouts.size() + ai.builders.size() < ai.wantedScouts + ai.wantedWorkers + ai.wantedBuilders){// do we want scouts?
                if(canAffordUnit(HarrisonAIController.WORKER)){ // check if we have the cash
-                  if(ai.workerManager.nextFreeFarm() != null){
-                     buildUnit(stock, HarrisonAIController.WORKER);
-                  }
+                  buildUnit(stock, HarrisonAIController.WORKER);
                }
             }
          }
@@ -39,7 +37,6 @@ public class HarrisonBuildingManager extends HarrisonManager{
                      b.setFree(false);
                      b.setWanted(w);
                      w.beingBuilt = true;
-                     makePurchase(ai.unitTypes.get(w.unitType).cost);
                   }
                }
             }
@@ -51,17 +48,16 @@ public class HarrisonBuildingManager extends HarrisonManager{
       for(HarrisonWantedUnit w : HarrisonUnitQueue.wantedArmyUnits){
          if(!w.beingBuilt && b.getProduce().contains(w.unitType)){ return w; }
       }
-
       return null;
    }
 
    public void buildUnit(HarrisonBuildingUnitController building, int unitType){
       int time = ai.currentTurn;
       int position = HarrisonMapUtil.position(building) + 1;
-      building.addAction(new UnitAction(building.unit, UnitAction.BUILD, building.getX(), building.getY() + 1, unitType), HarrisonMapUtil.trafficMap, position, time, time + ai.unitTypes.get(unitType).produce_speed);
+      building.addAction(new UnitAction(building.unit, UnitAction.BUILD, building.getX(), building.getY() + 1, unitType), HarrisonMapUtil.harrisonTrafficMap, position, time, time + ai.unitTypes.get(unitType).produce_speed);
       // add no actions for the rest of the build time so it doesnt keep giving it build orders each turn
       for(int i = 0; i < ai.unitTypes.get(unitType).produce_speed - 1; i++){
-         building.addAction(new UnitAction(building.unit, UnitAction.NONE, building.getX(), building.getY(), -1), HarrisonMapUtil.trafficMap, position, time, time + 1);
+         building.addAction(new UnitAction(building.unit, UnitAction.NONE, building.getX(), building.getY(), -1), HarrisonMapUtil.harrisonTrafficMap, position, time, time + 1);
          time++;
       }
       makePurchase(ai.unitTypes.get(HarrisonAIController.WORKER).cost);
@@ -80,10 +76,6 @@ public class HarrisonBuildingManager extends HarrisonManager{
          if(cost > ai.resources.get(i)){ return false; }
       }
       return true;
-   }
-
-   public void buildBuilding(HarrisonWorkerUnitController bc, int buildingType){
-
    }
 
    public boolean canAffordBuilding(int type){

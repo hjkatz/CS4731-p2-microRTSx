@@ -71,6 +71,14 @@ public class HarrisonWorkerUnitController extends HarrisonUnitController{
    public int getAttackSpeed(){
       return attackSpeed;
    }
+   
+   public int getResources(){
+      return unit.getResources();
+   }
+   
+   public int getResourceType(){
+      return unit.getResourcesType();
+   }
 
    @Override public void death(){
       super.death();

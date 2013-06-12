@@ -3,13 +3,13 @@ package ai.teamharrison;
 import rts.units.Unit;
 
 public class HarrisonBuilderUnitController extends HarrisonUnitController{
-   private int                buildSpeed;
-   private int                attackRange;
-   private int                attackMin;
-   private int                attackMax;
-   private int                moveSpeed;
-   private int                attackSpeed;
-   private boolean            free;
+   private int        buildSpeed;
+   private int        attackRange;
+   private int        attackMin;
+   private int        attackMax;
+   private int        moveSpeed;
+   private int        attackSpeed;
+   private boolean    free;
    private HarrisonWantedUnit building;
 
    public HarrisonBuilderUnitController(Unit unit, HarrisonAIController ai){
@@ -20,7 +20,7 @@ public class HarrisonBuilderUnitController extends HarrisonUnitController{
       attackMax = unit.getAttackMax();
       attackSpeed = unit.getAttackSpeed();
       moveSpeed = unit.getMoveSpeed();
-      free = true;
+      free = false;
       building = null;
    }
 

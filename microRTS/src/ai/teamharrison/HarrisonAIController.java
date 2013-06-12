@@ -8,59 +8,58 @@ import rts.units.UnitDefinition;
 import ai.AI;
 
 public class HarrisonAIController extends AI{
-   public final static boolean                      DEBUG          = true;
+   public final static boolean                   DEBUG          = true;
    // building types
-   public static final int                          STOCKPILE      = 0;
-   public static final int                          SOLDIEROFFICE  = 1;
-   public static final int                          AIRPORT        = 2;
+   public static final int                       STOCKPILE      = 0;
+   public static final int                       SOLDIEROFFICE  = 1;
+   public static final int                       AIRPORT        = 2;
    // unit types
-   public static final int                          LIGHT          = 0;
-   public static final int                          WORKER         = 1;
-   public static final int                          HEAVY          = 2;
-   public static final int                          RANGER         = 3;
-   public static final int                          BIRD           = 4;
-   public static final int                          SKYARCHER      = 5;
+   public static final int                       LIGHT          = 0;
+   public static final int                       WORKER         = 1;
+   public static final int                       HEAVY          = 2;
+   public static final int                       RANGER         = 3;
+   public static final int                       BIRD           = 4;
+   public static final int                       SKYARCHER      = 5;
    // units and resources controlled or remembered
-   public ArrayList<Integer>                        resources;
-   public ArrayList<HarrisonUnitController>         notFreeUnits;
-   public ArrayList<HarrisonFarmUnitController>     farms;
-   public ArrayList<HarrisonWorkerUnitController>   farmers;
-   public ArrayList<HarrisonBuilderUnitController>  builders;
-   public ArrayList<HarrisonArmyUnitController>     armyUnits;
-   public ArrayList<HarrisonUnitController>         scouts;
-   public ArrayList<HarrisonBuildingUnitController> stockpiles;
-   public ArrayList<HarrisonBuildingUnitController> buildings;
-   public ArrayList<HarrisonBuildingUnitController> enemyBuildings;
-   public ArrayList<HarrisonUnitController>         enemyUnits;
-   public ArrayList<HarrisonUnitController>         deadUnits;
+   public ArrayList<Integer>                     resources;
+   public ArrayList<HarrisonUnitController>              notFreeUnits;
+   public ArrayList<HarrisonFarmUnitController>          farms;
+   public ArrayList<HarrisonWorkerUnitController>        farmers;
+   public ArrayList<HarrisonBuilderUnitController>       builders;
+   public ArrayList<HarrisonArmyUnitController>          armyUnits;
+   public ArrayList<HarrisonUnitController>              scouts;
+   public ArrayList<HarrisonBuildingUnitController>      stockpiles;
+   public ArrayList<HarrisonBuildingUnitController>      buildings;
+   public ArrayList<HarrisonBuildingUnitController>      enemyBuildings;
+   public ArrayList<HarrisonUnitController>              enemyUnits;
+   public ArrayList<HarrisonUnitController>              deadUnits;
    // experts
-   public HarrisonWorkerManager                     workerManager;
-   public HarrisonArmyManager                       armyManager;
-   public HarrisonBuildingManager                   buildingManager;
-   public HarrisonUnitAssigner                      unitAssigner;
-   public HarrisonUnitQueue                         unitQueue;
+   public HarrisonWorkerManager                          harrisonWorkerManager;
+   public HarrisonArmyManager                            harrisonArmyManager;
+   public HarrisonBuildingManager                        harrisonBuildingManager;
+   public HarrisonUnitAssigner                           harrisonUnitAssigner;
+   public HarrisonUnitQueue                              harrisonUnitQueue;
    // game logic variable
-   public GameState                                 gameState;
-   public HarrisonMapUtil                           map;
-   public int                                       currentTurn;
-   private int                                      lastUnit;
+   public GameState                              gameState;
+   public HarrisonMapUtil                                map;
+   public int                                    currentTurn;
    // expert's logic variables
-   public int                                       wantedWorkers  = 2;
-   public int                                       wantedScouts   = 0;
-   public int                                       wantedBuilders = 0;
+   public int                                    wantedWorkers  = 2;
+   public int                                    wantedScouts   = 0;
+   public int                                    wantedBuilders = 0;
    // unit definitions
-   public LinkedHashMap<Integer, UnitDefinition>    unitTypes;
-   public LinkedHashMap<Integer, UnitDefinition>    buildingTypes;
+   public LinkedHashMap<Integer, UnitDefinition> unitTypes;
+   public LinkedHashMap<Integer, UnitDefinition> buildingTypes;
    // keep track of how well units are doing versus other units
    // the key is the unit type, the outer array is the other unit types
    // inner arrays are the statistics, size 2 [kills vs, deaths vs]
-   public LinkedHashMap<Integer, int[][]>           statistics;
-   private boolean                                  init           = false;
+   public LinkedHashMap<Integer, int[][]>        statistics;
+   private boolean                               init           = false;
+   public boolean foundEnemyBase = false;
 
    public HarrisonAIController(){
       super();
       currentTurn = 0;
-      lastUnit = 0;
       notFreeUnits = new ArrayList<HarrisonUnitController>();
 
       resources = new ArrayList<Integer>();
@@ -80,17 +79,15 @@ public class HarrisonAIController extends AI{
       buildingTypes = new LinkedHashMap<Integer, UnitDefinition>();
       statistics = new LinkedHashMap<Integer, int[][]>();
 
-      workerManager = new HarrisonWorkerManager(this);
-      armyManager = new HarrisonArmyManager(this);
-      buildingManager = new HarrisonBuildingManager(this);
-      unitAssigner = new HarrisonUnitAssigner(this);
-      unitQueue = new HarrisonUnitQueue();
+      harrisonWorkerManager = new HarrisonWorkerManager(this);
+      harrisonArmyManager = new HarrisonArmyManager(this);
+      harrisonBuildingManager = new HarrisonBuildingManager(this);
+      harrisonUnitAssigner = new HarrisonUnitAssigner(this);
+      harrisonUnitQueue = new HarrisonUnitQueue();
    }
 
    @Override public void getAction(GameState gs, int time_limit){
       gameState = gs;
-      long turn_start = System.currentTimeMillis();
-      long turn_limit = time_limit;
       resources = gameState.getResources();
       if(!init){
          init();
@@ -98,13 +95,11 @@ public class HarrisonAIController extends AI{
 
       currentTurn++;
 
-      HarrisonMapUtil.update(gameState.getMap());
-      HarrisonMapUtil.trafficMap.update(currentTurn);
-
-      unitAssigner.update();
-      armyManager.update();
-      workerManager.update();
-      buildingManager.update();
+      HarrisonMapUtil.update();
+      harrisonUnitAssigner.update();
+      harrisonArmyManager.update();
+      harrisonWorkerManager.update();
+      harrisonBuildingManager.update();
    }
 
    // things that need to be initialized after the object's init, many rely on state
@@ -119,8 +114,8 @@ public class HarrisonAIController extends AI{
       for(UnitDefinition def : gameState.getBuildingList()){
          buildingTypes.put(def.type, def);
       }
-      unitAssigner.update();
-      armyManager.init();
+      harrisonUnitAssigner.update();
+      harrisonArmyManager.init();
       init = true;
    }
 

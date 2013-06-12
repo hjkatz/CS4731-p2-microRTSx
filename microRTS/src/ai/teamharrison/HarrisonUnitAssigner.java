@@ -1,5 +1,7 @@
 package ai.teamharrison;
 
+import java.util.ArrayList;
+
 import rts.units.Unit;
 
 public class HarrisonUnitAssigner extends HarrisonManager{
@@ -11,6 +13,32 @@ public class HarrisonUnitAssigner extends HarrisonManager{
    }
 
    public void update(){
+      // update farms with new ones
+      for(Unit u : ai.gameState.getNeutralUnits()){
+         if(u.isResources()){
+            HarrisonFarmUnitController fc = new HarrisonFarmUnitController(u, ai);
+            if(!ai.farms.contains(fc)){
+               ai.farms.add(new HarrisonFarmUnitController(u, ai));
+            }
+         }
+      }
+
+      // remove farms if they are out of resources
+      ArrayList<HarrisonFarmUnitController> toRemove = new ArrayList<HarrisonFarmUnitController>();
+      for(HarrisonFarmUnitController farm : ai.farms){
+         if(farm.getResourceAmount() <= 0){
+            farm.freeUp();
+            toRemove.add(farm);
+         }
+      }
+      for(HarrisonFarmUnitController farm : toRemove){
+         ai.farms.remove(farm);
+      }
+
+      //adjust number of wanted workers
+      ai.wantedWorkers = (int) (ai.farms.size() * .8);
+      
+      //remove dead units
       for(HarrisonUnitController uc : ai.deadUnits){
          if(ai.farmers.contains(uc)){
             ai.farmers.remove(uc);
@@ -72,6 +100,34 @@ public class HarrisonUnitAssigner extends HarrisonManager{
                   ai.armyUnits.add(ac);
                   ai.notFreeUnits.add(ac);
                }
+         }
+      }
+      
+      //mark buildings as completed
+      for(HarrisonWantedUnit u : HarrisonUnitQueue.wantedBuildingUnits){
+         if(u.beingBuilt){
+            boolean flag = false;
+            for(HarrisonBuilderUnitController builder : ai.builders){
+               if(builder.getBuilding() == u){
+                  flag = true;
+               }
+            }
+            if(!flag){
+               u.beingBuilt = false;
+            }
+         }
+      }
+      
+      //reset each time, quicker than checking their health, which also didnt seem to work
+      ai.enemyUnits = new ArrayList<HarrisonUnitController>();
+      ai.enemyBuildings = new ArrayList<HarrisonBuildingUnitController>();
+      for(Unit unit : ai.gameState.getOtherUnits()){
+         if(unit.isBuilding()){
+               ai.enemyBuildings.add(new HarrisonBuildingUnitController(unit, ai));
+               ai.foundEnemyBase = true;
+         }
+         else{
+            ai.enemyUnits.add(new HarrisonUnitController(unit, ai));
          }
       }
    }

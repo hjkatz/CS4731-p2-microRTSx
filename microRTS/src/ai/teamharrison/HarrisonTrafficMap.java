@@ -60,18 +60,18 @@ public class HarrisonTrafficMap{
     * Reserves the traffic at the specified location
     * 
     * @param location the location to reserve
-    * @param traffic the traffic
+    * @param harrisonTraffic the traffic
     */
-   public void reserve(HarrisonTraffic traffic){
-      map.get(traffic.location).add(traffic);
+   public void reserve(HarrisonTraffic harrisonTraffic){
+      map.get(harrisonTraffic.location).add(harrisonTraffic);
    }
 
    /**
     * Unreserves traffic, for whatever reason
     * 
-    * @param traffic the traffic to remove
+    * @param harrisonTraffic the traffic to remove
     */
-   public void unreserve(HarrisonTraffic traffic){
-      map.get(traffic.location).remove(traffic);
+   public void unreserve(HarrisonTraffic harrisonTraffic){
+      map.get(harrisonTraffic.location).remove(harrisonTraffic);
    }
 }

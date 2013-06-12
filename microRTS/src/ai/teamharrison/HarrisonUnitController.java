@@ -20,7 +20,7 @@ public class HarrisonUnitController{
    private int                        buildTime;
    private long                       id;
    private ArrayList<Integer>         cost;
-   private ArrayList<HarrisonTraffic> traffic;
+   private ArrayList<HarrisonTraffic> harrisonTraffic;
    private HarrisonTraffic            last_traffic;
    private HarrisonTraffic            building_traffic;
    private boolean                    hasActed;
@@ -41,14 +41,14 @@ public class HarrisonUnitController{
 
       if(unit.isBuilding()){
          building_traffic = new HarrisonTraffic(unit.getX() + unit.getY() * HarrisonMapUtil.WIDTH, ai.currentTurn, -1);
-         HarrisonMapUtil.trafficMap.reserve(building_traffic);
+         HarrisonMapUtil.harrisonTrafficMap.reserve(building_traffic);
       }
       else{
          building_traffic = null;
       }
 
       last_traffic = null;
-      traffic = new ArrayList<HarrisonTraffic>();
+      harrisonTraffic = new ArrayList<HarrisonTraffic>();
    }
 
    public ArrayList<UnitAction> getActions(){
@@ -119,9 +119,9 @@ public class HarrisonUnitController{
                   if(actions.size() != 0){
                      actions.remove(0);
                   }
-                  if(traffic.size() != 0){
-                     last_traffic = traffic.get(0);
-                     traffic.remove(0);
+                  if(harrisonTraffic.size() != 0){
+                     last_traffic = harrisonTraffic.get(0);
+                     harrisonTraffic.remove(0);
                   }
                }
             }
@@ -144,7 +144,7 @@ public class HarrisonUnitController{
             }
          }
 
-         clearActions(HarrisonMapUtil.trafficMap);
+         clearActions(HarrisonMapUtil.harrisonTrafficMap);
       }
    }
 
@@ -155,10 +155,10 @@ public class HarrisonUnitController{
     */
    public void clearActions(HarrisonTrafficMap traffic_map){
       actions.clear();
-      for(int i = 0; i < traffic.size(); i++){
-         traffic_map.unreserve(traffic.get(i));
+      for(int i = 0; i < harrisonTraffic.size(); i++){
+         traffic_map.unreserve(harrisonTraffic.get(i));
       }
-      traffic.clear();
+      harrisonTraffic.clear();
       if(last_traffic != null){
          traffic_map.unreserve(last_traffic);
          last_traffic = null;
@@ -179,7 +179,7 @@ public class HarrisonUnitController{
       if(traffic_map != null){
          HarrisonTraffic t = new HarrisonTraffic(location, start, end);
          traffic_map.reserve(t);
-         traffic.add(t);
+         harrisonTraffic.add(t);
       }
    }
 
@@ -190,10 +190,10 @@ public class HarrisonUnitController{
     */
    public void remove(HarrisonTrafficMap traffic_map){
       actions.clear();
-      for(int i = 0; i < traffic.size(); i++){
-         traffic_map.unreserve(traffic.get(i));
+      for(int i = 0; i < harrisonTraffic.size(); i++){
+         traffic_map.unreserve(harrisonTraffic.get(i));
       }
-      traffic.clear();
+      harrisonTraffic.clear();
       if(building_traffic != null){
          traffic_map.unreserve(building_traffic);
       }
@@ -218,7 +218,7 @@ public class HarrisonUnitController{
    }
 
    public void death(){
-      remove(HarrisonMapUtil.trafficMap);
+      remove(HarrisonMapUtil.harrisonTrafficMap);
       ai.deadUnits.add(this);
    }
 }
